@@ -8,5 +8,6 @@ target 'Flipped' do
 pod 'SDWebImage'
 pod 'MJRefresh'
 pod 'AFNetworking'
+pod 'Masonry'
 
 end
