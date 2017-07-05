@@ -7,6 +7,7 @@
 //
 
 #import "FLSquareViewController.h"
+#import "FLFlippedWordsService.h"
 
 @interface FLSquareViewController() <UITableViewDataSource, UITableViewDelegate>
 
@@ -18,6 +19,8 @@
 
 -(void)viewDidLoad{
     self.tableView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+    
+    [FLFlippedWordsService getNearbyFlippedWords];
 }
 
 #pragma mark - UITableViewDataSource
