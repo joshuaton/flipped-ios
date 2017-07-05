@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		457195271F0B874600671634 /* FLPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 457195261F0B874600671634 /* FLPostViewController.m */; };
 		4571952B1F0C907300671634 /* FLFlippedWordsService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4571952A1F0C907300671634 /* FLFlippedWordsService.m */; };
-		4571952F1F0C90DF00671634 /* FlippedWord.m in Sources */ = {isa = PBXBuildFile; fileRef = 4571952E1F0C90DF00671634 /* FlippedWord.m */; };
+		457195331F0CBD7500671634 /* FlippedWord.m in Sources */ = {isa = PBXBuildFile; fileRef = 457195321F0CBD7500671634 /* FlippedWord.m */; };
 		45D272101F0B343E00AF180E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D2720F1F0B343E00AF180E /* main.m */; };
 		45D272131F0B343E00AF180E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D272121F0B343E00AF180E /* AppDelegate.m */; };
 		45D2721B1F0B343E00AF180E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45D2721A1F0B343E00AF180E /* Assets.xcassets */; };
@@ -29,8 +29,8 @@
 		457195261F0B874600671634 /* FLPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLPostViewController.m; sourceTree = "<group>"; };
 		457195291F0C906900671634 /* FLFlippedWordsService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLFlippedWordsService.h; sourceTree = "<group>"; };
 		4571952A1F0C907300671634 /* FLFlippedWordsService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLFlippedWordsService.m; sourceTree = "<group>"; };
-		4571952D1F0C90D600671634 /* FlippedWord.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlippedWord.h; sourceTree = "<group>"; };
-		4571952E1F0C90DF00671634 /* FlippedWord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlippedWord.m; sourceTree = "<group>"; };
+		457195311F0CBD7500671634 /* FlippedWord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlippedWord.h; sourceTree = "<group>"; };
+		457195321F0CBD7500671634 /* FlippedWord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlippedWord.m; sourceTree = "<group>"; };
 		45D2720B1F0B343E00AF180E /* Flipped.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flipped.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45D2720F1F0B343E00AF180E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		45D272111F0B343E00AF180E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -93,15 +93,15 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
-		4571952C1F0C90C500671634 /* Models */ = {
+		457195301F0CBD4600671634 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				4571952D1F0C90D600671634 /* FlippedWord.h */,
-				4571952E1F0C90DF00671634 /* FlippedWord.m */,
+				457195311F0CBD7500671634 /* FlippedWord.h */,
+				457195321F0CBD7500671634 /* FlippedWord.m */,
 			);
 			name = Models;
-			path = Services/Models;
-			sourceTree = "<group>";
+			path = Flipped/Sources/Comm/Models;
+			sourceTree = SOURCE_ROOT;
 		};
 		45D272021F0B343E00AF180E = {
 			isa = PBXGroup;
@@ -126,9 +126,7 @@
 			children = (
 				45D272291F0B35A700AF180E /* Bundle */,
 				457195281F0C903400671634 /* Services */,
-				4571952C1F0C90C500671634 /* Models */,
 				45D272261F0B34D500AF180E /* Resources */,
-				45D272251F0B34D500AF180E /* Frameworks */,
 				45D272111F0B343E00AF180E /* AppDelegate.h */,
 				45D272121F0B343E00AF180E /* AppDelegate.m */,
 				45D2721A1F0B343E00AF180E /* Assets.xcassets */,
@@ -144,13 +142,6 @@
 				45D2720F1F0B343E00AF180E /* main.m */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		45D272251F0B34D500AF180E /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Frameworks;
 			sourceTree = "<group>";
 		};
 		45D272261F0B34D500AF180E /* Resources */ = {
@@ -229,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				45D272341F0B362D00AF180E /* Views */,
+				457195301F0CBD4600671634 /* Models */,
 				45D272381F0B392D00AF180E /* Others */,
 			);
 			path = Comm;
@@ -406,7 +398,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4571952B1F0C907300671634 /* FLFlippedWordsService.m in Sources */,
-				4571952F1F0C90DF00671634 /* FlippedWord.m in Sources */,
+				457195331F0CBD7500671634 /* FlippedWord.m in Sources */,
 				45D272321F0B35F500AF180E /* FLLoginViewController.m in Sources */,
 				457195271F0B874600671634 /* FLPostViewController.m in Sources */,
 				45D2723C1F0B3F0100AF180E /* FLSquareViewController.m in Sources */,
