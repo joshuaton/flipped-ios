@@ -8,6 +8,7 @@
 
 #import "FLSquareViewController.h"
 #import "FLFlippedWordsService.h"
+#import "FLCommHeader.h"
 
 @interface FLSquareViewController() <UITableViewDataSource, UITableViewDelegate>
 

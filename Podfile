@@ -9,5 +9,6 @@ pod 'SDWebImage'
 pod 'MJRefresh'
 pod 'AFNetworking'
 pod 'Masonry'
+pod 'JSONModel'
 
 end

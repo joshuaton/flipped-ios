@@ -6,6 +6,8 @@
 //  Copyright © 2017年 junshao. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
+
 @interface FLBaseViewController : UIViewController
 
 @end

@@ -7,52 +7,55 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		457195271F0B874600671634 /* FLPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 457195261F0B874600671634 /* FLPostViewController.m */; };
 		4571952B1F0C907300671634 /* FLFlippedWordsService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4571952A1F0C907300671634 /* FLFlippedWordsService.m */; };
-		457195331F0CBD7500671634 /* FlippedWord.m in Sources */ = {isa = PBXBuildFile; fileRef = 457195321F0CBD7500671634 /* FlippedWord.m */; };
 		45D272101F0B343E00AF180E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D2720F1F0B343E00AF180E /* main.m */; };
 		45D272131F0B343E00AF180E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D272121F0B343E00AF180E /* AppDelegate.m */; };
 		45D2721B1F0B343E00AF180E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45D2721A1F0B343E00AF180E /* Assets.xcassets */; };
-		45D272321F0B35F500AF180E /* FLLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D272311F0B35F500AF180E /* FLLoginViewController.m */; };
-		45D272371F0B366E00AF180E /* FLBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D272361F0B366E00AF180E /* FLBaseViewController.m */; };
-		45D2723C1F0B3F0100AF180E /* FLSquareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D2723B1F0B3F0100AF180E /* FLSquareViewController.m */; };
-		45D2723F1F0B3F3500AF180E /* FLMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D2723E1F0B3F3500AF180E /* FLMineViewController.m */; };
 		45D272451F0B43BC00AF180E /* comm_tab_mine@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45D272411F0B43BC00AF180E /* comm_tab_mine@2x.png */; };
 		45D272461F0B43BC00AF180E /* comm_tab_mine_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45D272421F0B43BC00AF180E /* comm_tab_mine_selected@2x.png */; };
 		45D272471F0B43BC00AF180E /* comm_tab_square@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45D272431F0B43BC00AF180E /* comm_tab_square@2x.png */; };
 		45D272481F0B43BC00AF180E /* comm_tab_square_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45D272441F0B43BC00AF180E /* comm_tab_square_selected@2x.png */; };
 		583FCBD6E2C5D728117751C6 /* libPods-Flipped.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A6CB62EA12AEAE674DF275B1 /* libPods-Flipped.a */; };
+		FB6173AB1F1112D0009649E2 /* FLFlippedWord.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6173951F1112D0009649E2 /* FLFlippedWord.m */; };
+		FB6173AC1F1112D0009649E2 /* FLBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB61739A1F1112D0009649E2 /* FLBaseViewController.m */; };
+		FB6173AD1F1112D0009649E2 /* FLLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB61739E1F1112D0009649E2 /* FLLoginViewController.m */; };
+		FB6173AE1F1112D0009649E2 /* FLMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6173A21F1112D0009649E2 /* FLMineViewController.m */; };
+		FB6173AF1F1112D0009649E2 /* FLPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6173A61F1112D0009649E2 /* FLPostViewController.m */; };
+		FB6173B01F1112D0009649E2 /* FLSquareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6173AA1F1112D0009649E2 /* FLSquareViewController.m */; };
+		FB6173B31F11146A009649E2 /* FLContent.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6173B21F11146A009649E2 /* FLContent.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		457195251F0B872700671634 /* FLPostViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLPostViewController.h; sourceTree = "<group>"; };
-		457195261F0B874600671634 /* FLPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLPostViewController.m; sourceTree = "<group>"; };
 		457195291F0C906900671634 /* FLFlippedWordsService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLFlippedWordsService.h; sourceTree = "<group>"; };
 		4571952A1F0C907300671634 /* FLFlippedWordsService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLFlippedWordsService.m; sourceTree = "<group>"; };
-		457195311F0CBD7500671634 /* FlippedWord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlippedWord.h; sourceTree = "<group>"; };
-		457195321F0CBD7500671634 /* FlippedWord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlippedWord.m; sourceTree = "<group>"; };
 		45D2720B1F0B343E00AF180E /* Flipped.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flipped.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45D2720F1F0B343E00AF180E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		45D272111F0B343E00AF180E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		45D272121F0B343E00AF180E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		45D2721A1F0B343E00AF180E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		45D2721F1F0B343E00AF180E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		45D272301F0B35DD00AF180E /* FLLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLLoginViewController.h; sourceTree = "<group>"; };
-		45D272311F0B35F500AF180E /* FLLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLLoginViewController.m; sourceTree = "<group>"; };
-		45D272351F0B364A00AF180E /* FLBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLBaseViewController.h; sourceTree = "<group>"; };
-		45D272361F0B366E00AF180E /* FLBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLBaseViewController.m; sourceTree = "<group>"; };
-		45D2723A1F0B3ED300AF180E /* FLSquareViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLSquareViewController.h; sourceTree = "<group>"; };
-		45D2723B1F0B3F0100AF180E /* FLSquareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLSquareViewController.m; sourceTree = "<group>"; };
-		45D2723D1F0B3F2B00AF180E /* FLMineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLMineViewController.h; sourceTree = "<group>"; };
-		45D2723E1F0B3F3500AF180E /* FLMineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLMineViewController.m; sourceTree = "<group>"; };
 		45D272411F0B43BC00AF180E /* comm_tab_mine@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "comm_tab_mine@2x.png"; sourceTree = "<group>"; };
 		45D272421F0B43BC00AF180E /* comm_tab_mine_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "comm_tab_mine_selected@2x.png"; sourceTree = "<group>"; };
 		45D272431F0B43BC00AF180E /* comm_tab_square@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "comm_tab_square@2x.png"; sourceTree = "<group>"; };
 		45D272441F0B43BC00AF180E /* comm_tab_square_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "comm_tab_square_selected@2x.png"; sourceTree = "<group>"; };
-		45D2928B1F0B4992002733A6 /* FLPrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLPrefixHeader.pch; path = Flipped/Sources/Comm/Others/FLPrefixHeader.pch; sourceTree = SOURCE_ROOT; };
 		7BA26D2BB5C6386B31F8E1A5 /* Pods-Flipped.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flipped.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Flipped/Pods-Flipped.debug.xcconfig"; sourceTree = "<group>"; };
 		7CA5465F4BAB318854577797 /* Pods-Flipped.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flipped.release.xcconfig"; path = "Pods/Target Support Files/Pods-Flipped/Pods-Flipped.release.xcconfig"; sourceTree = "<group>"; };
 		A6CB62EA12AEAE674DF275B1 /* libPods-Flipped.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Flipped.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB6173941F1112D0009649E2 /* FLFlippedWord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLFlippedWord.h; sourceTree = "<group>"; };
+		FB6173951F1112D0009649E2 /* FLFlippedWord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLFlippedWord.m; sourceTree = "<group>"; };
+		FB6173971F1112D0009649E2 /* FLCommHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLCommHeader.h; sourceTree = "<group>"; };
+		FB6173991F1112D0009649E2 /* FLBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLBaseViewController.h; sourceTree = "<group>"; };
+		FB61739A1F1112D0009649E2 /* FLBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLBaseViewController.m; sourceTree = "<group>"; };
+		FB61739D1F1112D0009649E2 /* FLLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLLoginViewController.h; sourceTree = "<group>"; };
+		FB61739E1F1112D0009649E2 /* FLLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLLoginViewController.m; sourceTree = "<group>"; };
+		FB6173A11F1112D0009649E2 /* FLMineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLMineViewController.h; sourceTree = "<group>"; };
+		FB6173A21F1112D0009649E2 /* FLMineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLMineViewController.m; sourceTree = "<group>"; };
+		FB6173A51F1112D0009649E2 /* FLPostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLPostViewController.h; sourceTree = "<group>"; };
+		FB6173A61F1112D0009649E2 /* FLPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLPostViewController.m; sourceTree = "<group>"; };
+		FB6173A91F1112D0009649E2 /* FLSquareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLSquareViewController.h; sourceTree = "<group>"; };
+		FB6173AA1F1112D0009649E2 /* FLSquareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLSquareViewController.m; sourceTree = "<group>"; };
+		FB6173B11F11145C009649E2 /* FLContent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLContent.h; sourceTree = "<group>"; };
+		FB6173B21F11146A009649E2 /* FLContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLContent.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,23 +70,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		457195231F0B870600671634 /* Post */ = {
-			isa = PBXGroup;
-			children = (
-				457195241F0B870600671634 /* Views */,
-			);
-			path = Post;
-			sourceTree = "<group>";
-		};
-		457195241F0B870600671634 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				457195251F0B872700671634 /* FLPostViewController.h */,
-				457195261F0B874600671634 /* FLPostViewController.m */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		457195281F0C903400671634 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -92,16 +78,6 @@
 			);
 			path = Services;
 			sourceTree = "<group>";
-		};
-		457195301F0CBD4600671634 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				457195311F0CBD7500671634 /* FlippedWord.h */,
-				457195321F0CBD7500671634 /* FlippedWord.m */,
-			);
-			name = Models;
-			path = Flipped/Sources/Comm/Models;
-			sourceTree = SOURCE_ROOT;
 		};
 		45D272021F0B343E00AF180E = {
 			isa = PBXGroup;
@@ -124,7 +100,7 @@
 		45D2720D1F0B343E00AF180E /* Flipped */ = {
 			isa = PBXGroup;
 			children = (
-				45D272291F0B35A700AF180E /* Bundle */,
+				FB6173911F1112D0009649E2 /* Bundle */,
 				457195281F0C903400671634 /* Services */,
 				45D272261F0B34D500AF180E /* Resources */,
 				45D272111F0B343E00AF180E /* AppDelegate.h */,
@@ -150,98 +126,6 @@
 				45D272401F0B43BC00AF180E /* Comm */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		45D272291F0B35A700AF180E /* Bundle */ = {
-			isa = PBXGroup;
-			children = (
-				45D272331F0B362D00AF180E /* Comm */,
-				45D2722A1F0B35A700AF180E /* Login */,
-				45D2722E1F0B35A700AF180E /* Square */,
-				45D2722C1F0B35A700AF180E /* Mine */,
-				457195231F0B870600671634 /* Post */,
-			);
-			name = Bundle;
-			path = Sources;
-			sourceTree = "<group>";
-		};
-		45D2722A1F0B35A700AF180E /* Login */ = {
-			isa = PBXGroup;
-			children = (
-				45D2722B1F0B35A700AF180E /* Views */,
-			);
-			path = Login;
-			sourceTree = "<group>";
-		};
-		45D2722B1F0B35A700AF180E /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				45D272301F0B35DD00AF180E /* FLLoginViewController.h */,
-				45D272311F0B35F500AF180E /* FLLoginViewController.m */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		45D2722C1F0B35A700AF180E /* Mine */ = {
-			isa = PBXGroup;
-			children = (
-				45D2722D1F0B35A700AF180E /* Views */,
-			);
-			path = Mine;
-			sourceTree = "<group>";
-		};
-		45D2722D1F0B35A700AF180E /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				45D2723D1F0B3F2B00AF180E /* FLMineViewController.h */,
-				45D2723E1F0B3F3500AF180E /* FLMineViewController.m */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		45D2722E1F0B35A700AF180E /* Square */ = {
-			isa = PBXGroup;
-			children = (
-				45D2722F1F0B35A700AF180E /* Views */,
-			);
-			path = Square;
-			sourceTree = "<group>";
-		};
-		45D2722F1F0B35A700AF180E /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				45D2723A1F0B3ED300AF180E /* FLSquareViewController.h */,
-				45D2723B1F0B3F0100AF180E /* FLSquareViewController.m */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		45D272331F0B362D00AF180E /* Comm */ = {
-			isa = PBXGroup;
-			children = (
-				45D272341F0B362D00AF180E /* Views */,
-				457195301F0CBD4600671634 /* Models */,
-				45D272381F0B392D00AF180E /* Others */,
-			);
-			path = Comm;
-			sourceTree = "<group>";
-		};
-		45D272341F0B362D00AF180E /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				45D272351F0B364A00AF180E /* FLBaseViewController.h */,
-				45D272361F0B366E00AF180E /* FLBaseViewController.m */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		45D272381F0B392D00AF180E /* Others */ = {
-			isa = PBXGroup;
-			children = (
-				45D2928B1F0B4992002733A6 /* FLPrefixHeader.pch */,
-			);
-			name = Others;
-			path = Views/Others;
 			sourceTree = "<group>";
 		};
 		45D272401F0B43BC00AF180E /* Comm */ = {
@@ -270,6 +154,124 @@
 				A6CB62EA12AEAE674DF275B1 /* libPods-Flipped.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FB6173911F1112D0009649E2 /* Bundle */ = {
+			isa = PBXGroup;
+			children = (
+				FB6173921F1112D0009649E2 /* Comm */,
+				FB61739B1F1112D0009649E2 /* Login */,
+				FB61739F1F1112D0009649E2 /* Mine */,
+				FB6173A31F1112D0009649E2 /* Post */,
+				FB6173A71F1112D0009649E2 /* Square */,
+			);
+			path = Bundle;
+			sourceTree = "<group>";
+		};
+		FB6173921F1112D0009649E2 /* Comm */ = {
+			isa = PBXGroup;
+			children = (
+				FB6173931F1112D0009649E2 /* Models */,
+				FB6173961F1112D0009649E2 /* Others */,
+				FB6173981F1112D0009649E2 /* Views */,
+			);
+			path = Comm;
+			sourceTree = "<group>";
+		};
+		FB6173931F1112D0009649E2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FB6173941F1112D0009649E2 /* FLFlippedWord.h */,
+				FB6173951F1112D0009649E2 /* FLFlippedWord.m */,
+				FB6173B11F11145C009649E2 /* FLContent.h */,
+				FB6173B21F11146A009649E2 /* FLContent.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FB6173961F1112D0009649E2 /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				FB6173971F1112D0009649E2 /* FLCommHeader.h */,
+			);
+			path = Others;
+			sourceTree = "<group>";
+		};
+		FB6173981F1112D0009649E2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FB6173991F1112D0009649E2 /* FLBaseViewController.h */,
+				FB61739A1F1112D0009649E2 /* FLBaseViewController.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FB61739B1F1112D0009649E2 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				FB61739C1F1112D0009649E2 /* Views */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		FB61739C1F1112D0009649E2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FB61739D1F1112D0009649E2 /* FLLoginViewController.h */,
+				FB61739E1F1112D0009649E2 /* FLLoginViewController.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FB61739F1F1112D0009649E2 /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				FB6173A01F1112D0009649E2 /* Views */,
+			);
+			path = Mine;
+			sourceTree = "<group>";
+		};
+		FB6173A01F1112D0009649E2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FB6173A11F1112D0009649E2 /* FLMineViewController.h */,
+				FB6173A21F1112D0009649E2 /* FLMineViewController.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FB6173A31F1112D0009649E2 /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				FB6173A41F1112D0009649E2 /* Views */,
+			);
+			path = Post;
+			sourceTree = "<group>";
+		};
+		FB6173A41F1112D0009649E2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FB6173A51F1112D0009649E2 /* FLPostViewController.h */,
+				FB6173A61F1112D0009649E2 /* FLPostViewController.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FB6173A71F1112D0009649E2 /* Square */ = {
+			isa = PBXGroup;
+			children = (
+				FB6173A81F1112D0009649E2 /* Views */,
+			);
+			path = Square;
+			sourceTree = "<group>";
+		};
+		FB6173A81F1112D0009649E2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FB6173A91F1112D0009649E2 /* FLSquareViewController.h */,
+				FB6173AA1F1112D0009649E2 /* FLSquareViewController.m */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -372,7 +374,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		8B75BD1FAA80B8A0E5DA556B /* [CP] Copy Pods Resources */ = {
@@ -397,15 +399,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB6173AF1F1112D0009649E2 /* FLPostViewController.m in Sources */,
+				FB6173B01F1112D0009649E2 /* FLSquareViewController.m in Sources */,
+				FB6173AD1F1112D0009649E2 /* FLLoginViewController.m in Sources */,
+				FB6173AB1F1112D0009649E2 /* FLFlippedWord.m in Sources */,
 				4571952B1F0C907300671634 /* FLFlippedWordsService.m in Sources */,
-				457195331F0CBD7500671634 /* FlippedWord.m in Sources */,
-				45D272321F0B35F500AF180E /* FLLoginViewController.m in Sources */,
-				457195271F0B874600671634 /* FLPostViewController.m in Sources */,
-				45D2723C1F0B3F0100AF180E /* FLSquareViewController.m in Sources */,
 				45D272131F0B343E00AF180E /* AppDelegate.m in Sources */,
 				45D272101F0B343E00AF180E /* main.m in Sources */,
-				45D2723F1F0B3F3500AF180E /* FLMineViewController.m in Sources */,
-				45D272371F0B366E00AF180E /* FLBaseViewController.m in Sources */,
+				FB6173AE1F1112D0009649E2 /* FLMineViewController.m in Sources */,
+				FB6173AC1F1112D0009649E2 /* FLBaseViewController.m in Sources */,
+				FB6173B31F11146A009649E2 /* FLContent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -510,7 +513,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = NJ84XW37VD;
-				GCC_PREFIX_HEADER = /Users/junshao/Documents/Code/iOS/Flipped/Flipped/Sources/Comm/Others/FLPrefixHeader.pch;
+				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = Flipped/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.junshao.Flipped;
@@ -524,7 +527,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = NJ84XW37VD;
-				GCC_PREFIX_HEADER = /Users/junshao/Documents/Code/iOS/Flipped/Flipped/Sources/Comm/Others/FLPrefixHeader.pch;
+				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = Flipped/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.junshao.Flipped;
