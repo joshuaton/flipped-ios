@@ -26,12 +26,16 @@
     
     FLSquareViewController *squareViewController = [[FLSquareViewController alloc] init];
     
-    UITabBarItem *squareTabBarItem = [[UITabBarItem alloc] initWithTitle:@"广场" image:[UIImage imageNamed:@"comm_tab_square_selected"] selectedImage:[UIImage imageNamed:@"comm_tab_square"]];
+    UIImage *squareImage = [[UIImage imageNamed:@"comm_tab_square"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIImage *squareImageSelected = [[UIImage imageNamed:@"comm_tab_square_selected"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UITabBarItem *squareTabBarItem = [[UITabBarItem alloc] initWithTitle:@"广场" image:squareImage selectedImage:squareImageSelected];
     squareViewController.tabBarItem = squareTabBarItem;
     
     FLMineViewController *mineViewController = [[FLMineViewController alloc] init];
     
-    UITabBarItem *mineTabBarItem = [[UITabBarItem alloc] initWithTitle:@"我的" image:[UIImage imageNamed:@"comm_tab_mine_selected"] selectedImage:[UIImage imageNamed:@"comm_tab_mine"]];
+    UIImage *mineImage = [[UIImage imageNamed:@"comm_tab_mine"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIImage *mineImageSelected = [[UIImage imageNamed:@"comm_tab_mine_selected"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UITabBarItem *mineTabBarItem = [[UITabBarItem alloc] initWithTitle:@"我的" image:mineImage selectedImage:mineImageSelected];
     mineViewController.tabBarItem = mineTabBarItem;
     
     self.tabBarController = [[UITabBarController alloc] init];

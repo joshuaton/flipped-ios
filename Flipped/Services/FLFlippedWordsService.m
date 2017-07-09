@@ -39,7 +39,7 @@
         NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)task.response;
         statusCode = httpResponse.statusCode;
         
-        NSLog(@"statusCode: %ld", statusCode);
+        NSLog(@"statusCode: %ld, error: %@", statusCode, error);
     }];
     
 }
