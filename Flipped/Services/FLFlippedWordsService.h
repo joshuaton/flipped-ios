@@ -10,6 +10,6 @@
 
 @interface FLFlippedWordsService : NSObject
 
-+(void)getNearbyFlippedWords;
++(void)getNearbyFlippedWordsWithSuccessBlock:(void (^)(NSMutableArray *flippedWords))successBlock failBlock:(void (^)(NSError *error))failedBlock;
 
 @end

@@ -12,7 +12,7 @@
 
 @implementation FLFlippedWordsService
 
-+(void)getNearbyFlippedWords{
++(void)getNearbyFlippedWordsWithSuccessBlock:(void (^)(NSMutableArray *flippedWords))successBlock failBlock:(void (^)(NSError *error))failedBlock{
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     
@@ -23,23 +23,21 @@
     
     manager.responseSerializer.acceptableContentTypes= [NSSet setWithObjects:@"text/html", @"application/json", nil];
     
-    [manager GET:@"https://flippedwords.com/nearby_flippedwords" parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+    [manager GET:@"http://119.29.156.112/nearby_flippedwords" parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary *result = (NSDictionary *)responseObject;
         NSError *error;
         NSMutableArray *modelArray = [FLFlippedWord arrayOfModelsFromDictionaries:result[@"flippedwords"] error:&error];
         
-        NSLog(@"modelArray: %@", modelArray);
-
-        
+        successBlock(modelArray);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
         NSInteger statusCode = 0;
         NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)task.response;
         statusCode = httpResponse.statusCode;
         
-        NSLog(@"statusCode: %ld, error: %@", statusCode, error);
+        failedBlock(error);
     }];
     
 }

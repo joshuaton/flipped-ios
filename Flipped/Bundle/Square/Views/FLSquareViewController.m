@@ -9,10 +9,13 @@
 #import "FLSquareViewController.h"
 #import "FLFlippedWordsService.h"
 #import "FLCommHeader.h"
+#import "FLFlippedWordCell.h"
 
 @interface FLSquareViewController() <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
+
+@property (nonatomic, strong) NSMutableArray *flippedWords;
 
 @end
 
@@ -21,17 +24,24 @@
 -(void)viewDidLoad{
     self.tableView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
     
-    [FLFlippedWordsService getNearbyFlippedWords];
+    self.flippedWords = [[NSMutableArray alloc] init];
+    
+    [FLFlippedWordsService getNearbyFlippedWordsWithSuccessBlock:^(NSMutableArray *flippedWords) {
+        self.flippedWords = flippedWords;
+    } failBlock:^(NSError *error) {
+        
+    }];
 }
 
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 0;
+    return self.flippedWords.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = nil;
+    
+    FLFlippedWordCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([FLFlippedWordCell class]) forIndexPath:indexPath];
     return cell;
 }
 
@@ -48,6 +58,7 @@
         _tableView = [[UITableView alloc] init];
         _tableView.dataSource = self;
         _tableView.delegate = self;
+        [_tableView registerClass:[FLFlippedWordCell class] forCellReuseIdentifier:NSStringFromClass([FLFlippedWordCell class])];
         [self.view addSubview:_tableView];
     }
     return _tableView;
