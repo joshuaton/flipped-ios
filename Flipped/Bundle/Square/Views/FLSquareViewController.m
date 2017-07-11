@@ -28,8 +28,9 @@
     
     [FLFlippedWordsService getNearbyFlippedWordsWithSuccessBlock:^(NSMutableArray *flippedWords) {
         self.flippedWords = flippedWords;
+        NSLog(@"success %@", self.flippedWords);
     } failBlock:^(NSError *error) {
-        
+        NSLog(@"error %@", error);
     }];
 }
 

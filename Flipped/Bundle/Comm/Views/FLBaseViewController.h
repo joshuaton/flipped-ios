@@ -10,4 +10,6 @@
 
 @interface FLBaseViewController : UIViewController
 
++ (UIViewController*)currentViewController;
+
 @end

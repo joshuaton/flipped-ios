@@ -8,6 +8,8 @@
 
 #import "FLBaseViewController.h"
 
+static __weak UIViewController* __currentViewController;
+
 @interface FLBaseViewController()
 
 @end
@@ -18,6 +20,16 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor whiteColor];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    __currentViewController = self;
+}
+
++ (UIViewController*)currentViewController{
+    return __currentViewController;
 }
 
 @end

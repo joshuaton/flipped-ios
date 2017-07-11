@@ -9,6 +9,7 @@
 #import "FLFlippedWordsService.h"
 #import "AFNetworking.h"
 #import "FLFlippedWord.h"
+#import "FLLoginViewController.h"
 
 @implementation FLFlippedWordsService
 
@@ -36,6 +37,12 @@
         NSInteger statusCode = 0;
         NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)task.response;
         statusCode = httpResponse.statusCode;
+        
+        if(statusCode == 401){
+            FLLoginViewController *vc = [[FLLoginViewController alloc] init];
+            [[FLBaseViewController currentViewController] presentViewController:vc animated:YES completion:nil];
+            return;
+        }
         
         failedBlock(error);
     }];
