@@ -10,6 +10,7 @@
 #import "FLFlippedWordsService.h"
 #import "FLCommHeader.h"
 #import "FLFlippedWordCell.h"
+#import "FLPostViewController.h"
 
 @interface FLSquareViewController() <UITableViewDataSource, UITableViewDelegate>
 
@@ -25,6 +26,11 @@
     [super viewDidLoad];
     
     self.title = @"广场";
+    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
+    [btn addTarget:self action:@selector(postBtnDidClick) forControlEvents:UIControlEventTouchUpInside];
+    [btn setImage:[UIImage imageNamed:@"post_add"] forState:UIControlStateNormal];
+    UIBarButtonItem *publishItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
+    self.navigationItem.rightBarButtonItem = publishItem;
     
     self.tableView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
     
@@ -37,6 +43,11 @@
     } failBlock:^(NSError *error) {
         NSLog(@"error %@", error);
     }];
+}
+
+-(void)postBtnDidClick{
+    FLPostViewController *vc = [[FLPostViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - UITableViewDataSource
