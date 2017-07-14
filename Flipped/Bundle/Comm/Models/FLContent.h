@@ -16,6 +16,6 @@
 @property (nonatomic, copy) NSString *text;
 @property (nonatomic, copy) NSString<Optional> *link;
 @property (nonatomic, copy) NSString<Optional> *cover;
-@property (nonatomic, assign) NSNumber<Optional> *duration;
+@property (nonatomic, strong) NSNumber<Optional> *duration;
 
 @end

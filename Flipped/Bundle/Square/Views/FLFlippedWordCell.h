@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FLFlippedWord.h"
 
 @interface FLFlippedWordCell : UITableViewCell
+
+-(void)refreshWithData:(FLFlippedWord *)data;
 
 @end

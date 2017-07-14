@@ -22,6 +22,9 @@
 @implementation FLLoginViewController
 
 -(void)viewDidLoad{
+    
+    [super viewDidLoad];
+    
     self.phoneNumTextField.frame = CGRectMake(0, 0, SCREEN_WIDTH, 100);
     self.vertifyCodeTextField.frame = CGRectMake(0, 100, SCREEN_WIDTH, 100);
 }

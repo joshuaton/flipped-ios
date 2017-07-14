@@ -22,6 +22,10 @@
 @implementation FLSquareViewController
 
 -(void)viewDidLoad{
+    [super viewDidLoad];
+    
+    self.title = @"广场";
+    
     self.tableView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
     
     self.flippedWords = [[NSMutableArray alloc] init];
@@ -29,6 +33,7 @@
     [FLFlippedWordsService getNearbyFlippedWordsWithSuccessBlock:^(NSMutableArray *flippedWords) {
         self.flippedWords = flippedWords;
         NSLog(@"success %@", self.flippedWords);
+        [self.tableView reloadData];
     } failBlock:^(NSError *error) {
         NSLog(@"error %@", error);
     }];
@@ -43,6 +48,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     FLFlippedWordCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([FLFlippedWordCell class]) forIndexPath:indexPath];
+    [cell refreshWithData:self.flippedWords[indexPath.row]];
     return cell;
 }
 
@@ -50,6 +56,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
+}
+
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 44;
 }
 
 #pragma mark - getter & setter

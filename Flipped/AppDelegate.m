@@ -25,6 +25,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
     FLSquareViewController *squareViewController = [[FLSquareViewController alloc] init];
+    UINavigationController *squareNav = [[UINavigationController alloc] initWithRootViewController:squareViewController];
     
     UIImage *squareImage = [[UIImage imageNamed:@"comm_tab_square"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     UIImage *squareImageSelected = [[UIImage imageNamed:@"comm_tab_square_selected"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
@@ -32,6 +33,7 @@
     squareViewController.tabBarItem = squareTabBarItem;
     
     FLMineViewController *mineViewController = [[FLMineViewController alloc] init];
+    UINavigationController *mineNav = [[UINavigationController alloc] initWithRootViewController:mineViewController];
     
     UIImage *mineImage = [[UIImage imageNamed:@"comm_tab_mine"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     UIImage *mineImageSelected = [[UIImage imageNamed:@"comm_tab_mine_selected"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
@@ -40,7 +42,7 @@
     
     self.tabBarController = [[UITabBarController alloc] init];
     self.tabBarController.delegate = self;
-    self.tabBarController.viewControllers = @[squareViewController, mineViewController];
+    self.tabBarController.viewControllers = @[squareNav, mineNav];
     
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];

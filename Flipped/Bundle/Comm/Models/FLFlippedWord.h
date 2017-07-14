@@ -10,6 +10,8 @@
 #import "JSONModel.h"
 #import "FLContent.h"
 
+@protocol FLFlippedWord;
+
 @interface FLFlippedWord : JSONModel
 
 @property (nonatomic, assign) NSInteger id;
@@ -18,6 +20,7 @@
 @property (nonatomic, assign) CGFloat lng;
 @property (nonatomic, assign) NSInteger status;
 @property (nonatomic, assign) NSInteger ctime;
+@property (nonatomic, strong) NSNumber<Optional> *distance;
 @property (nonatomic, strong) NSArray<FLContent> *contents;
 
 
