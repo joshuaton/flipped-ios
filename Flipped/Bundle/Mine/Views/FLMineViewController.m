@@ -8,11 +8,16 @@
 
 #import "FLMineViewController.h"
 #import "Masonry.h"
+#import "FLFlippedListViewController.h"
+#import "FLFlippedWordsService.h"
 
-@interface FLMineViewController() <UITableViewDataSource, UITableViewDelegate>
+@interface FLMineViewController()
 
-@property (nonatomic, strong) UIButton *postButton;
-@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) UISegmentedControl *segmentControl;
+@property (nonatomic, strong) FLFlippedListViewController *sendListView;
+@property (nonatomic, strong) FLFlippedListViewController *receiveListView;
+
+@property (nonatomic, strong) NSArray<NSString *> *segmentTitles;
 
 @end
 
@@ -22,59 +27,101 @@
     
     [super viewDidLoad];
     
-    [self.postButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.view).offset(30);
-        make.left.equalTo(self.view).offset(20);
-        make.right.equalTo(self.view).offset(-20);
+    self.title = @"我的";
+    self.segmentTitles = [NSArray arrayWithObjects:@"我发送的", @"我收到的", nil];
+    self.segmentControl.selectedSegmentIndex = 0;
+    
+    [self makeConstraints];
+    
+    [FLFlippedWordsService getSendFlippedWordsWithSuccessBlock:^(NSMutableArray *flippedWords) {
+        [self.sendListView refreshWithFlippedWords:flippedWords];
+    } failBlock:^(NSError *error) {
+        NSLog(@"%@", error);
+    }];
+}
+
+-(void)makeConstraints{
+    
+    [self.segmentControl mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.segmentControl.superview).offset(64+10);
+        make.centerX.equalTo(self.segmentControl.superview);
+        make.width.equalTo(self.segmentControl.superview);
         make.height.equalTo(@30);
     }];
     
-    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.postButton.mas_bottom).offset(10);
-        make.left.equalTo(self.view);
-        make.bottom.equalTo(self.view);
-        make.right.equalTo(self.view);
+    [self.sendListView.view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.segmentControl).offset(10);
+        make.left.equalTo(self.sendListView.view.superview);
+        make.bottom.equalTo(self.sendListView.view);
+        make.right.equalTo(self.sendListView.view);
+    }];
+    
+    [self.receiveListView.view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.segmentControl).offset(10);
+        make.left.equalTo(self.receiveListView.view.superview);
+        make.bottom.equalTo(self.sendListView.view);
+        make.right.equalTo(self.sendListView.view);
     }];
 }
 
-#pragma mark - UITableViewDataSource
+#pragma mark - action
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 0;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = nil;
-    return cell;
-}
-
-#pragma mark - UITableViewDelegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+- (void)segmentDidChange:(UISegmentedControl *)sender {
     
+    switch (sender.selectedSegmentIndex) {
+        case 0:
+        {
+            [FLFlippedWordsService getSendFlippedWordsWithSuccessBlock:^(NSMutableArray *flippedWords) {
+                [self.sendListView refreshWithFlippedWords:flippedWords];
+            } failBlock:^(NSError *error) {
+                NSLog(@"%@", error);
+            }];
+            break;
+        }
+        case 1:
+        {
+            [FLFlippedWordsService getReceiveFlippedWordsWithSuccessBlock:^(NSMutableArray *flippedWords) {
+                [self.sendListView refreshWithFlippedWords:flippedWords];
+            } failBlock:^(NSError *error) {
+                NSLog(@"%@", error);
+            }];
+            break;
+        }
+        default:
+            break;
+    }
 }
+
 
 #pragma mark - getter & setter
 
--(UIButton *)postButton{
-    if(!_postButton){
-        _postButton = [[UIButton alloc] init];
-        [_postButton setTitle:@"说句悄悄话" forState:UIControlStateNormal];
-        [_postButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [_postButton setBackgroundColor:[UIColor greenColor]];
-        [self.view addSubview:_postButton];
+- (UISegmentedControl *)segmentControl {
+    if(!_segmentControl){
+        _segmentControl = [[UISegmentedControl alloc] initWithItems:self.segmentTitles];
+        [_segmentControl addTarget:self action:@selector(segmentDidChange:) forControlEvents:UIControlEventValueChanged];
+        [self.view addSubview:_segmentControl];
     }
-    return _postButton;
+    return _segmentControl;
 }
 
--(UITableView *)tableView{
-    if(!_tableView){
-        _tableView = [[UITableView alloc] init];
-        _tableView.dataSource = self;
-        _tableView.delegate = self;
-        [self.view addSubview:_tableView];
+-(FLFlippedListViewController *)sendListView{
+    if(!_sendListView){
+        _sendListView = [[FLFlippedListViewController alloc] init];
+        [self addChildViewController:_sendListView];
+        [self.view addSubview:_sendListView.view];
+        _sendListView.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     }
-    return _tableView;
+    return _sendListView;
+}
+
+-(FLFlippedListViewController *)receiveListView{
+    if(!_receiveListView){
+        _receiveListView = [[FLFlippedListViewController alloc] init];
+        [self addChildViewController:_receiveListView];
+        [self.view addSubview:_receiveListView.view];
+        _receiveListView.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    }
+    return _receiveListView;
 }
 
 @end

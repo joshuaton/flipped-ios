@@ -6,10 +6,14 @@
 //  Copyright © 2017年 junshao. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "FLBaseService.h"
 
-@interface FLFlippedWordsService : NSObject
+@interface FLFlippedWordsService : FLBaseService
 
 +(void)getNearbyFlippedWordsWithSuccessBlock:(void (^)(NSMutableArray *flippedWords))successBlock failBlock:(void (^)(NSError *error))failedBlock;
+
++(void)getSendFlippedWordsWithSuccessBlock:(void (^)(NSMutableArray *flippedWords))successBlock failBlock:(void (^)(NSError *error))failedBlock;
+
++(void)getReceiveFlippedWordsWithSuccessBlock:(void (^)(NSMutableArray *flippedWords))successBlock failBlock:(void (^)(NSError *error))failedBlock;
 
 @end
