@@ -59,6 +59,8 @@
     }];
 }
 
+#pragma mark - action
+
 -(void)closeBtnClick{
     [self.navigationController dismissViewControllerAnimated:YES completion:^{
         
@@ -67,6 +69,14 @@
 
 -(void)getVertifyBtnClick{
     [FLUserService getVertifyCodeWithWithPhoneNum:self.phoneNumTextField.text successBlock:^{
+        
+    } failBlock:^(NSError *error) {
+        
+    }];
+}
+
+-(void)loginBtnClick{
+    [FLUserService loginWithPhoneNum:self.phoneNumTextField.text vertifyCode:self.vertifyCodeTextField.text successBlock:^{
         
     } failBlock:^(NSError *error) {
         
@@ -131,7 +141,11 @@
     if(!_loginButton){
         _loginButton = [[UIButton alloc] init];
         [_loginButton setTitle:@"登录" forState:UIControlStateNormal];
+        [_loginButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [_loginButton sizeToFit];
+        _loginButton.layer.borderWidth = 1;
+        _loginButton.layer.borderColor = [UIColor blackColor].CGColor;
+        [_loginButton addTarget:self action:@selector(loginBtnClick) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:_loginButton];
     }
     return _loginButton;

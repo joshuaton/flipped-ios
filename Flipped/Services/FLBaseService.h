@@ -15,4 +15,6 @@
 
 +(void)handleStatusCode:(NSURLSessionDataTask *)task;
 
++(AFHTTPSessionManager *)sharedHttpSessionManager;
+
 @end

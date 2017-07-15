@@ -12,4 +12,6 @@
 
 +(void)getVertifyCodeWithWithPhoneNum:(NSString *)phoneNum successBlock:(void (^)())successBlock failBlock:(void (^)(NSError *error))failedBlock;
 
++(void)loginWithPhoneNum:(NSString *)phoneNum vertifyCode:(NSString *)vertifyCode successBlock:(void (^)())successBlock failBlock:(void (^)(NSError *error))failedBlock;
+
 @end
