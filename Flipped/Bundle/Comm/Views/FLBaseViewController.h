@@ -12,4 +12,6 @@
 
 + (UIViewController*)currentViewController;
 
+- (void)configRightNavigationItemWithTitle:(NSString *)title image:(UIImage *)image action:(SEL)action;
+
 @end

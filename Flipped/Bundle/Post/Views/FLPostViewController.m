@@ -13,9 +13,11 @@
 @interface FLPostViewController()
 
 @property (nonatomic, strong) UILabel *tipsLabel;
+@property (nonatomic, strong) UILabel *phoneNumLabel;
 @property (nonatomic, strong) UITextField *phoneNumTextField;
-@property (nonatomic, strong) UITextField *contentTextField;
-@property (nonatomic, strong) UIView *postView;
+@property (nonatomic, strong) UILabel *contentLabel;
+@property (nonatomic, strong) UITextView *contentTextView;
+@property (nonatomic, strong) UIView *addPicView;
 
 @end
 
@@ -25,6 +27,7 @@
     [super viewDidLoad];
 
     self.title = @"发布动心话";
+    [self configRightNavigationItemWithTitle:@"发布" image:nil action:@selector(postBtnDidClick)];
     
     [self makeConstraints];
 }
@@ -36,24 +39,41 @@
         make.centerX.equalTo(self.tipsLabel.superview);
     }];
     
-    [self.phoneNumTextField mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.phoneNumLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.tipsLabel.mas_bottom).offset(20);
+        make.left.equalTo(self.phoneNumLabel.superview).offset(10);
+        make.right.equalTo(self.phoneNumLabel.superview).offset(-10);
+    }];
+    
+    [self.phoneNumTextField mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.phoneNumLabel.mas_bottom).offset(5);
         make.left.equalTo(self.phoneNumTextField.superview).offset(10);
         make.right.equalTo(self.phoneNumTextField.superview).offset(-10);
     }];
     
-    [self.contentTextField mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.phoneNumTextField.mas_bottom).offset(10);
         make.left.equalTo(self.phoneNumTextField);
         make.right.equalTo(self.phoneNumTextField);
     }];
     
-    [self.postView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.contentTextField.mas_bottom).offset(10);
-        make.left.equalTo(self.contentTextField);
-        make.right.equalTo(self.contentTextField);
-        make.height.equalTo(@50);
+    [self.contentTextView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.contentLabel.mas_bottom).offset(5);
+        make.left.equalTo(self.contentLabel);
+        make.right.equalTo(self.contentLabel);
+        make.height.equalTo(@100);
     }];
+    
+    [self.addPicView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.contentTextView.mas_bottom).offset(10);
+        make.left.equalTo(self.contentTextView);
+        make.right.equalTo(self.contentTextView);
+        make.height.equalTo(@100);
+    }];
+}
+
+-(void)postBtnDidClick{
+    
 }
 
 #pragma mark - getter & setter
@@ -67,30 +87,50 @@
     return _tipsLabel;
 }
 
+-(UILabel *)phoneNumLabel{
+    if(!_phoneNumLabel){
+        _phoneNumLabel = [[UILabel alloc] init];
+        _phoneNumLabel.text = @"输入Ta的手机";
+        [self.view addSubview:_phoneNumLabel];
+    }
+    return _phoneNumLabel;
+}
+
 -(UITextField *)phoneNumTextField{
     if(!_phoneNumTextField){
         _phoneNumTextField = [[UITextField alloc] init];
-        _phoneNumTextField.placeholder = @"输入Ta的手机";
+        _phoneNumTextField.borderStyle = UITextBorderStyleLine;
         [self.view addSubview:_phoneNumTextField];
     }
     return _phoneNumTextField;
 }
 
--(UITextField *)contentTextField{
-    if(!_contentTextField){
-        _contentTextField = [[UITextField alloc] init];
-        _contentTextField.placeholder = @"输入心动的话";
-        [self.view addSubview:_contentTextField];
+-(UILabel *)contentLabel{
+    if(!_contentLabel){
+        _contentLabel = [[UILabel alloc] init];
+        _contentLabel.text = @"想对Ta说的话";
+        [self.view addSubview:_contentLabel];
     }
-    return _contentTextField;
+    return _contentLabel;
 }
 
--(UIView *)postView{
-    if(!_postView){
-        _postView = [[UIView alloc] init];
-        [self.view addSubview:_postView];
+-(UITextView *)contentTextView{
+    if(!_contentTextView){
+        _contentTextView = [[UITextView alloc] init];
+        _contentTextView.layer.borderWidth = 1;
+        _contentTextView.layer.borderColor = [UIColor blackColor].CGColor;
+        [self.view addSubview:_contentTextView];
     }
-    return _postView;
+    return _contentTextView;
+}
+
+-(UIView *)addPicView{
+    if(!_addPicView){
+        _addPicView = [[UIView alloc] init];
+        _addPicView.backgroundColor = [UIColor blackColor];
+        [self.view addSubview:_addPicView];
+    }
+    return _addPicView;
 }
 
 @end
