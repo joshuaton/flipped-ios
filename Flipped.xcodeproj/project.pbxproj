@@ -32,6 +32,7 @@
 		FBB917811F1254DA000C7353 /* WechatIMG9.png in Resources */ = {isa = PBXBuildFile; fileRef = FBB9177B1F1254DA000C7353 /* WechatIMG9.png */; };
 		FBCD22291F1A0F8100D8B718 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = FBCD22281F1A0F8100D8B718 /* NSString+MD5.m */; };
 		FBCD222C1F1A21EB00D8B718 /* NSString+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = FBCD222B1F1A21EB00D8B718 /* NSString+Base64.m */; };
+		FBCD22301F1A5A2400D8B718 /* FLAFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FBCD222F1F1A5A2400D8B718 /* FLAFHTTPSessionManager.m */; };
 		FBE0D77D1F19C792006D6C47 /* FLFlippedListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE0D77C1F19C792006D6C47 /* FLFlippedListViewController.m */; };
 		FBE0D7801F19F135006D6C47 /* FLBaseService.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE0D77F1F19F135006D6C47 /* FLBaseService.m */; };
 		FBE0D7831F19F279006D6C47 /* FLUserService.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE0D7821F19F279006D6C47 /* FLUserService.m */; };
@@ -80,6 +81,8 @@
 		FBCD22281F1A0F8100D8B718 /* NSString+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
 		FBCD222A1F1A21E200D8B718 /* NSString+Base64.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Base64.h"; sourceTree = "<group>"; };
 		FBCD222B1F1A21EB00D8B718 /* NSString+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Base64.m"; sourceTree = "<group>"; };
+		FBCD222E1F1A5A1600D8B718 /* FLAFHTTPSessionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLAFHTTPSessionManager.h; sourceTree = "<group>"; };
+		FBCD222F1F1A5A2400D8B718 /* FLAFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLAFHTTPSessionManager.m; sourceTree = "<group>"; };
 		FBE0D77B1F19C785006D6C47 /* FLFlippedListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLFlippedListViewController.h; sourceTree = "<group>"; };
 		FBE0D77C1F19C792006D6C47 /* FLFlippedListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLFlippedListViewController.m; sourceTree = "<group>"; };
 		FBE0D77E1F19F12B006D6C47 /* FLBaseService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLBaseService.h; sourceTree = "<group>"; };
@@ -213,6 +216,7 @@
 		FB6173921F1112D0009649E2 /* Comm */ = {
 			isa = PBXGroup;
 			children = (
+				FBCD222D1F1A5A0900D8B718 /* Network */,
 				FB6173961F1112D0009649E2 /* Others */,
 				FB6173981F1112D0009649E2 /* Views */,
 			);
@@ -329,6 +333,15 @@
 				FBCD222B1F1A21EB00D8B718 /* NSString+Base64.m */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		FBCD222D1F1A5A0900D8B718 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				FBCD222E1F1A5A1600D8B718 /* FLAFHTTPSessionManager.h */,
+				FBCD222F1F1A5A2400D8B718 /* FLAFHTTPSessionManager.m */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -470,6 +483,7 @@
 				FBE0D7801F19F135006D6C47 /* FLBaseService.m in Sources */,
 				FB6173AB1F1112D0009649E2 /* FLFlippedWord.m in Sources */,
 				4571952B1F0C907300671634 /* FLFlippedWordsService.m in Sources */,
+				FBCD22301F1A5A2400D8B718 /* FLAFHTTPSessionManager.m in Sources */,
 				45D272131F0B343E00AF180E /* AppDelegate.m in Sources */,
 				FBE0D7831F19F279006D6C47 /* FLUserService.m in Sources */,
 				45D272101F0B343E00AF180E /* main.m in Sources */,

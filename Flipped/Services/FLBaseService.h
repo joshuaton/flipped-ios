@@ -7,14 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AFNetworking.h"
+#import "FLAFHTTPSessionManager.h"
 
 @interface FLBaseService : NSObject
 
 +(NSString *)getRequestUrl:(NSString *)path;
 
-+(void)handleStatusCode:(NSURLSessionDataTask *)task;
-
-+(AFHTTPSessionManager *)sharedHttpSessionManager;
++(FLAFHTTPSessionManager *)sharedHttpSessionManager;
 
 @end
