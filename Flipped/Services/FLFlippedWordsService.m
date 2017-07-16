@@ -63,4 +63,17 @@
 
 }
 
++(void)publishFlippedWordsWithData:(FLFlippedWord *)data successBlock:(void (^)())successBlock failBlock:(void (^)(NSError *error))failedBlock{
+    
+    NSString *url = [self getRequestUrl:@"flippedwords"];
+    
+    NSDictionary *dict = [data toDictionary];
+    
+    [[self sharedHttpSessionManager] POST:url parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id _Nullable error) {
+        successBlock();
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error ) {
+        failedBlock(error);
+    }];
+}
+
 @end

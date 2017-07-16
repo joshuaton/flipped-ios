@@ -7,6 +7,7 @@
 //
 
 #import "FLBaseService.h"
+#import "FLFlippedWord.h"
 
 @interface FLFlippedWordsService : FLBaseService
 
@@ -16,6 +17,6 @@
 
 +(void)getReceiveFlippedWordsWithSuccessBlock:(void (^)(NSMutableArray *flippedWords))successBlock failBlock:(void (^)(NSError *error))failedBlock;
 
-+(void)publishFlippedWords
++(void)publishFlippedWordsWithData:(FLFlippedWord *)data successBlock:(void (^)())successBlock failBlock:(void (^)(NSError *error))failedBlock;
 
 @end

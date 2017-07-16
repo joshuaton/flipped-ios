@@ -9,6 +9,8 @@
 #import "FLPostViewController.h"
 #import "Masonry.h"
 #import "FLCommHeader.h"
+#import "FLFlippedWord.h"
+#import "FLFlippedWordsService.h"
 
 @interface FLPostViewController()
 
@@ -75,6 +77,23 @@
 #pragma mark - action
 
 -(void)postBtnDidClick{
+    
+    NSString *phoneNum = self.phoneNumTextField.text;
+    NSString *contentStr = self.contentTextView.text;
+    
+    FLFlippedWord *data = [[FLFlippedWord alloc] init];
+    data.sendto = phoneNum;
+    
+    FLContent *content = [[FLContent alloc] init];
+    content.type = @"text";
+    content.text = contentStr;
+    data.contents = [NSArray<FLContent> arrayWithObjects:content, nil];
+    
+    [FLFlippedWordsService publishFlippedWordsWithData:data successBlock:^{
+        NSLog(@"publish success");
+    } failBlock:^(NSError *error) {
+        NSLog(@"publish error : %@", error);
+    }];
     
 }
 

@@ -69,7 +69,8 @@
     //body
     NSString *body = @"";
     if([method isEqualToString:@"POST"]){
-        
+        NSData *tmpData = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:nil];
+        body = [[NSString alloc] initWithData:tmpData encoding:NSUTF8StringEncoding];
     }
     
     //key
