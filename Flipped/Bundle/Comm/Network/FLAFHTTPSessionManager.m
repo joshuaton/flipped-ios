@@ -12,6 +12,7 @@
 #include <CommonCrypto/CommonHMAC.h>
 #import "FLLoginViewController.h"
 #import "FLBaseViewController.h"
+#import "MBProgressHUD.h"
 
 @implementation FLAFHTTPSessionManager
 
@@ -144,9 +145,15 @@
 -(void)handleError:(NSError *)error{
     NSData *data = error.userInfo[@"com.alamofire.serialization.response.error.data"];
     if(data){
-//        NSString *result = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
         NSLog(@"http response result : %@", json[@"err"]);
+        
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[FLBaseViewController currentViewController].view animated:YES];
+        hud.mode = MBProgressHUDModeText;
+        hud.label.text = json[@"err"];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [MBProgressHUD hideHUDForView:[FLBaseViewController currentViewController].view animated:YES];
+        });
     }
 
 }
