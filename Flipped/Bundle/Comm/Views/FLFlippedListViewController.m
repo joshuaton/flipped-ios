@@ -23,7 +23,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
-    self.tableView.frame = CGRectMake(0, -64, self.view.frame.size.width, self.view.frame.size.height+64);
+    self.tableView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
 }
 
 -(void)refreshWithFlippedWords:(NSMutableArray *)filppedWords{

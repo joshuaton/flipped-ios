@@ -16,4 +16,6 @@
 
 +(void)getReceiveFlippedWordsWithSuccessBlock:(void (^)(NSMutableArray *flippedWords))successBlock failBlock:(void (^)(NSError *error))failedBlock;
 
++(void)publishFlippedWords
+
 @end

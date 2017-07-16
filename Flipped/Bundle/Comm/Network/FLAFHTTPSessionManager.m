@@ -94,6 +94,7 @@
     NSString *token = [json base64EncodedString];
     NSLog(@"token: %@", token);
     
+    [self.requestSerializer setValue:uid forHTTPHeaderField:@"x-uid"];
     [self.requestSerializer setValue:token forHTTPHeaderField:@"Authorization"];
 }
 

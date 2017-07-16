@@ -10,6 +10,7 @@
 #import "Masonry.h"
 #import "FLFlippedListViewController.h"
 #import "FLFlippedWordsService.h"
+#import "FLPostViewController.h"
 
 @interface FLMineViewController()
 
@@ -28,10 +29,11 @@
     [super viewDidLoad];
     
     self.title = @"我的";
+    [self configRightNavigationItemWithTitle:@"发布" image:nil action:@selector(postBtnDidClick)];
+
     self.segmentTitles = [NSArray arrayWithObjects:@"我发送的", @"我收到的", nil];
     self.segmentControl.selectedSegmentIndex = 0;
     
-    [self makeConstraints];
     
     [FLFlippedWordsService getSendFlippedWordsWithSuccessBlock:^(NSMutableArray *flippedWords) {
         [self.sendListView refreshWithFlippedWords:flippedWords];
@@ -40,24 +42,31 @@
     }];
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    [self makeConstraints];
+}
+
 -(void)makeConstraints{
     
     [self.segmentControl mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.segmentControl.superview).offset(64+10);
         make.centerX.equalTo(self.segmentControl.superview);
-        make.width.equalTo(self.segmentControl.superview);
+        make.left.equalTo(self.segmentControl.superview).offset(10);
+        make.right.equalTo(self.segmentControl.superview).offset(-10);
         make.height.equalTo(@30);
     }];
     
     [self.sendListView.view mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.segmentControl).offset(10);
+        make.top.equalTo(self.segmentControl.mas_bottom).offset(10);
         make.left.equalTo(self.sendListView.view.superview);
         make.bottom.equalTo(self.sendListView.view);
         make.right.equalTo(self.sendListView.view);
     }];
     
     [self.receiveListView.view mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.segmentControl).offset(10);
+        make.top.equalTo(self.segmentControl.mas_bottom).offset(10);
         make.left.equalTo(self.receiveListView.view.superview);
         make.bottom.equalTo(self.sendListView.view);
         make.right.equalTo(self.sendListView.view);
@@ -92,6 +101,11 @@
     }
 }
 
+-(void)postBtnDidClick{
+    FLPostViewController *vc = [[FLPostViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 
 #pragma mark - getter & setter
 
@@ -109,7 +123,6 @@
         _sendListView = [[FLFlippedListViewController alloc] init];
         [self addChildViewController:_sendListView];
         [self.view addSubview:_sendListView.view];
-        _sendListView.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     }
     return _sendListView;
 }
@@ -119,7 +132,6 @@
         _receiveListView = [[FLFlippedListViewController alloc] init];
         [self addChildViewController:_receiveListView];
         [self.view addSubview:_receiveListView.view];
-        _receiveListView.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     }
     return _receiveListView;
 }

@@ -17,8 +17,6 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:phoneNum forKey:@"x-uid"];
     
-    [[self sharedHttpSessionManager].requestSerializer setValue:phoneNum forHTTPHeaderField:@"x-uid"];
-
     NSString *url = [self getRequestUrl:@"password"];
     
     [[self sharedHttpSessionManager] GET:url parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -26,6 +24,8 @@
         NSLog(@"%@", result);
 
         [defaults setObject:result[@"s"] forKey:@"salt"];
+        
+        successBlock();
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
@@ -50,7 +50,7 @@
     
     [[self sharedHttpSessionManager] GET:url parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"responseObject: %@", responseObject);
-        
+        successBlock();
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         

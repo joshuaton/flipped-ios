@@ -77,7 +77,9 @@
 
 -(void)loginBtnClick{
     [FLUserService loginWithPhoneNum:self.phoneNumTextField.text vertifyCode:self.vertifyCodeTextField.text successBlock:^{
-        
+        [self dismissViewControllerAnimated:YES completion:^{
+            
+        }];
     } failBlock:^(NSError *error) {
         
     }];

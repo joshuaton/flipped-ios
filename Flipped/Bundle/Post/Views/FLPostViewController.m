@@ -72,6 +72,8 @@
     }];
 }
 
+#pragma mark - action
+
 -(void)postBtnDidClick{
     
 }

@@ -12,6 +12,7 @@
 #import "FLFlippedWordCell.h"
 #import "FLPostViewController.h"
 #import "FLFlippedListViewController.h"
+#import "Masonry.h"
 
 @interface FLSquareViewController() 
 
@@ -41,8 +42,19 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
-    self.listView.view.frame = CGRectMake(0, 64, self.view.frame.size.width, self.view.frame.size.height-48-64);
+    [self makeConstraints];
 }
+
+-(void)makeConstraints{
+    [self.listView.view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.listView.view.superview);
+        make.left.equalTo(self.listView.view.superview);
+        make.bottom.equalTo(self.listView.view.superview);
+        make.right.equalTo(self.listView.view.superview);
+    }];
+}
+
+#pragma mark - action
 
 -(void)postBtnDidClick{
     FLPostViewController *vc = [[FLPostViewController alloc] init];
