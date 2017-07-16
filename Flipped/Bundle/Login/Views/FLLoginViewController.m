@@ -10,6 +10,7 @@
 #import "FLCommHeader.h"
 #import "Masonry.h"
 #import "FLUserService.h"
+#import "FLToast.h"
 
 @interface FLLoginViewController()
 
@@ -73,7 +74,9 @@
 -(void)getVertifyBtnClick{
     [FLUserService getVertifyCodeWithWithPhoneNum:self.phoneNumTextField.text successBlock:^{
         
+        [FLToast showToast:@"验证码已经发送到手机"];
     } failBlock:^(NSError *error) {
+        
         
     }];
 }
