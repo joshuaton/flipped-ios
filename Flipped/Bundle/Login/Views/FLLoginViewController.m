@@ -39,12 +39,14 @@
         make.top.equalTo(self.phoneNumTextField.superview).offset(64+10);
         make.left.equalTo(self.phoneNumTextField.superview).offset(10);
         make.right.equalTo(self.phoneNumTextField.superview).offset(-10);
+        make.height.equalTo(self.vertifyCodeTextField);
     }];
     
     [self.getVertifyCodeButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.vertifyCodeTextField);
+        make.top.equalTo(self.phoneNumTextField.mas_bottom).offset(10);
         make.bottom.equalTo(self.vertifyCodeTextField);
         make.right.equalTo(self.getVertifyCodeButton.superview).offset(-10);
+        make.width.equalTo(@150);
     }];
     
     [self.vertifyCodeTextField mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -56,6 +58,7 @@
     [self.loginButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.vertifyCodeTextField.mas_bottom).offset(20);
         make.centerX.equalTo(self.loginButton.superview);
+        make.width.equalTo(@100);
     }];
 }
 
@@ -129,7 +132,6 @@
     if(!_getVertifyCodeButton){
         _getVertifyCodeButton = [[UIButton alloc] init];
         [_getVertifyCodeButton setTitle:@"获取验证码" forState:UIControlStateNormal];
-        [_getVertifyCodeButton sizeToFit];
         [_getVertifyCodeButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         _getVertifyCodeButton.layer.borderWidth = 1;
         _getVertifyCodeButton.layer.borderColor = [UIColor blackColor].CGColor;
