@@ -11,7 +11,6 @@
 
 @interface FLBaseService : NSObject
 
-+(NSString *)getRequestUrl:(NSString *)path;
 
 +(FLAFHTTPSessionManager *)sharedHttpSessionManager;
 

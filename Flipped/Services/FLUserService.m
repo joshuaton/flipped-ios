@@ -17,9 +17,7 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:phoneNum forKey:@"x-uid"];
     
-    NSString *url = [self getRequestUrl:@"password"];
-    
-    [[self sharedHttpSessionManager] GET:url parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [[self sharedHttpSessionManager] GET:@"password" parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary *result = (NSDictionary *)responseObject;
         NSLog(@"%@", result);
 
@@ -45,10 +43,8 @@
     NSString *str = [NSString stringWithFormat:@"%@%@", phoneNum, passwordSaltMd5];
     NSString *key = [str MD5];
     [defaults setObject:key forKey:@"key"];
-    
-    NSString *url = [self getRequestUrl:@"login"];
-    
-    [[self sharedHttpSessionManager] GET:url parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+    [[self sharedHttpSessionManager] GET:@"login" parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"responseObject: %@", responseObject);
         successBlock();
         

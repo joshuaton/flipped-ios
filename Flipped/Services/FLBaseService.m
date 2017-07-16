@@ -17,19 +17,19 @@ static FLAFHTTPSessionManager *manager;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         
-        manager = [FLAFHTTPSessionManager manager];
+        NSURL *baseURL = [NSURL URLWithString:@"http://119.29.156.112/"];
+        
+        manager = [[FLAFHTTPSessionManager alloc] initWithBaseURL:baseURL];
         manager.requestSerializer = [AFJSONRequestSerializer serializer];
         [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
         
         manager.responseSerializer = [AFJSONResponseSerializer serializer];
         manager.responseSerializer.acceptableContentTypes= [NSSet setWithObjects:@"text/html", @"application/json", nil];
+        
+
     });
     
     return manager;
-}
-
-+(NSString *)getRequestUrl:(NSString *)path{
-    return [NSString stringWithFormat:@"http://119.29.156.112/%@", path];
 }
 
 

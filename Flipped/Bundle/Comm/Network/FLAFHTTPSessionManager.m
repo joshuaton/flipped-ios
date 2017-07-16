@@ -25,7 +25,10 @@
     return [self GET:URLString parameters:parameters progress:^(NSProgress * _Nonnull downloadProgress) {} success:success failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
         [self handleStatusCode:task];
+        [self handleError:error];
+        
         if(failure){
+            NSLog(@"http response error: %@", error);
             failure(task, error);
         }
     }];
@@ -38,6 +41,8 @@
     return [self POST:URLString parameters:parameters progress:^(NSProgress * _Nonnull uploadProgress) {} success:success failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
         [self handleStatusCode:task];
+        [self handleError:error];
+        
         if(failure){
             failure(task, error);
         }
@@ -131,8 +136,19 @@
     }
     
     if(statusCode != 200){
-        NSLog(@"statusCode : %ld", statusCode);
+        NSError *error = task.error;
+        NSLog(@"statusCode : %ld error: %@", statusCode, error);
     }
+}
+
+-(void)handleError:(NSError *)error{
+    NSData *data = error.userInfo[@"com.alamofire.serialization.response.error.data"];
+    if(data){
+//        NSString *result = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+        NSLog(@"http response result : %@", json[@"err"]);
+    }
+
 }
 
 
