@@ -23,6 +23,7 @@
 		FB6173AF1F1112D0009649E2 /* FLPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6173A61F1112D0009649E2 /* FLPostViewController.m */; };
 		FB6173B01F1112D0009649E2 /* FLSquareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6173AA1F1112D0009649E2 /* FLSquareViewController.m */; };
 		FB6173B31F11146A009649E2 /* FLContent.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6173B21F11146A009649E2 /* FLContent.m */; };
+		FB7CF6D61F1BA84200CD9F5C /* FLToast.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7CF6D51F1BA84200CD9F5C /* FLToast.m */; };
 		FBB917751F1252C5000C7353 /* FLFlippedWordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FBB917741F1252C5000C7353 /* FLFlippedWordCell.m */; };
 		FBB9177C1F1254DA000C7353 /* flipped_content_pic@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FBB917761F1254DA000C7353 /* flipped_content_pic@2x.png */; };
 		FBB9177D1F1254DA000C7353 /* flipped_content_video@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FBB917771F1254DA000C7353 /* flipped_content_video@2x.png */; };
@@ -69,6 +70,8 @@
 		FB6173AA1F1112D0009649E2 /* FLSquareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLSquareViewController.m; sourceTree = "<group>"; };
 		FB6173B11F11145C009649E2 /* FLContent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLContent.h; sourceTree = "<group>"; };
 		FB6173B21F11146A009649E2 /* FLContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLContent.m; sourceTree = "<group>"; };
+		FB7CF6D41F1BA83600CD9F5C /* FLToast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLToast.h; sourceTree = "<group>"; };
+		FB7CF6D51F1BA84200CD9F5C /* FLToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLToast.m; sourceTree = "<group>"; };
 		FBB917731F1252B9000C7353 /* FLFlippedWordCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLFlippedWordCell.h; sourceTree = "<group>"; };
 		FBB917741F1252C5000C7353 /* FLFlippedWordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLFlippedWordCell.m; sourceTree = "<group>"; };
 		FBB917761F1254DA000C7353 /* flipped_content_pic@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flipped_content_pic@2x.png"; sourceTree = "<group>"; };
@@ -331,6 +334,8 @@
 				FBCD22281F1A0F8100D8B718 /* NSString+MD5.m */,
 				FBCD222A1F1A21E200D8B718 /* NSString+Base64.h */,
 				FBCD222B1F1A21EB00D8B718 /* NSString+Base64.m */,
+				FB7CF6D41F1BA83600CD9F5C /* FLToast.h */,
+				FB7CF6D51F1BA84200CD9F5C /* FLToast.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -492,6 +497,7 @@
 				FBCD22291F1A0F8100D8B718 /* NSString+MD5.m in Sources */,
 				FB6173AC1F1112D0009649E2 /* FLBaseViewController.m in Sources */,
 				FB6173B31F11146A009649E2 /* FLContent.m in Sources */,
+				FB7CF6D61F1BA84200CD9F5C /* FLToast.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
