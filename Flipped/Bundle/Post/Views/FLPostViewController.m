@@ -11,6 +11,7 @@
 #import "FLCommHeader.h"
 #import "FLFlippedWord.h"
 #import "FLFlippedWordsService.h"
+#import "FLToast.h"
 
 @interface FLPostViewController()
 
@@ -80,6 +81,11 @@
     
     NSString *phoneNum = self.phoneNumTextField.text;
     NSString *contentStr = self.contentTextView.text;
+    contentStr = [contentStr stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    if(!contentStr || contentStr.length == 0){
+        [FLToast showToast:@"内容不能为空"];
+        return;
+    }
     
     FLFlippedWord *data = [[FLFlippedWord alloc] init];
     data.sendto = phoneNum;
