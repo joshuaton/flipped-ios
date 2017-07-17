@@ -9,6 +9,7 @@
 #import "FLFlippedListViewController.h"
 #import "FLFlippedWordCell.h"
 #import "FLFlippedWordsService.h"
+#import "MJRefresh.h"
 
 @interface FLFlippedListViewController() <UITableViewDataSource, UITableViewDelegate>
 
@@ -20,16 +21,62 @@
 
 @implementation FLFlippedListViewController
 
+-(void)viewDidLoad{
+    [super viewDidLoad];
+    
+    [self loadData];
+}
+
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
     self.tableView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
 }
 
--(void)refreshWithFlippedWords:(NSMutableArray *)filppedWords{
-    self.flippedWords = filppedWords;
+#pragma mark - private
+
+-(void)loadData{
     
-    [self.tableView reloadData];
+    switch (self.listType) {
+        case FLFlippedListTypeSquare:
+        {
+            [FLFlippedWordsService getNearbyFlippedWordsWithSuccessBlock:^(NSMutableArray *flippedWords) {
+                self.flippedWords = flippedWords;
+                
+                [self.tableView reloadData];
+            } failBlock:^(NSError *error) {
+                NSLog(@"error %@", error);
+            }];
+
+            break;
+        }
+        case FLFlippedListTypeSend:
+        {
+            [FLFlippedWordsService getSendFlippedWordsWithSuccessBlock:^(NSMutableArray *flippedWords) {
+                self.flippedWords = flippedWords;
+                
+                [self.tableView reloadData];
+            } failBlock:^(NSError *error) {
+                NSLog(@"error %@", error);
+            }];
+            
+            break;
+        }
+        case FLFlippedListTypeReceive:
+        {
+            [FLFlippedWordsService getReceiveFlippedWordsWithSuccessBlock:^(NSMutableArray *flippedWords) {
+                self.flippedWords = flippedWords;
+                
+                [self.tableView reloadData];
+            } failBlock:^(NSError *error) {
+                NSLog(@"error %@", error);
+            }];
+            
+            break;
+        }
+        default:
+            break;
+    }
 }
 
 #pragma mark - UITableViewDataSource
@@ -63,6 +110,15 @@
         _tableView.dataSource = self;
         _tableView.delegate = self;
         [_tableView registerClass:[FLFlippedWordCell class] forCellReuseIdentifier:NSStringFromClass([FLFlippedWordCell class])];
+        
+        _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+            
+        }];
+        
+        _tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+            
+        }];
+        
         [self.view addSubview:_tableView];
     }
     return _tableView;

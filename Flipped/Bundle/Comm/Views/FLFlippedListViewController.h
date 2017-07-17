@@ -9,8 +9,14 @@
 #import "FLBaseViewController.h"
 #import "FLFlippedWord.h"
 
+typedef NS_ENUM(NSUInteger, FLFlippedListType) {
+    FLFlippedListTypeSquare = 0,
+    FLFlippedListTypeSend,
+    FLFlippedListTypeReceive
+};
+
 @interface FLFlippedListViewController : FLBaseViewController
 
--(void)refreshWithFlippedWords:(NSMutableArray *)filppedWords;
+@property (nonatomic, assign) NSInteger listType;
 
 @end

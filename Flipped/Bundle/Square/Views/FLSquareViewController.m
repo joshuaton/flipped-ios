@@ -31,12 +31,7 @@
     [self configRightNavigationItemWithTitle:@"发布" image:nil action:@selector(postBtnDidClick)];
     
     
-    [FLFlippedWordsService getNearbyFlippedWordsWithSuccessBlock:^(NSMutableArray *flippedWords) {
-        self.flippedWords = flippedWords;
-        [self.listView refreshWithFlippedWords:self.flippedWords];
-    } failBlock:^(NSError *error) {
-        NSLog(@"error %@", error);
-    }];
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -66,6 +61,7 @@
 -(FLFlippedListViewController *)listView{
     if(!_listView){
         _listView = [[FLFlippedListViewController alloc] init];
+        _listView.listType = FLFlippedListTypeSquare;
         [self addChildViewController:_listView];
         [self.view addSubview:_listView.view];
     }

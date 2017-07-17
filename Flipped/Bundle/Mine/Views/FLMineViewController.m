@@ -33,13 +33,11 @@
 
     self.segmentTitles = [NSArray arrayWithObjects:@"我发送的", @"我收到的", nil];
     self.segmentControl.selectedSegmentIndex = 0;
+    self.sendListView.view.hidden = NO;
+    self.receiveListView.view.hidden = YES;
     
     
-    [FLFlippedWordsService getSendFlippedWordsWithSuccessBlock:^(NSMutableArray *flippedWords) {
-        [self.sendListView refreshWithFlippedWords:flippedWords];
-    } failBlock:^(NSError *error) {
-        NSLog(@"%@", error);
-    }];
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -80,20 +78,14 @@
     switch (sender.selectedSegmentIndex) {
         case 0:
         {
-            [FLFlippedWordsService getSendFlippedWordsWithSuccessBlock:^(NSMutableArray *flippedWords) {
-                [self.sendListView refreshWithFlippedWords:flippedWords];
-            } failBlock:^(NSError *error) {
-                NSLog(@"%@", error);
-            }];
+            self.sendListView.view.hidden = NO;
+            self.receiveListView.view.hidden = YES;
             break;
         }
         case 1:
         {
-            [FLFlippedWordsService getReceiveFlippedWordsWithSuccessBlock:^(NSMutableArray *flippedWords) {
-                [self.sendListView refreshWithFlippedWords:flippedWords];
-            } failBlock:^(NSError *error) {
-                NSLog(@"%@", error);
-            }];
+            self.sendListView.view.hidden = YES;
+            self.receiveListView.view.hidden = NO;
             break;
         }
         default:
@@ -121,6 +113,7 @@
 -(FLFlippedListViewController *)sendListView{
     if(!_sendListView){
         _sendListView = [[FLFlippedListViewController alloc] init];
+        _sendListView.listType = FLFlippedListTypeSend;
         [self addChildViewController:_sendListView];
         [self.view addSubview:_sendListView.view];
     }
@@ -130,6 +123,7 @@
 -(FLFlippedListViewController *)receiveListView{
     if(!_receiveListView){
         _receiveListView = [[FLFlippedListViewController alloc] init];
+        _receiveListView.listType = FLFlippedListTypeReceive;
         [self addChildViewController:_receiveListView];
         [self.view addSubview:_receiveListView.view];
     }
