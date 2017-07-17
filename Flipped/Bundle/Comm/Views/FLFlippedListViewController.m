@@ -10,6 +10,7 @@
 #import "FLFlippedWordCell.h"
 #import "FLFlippedWordsService.h"
 #import "MJRefresh.h"
+#import "Masonry.h"
 
 @interface FLFlippedListViewController() <UITableViewDataSource, UITableViewDelegate>
 
@@ -30,7 +31,13 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
-    self.tableView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.tableView.superview);
+        make.left.equalTo(self.tableView.superview);
+        make.bottom.equalTo(self.tableView.superview);
+        make.right.equalTo(self.tableView.superview);
+    }];
+    
 }
 
 #pragma mark - private

@@ -59,15 +59,15 @@
     [self.sendListView.view mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.segmentControl.mas_bottom).offset(10);
         make.left.equalTo(self.sendListView.view.superview);
-        make.bottom.equalTo(self.sendListView.view);
-        make.right.equalTo(self.sendListView.view);
+        make.bottom.equalTo(self.sendListView.view.superview);
+        make.right.equalTo(self.sendListView.view.superview);
     }];
     
     [self.receiveListView.view mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.segmentControl.mas_bottom).offset(10);
         make.left.equalTo(self.receiveListView.view.superview);
-        make.bottom.equalTo(self.sendListView.view);
-        make.right.equalTo(self.sendListView.view);
+        make.bottom.equalTo(self.sendListView.view.superview);
+        make.right.equalTo(self.sendListView.view.superview);
     }];
 }
 
