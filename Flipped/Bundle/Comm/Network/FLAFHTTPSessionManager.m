@@ -69,8 +69,7 @@
     NSLog(@"rd: %ld", rd);
     
     //请求uri
-    NSURL *url = [NSURL URLWithString:urlStr];
-    NSString *uri = url.path;
+    NSString *uri = [NSString stringWithFormat:@"/%@", urlStr];
     
     //body
     NSString *body = @"";
