@@ -44,8 +44,12 @@
                 self.flippedWords = flippedWords;
                 
                 [self.tableView reloadData];
+                
+                [self endRefresh];
             } failBlock:^(NSError *error) {
                 NSLog(@"error %@", error);
+                
+                [self endRefresh];
             }];
 
             break;
@@ -56,8 +60,12 @@
                 self.flippedWords = flippedWords;
                 
                 [self.tableView reloadData];
+                
+                [self endRefresh];
             } failBlock:^(NSError *error) {
                 NSLog(@"error %@", error);
+                
+                [self endRefresh];
             }];
             
             break;
@@ -68,8 +76,12 @@
                 self.flippedWords = flippedWords;
                 
                 [self.tableView reloadData];
+                
+                [self endRefresh];
             } failBlock:^(NSError *error) {
                 NSLog(@"error %@", error);
+                
+                [self endRefresh];
             }];
             
             break;
@@ -77,6 +89,11 @@
         default:
             break;
     }
+}
+
+-(void)endRefresh{
+    [self.tableView.mj_header endRefreshing];
+    [self.tableView.mj_footer endRefreshing];
 }
 
 #pragma mark - UITableViewDataSource
@@ -112,12 +129,13 @@
         [_tableView registerClass:[FLFlippedWordCell class] forCellReuseIdentifier:NSStringFromClass([FLFlippedWordCell class])];
         
         _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-            
+            [self.flippedWords removeAllObjects];
+            [self loadData];
         }];
         
-        _tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-            
-        }];
+//        _tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+//            
+//        }];
         
         [self.view addSubview:_tableView];
     }
