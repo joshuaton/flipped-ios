@@ -94,8 +94,13 @@
 }
 
 -(void)postBtnDidClick{
+    
     FLPostViewController *vc = [[FLPostViewController alloc] init];
-    [self.navigationController pushViewController:vc animated:YES];
+    UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:vc];
+    [self.navigationController presentViewController:navi animated:YES completion:^{
+        
+    }];
+    
 }
 
 

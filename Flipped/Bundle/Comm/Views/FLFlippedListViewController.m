@@ -15,6 +15,7 @@
 @interface FLFlippedListViewController() <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) UILabel *emptyLabel;
 
 @property (nonatomic, strong) NSMutableArray *flippedWords;
 
@@ -31,6 +32,16 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
+    [self makeConstraints];
+    
+    self.emptyLabel.hidden = YES;
+    
+}
+
+#pragma mark - private
+
+-(void)makeConstraints{
+    
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.tableView.superview);
         make.left.equalTo(self.tableView.superview);
@@ -38,9 +49,10 @@
         make.right.equalTo(self.tableView.superview);
     }];
     
+    [self.emptyLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.equalTo(self.tableView);
+    }];
 }
-
-#pragma mark - private
 
 -(void)loadData{
     
@@ -50,13 +62,11 @@
             [FLFlippedWordsService getNearbyFlippedWordsWithSuccessBlock:^(NSMutableArray *flippedWords) {
                 self.flippedWords = flippedWords;
                 
-                [self.tableView reloadData];
-                
-                [self endRefresh];
+                [self showData];
             } failBlock:^(NSError *error) {
                 NSLog(@"error %@", error);
                 
-                [self endRefresh];
+                [self showData];
             }];
 
             break;
@@ -66,13 +76,11 @@
             [FLFlippedWordsService getSendFlippedWordsWithSuccessBlock:^(NSMutableArray *flippedWords) {
                 self.flippedWords = flippedWords;
                 
-                [self.tableView reloadData];
-                
-                [self endRefresh];
+                [self showData];
             } failBlock:^(NSError *error) {
                 NSLog(@"error %@", error);
                 
-                [self endRefresh];
+                [self showData];
             }];
             
             break;
@@ -82,13 +90,11 @@
             [FLFlippedWordsService getReceiveFlippedWordsWithSuccessBlock:^(NSMutableArray *flippedWords) {
                 self.flippedWords = flippedWords;
                 
-                [self.tableView reloadData];
-                
-                [self endRefresh];
+                [self showData];
             } failBlock:^(NSError *error) {
                 NSLog(@"error %@", error);
                 
-                [self endRefresh];
+                [self showData];
             }];
             
             break;
@@ -96,6 +102,22 @@
         default:
             break;
     }
+}
+
+-(void)showData{
+    if(self.flippedWords.count == 0){
+        self.emptyLabel.hidden = NO;
+        self.tableView.hidden = YES;
+    }else{
+        self.emptyLabel.hidden = YES;
+        self.tableView.hidden = NO;
+        [self.tableView reloadData];
+    }
+    
+    [self.tableView reloadData];
+    
+    [self endRefresh];
+
 }
 
 -(void)endRefresh{
@@ -147,6 +169,15 @@
         [self.view addSubview:_tableView];
     }
     return _tableView;
+}
+
+-(UILabel *)emptyLabel{
+    if(!_emptyLabel){
+        _emptyLabel = [[UILabel alloc] init];
+        _emptyLabel.text = @"暂无内容";
+        [self.view addSubview:_emptyLabel];
+    }
+    return _emptyLabel;
 }
 
 

@@ -31,6 +31,7 @@
 
     self.title = @"发布动心话";
     [self configRightNavigationItemWithTitle:@"发布" image:nil action:@selector(postBtnDidClick)];
+    [self configLeftNavigationItemWithTitle:@"关闭" image:nil action:@selector(closeBtnDidClick)];
     
     [self makeConstraints];
 }
@@ -101,6 +102,12 @@
         NSLog(@"publish error : %@", error);
     }];
     
+}
+
+-(void)closeBtnDidClick{
+    [self.navigationController dismissViewControllerAnimated:YES completion:^{
+        
+    }];
 }
 
 #pragma mark - getter & setter
