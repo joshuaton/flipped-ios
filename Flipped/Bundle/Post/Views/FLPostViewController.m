@@ -24,6 +24,7 @@
 @property (nonatomic, strong) UIView *addPicView;
 @property (nonatomic, strong) UIImageView *addPicImageView;
 @property (nonatomic, strong) UILabel *addPicLabel;
+@property (nonatomic, strong) UIImageView *selectedImageView;
 
 @end
 
@@ -35,6 +36,8 @@
     self.title = @"发布动心话";
     [self configRightNavigationItemWithTitle:@"发布" image:nil action:@selector(postBtnDidClick)];
     [self configLeftNavigationItemWithTitle:@"关闭" image:nil action:@selector(closeBtnDidClick)];
+    
+    self.selectedImageView.hidden = YES;
     
     [self makeConstraints];
 }
@@ -87,6 +90,13 @@
         make.top.equalTo(self.addPicImageView.mas_bottom);
         make.centerX.equalTo(self.addPicImageView.mas_centerX);
     }];
+    
+    [self.selectedImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.contentTextView.mas_bottom).offset(10);
+        make.left.equalTo(self.contentTextView);
+        make.bottom.equalTo(self.selectedImageView.superview);
+        make.right.equalTo(self.contentTextView);
+    }];
 }
 
 #pragma mark - action
@@ -107,13 +117,40 @@
     FLContent *content = [[FLContent alloc] init];
     content.type = @"text";
     content.text = contentStr;
-    data.contents = [NSArray<FLContent> arrayWithObjects:content, nil];
     
-    [FLFlippedWordsService publishFlippedWordsWithData:data successBlock:^{
-        NSLog(@"publish success");
-    } failBlock:^(NSError *error) {
-        NSLog(@"publish error : %@", error);
-    }];
+    NSMutableArray<FLContent> *contentArr = [[NSMutableArray<FLContent> alloc] init];
+    [contentArr addObject:content];
+    data.contents = contentArr;
+    
+    if(self.selectedImageView.image){
+        
+        [FLCloudService getYoutuSigWithSuccessBlock:^(NSString *sig) {
+            [FLCloudService uploadImage:self.selectedImageView.image withSuccessBlock:^(NSString *url) {
+                
+                FLContent *picContent = [[FLContent alloc] init];
+                picContent.type = @"picture";
+                picContent.text = url;
+                [contentArr addObject:picContent];
+                
+                [FLFlippedWordsService publishFlippedWordsWithData:data successBlock:^{
+                    NSLog(@"publish success");
+                } failBlock:^(NSError *error) {
+                    NSLog(@"publish error : %@", error);
+                }];
+            } failBlock:^(NSError *error) {
+                
+            }];
+        } failBlock:^(NSError *error) {
+            
+        }];
+    }else{
+        
+        [FLFlippedWordsService publishFlippedWordsWithData:data successBlock:^{
+            NSLog(@"publish success");
+        } failBlock:^(NSError *error) {
+            NSLog(@"publish error : %@", error);
+        }];
+    }
     
 }
 
@@ -172,16 +209,38 @@
     [self presentViewController:alertController animated:YES completion:nil];
 }
 
-#pragma mark - private
--(void)addImage:(UIImage *)image{
-   [FLCloudService getYoutuSigWithSuccessBlock:^(NSString *sig) {
-       
-   } failBlock:^(NSError *error) {
-       
-   }];
+-(void)selectedImageClick{
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"是否删除图片" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    UIAlertAction *deletePhotoAction = [UIAlertAction actionWithTitle:@"删除图片" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    
+        self.selectedImageView.image = nil;
+        self.selectedImageView.hidden = YES;
+        self.addPicView.hidden = NO;
+    }];
+    
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    
+    [alertController addAction:deletePhotoAction];
+    [alertController addAction:cancelAction];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+
 }
 
+#pragma mark - private
 
+-(void)showImage:(UIImage *)image{
+    
+    self.selectedImageView.hidden = NO;
+    self.addPicView.hidden = YES;
+    
+    self.selectedImageView.image = image;
+    
+
+}
 
 #pragma mark - UIImagePickerControllerDelegate
 
@@ -191,7 +250,7 @@
     }];
     
     UIImage *image = [info objectForKey:UIImagePickerControllerEditedImage];
-    [self addImage:image];
+    [self showImage:image];
     NSLog(@"did select image");
 }
 
@@ -271,6 +330,19 @@
         [self.addPicView addSubview:_addPicLabel];
     }
     return _addPicLabel;
+}
+
+-(UIImageView *)selectedImageView{
+    if(!_selectedImageView){
+        _selectedImageView = [[UIImageView alloc] init];
+        _selectedImageView.contentMode = UIViewContentModeScaleAspectFit;
+        
+        _selectedImageView.userInteractionEnabled = YES;
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selectedImageClick)];
+        [_selectedImageView addGestureRecognizer:tap];
+        [self.view addSubview:_selectedImageView];
+    }
+    return _selectedImageView;
 }
 
 @end
