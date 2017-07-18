@@ -12,8 +12,9 @@
 #import "FLFlippedWord.h"
 #import "FLFlippedWordsService.h"
 #import "FLToast.h"
+#import "FLCloudService.h"
 
-@interface FLPostViewController()
+@interface FLPostViewController() <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 @property (nonatomic, strong) UILabel *tipsLabel;
 @property (nonatomic, strong) UILabel *phoneNumLabel;
@@ -21,6 +22,8 @@
 @property (nonatomic, strong) UILabel *contentLabel;
 @property (nonatomic, strong) UITextView *contentTextView;
 @property (nonatomic, strong) UIView *addPicView;
+@property (nonatomic, strong) UIImageView *addPicImageView;
+@property (nonatomic, strong) UILabel *addPicLabel;
 
 @end
 
@@ -72,7 +75,17 @@
         make.top.equalTo(self.contentTextView.mas_bottom).offset(10);
         make.left.equalTo(self.contentTextView);
         make.right.equalTo(self.contentTextView);
-        make.height.equalTo(@100);
+        make.height.equalTo(@200);
+    }];
+    
+    [self.addPicImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.addPicImageView.superview);
+        make.centerX.equalTo(self.addPicImageView.superview);
+    }];
+    
+    [self.addPicLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.addPicImageView.mas_bottom);
+        make.centerX.equalTo(self.addPicImageView.mas_centerX);
     }];
 }
 
@@ -109,6 +122,80 @@
         
     }];
 }
+
+-(void)addPicClick{
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"上传图片" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    UIAlertAction *takePhotoAction = [UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        if(![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
+            [FLToast showToast:@"不支持拍照"];
+            return;
+        }
+        
+        UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+        imagePickerController.delegate = self;
+        imagePickerController.allowsEditing = YES;
+        imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+        [self presentViewController:imagePickerController animated:YES completion:^{
+            
+        }];
+    }];
+    
+    UIAlertAction *selectPhotoAction = [UIAlertAction actionWithTitle:@"从相册选择" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        if(![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeSavedPhotosAlbum]){
+            [FLToast showToast:@"不支持读取相册"];
+            return;
+        }
+        
+        UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+        imagePickerController.delegate = self;
+        imagePickerController.allowsEditing = YES;
+        imagePickerController.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+        [self presentViewController:imagePickerController animated:YES completion:^{
+            
+        }];
+    }];
+    
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    
+    [alertController addAction:takePhotoAction];
+    [alertController addAction:selectPhotoAction];
+    [alertController addAction:cancelAction];
+    
+    
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+#pragma mark - private
+-(void)addImage:(UIImage *)image{
+   [FLCloudService getYoutuSigWithSuccessBlock:^(NSString *sig) {
+       
+   } failBlock:^(NSError *error) {
+       
+   }];
+}
+
+
+
+#pragma mark - UIImagePickerControllerDelegate
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
+    [picker dismissViewControllerAnimated:YES completion:^{
+        
+    }];
+    
+    UIImage *image = [info objectForKey:UIImagePickerControllerEditedImage];
+    [self addImage:image];
+    NSLog(@"did select image");
+}
+
+
 
 #pragma mark - getter & setter
 
@@ -161,10 +248,29 @@
 -(UIView *)addPicView{
     if(!_addPicView){
         _addPicView = [[UIView alloc] init];
-        _addPicView.backgroundColor = [UIColor blackColor];
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addPicClick)];
+        [_addPicView addGestureRecognizer:tap];
         [self.view addSubview:_addPicView];
     }
     return _addPicView;
+}
+
+-(UIImageView *)addPicImageView{
+    if(!_addPicImageView){
+        _addPicImageView = [[UIImageView alloc] init];
+        _addPicImageView.image = [UIImage imageNamed:@"flipped_post_add_pic"];
+        [self.addPicView addSubview:_addPicImageView];
+    }
+    return _addPicImageView;
+}
+
+-(UILabel *)addPicLabel{
+    if(!_addPicLabel){
+        _addPicLabel = [[UILabel alloc] init];
+        _addPicLabel.text = @"添加图片";
+        [self.addPicView addSubview:_addPicLabel];
+    }
+    return _addPicLabel;
 }
 
 @end
