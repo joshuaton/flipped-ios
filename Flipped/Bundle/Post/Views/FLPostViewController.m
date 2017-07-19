@@ -127,6 +127,8 @@
     
     if(self.selectedImageView.image){
         
+        [FLToast showLoading:@"发表中..."];
+        
         [FLCloudService uploadImage:self.selectedImageView.image withSuccessBlock:^(NSString *url) {
             
             FLContent *picContent = [[FLContent alloc] init];
@@ -138,9 +140,10 @@
                 [self publishSuccess];
             } failBlock:^(NSError *error) {
                 NSLog(@"publish error : %@", error);
+                [FLToast hideLoading];
             }];
         } failBlock:^(NSError *error) {
-            
+            [FLToast hideLoading];
         }];
        
     }else{
@@ -149,6 +152,7 @@
             [self publishSuccess];
         } failBlock:^(NSError *error) {
             NSLog(@"publish error : %@", error);
+            [FLToast hideLoading];
         }];
     }
     
@@ -242,6 +246,7 @@
 
 -(void)publishSuccess{
     
+    [FLToast hideLoading];
     [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_POST_SUCCESS object:self userInfo:nil];
     
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];

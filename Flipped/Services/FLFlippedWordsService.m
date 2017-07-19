@@ -33,7 +33,7 @@
 
 +(void)getSendFlippedWordsWithSuccessBlock:(void (^)(NSMutableArray *flippedWords))successBlock failBlock:(void (^)(NSError *error))failedBlock{
     
-    [[self sharedHttpSessionManager] GET:@"mypub_flippedwords" parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [[self sharedHttpSessionManager] GET:@"mypub_flippedwords" parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id _Nullable responseObject) {
         NSDictionary *result = (NSDictionary *)responseObject;
         NSError *error;
         NSMutableArray *modelArray = [FLFlippedWord arrayOfModelsFromDictionaries:result[@"flippedwords"] error:&error];
@@ -47,7 +47,7 @@
 
 +(void)getReceiveFlippedWordsWithSuccessBlock:(void (^)(NSMutableArray *flippedWords))successBlock failBlock:(void (^)(NSError *error))failedBlock{
     
-    [[self sharedHttpSessionManager] GET:@"my_flippedwords" parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [[self sharedHttpSessionManager] GET:@"my_flippedwords" parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id _Nullable responseObject) {
         NSDictionary *result = (NSDictionary *)responseObject;
         NSError *error;
         NSMutableArray *modelArray = [FLFlippedWord arrayOfModelsFromDictionaries:result[@"flippedwords"] error:&error];
@@ -69,6 +69,22 @@
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error ) {
         failedBlock(error);
     }];
+}
+
++(void)getFlippedWordsDetailWithId:(NSString *)flippedId successBlock:(void (^)(FLFlippedWord *data))successBlock failBlock:(void (^)(NSError *error))failedBlock{
+    
+    NSString *url = [NSString stringWithFormat:@"flippedwords/%@", flippedId];
+    
+    [[self sharedHttpSessionManager] GET:url parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id _Nullable responseObject) {
+        NSDictionary *result = (NSDictionary *)responseObject;
+        NSError *error;
+        NSMutableArray *modelArray = [FLFlippedWord arrayOfModelsFromDictionaries:@[result] error:&error];
+        
+        successBlock(modelArray[0]);
+    } failure:^(NSURLSessionDataTask * _Nullable task , NSError * _Nonnull error) {
+        failedBlock(error);
+    }];
+    
 }
 
 @end

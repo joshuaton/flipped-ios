@@ -14,7 +14,7 @@
 
 @interface FLFlippedWord : JSONModel
 
-@property (nonatomic, assign) NSInteger id;
+@property (nonatomic, copy) NSString *id;
 @property (nonatomic, copy) NSString *sendto;
 @property (nonatomic, assign) CGFloat lat;
 @property (nonatomic, assign) CGFloat lng;

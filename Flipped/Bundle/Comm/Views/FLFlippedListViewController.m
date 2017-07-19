@@ -12,6 +12,7 @@
 #import "MJRefresh.h"
 #import "Masonry.h"
 #import "FLCommHeader.h"
+#import "FLFlippedDetailViewController.h"
 
 @interface FLFlippedListViewController() <UITableViewDataSource, UITableViewDelegate>
 
@@ -155,6 +156,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    FLFlippedDetailViewController *vc = [[FLFlippedDetailViewController alloc] init];
+    FLFlippedWord *data = self.flippedWords[indexPath.row];
+    vc.flippedId = data.id;
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{

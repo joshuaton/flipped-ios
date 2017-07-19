@@ -18,9 +18,10 @@
 
 - (NSURLSessionDataTask *)GET:(NSString *)URLString
                    parameters:(id)parameters
-                      success:(void (^)(NSURLSessionDataTask * _Nonnull, id _Nullable))success
-                      failure:(void (^)(NSURLSessionDataTask * _Nullable, NSError * _Nonnull))failure
-{
+                      success:(void (^)(NSURLSessionDataTask * task, id responseObject))success
+                      failure:(void (^)(NSURLSessionDataTask * task, NSError * error))failure{
+    
+
     [self calTokenWithURL:URLString method:@"GET" parameters:parameters];
     
     return [self GET:URLString parameters:parameters progress:^(NSProgress * _Nonnull downloadProgress) {} success:success failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -35,7 +36,7 @@
     }];
 }
 
--(NSURLSessionDataTask *)POST:(NSString *)URLString parameters:(id)parameters success:(void (^)(NSURLSessionDataTask * _Nonnull, id _Nullable))success failure:(void (^)(NSURLSessionDataTask * _Nullable, NSError * _Nonnull))failure{
+-(NSURLSessionDataTask *)POST:(NSString *)URLString parameters:(id)parameters success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask * task, NSError * error))failure{
     
     [self calTokenWithURL:URLString method:@"POST" parameters:parameters];
     
@@ -57,6 +58,7 @@
     //uid
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *uid = [defaults objectForKey:@"x-uid"];
+    [self.requestSerializer setValue:uid forHTTPHeaderField:@"x-uid"];
     
     //获取本地毫秒数ts
     NSTimeInterval nowtime = [[NSDate date] timeIntervalSince1970]*1000;
@@ -81,6 +83,9 @@
     //key
     NSString *key = [defaults objectForKey:@"key"];
     NSLog(@"hmacsha1 key: %@", key);
+    if(!key || key.length == 0){
+        return;
+    }
     
     //计算signature = base64(hmacsha1(key, phone + ts + rd + method + uri + body))
     NSString *str = [NSString stringWithFormat:@"%@%@%ld%@%@%@", uid, ts, rd, method, uri, body];
@@ -100,7 +105,6 @@
     NSString *token = [json base64EncodedString];
     NSLog(@"token: %@", token);
     
-    [self.requestSerializer setValue:uid forHTTPHeaderField:@"x-uid"];
     [self.requestSerializer setValue:token forHTTPHeaderField:@"Authorization"];
 }
 

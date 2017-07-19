@@ -21,4 +21,14 @@
     });
 }
 
++(void)showLoading:(NSString *)text{
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[FLBaseViewController currentViewController].view animated:YES];
+    hud.mode = MBProgressHUDModeAnnularDeterminate;
+    hud.label.text = text;
+}
+
++(void)hideLoading{
+    [MBProgressHUD hideHUDForView:[FLBaseViewController currentViewController].view animated:YES];
+}
+
 @end

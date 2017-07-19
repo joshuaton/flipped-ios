@@ -15,6 +15,7 @@
 		45D272461F0B43BC00AF180E /* comm_tab_mine_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45D272421F0B43BC00AF180E /* comm_tab_mine_selected@2x.png */; };
 		45D272471F0B43BC00AF180E /* comm_tab_square@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45D272431F0B43BC00AF180E /* comm_tab_square@2x.png */; };
 		45D272481F0B43BC00AF180E /* comm_tab_square_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45D272441F0B43BC00AF180E /* comm_tab_square_selected@2x.png */; };
+		45F1C8BF1F1F2A6100A3B74C /* FLFlippedDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F1C8BE1F1F2A6100A3B74C /* FLFlippedDetailViewController.m */; };
 		583FCBD6E2C5D728117751C6 /* libPods-Flipped.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A6CB62EA12AEAE674DF275B1 /* libPods-Flipped.a */; };
 		FB6173AB1F1112D0009649E2 /* FLFlippedWord.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6173951F1112D0009649E2 /* FLFlippedWord.m */; };
 		FB6173AC1F1112D0009649E2 /* FLBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB61739A1F1112D0009649E2 /* FLBaseViewController.m */; };
@@ -54,6 +55,8 @@
 		45D272421F0B43BC00AF180E /* comm_tab_mine_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "comm_tab_mine_selected@2x.png"; sourceTree = "<group>"; };
 		45D272431F0B43BC00AF180E /* comm_tab_square@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "comm_tab_square@2x.png"; sourceTree = "<group>"; };
 		45D272441F0B43BC00AF180E /* comm_tab_square_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "comm_tab_square_selected@2x.png"; sourceTree = "<group>"; };
+		45F1C8BD1F1F2A5800A3B74C /* FLFlippedDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLFlippedDetailViewController.h; sourceTree = "<group>"; };
+		45F1C8BE1F1F2A6100A3B74C /* FLFlippedDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLFlippedDetailViewController.m; sourceTree = "<group>"; };
 		7BA26D2BB5C6386B31F8E1A5 /* Pods-Flipped.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flipped.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Flipped/Pods-Flipped.debug.xcconfig"; sourceTree = "<group>"; };
 		7CA5465F4BAB318854577797 /* Pods-Flipped.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flipped.release.xcconfig"; path = "Pods/Target Support Files/Pods-Flipped/Pods-Flipped.release.xcconfig"; sourceTree = "<group>"; };
 		A6CB62EA12AEAE674DF275B1 /* libPods-Flipped.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Flipped.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -194,6 +197,24 @@
 			path = Comm;
 			sourceTree = "<group>";
 		};
+		45F1C8BB1F1F2A2300A3B74C /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				45F1C8BC1F1F2A2300A3B74C /* Views */,
+			);
+			name = Detail;
+			path = Square/Detail;
+			sourceTree = "<group>";
+		};
+		45F1C8BC1F1F2A2300A3B74C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				45F1C8BD1F1F2A5800A3B74C /* FLFlippedDetailViewController.h */,
+				45F1C8BE1F1F2A6100A3B74C /* FLFlippedDetailViewController.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		7FA5BF810DC2AD5D3BA783A1 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -220,6 +241,7 @@
 				FB61739F1F1112D0009649E2 /* Mine */,
 				FB6173A31F1112D0009649E2 /* Post */,
 				FB6173A71F1112D0009649E2 /* Square */,
+				45F1C8BB1F1F2A2300A3B74C /* Detail */,
 			);
 			path = Bundle;
 			sourceTree = "<group>";
@@ -503,6 +525,7 @@
 				45D272101F0B343E00AF180E /* main.m in Sources */,
 				FBD938B21F1E306A00900842 /* FLCloudService.m in Sources */,
 				FB6173AE1F1112D0009649E2 /* FLMineViewController.m in Sources */,
+				45F1C8BF1F1F2A6100A3B74C /* FLFlippedDetailViewController.m in Sources */,
 				FBE0D77D1F19C792006D6C47 /* FLFlippedListViewController.m in Sources */,
 				FBCD22291F1A0F8100D8B718 /* NSString+MD5.m in Sources */,
 				FB6173AC1F1112D0009649E2 /* FLBaseViewController.m in Sources */,

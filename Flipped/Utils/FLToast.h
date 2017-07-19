@@ -12,4 +12,8 @@
 
 +(void)showToast:(NSString *)text;
 
++(void)showLoading:(NSString *)text;
+
++(void)hideLoading;
+
 @end
