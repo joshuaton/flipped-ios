@@ -10,58 +10,53 @@
 
 @implementation FLCloudService
 
-+(void)getYoutuSigWithSuccessBlock:(void (^)(NSString *sig))successBlock failBlock:(void (^)(NSError *error))failedBlock{
-    
-    NSString *url = [NSString stringWithFormat:@"youtusig?fileid=/1251789367/flipped/test/a.jpg"];
-    
-    [[self sharedHttpSessionManager] GET:url parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
-        NSDictionary *result = (NSDictionary *)responseObject;
-        successBlock(result[@"sig"]);
-        NSLog(@"youtu sig success: %@", result[@"sig"]);
-        
-        [[self sharedHttpSessionManager].requestSerializer setValue:result[@"sig"] forHTTPHeaderField:@"Authorization"];
+/**
+ 上传图片
+ 腾讯云文档 https://qcloud.com/document/api/436/6066
 
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
-        failedBlock(error);
-    }];
-}
-
+ @param image 图片UIImage
+ @param successBlock 成功回调
+ @param failedBlock 失败回调
+ */
 +(void)uploadImage:(UIImage *)image withSuccessBlock:(void (^)(NSString *url))successBlock failBlock:(void (^)(NSError *error))failedBlock{
     
-    NSString *url = @"https://gz.file.myqcloud.com/files/v2/1251789367/flipped/images";
-    //todo https://qcloud.com/document/api/436/6066
-    //上传图片有问题
+    UInt64 currentTime = [[NSDate date] timeIntervalSince1970]*1000;
+    NSString *filePathName = [NSString stringWithFormat:@"/1251789367/flipped/images/%llu.jpg", currentTime];
     
-    [[AFHTTPSessionManager manager] POST:url parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+    NSString *sigUrl = [NSString stringWithFormat:@"youtusig?fileid=%@", filePathName];
+    NSString *uploadUrl = [NSString stringWithFormat:@"https://gz.file.myqcloud.com/files/v2%@", filePathName];
     
-        [formData appendPartWithFileData:UIImageJPEGRepresentation(image, 1) name:@"filecontent" fileName:@"image.jpg" mimeType:@"image/jpeg"];
+    [[self sharedHttpSessionManager] GET:sigUrl parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
- 
-    } progress:nil success:^(NSURLSessionDataTask *task, id responseObject){
-        NSLog(@"upload image success %@", responseObject);
+        NSDictionary *result = (NSDictionary *)responseObject;
+        NSString *sig = result[@"sig"];
+        
+        AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+        [manager.requestSerializer setValue:sig forHTTPHeaderField:@"Authorization"];
+        
+        [manager POST:uploadUrl parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+            
+            NSMutableDictionary *mutableHeaders = [NSMutableDictionary dictionary];
+            NSString *str = @"upload";
+            NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
+            [mutableHeaders setValue:[NSString stringWithFormat:@"form-data; name=\"op\""] forKey:@"Content-Disposition"];
+            [formData appendPartWithHeaders:mutableHeaders body:data];
+            
+            [formData appendPartWithFileData:UIImageJPEGRepresentation(image, 1) name:@"filecontent" fileName:@"image.jpg" mimeType:@"image/jpeg"];
+            
+            
+        } progress:nil success:^(NSURLSessionDataTask *task, id responseObject){
+            NSLog(@"upload image success %@", responseObject);
+            NSString *picUrl = responseObject[@"data"][@"access_url"];
+            successBlock(picUrl);
+            
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            failedBlock(error);
+        }];
+
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
-//        //如果是auth过期 重新请求auth并重新upload
-//        NSData* data = error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey];
-//        NSDictionary* dict = data?[NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil]:nil;
-//        if([dict[@"code"] integerValue] == -96){
-//            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-//                NSLog(@"auth过期，重新申请");
-//                NSURLSessionTask* old_task = task;
-//                [manager.requestSerializer setValue:[self getAuthorization:YES] forHTTPHeaderField:@"Authorization"];
-//                //重新上传
-//                [self uploadImage:image manager:manager needToPress:press successBlock:^(NSURLSessionTask * _Nonnull task, id  _Nullable responseObject) {
-//                    if(successBlock) successBlock(old_task,responseObject);
-//                } failedBlock:failedBlock];
-//            });
-//            return;
-//        }
-//        else if([dict[@"code"] integerValue] == -70){
-//            [[NSUserDefaults standardUserDefaults] removeObjectForKey:Authorization];
-//        }
         failedBlock(error);
     }];
 }

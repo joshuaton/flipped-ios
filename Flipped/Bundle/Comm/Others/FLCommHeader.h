@@ -9,4 +9,4 @@
 #define SCREEN_WIDTH      [[UIScreen mainScreen] bounds].size.width
 #define SCREEN_HEIGHT     [[UIScreen mainScreen] bounds].size.height
 
-#define HTTP_HOST http:\/\/119.29.156.112\/
+#define NOTIFICATION_POST_SUCCESS @"NOTIFICATION_POST_SUCCESS"

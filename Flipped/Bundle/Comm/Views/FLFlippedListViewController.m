@@ -11,6 +11,7 @@
 #import "FLFlippedWordsService.h"
 #import "MJRefresh.h"
 #import "Masonry.h"
+#import "FLCommHeader.h"
 
 @interface FLFlippedListViewController() <UITableViewDataSource, UITableViewDelegate>
 
@@ -27,6 +28,8 @@
     [super viewDidLoad];
     
     [self loadData];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receivePostSuccess:) name:NOTIFICATION_POST_SUCCESS object:nil];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -36,6 +39,10 @@
     
     self.emptyLabel.hidden = YES;
     
+}
+
+-(void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark - private
@@ -123,6 +130,12 @@
 -(void)endRefresh{
     [self.tableView.mj_header endRefreshing];
     [self.tableView.mj_footer endRefreshing];
+}
+
+#pragma mark - notification
+
+-(void)receivePostSuccess:(NSNotification *)notification{
+    [self.tableView.mj_header beginRefreshing];
 }
 
 #pragma mark - UITableViewDataSource

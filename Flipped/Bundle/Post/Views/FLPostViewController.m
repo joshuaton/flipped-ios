@@ -13,6 +13,7 @@
 #import "FLFlippedWordsService.h"
 #import "FLToast.h"
 #import "FLCloudService.h"
+#import "FLCommHeader.h"
 
 @interface FLPostViewController() <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
@@ -40,6 +41,8 @@
     self.selectedImageView.hidden = YES;
     
     [self makeConstraints];
+    
+
 }
 
 -(void)makeConstraints{
@@ -124,29 +127,26 @@
     
     if(self.selectedImageView.image){
         
-        [FLCloudService getYoutuSigWithSuccessBlock:^(NSString *sig) {
-            [FLCloudService uploadImage:self.selectedImageView.image withSuccessBlock:^(NSString *url) {
-                
-                FLContent *picContent = [[FLContent alloc] init];
-                picContent.type = @"picture";
-                picContent.text = url;
-                [contentArr addObject:picContent];
-                
-                [FLFlippedWordsService publishFlippedWordsWithData:data successBlock:^{
-                    NSLog(@"publish success");
-                } failBlock:^(NSError *error) {
-                    NSLog(@"publish error : %@", error);
-                }];
+        [FLCloudService uploadImage:self.selectedImageView.image withSuccessBlock:^(NSString *url) {
+            
+            FLContent *picContent = [[FLContent alloc] init];
+            picContent.type = @"picture";
+            picContent.text = url;
+            [contentArr addObject:picContent];
+            
+            [FLFlippedWordsService publishFlippedWordsWithData:data successBlock:^{
+                [self publishSuccess];
             } failBlock:^(NSError *error) {
-                
+                NSLog(@"publish error : %@", error);
             }];
         } failBlock:^(NSError *error) {
             
         }];
+       
     }else{
         
         [FLFlippedWordsService publishFlippedWordsWithData:data successBlock:^{
-            NSLog(@"publish success");
+            [self publishSuccess];
         } failBlock:^(NSError *error) {
             NSLog(@"publish error : %@", error);
         }];
@@ -238,8 +238,13 @@
     self.addPicView.hidden = YES;
     
     self.selectedImageView.image = image;
-    
+}
 
+-(void)publishSuccess{
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_POST_SUCCESS object:self userInfo:nil];
+    
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - UIImagePickerControllerDelegate

@@ -10,8 +10,6 @@
 
 @interface FLCloudService : FLBaseService
 
-+(void)getYoutuSigWithSuccessBlock:(void (^)(NSString *sig))successBlock failBlock:(void (^)(NSError *error))failedBlock;
-
 +(void)uploadImage:(UIImage *)image withSuccessBlock:(void (^)(NSString *url))successBlock failBlock:(void (^)(NSError *error))failedBlock;
 
 @end
