@@ -28,8 +28,6 @@
 -(void)viewDidLoad{
     [super viewDidLoad];
     
-    [self loadData];
-    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receivePostSuccess:) name:NOTIFICATION_POST_SUCCESS object:nil];
 }
 
@@ -38,7 +36,10 @@
     
     [self makeConstraints];
     
-
+    if(!self.isLoaded){
+        [self loadData];
+        self.isLoaded = YES;
+    }
     
 }
 
