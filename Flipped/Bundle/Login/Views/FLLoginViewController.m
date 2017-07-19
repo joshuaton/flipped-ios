@@ -127,6 +127,9 @@
 
 -(void)loginBtnClick{
     [FLUserService loginWithPhoneNum:self.phoneNumTextField.text vertifyCode:self.vertifyCodeTextField.text successBlock:^{
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_LOGIN_SUCCESS object:self userInfo:nil];
+        
         [self dismissViewControllerAnimated:YES completion:^{
             
         }];

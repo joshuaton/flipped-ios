@@ -29,6 +29,7 @@
     [super viewDidLoad];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receivePostSuccess:) name:NOTIFICATION_POST_SUCCESS object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveLoginSuccess:) name:NOTIFICATION_LOGIN_SUCCESS object:nil];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -137,6 +138,10 @@
 #pragma mark - notification
 
 -(void)receivePostSuccess:(NSNotification *)notification{
+    [self.tableView.mj_header beginRefreshing];
+}
+
+-(void)receiveLoginSuccess:(NSNotification *)notification{
     [self.tableView.mj_header beginRefreshing];
 }
 
