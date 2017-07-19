@@ -33,10 +33,11 @@
     self.contentLabel.text = textContent;
     self.sendLabel.text = [NSString stringWithFormat:@"发送给：%@", data.sendto];
     
-    if(!data.distance){
-        data.distance = [NSNumber numberWithInt:0];
-    }
-    self.distanceLabel.text = [NSString stringWithFormat:@"距离：%@m", data.distance];
+    self.lineView.hidden = YES;
+//    if(!data.distance){
+//        data.distance = [NSNumber numberWithInt:0];
+//    }
+//    self.distanceLabel.text = [NSString stringWithFormat:@"距离：%@m", data.distance];
     
     self.picImageView.hidden = YES;
     for(int i=0; i<data.contents.count; i++){
