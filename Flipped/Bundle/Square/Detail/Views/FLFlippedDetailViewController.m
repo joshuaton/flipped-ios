@@ -29,7 +29,6 @@
     [self makeConstraints];
     
     [FLFlippedWordsService getFlippedWordsDetailWithId:self.flippedId successBlock:^(FLFlippedWord *data) {
-        NSLog(@"get detail success data : %@", data);
         
         [self showData:data];
     } failBlock:^(NSError *error) {

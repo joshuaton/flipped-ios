@@ -6,6 +6,8 @@
 //  Copyright © 2017年 junshao. All rights reserved.
 //
 
+#import "MTA.h"
+#import "MTAConfig.h"
 #import "AppDelegate.h"
 #import "FLSquareViewController.h"
 #import "FLMineViewController.h"
@@ -14,6 +16,8 @@
 @interface AppDelegate () <UITabBarControllerDelegate>
 
 @property (nonatomic, strong) UITabBarController *tabBarController;
+@property (nonatomic, strong) UINavigationController *squareNav;
+@property (nonatomic, strong) UINavigationController *mineNav;
 
 @end
 
@@ -23,10 +27,12 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    [MTA startWithAppkey:@"I82NYP3VM7PZ"];
+    
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
     FLSquareViewController *squareViewController = [[FLSquareViewController alloc] init];
-    UINavigationController *squareNav = [[UINavigationController alloc] initWithRootViewController:squareViewController];
+    self.squareNav = [[UINavigationController alloc] initWithRootViewController:squareViewController];
     
     UIImage *squareImage = [[UIImage imageNamed:@"comm_tab_square"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     UIImage *squareImageSelected = [[UIImage imageNamed:@"comm_tab_square_selected"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
@@ -34,7 +40,7 @@
     squareViewController.tabBarItem = squareTabBarItem;
     
     FLMineViewController *mineViewController = [[FLMineViewController alloc] init];
-    UINavigationController *mineNav = [[UINavigationController alloc] initWithRootViewController:mineViewController];
+    self.mineNav = [[UINavigationController alloc] initWithRootViewController:mineViewController];
     
     UIImage *mineImage = [[UIImage imageNamed:@"comm_tab_mine"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     UIImage *mineImageSelected = [[UIImage imageNamed:@"comm_tab_mine_selected"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
@@ -43,7 +49,7 @@
     
     self.tabBarController = [[UITabBarController alloc] init];
     self.tabBarController.delegate = self;
-    self.tabBarController.viewControllers = @[squareNav, mineNav];
+    self.tabBarController.viewControllers = @[self.squareNav, self.mineNav];
     
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
@@ -81,7 +87,7 @@
 #pragma mark - UITabBarControllerDelegate
 - (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController{
     
-    if(![[FLUserInfoManager sharedHttpSessionManager] checkLogin]){
+    if(viewController == self.mineNav && ![[FLUserInfoManager sharedHttpSessionManager] checkLogin]){
         return NO;
     }
     
