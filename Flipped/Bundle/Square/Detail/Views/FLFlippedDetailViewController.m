@@ -10,6 +10,7 @@
 #import "Masonry.h"
 #import "FLFlippedWordsService.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "FLToast.h"
 
 @interface FLFlippedDetailViewController()
 
@@ -25,6 +26,7 @@
     [super viewDidLoad];
     
     self.title = @"详情";
+    [self configRightNavigationItemWithTitle:@"举报" image:nil action:@selector(reportBtnClick)];
 
     [self makeConstraints];
     
@@ -85,6 +87,12 @@
     }else{
         self.imageView.hidden = YES;
     }
+}
+
+#pragma mark - action
+
+-(void)reportBtnClick{
+    [FLToast showToast:@"举报内容已收到，会尽快处理"];
 }
 
 #pragma mark - getter & setter
