@@ -45,6 +45,7 @@
 		FBD938C31F1F9DC800900842 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBD938C21F1F9DC800900842 /* CFNetwork.framework */; };
 		FBD938C51F1F9DCE00900842 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBD938C41F1F9DCE00900842 /* SystemConfiguration.framework */; };
 		FBD938C71F1F9DD400900842 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBD938C61F1F9DD400900842 /* CoreTelephony.framework */; };
+		FBD938C91F1FA33900900842 /* flipped_pic_default.png in Resources */ = {isa = PBXBuildFile; fileRef = FBD938C81F1FA33900900842 /* flipped_pic_default.png */; };
 		FBE0D77D1F19C792006D6C47 /* FLFlippedListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE0D77C1F19C792006D6C47 /* FLFlippedListViewController.m */; };
 		FBE0D7801F19F135006D6C47 /* FLBaseService.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE0D77F1F19F135006D6C47 /* FLBaseService.m */; };
 		FBE0D7831F19F279006D6C47 /* FLUserService.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE0D7821F19F279006D6C47 /* FLUserService.m */; };
@@ -113,6 +114,7 @@
 		FBD938C21F1F9DC800900842 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		FBD938C41F1F9DCE00900842 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		FBD938C61F1F9DD400900842 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		FBD938C81F1FA33900900842 /* flipped_pic_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flipped_pic_default.png; sourceTree = "<group>"; };
 		FBE0D77B1F19C785006D6C47 /* FLFlippedListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLFlippedListViewController.h; sourceTree = "<group>"; };
 		FBE0D77C1F19C792006D6C47 /* FLFlippedListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLFlippedListViewController.m; sourceTree = "<group>"; };
 		FBE0D77E1F19F12B006D6C47 /* FLBaseService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLBaseService.h; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 		45D272261F0B34D500AF180E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FBD938C81F1FA33900900842 /* flipped_pic_default.png */,
 				FBD938AE1F1E29E600900842 /* flipped_post_add_pic@2x.png */,
 				FBB917761F1254DA000C7353 /* flipped_content_pic@2x.png */,
 				FBB917771F1254DA000C7353 /* flipped_content_video@2x.png */,
@@ -500,6 +503,7 @@
 				45D272481F0B43BC00AF180E /* comm_tab_square_selected@2x.png in Resources */,
 				FBB9177D1F1254DA000C7353 /* flipped_content_video@2x.png in Resources */,
 				FBB9177F1F1254DA000C7353 /* logo.png in Resources */,
+				FBD938C91F1FA33900900842 /* flipped_pic_default.png in Resources */,
 				FBB917811F1254DA000C7353 /* WechatIMG9.png in Resources */,
 				45D2721B1F0B343E00AF180E /* Assets.xcassets in Resources */,
 				FBB9177C1F1254DA000C7353 /* flipped_content_pic@2x.png in Resources */,

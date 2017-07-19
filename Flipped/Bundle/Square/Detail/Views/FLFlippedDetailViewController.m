@@ -72,7 +72,7 @@
         if([content.type isEqualToString:@"text"]){
             self.contentLabel.text = content.text;
         }else if([content.type isEqualToString:@"picture"]){
-            [self.imageView sd_setImageWithURL:[NSURL URLWithString:content.text]];
+            [self.imageView sd_setImageWithURL:[NSURL URLWithString:content.text] placeholderImage:[UIImage imageNamed:@"flipped_pic_default"]];
             hasImage = YES;
             
         }
