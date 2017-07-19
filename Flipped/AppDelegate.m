@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "FLSquareViewController.h"
 #import "FLMineViewController.h"
+#import "FLUserInfoManager.h"
 
 @interface AppDelegate () <UITabBarControllerDelegate>
 
@@ -79,6 +80,11 @@
 
 #pragma mark - UITabBarControllerDelegate
 - (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController{
+    
+    if(![[FLUserInfoManager sharedHttpSessionManager] checkLogin]){
+        return NO;
+    }
+    
     return YES;
 }
 

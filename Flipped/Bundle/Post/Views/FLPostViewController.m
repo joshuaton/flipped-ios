@@ -14,6 +14,7 @@
 #import "FLToast.h"
 #import "FLCloudService.h"
 #import "FLCommHeader.h"
+#import "FLUserInfoManager.h"
 
 @interface FLPostViewController() <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
@@ -30,6 +31,19 @@
 @end
 
 @implementation FLPostViewController
+
++(void)present{
+    
+    if(![[FLUserInfoManager sharedHttpSessionManager] checkLogin]){
+        return;
+    }
+    
+    FLPostViewController *vc = [[FLPostViewController alloc] init];
+    UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:vc];
+    [[FLBaseViewController currentViewController].navigationController presentViewController:navi animated:YES completion:^{
+        
+    }];
+}
 
 -(void)viewDidLoad{
     [super viewDidLoad];

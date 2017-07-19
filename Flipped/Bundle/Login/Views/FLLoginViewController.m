@@ -29,6 +29,9 @@
     
     [super viewDidLoad];
     
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:@"" forKey:@"key"];
+    
     self.title = @"请登录";
     [self configLeftNavigationItemWithTitle:@"关闭" image:nil action:@selector(closeBtnClick)];
     

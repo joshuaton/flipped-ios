@@ -10,4 +10,6 @@
 
 @interface FLPostViewController : FLBaseViewController
 
++(void)present;
+
 @end

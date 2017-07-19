@@ -10,7 +10,10 @@
 
 @interface FLUserInfoManager : NSObject
 
-@property (nonatomic, assign) BOOL isLogin;
+@property (nonatomic, assign) BOOL login;
 @property (nonatomic, copy) NSString *uid;
+
++(FLUserInfoManager *)sharedHttpSessionManager;
+-(BOOL)checkLogin;
 
 @end
