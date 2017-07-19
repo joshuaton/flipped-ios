@@ -90,6 +90,7 @@
     if(!_contentLabel){
         _contentLabel = [[UILabel alloc] init];
         _contentLabel.numberOfLines = 0;
+        _contentLabel.font = [UIFont systemFontOfSize:18];
         [self.contentView addSubview:_contentLabel];
     }
     return _contentLabel;
@@ -98,6 +99,7 @@
 -(UILabel *)sendLabel{
     if(!_sendLabel){
         _sendLabel = [[UILabel alloc] init];
+        _sendLabel.font = [UIFont systemFontOfSize:14];
         [self.contentView addSubview:_sendLabel];
     }
     return _sendLabel;
