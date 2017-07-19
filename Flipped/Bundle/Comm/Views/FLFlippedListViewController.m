@@ -38,7 +38,7 @@
     
     [self makeConstraints];
     
-    self.emptyLabel.hidden = YES;
+
     
 }
 
