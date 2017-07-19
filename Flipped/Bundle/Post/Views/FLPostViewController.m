@@ -304,6 +304,7 @@
     if(!_phoneNumTextField){
         _phoneNumTextField = [[UITextField alloc] init];
         _phoneNumTextField.borderStyle = UITextBorderStyleLine;
+        _phoneNumTextField.keyboardType = UIKeyboardTypePhonePad;
         [self.view addSubview:_phoneNumTextField];
     }
     return _phoneNumTextField;

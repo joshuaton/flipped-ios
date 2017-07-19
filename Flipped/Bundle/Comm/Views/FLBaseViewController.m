@@ -42,6 +42,7 @@ static __weak UIViewController* __currentViewController;
     if(title && title.length > 0){
         [btn setTitle:title forState:UIControlStateNormal];
         [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        btn.titleLabel.font = [UIFont systemFontOfSize:16];
     }
     if(image){
         [btn setImage:image forState:UIControlStateNormal];
@@ -60,6 +61,7 @@ static __weak UIViewController* __currentViewController;
     if(title && title.length > 0){
         [btn setTitle:title forState:UIControlStateNormal];
         [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        btn.titleLabel.font = [UIFont systemFontOfSize:16];
     }
     if(image){
         [btn setImage:image forState:UIControlStateNormal];
