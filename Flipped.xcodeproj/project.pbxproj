@@ -38,6 +38,14 @@
 		FBD938AF1F1E29E600900842 /* flipped_post_add_pic@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FBD938AE1F1E29E600900842 /* flipped_post_add_pic@2x.png */; };
 		FBD938B21F1E306A00900842 /* FLCloudService.m in Sources */ = {isa = PBXBuildFile; fileRef = FBD938B11F1E306A00900842 /* FLCloudService.m */; };
 		FBD938B51F1F587200900842 /* FLUserInfoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FBD938B41F1F587200900842 /* FLUserInfoManager.m */; };
+		FBD938BB1F1F9D8A00900842 /* libmtasdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FBD938B81F1F9D8A00900842 /* libmtasdk.a */; };
+		FBD938BD1F1F9DB200900842 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FBD938BC1F1F9DB100900842 /* libz.tbd */; };
+		FBD938BF1F1F9DB900900842 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FBD938BE1F1F9DB900900842 /* libsqlite3.tbd */; };
+		FBD938C11F1F9DC000900842 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBD938C01F1F9DC000900842 /* Security.framework */; };
+		FBD938C31F1F9DC800900842 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBD938C21F1F9DC800900842 /* CFNetwork.framework */; };
+		FBD938C51F1F9DCE00900842 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBD938C41F1F9DCE00900842 /* SystemConfiguration.framework */; };
+		FBD938C71F1F9DD400900842 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBD938C61F1F9DD400900842 /* CoreTelephony.framework */; };
+		FBD938C91F1FA33900900842 /* flipped_pic_default.png in Resources */ = {isa = PBXBuildFile; fileRef = FBD938C81F1FA33900900842 /* flipped_pic_default.png */; };
 		FBE0D77D1F19C792006D6C47 /* FLFlippedListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE0D77C1F19C792006D6C47 /* FLFlippedListViewController.m */; };
 		FBE0D7801F19F135006D6C47 /* FLBaseService.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE0D77F1F19F135006D6C47 /* FLBaseService.m */; };
 		FBE0D7831F19F279006D6C47 /* FLUserService.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE0D7821F19F279006D6C47 /* FLUserService.m */; };
@@ -97,6 +105,16 @@
 		FBD938B11F1E306A00900842 /* FLCloudService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLCloudService.m; sourceTree = "<group>"; };
 		FBD938B31F1F586600900842 /* FLUserInfoManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLUserInfoManager.h; sourceTree = "<group>"; };
 		FBD938B41F1F587200900842 /* FLUserInfoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLUserInfoManager.m; sourceTree = "<group>"; };
+		FBD938B81F1F9D8A00900842 /* libmtasdk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmtasdk.a; sourceTree = "<group>"; };
+		FBD938B91F1F9D8A00900842 /* MTA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTA.h; sourceTree = "<group>"; };
+		FBD938BA1F1F9D8A00900842 /* MTAConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTAConfig.h; sourceTree = "<group>"; };
+		FBD938BC1F1F9DB100900842 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		FBD938BE1F1F9DB900900842 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		FBD938C01F1F9DC000900842 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		FBD938C21F1F9DC800900842 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		FBD938C41F1F9DCE00900842 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		FBD938C61F1F9DD400900842 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		FBD938C81F1FA33900900842 /* flipped_pic_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flipped_pic_default.png; sourceTree = "<group>"; };
 		FBE0D77B1F19C785006D6C47 /* FLFlippedListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLFlippedListViewController.h; sourceTree = "<group>"; };
 		FBE0D77C1F19C792006D6C47 /* FLFlippedListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLFlippedListViewController.m; sourceTree = "<group>"; };
 		FBE0D77E1F19F12B006D6C47 /* FLBaseService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLBaseService.h; sourceTree = "<group>"; };
@@ -110,7 +128,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBD938C71F1F9DD400900842 /* CoreTelephony.framework in Frameworks */,
+				FBD938C51F1F9DCE00900842 /* SystemConfiguration.framework in Frameworks */,
+				FBD938C31F1F9DC800900842 /* CFNetwork.framework in Frameworks */,
+				FBD938C11F1F9DC000900842 /* Security.framework in Frameworks */,
+				FBD938BF1F1F9DB900900842 /* libsqlite3.tbd in Frameworks */,
+				FBD938BD1F1F9DB200900842 /* libz.tbd in Frameworks */,
 				583FCBD6E2C5D728117751C6 /* libPods-Flipped.a in Frameworks */,
+				FBD938BB1F1F9D8A00900842 /* libmtasdk.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,6 +182,7 @@
 				457195281F0C903400671634 /* Services */,
 				45D272261F0B34D500AF180E /* Resources */,
 				FBCD22261F1A0F5700D8B718 /* Utils */,
+				FBD938B61F1F9D5800900842 /* SecondLib */,
 				45D272111F0B343E00AF180E /* AppDelegate.h */,
 				45D272121F0B343E00AF180E /* AppDelegate.m */,
 				45D2721A1F0B343E00AF180E /* Assets.xcassets */,
@@ -177,6 +203,7 @@
 		45D272261F0B34D500AF180E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FBD938C81F1FA33900900842 /* flipped_pic_default.png */,
 				FBD938AE1F1E29E600900842 /* flipped_post_add_pic@2x.png */,
 				FBB917761F1254DA000C7353 /* flipped_content_pic@2x.png */,
 				FBB917771F1254DA000C7353 /* flipped_content_video@2x.png */,
@@ -230,6 +257,12 @@
 		9A1F3DF625175D85E4F4E9C4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FBD938C61F1F9DD400900842 /* CoreTelephony.framework */,
+				FBD938C41F1F9DCE00900842 /* SystemConfiguration.framework */,
+				FBD938C21F1F9DC800900842 /* CFNetwork.framework */,
+				FBD938C01F1F9DC000900842 /* Security.framework */,
+				FBD938BE1F1F9DB900900842 /* libsqlite3.tbd */,
+				FBD938BC1F1F9DB100900842 /* libz.tbd */,
 				A6CB62EA12AEAE674DF275B1 /* libPods-Flipped.a */,
 			);
 			name = Frameworks;
@@ -384,6 +417,25 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		FBD938B61F1F9D5800900842 /* SecondLib */ = {
+			isa = PBXGroup;
+			children = (
+				FBD938B71F1F9D5800900842 /* MTA */,
+			);
+			name = SecondLib;
+			path = Bundle/Square/Detail/SecondLib;
+			sourceTree = "<group>";
+		};
+		FBD938B71F1F9D5800900842 /* MTA */ = {
+			isa = PBXGroup;
+			children = (
+				FBD938B81F1F9D8A00900842 /* libmtasdk.a */,
+				FBD938B91F1F9D8A00900842 /* MTA.h */,
+				FBD938BA1F1F9D8A00900842 /* MTAConfig.h */,
+			);
+			path = MTA;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -451,6 +503,7 @@
 				45D272481F0B43BC00AF180E /* comm_tab_square_selected@2x.png in Resources */,
 				FBB9177D1F1254DA000C7353 /* flipped_content_video@2x.png in Resources */,
 				FBB9177F1F1254DA000C7353 /* logo.png in Resources */,
+				FBD938C91F1FA33900900842 /* flipped_pic_default.png in Resources */,
 				FBB917811F1254DA000C7353 /* WechatIMG9.png in Resources */,
 				45D2721B1F0B343E00AF180E /* Assets.xcassets in Resources */,
 				FBB9177C1F1254DA000C7353 /* flipped_content_pic@2x.png in Resources */,
@@ -491,7 +544,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		8B75BD1FAA80B8A0E5DA556B /* [CP] Copy Pods Resources */ = {
@@ -644,6 +697,10 @@
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = Flipped/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Flipped/Bundle/Square/Detail/SecondLib/MTA",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.junshao.Flipped;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -658,6 +715,10 @@
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = Flipped/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Flipped/Bundle/Square/Detail/SecondLib/MTA",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.junshao.Flipped;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

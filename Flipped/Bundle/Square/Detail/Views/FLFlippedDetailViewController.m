@@ -10,6 +10,7 @@
 #import "Masonry.h"
 #import "FLFlippedWordsService.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "FLToast.h"
 
 @interface FLFlippedDetailViewController()
 
@@ -25,11 +26,11 @@
     [super viewDidLoad];
     
     self.title = @"详情";
+    [self configRightNavigationItemWithTitle:@"举报" image:nil action:@selector(reportBtnClick)];
 
     [self makeConstraints];
     
     [FLFlippedWordsService getFlippedWordsDetailWithId:self.flippedId successBlock:^(FLFlippedWord *data) {
-        NSLog(@"get detail success data : %@", data);
         
         [self showData:data];
     } failBlock:^(NSError *error) {
@@ -73,7 +74,7 @@
         if([content.type isEqualToString:@"text"]){
             self.contentLabel.text = content.text;
         }else if([content.type isEqualToString:@"picture"]){
-            [self.imageView sd_setImageWithURL:[NSURL URLWithString:content.text]];
+            [self.imageView sd_setImageWithURL:[NSURL URLWithString:content.text] placeholderImage:[UIImage imageNamed:@"flipped_pic_default"]];
             hasImage = YES;
             
         }
@@ -88,11 +89,18 @@
     }
 }
 
+#pragma mark - action
+
+-(void)reportBtnClick{
+    [FLToast showToast:@"举报内容已收到，会尽快处理"];
+}
+
 #pragma mark - getter & setter
 
 -(UILabel *)contentLabel{
     if(!_contentLabel){
         _contentLabel = [[UILabel alloc] init];
+        _contentLabel.font = [UIFont systemFontOfSize:18];
         [self.view addSubview:_contentLabel];
     }
     return _contentLabel;
@@ -101,6 +109,7 @@
 -(UILabel *)sendLabel{
     if(!_sendLabel){
         _sendLabel = [[UILabel alloc] init];
+        _sendLabel.font = [UIFont systemFontOfSize:14];
         [self.view addSubview:_sendLabel];
     }
     return _sendLabel;

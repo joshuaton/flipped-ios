@@ -162,6 +162,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
     FLFlippedDetailViewController *vc = [[FLFlippedDetailViewController alloc] init];
     FLFlippedWord *data = self.flippedWords[indexPath.row];
     vc.flippedId = data.id;
