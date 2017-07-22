@@ -11,5 +11,6 @@ pod 'AFNetworking'
 pod 'Masonry'
 pod 'JSONModel'
 pod 'MBProgressHUD'
+pod 'MWPhotoBrowser'
 
 end

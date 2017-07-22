@@ -11,12 +11,16 @@
 #import "FLFlippedWordsService.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "FLToast.h"
+#import "MWPhoto.h"
+#import "MWPhotoBrowser.h"
 
-@interface FLFlippedDetailViewController()
+@interface FLFlippedDetailViewController() <MWPhotoBrowserDelegate>
 
 @property (nonatomic, strong) UILabel *contentLabel;
 @property (nonatomic, strong) UILabel *sendLabel;
 @property (nonatomic, strong) UIImageView *imageView;
+
+@property (nonatomic, strong) NSMutableArray *photos;
 
 @end
 
@@ -77,6 +81,8 @@
             [self.imageView sd_setImageWithURL:[NSURL URLWithString:content.text] placeholderImage:[UIImage imageNamed:@"flipped_pic_default"]];
             hasImage = YES;
             
+            self.photos = [NSMutableArray array];
+            [self.photos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:content.text]]];
         }
     }
     
@@ -95,12 +101,44 @@
     [FLToast showToast:@"举报内容已收到，会尽快处理"];
 }
 
+-(void)imageViewClick{
+    
+    MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
+    browser.displayActionButton = NO; // Show action button to allow sharing, copying, etc (defaults to YES)
+    browser.displayNavArrows = NO; // Whether to display left and right nav arrows on toolbar (defaults to NO)
+    browser.displaySelectionButtons = NO; // Whether selection buttons are shown on each image (defaults to NO)
+    browser.zoomPhotosToFill = YES; // Images that almost fill the screen will be initially zoomed to fill (defaults to YES)
+    browser.alwaysShowControls = NO; // Allows to control whether the bars and controls are always visible or whether they fade away to show the photo full (defaults to NO)
+    browser.enableGrid = YES; // Whether to allow the viewing of all the photo thumbnails on a grid (defaults to YES)
+    browser.startOnGrid = NO; // Whether to start on the grid of thumbnails instead of the first photo (defaults to NO)
+    
+    // Optionally set the current visible photo before displaying
+    [browser setCurrentPhotoIndex:0];
+    
+    // Present
+    [self.navigationController pushViewController:browser animated:YES];
+}
+
+#pragma mark - MWPhotoBrowserDelegate
+
+- (NSUInteger)numberOfPhotosInPhotoBrowser:(MWPhotoBrowser *)photoBrowser {
+    return self.photos.count;
+}
+
+- (id <MWPhoto>)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index {
+    if (index < self.photos.count) {
+        return [self.photos objectAtIndex:index];
+    }
+    return nil;
+}
+
 #pragma mark - getter & setter
 
 -(UILabel *)contentLabel{
     if(!_contentLabel){
         _contentLabel = [[UILabel alloc] init];
         _contentLabel.font = [UIFont systemFontOfSize:18];
+        _contentLabel.numberOfLines = 0;
         [self.view addSubview:_contentLabel];
     }
     return _contentLabel;
@@ -119,6 +157,10 @@
     if(!_imageView){
         _imageView = [[UIImageView alloc] init];
         _imageView.contentMode = UIViewContentModeScaleAspectFit;
+        
+        _imageView.userInteractionEnabled = YES;
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageViewClick)];
+        [_imageView addGestureRecognizer:tap];
         [self.view addSubview:_imageView];
     }
     return _imageView;

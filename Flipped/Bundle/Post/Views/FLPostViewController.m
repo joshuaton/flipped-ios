@@ -324,6 +324,7 @@
         _contentTextView = [[UITextView alloc] init];
         _contentTextView.layer.borderWidth = 1;
         _contentTextView.layer.borderColor = [UIColor blackColor].CGColor;
+        _contentTextView.font = [UIFont systemFontOfSize:16];
         [self.view addSubview:_contentTextView];
     }
     return _contentTextView;

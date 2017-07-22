@@ -202,6 +202,7 @@
         _vertifyCodeTextField.placeholder = @"请输入验证码";
         _vertifyCodeTextField.leftViewMode = UITextFieldViewModeAlways;
         _vertifyCodeTextField.borderStyle = UITextBorderStyleLine;
+        _vertifyCodeTextField.keyboardType = UIKeyboardTypePhonePad;
 
         [self.view addSubview:_vertifyCodeTextField];
     }

@@ -15,7 +15,7 @@
     
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[FLBaseViewController currentViewController].view animated:YES];
     hud.mode = MBProgressHUDModeText;
-    hud.label.text = text;
+    hud.labelText = text;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [MBProgressHUD hideHUDForView:[FLBaseViewController currentViewController].view animated:YES];
     });
@@ -24,7 +24,7 @@
 +(void)showLoading:(NSString *)text{
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[FLBaseViewController currentViewController].view animated:YES];
     hud.mode = MBProgressHUDModeAnnularDeterminate;
-    hud.label.text = text;
+    hud.labelText = text;
 }
 
 +(void)hideLoading{

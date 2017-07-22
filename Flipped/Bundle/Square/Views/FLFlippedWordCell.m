@@ -89,7 +89,7 @@
 -(UILabel *)contentLabel{
     if(!_contentLabel){
         _contentLabel = [[UILabel alloc] init];
-        _contentLabel.numberOfLines = 0;
+        _contentLabel.numberOfLines = 5;
         _contentLabel.font = [UIFont systemFontOfSize:18];
         [self.contentView addSubview:_contentLabel];
     }
