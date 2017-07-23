@@ -10,4 +10,6 @@
 
 @interface FLLoginViewController : FLBaseViewController
 
++(void)present;
+
 @end

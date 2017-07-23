@@ -12,6 +12,8 @@
 #import "FLSquareViewController.h"
 #import "FLMineViewController.h"
 #import "FLUserInfoManager.h"
+#import "FLNewMineViewController.h"
+#import "UIColor+HexColor.h"
 
 @interface AppDelegate () <UITabBarControllerDelegate>
 
@@ -39,13 +41,19 @@
     UITabBarItem *squareTabBarItem = [[UITabBarItem alloc] initWithTitle:@"广场" image:squareImage selectedImage:squareImageSelected];
     squareViewController.tabBarItem = squareTabBarItem;
     
-    FLMineViewController *mineViewController = [[FLMineViewController alloc] init];
+    FLNewMineViewController *mineViewController = [[FLNewMineViewController alloc] init];
     self.mineNav = [[UINavigationController alloc] initWithRootViewController:mineViewController];
     
     UIImage *mineImage = [[UIImage imageNamed:@"comm_tab_mine"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     UIImage *mineImageSelected = [[UIImage imageNamed:@"comm_tab_mine_selected"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     UITabBarItem *mineTabBarItem = [[UITabBarItem alloc] initWithTitle:@"我的" image:mineImage selectedImage:mineImageSelected];
     mineViewController.tabBarItem = mineTabBarItem;
+    
+    //未选中字体颜色
+    [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor colorWithHexString:@"555555"]} forState:UIControlStateNormal];
+    
+    //选中字体颜色
+    [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor colorWithHexString:@"439c36"]} forState:UIControlStateSelected];
     
     self.tabBarController = [[UITabBarController alloc] init];
     self.tabBarController.delegate = self;

@@ -46,6 +46,12 @@
 		FBD938C51F1F9DCE00900842 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBD938C41F1F9DCE00900842 /* SystemConfiguration.framework */; };
 		FBD938C71F1F9DD400900842 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBD938C61F1F9DD400900842 /* CoreTelephony.framework */; };
 		FBD938C91F1FA33900900842 /* flipped_pic_default.png in Resources */ = {isa = PBXBuildFile; fileRef = FBD938C81F1FA33900900842 /* flipped_pic_default.png */; };
+		FBD938CE1F248B4A00900842 /* FLHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBD938CD1F248B4A00900842 /* FLHelpViewController.m */; };
+		FBD938D11F248C0700900842 /* FLHelpService.m in Sources */ = {isa = PBXBuildFile; fileRef = FBD938D01F248C0700900842 /* FLHelpService.m */; };
+		FBD938D41F2491E200900842 /* FLNewMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBD938D31F2491E200900842 /* FLNewMineViewController.m */; };
+		FBD938D71F24956D00900842 /* UIColor+HexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = FBD938D61F24956D00900842 /* UIColor+HexColor.m */; };
+		FBD938DC1F249E0C00900842 /* FLFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBD938DB1F249E0C00900842 /* FLFeedbackViewController.m */; };
+		FBD938DF1F24A1A700900842 /* FLFeedbackService.m in Sources */ = {isa = PBXBuildFile; fileRef = FBD938DE1F24A1A700900842 /* FLFeedbackService.m */; };
 		FBE0D77D1F19C792006D6C47 /* FLFlippedListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE0D77C1F19C792006D6C47 /* FLFlippedListViewController.m */; };
 		FBE0D7801F19F135006D6C47 /* FLBaseService.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE0D77F1F19F135006D6C47 /* FLBaseService.m */; };
 		FBE0D7831F19F279006D6C47 /* FLUserService.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE0D7821F19F279006D6C47 /* FLUserService.m */; };
@@ -86,8 +92,8 @@
 		FB6173B21F11146A009649E2 /* FLContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLContent.m; sourceTree = "<group>"; };
 		FB7CF6D41F1BA83600CD9F5C /* FLToast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLToast.h; sourceTree = "<group>"; };
 		FB7CF6D51F1BA84200CD9F5C /* FLToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLToast.m; sourceTree = "<group>"; };
-		FBB917731F1252B9000C7353 /* FLFlippedWordCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLFlippedWordCell.h; sourceTree = "<group>"; };
-		FBB917741F1252C5000C7353 /* FLFlippedWordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLFlippedWordCell.m; sourceTree = "<group>"; };
+		FBB917731F1252B9000C7353 /* FLFlippedWordCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FLFlippedWordCell.h; path = ../../Square/Views/FLFlippedWordCell.h; sourceTree = "<group>"; };
+		FBB917741F1252C5000C7353 /* FLFlippedWordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLFlippedWordCell.m; path = ../../Square/Views/FLFlippedWordCell.m; sourceTree = "<group>"; };
 		FBB917761F1254DA000C7353 /* flipped_content_pic@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flipped_content_pic@2x.png"; sourceTree = "<group>"; };
 		FBB917771F1254DA000C7353 /* flipped_content_video@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flipped_content_video@2x.png"; sourceTree = "<group>"; };
 		FBB917781F1254DA000C7353 /* flipped_content_sound@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flipped_content_sound@2x.png"; sourceTree = "<group>"; };
@@ -115,6 +121,18 @@
 		FBD938C41F1F9DCE00900842 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		FBD938C61F1F9DD400900842 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		FBD938C81F1FA33900900842 /* flipped_pic_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flipped_pic_default.png; sourceTree = "<group>"; };
+		FBD938CC1F248B3E00900842 /* FLHelpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLHelpViewController.h; sourceTree = "<group>"; };
+		FBD938CD1F248B4A00900842 /* FLHelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLHelpViewController.m; sourceTree = "<group>"; };
+		FBD938CF1F248BFE00900842 /* FLHelpService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLHelpService.h; sourceTree = "<group>"; };
+		FBD938D01F248C0700900842 /* FLHelpService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLHelpService.m; sourceTree = "<group>"; };
+		FBD938D21F2491DA00900842 /* FLNewMineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLNewMineViewController.h; sourceTree = "<group>"; };
+		FBD938D31F2491E200900842 /* FLNewMineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLNewMineViewController.m; sourceTree = "<group>"; };
+		FBD938D51F24956D00900842 /* UIColor+HexColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HexColor.h"; sourceTree = "<group>"; };
+		FBD938D61F24956D00900842 /* UIColor+HexColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HexColor.m"; sourceTree = "<group>"; };
+		FBD938DA1F249E0300900842 /* FLFeedbackViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLFeedbackViewController.h; sourceTree = "<group>"; };
+		FBD938DB1F249E0C00900842 /* FLFeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLFeedbackViewController.m; sourceTree = "<group>"; };
+		FBD938DD1F24A19F00900842 /* FLFeedbackService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLFeedbackService.h; sourceTree = "<group>"; };
+		FBD938DE1F24A1A700900842 /* FLFeedbackService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLFeedbackService.m; sourceTree = "<group>"; };
 		FBE0D77B1F19C785006D6C47 /* FLFlippedListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLFlippedListViewController.h; sourceTree = "<group>"; };
 		FBE0D77C1F19C792006D6C47 /* FLFlippedListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLFlippedListViewController.m; sourceTree = "<group>"; };
 		FBE0D77E1F19F12B006D6C47 /* FLBaseService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLBaseService.h; sourceTree = "<group>"; };
@@ -153,6 +171,10 @@
 				FBE0D7821F19F279006D6C47 /* FLUserService.m */,
 				FBD938B01F1E305E00900842 /* FLCloudService.h */,
 				FBD938B11F1E306A00900842 /* FLCloudService.m */,
+				FBD938CF1F248BFE00900842 /* FLHelpService.h */,
+				FBD938D01F248C0700900842 /* FLHelpService.m */,
+				FBD938DD1F24A19F00900842 /* FLFeedbackService.h */,
+				FBD938DE1F24A1A700900842 /* FLFeedbackService.m */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -278,6 +300,8 @@
 				FB6173A31F1112D0009649E2 /* Post */,
 				FB6173A71F1112D0009649E2 /* Square */,
 				45F1C8BB1F1F2A2300A3B74C /* Detail */,
+				FBD938D81F249DE100900842 /* Feedback */,
+				FBD938CA1F248B2B00900842 /* Help */,
 			);
 			path = Bundle;
 			sourceTree = "<group>";
@@ -321,6 +345,8 @@
 				FB61739A1F1112D0009649E2 /* FLBaseViewController.m */,
 				FBE0D77B1F19C785006D6C47 /* FLFlippedListViewController.h */,
 				FBE0D77C1F19C792006D6C47 /* FLFlippedListViewController.m */,
+				FBB917731F1252B9000C7353 /* FLFlippedWordCell.h */,
+				FBB917741F1252C5000C7353 /* FLFlippedWordCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -355,6 +381,8 @@
 			children = (
 				FB6173A11F1112D0009649E2 /* FLMineViewController.h */,
 				FB6173A21F1112D0009649E2 /* FLMineViewController.m */,
+				FBD938D21F2491DA00900842 /* FLNewMineViewController.h */,
+				FBD938D31F2491E200900842 /* FLNewMineViewController.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -389,8 +417,6 @@
 			children = (
 				FB6173A91F1112D0009649E2 /* FLSquareViewController.h */,
 				FB6173AA1F1112D0009649E2 /* FLSquareViewController.m */,
-				FBB917731F1252B9000C7353 /* FLFlippedWordCell.h */,
-				FBB917741F1252C5000C7353 /* FLFlippedWordCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -398,6 +424,8 @@
 		FBCD22261F1A0F5700D8B718 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				FBD938D51F24956D00900842 /* UIColor+HexColor.h */,
+				FBD938D61F24956D00900842 /* UIColor+HexColor.m */,
 				FBCD22271F1A0F6C00D8B718 /* NSString+MD5.h */,
 				FBCD22281F1A0F8100D8B718 /* NSString+MD5.m */,
 				FBCD222A1F1A21E200D8B718 /* NSString+Base64.h */,
@@ -434,6 +462,40 @@
 				FBD938BA1F1F9D8A00900842 /* MTAConfig.h */,
 			);
 			path = MTA;
+			sourceTree = "<group>";
+		};
+		FBD938CA1F248B2B00900842 /* Help */ = {
+			isa = PBXGroup;
+			children = (
+				FBD938CB1F248B2B00900842 /* Views */,
+			);
+			path = Help;
+			sourceTree = "<group>";
+		};
+		FBD938CB1F248B2B00900842 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FBD938CC1F248B3E00900842 /* FLHelpViewController.h */,
+				FBD938CD1F248B4A00900842 /* FLHelpViewController.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FBD938D81F249DE100900842 /* Feedback */ = {
+			isa = PBXGroup;
+			children = (
+				FBD938D91F249DE100900842 /* Views */,
+			);
+			path = Feedback;
+			sourceTree = "<group>";
+		};
+		FBD938D91F249DE100900842 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FBD938DA1F249E0300900842 /* FLFeedbackViewController.h */,
+				FBD938DB1F249E0C00900842 /* FLFeedbackViewController.m */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -569,10 +631,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBD938D41F2491E200900842 /* FLNewMineViewController.m in Sources */,
+				FBD938DC1F249E0C00900842 /* FLFeedbackViewController.m in Sources */,
 				FBB917751F1252C5000C7353 /* FLFlippedWordCell.m in Sources */,
+				FBD938CE1F248B4A00900842 /* FLHelpViewController.m in Sources */,
 				FB6173AF1F1112D0009649E2 /* FLPostViewController.m in Sources */,
 				FB6173B01F1112D0009649E2 /* FLSquareViewController.m in Sources */,
+				FBD938D11F248C0700900842 /* FLHelpService.m in Sources */,
 				FB6173AD1F1112D0009649E2 /* FLLoginViewController.m in Sources */,
+				FBD938DF1F24A1A700900842 /* FLFeedbackService.m in Sources */,
 				FBCD222C1F1A21EB00D8B718 /* NSString+Base64.m in Sources */,
 				FBE0D7801F19F135006D6C47 /* FLBaseService.m in Sources */,
 				FB6173AB1F1112D0009649E2 /* FLFlippedWord.m in Sources */,
@@ -588,6 +655,7 @@
 				FBCD22291F1A0F8100D8B718 /* NSString+MD5.m in Sources */,
 				FB6173AC1F1112D0009649E2 /* FLBaseViewController.m in Sources */,
 				FBD938B51F1F587200900842 /* FLUserInfoManager.m in Sources */,
+				FBD938D71F24956D00900842 /* UIColor+HexColor.m in Sources */,
 				FB6173B31F11146A009649E2 /* FLContent.m in Sources */,
 				FB7CF6D61F1BA84200CD9F5C /* FLToast.m in Sources */,
 			);

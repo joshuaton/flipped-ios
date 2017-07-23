@@ -183,11 +183,14 @@
         _tableView.dataSource = self;
         _tableView.delegate = self;
         [_tableView registerClass:[FLFlippedWordCell class] forCellReuseIdentifier:NSStringFromClass([FLFlippedWordCell class])];
+        _tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
         
         _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
             [self.flippedWords removeAllObjects];
             [self loadData];
         }];
+        
+
         
 //        _tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
 //            

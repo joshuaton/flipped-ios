@@ -28,8 +28,7 @@
     
     [super viewDidLoad];
     
-    self.title = @"我的";
-    [self configRightNavigationItemWithTitle:@"发布" image:nil action:@selector(postBtnDidClick)];
+    self.title = @"我的心动话";
 
     self.segmentTitles = [NSArray arrayWithObjects:@"我发送的", @"我收到的", nil];
     self.segmentControl.selectedSegmentIndex = 0;
@@ -92,12 +91,6 @@
             break;
     }
 }
-
--(void)postBtnDidClick{
-
-    [FLPostViewController present];    
-}
-
 
 #pragma mark - getter & setter
 

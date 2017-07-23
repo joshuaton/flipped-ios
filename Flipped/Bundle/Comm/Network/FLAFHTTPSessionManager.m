@@ -133,14 +133,7 @@
     
     if(statusCode == 401){
         
-        //todo 不能重复弹窗
-        if([[FLBaseViewController currentViewController] isKindOfClass:[FLLoginViewController class]]){
-            return;
-        }
-        
-        FLLoginViewController *vc = [[FLLoginViewController alloc] init];
-        UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:vc];
-        [[FLBaseViewController currentViewController] presentViewController:navi animated:YES completion:nil];
+        [FLLoginViewController present];
         return;
     }
     

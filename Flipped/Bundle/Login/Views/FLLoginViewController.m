@@ -11,6 +11,7 @@
 #import "Masonry.h"
 #import "FLUserService.h"
 #import "FLToast.h"
+#import "FLHelpViewController.h"
 
 @interface FLLoginViewController()
 
@@ -20,7 +21,6 @@
 @property (nonatomic, strong) UITextField *vertifyCodeTextField;
 @property (nonatomic, strong) UIButton *getVertifyCodeButton;
 @property (nonatomic, strong) UIButton *loginButton;
-@property (nonatomic, strong) UILabel *helpLabel;
 @property (nonatomic, assign) NSInteger time;
 
 @end
@@ -30,8 +30,9 @@
 -(void)viewDidLoad{
     
     [super viewDidLoad];
-    
+        
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:@"" forKey:@"uid"];
     [defaults setObject:@"" forKey:@"key"];
     
     self.title = @"请登录";
@@ -83,6 +84,20 @@
         make.centerX.equalTo(self.loginButton.superview);
         make.width.equalTo(@100);
     }];
+    
+
+}
+
+#pragma mark - public
+
++(void)present{
+    if([[FLBaseViewController currentViewController] isKindOfClass:[FLLoginViewController class]]){
+        return;
+    }
+    
+    FLLoginViewController *vc = [[FLLoginViewController alloc] init];
+    UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:vc];
+    [[FLBaseViewController currentViewController] presentViewController:navi animated:YES completion:nil];
 }
 
 #pragma mark - private
@@ -157,6 +172,11 @@
     } failBlock:^(NSError *error) {
         
     }];
+}
+
+-(void)helpClick{
+    FLHelpViewController *vc = [[FLHelpViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - getter & setter
@@ -238,13 +258,6 @@
     return _loginButton;
 }
 
--(UILabel *)helpLabel{
-    if(!_helpLabel){
-        _helpLabel = [[UILabel alloc] init];
-        _helpLabel.text = @"使用帮助";
-        [self.view addSubview:_helpLabel];
-    }
-    return _helpLabel;
-}
+
 
 @end

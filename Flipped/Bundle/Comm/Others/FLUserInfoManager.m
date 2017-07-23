@@ -50,12 +50,7 @@ static FLUserInfoManager *userInfoManager;
 -(BOOL)checkLogin{
     
     if(![self isLogin]){
-        if([[FLBaseViewController currentViewController] isKindOfClass:[FLLoginViewController class]]){
-            return NO;
-        }
-        FLLoginViewController *vc = [[FLLoginViewController alloc] init];
-        UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:vc];
-        [[FLBaseViewController currentViewController] presentViewController:navi animated:YES completion:nil];
+        [FLLoginViewController present];
         return NO;
     }
     return YES;
