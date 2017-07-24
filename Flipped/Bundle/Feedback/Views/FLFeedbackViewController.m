@@ -10,6 +10,7 @@
 #import "Masonry.h"
 #import "FLFeedbackService.h"
 #import "FLToast.h"
+#import "FLCommHeader.h"
 
 @interface FLFeedbackViewController()
 
@@ -63,8 +64,8 @@
     if(!_contentTextView){
         _contentTextView = [[UITextView alloc] init];
         _contentTextView.layer.borderWidth = 1;
-        _contentTextView.layer.borderColor = [UIColor blackColor].CGColor;
-        _contentTextView.font = [UIFont systemFontOfSize:16];
+        _contentTextView.layer.borderColor = COLOR_H1.CGColor;
+        _contentTextView.font = FONT_L;
         
 
         [self.view addSubview:_contentTextView];

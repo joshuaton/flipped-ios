@@ -10,6 +10,7 @@
 #import "FLHelpService.h"
 #import "FLContent.h"
 #import "Masonry.h"
+#import "FLCommHeader.h"
 
 @interface FLHelpViewController()
 
@@ -55,7 +56,8 @@
     if(!_contentLabel){
         _contentLabel = [[UILabel alloc] init];
         _contentLabel.numberOfLines = 0;
-        _contentLabel.textColor = [UIColor blackColor];
+        _contentLabel.textColor = COLOR_H1;
+        _contentLabel.font = FONT_L;
         [self.view addSubview:_contentLabel];
     }
     return _contentLabel;

@@ -13,6 +13,8 @@
 #import "FLToast.h"
 #import "MWPhoto.h"
 #import "MWPhotoBrowser.h"
+#import "FLCommHeader.h"
+#import "UILabel+ChangeLineSpaceAndWordSpace.h"
 
 @interface FLFlippedDetailViewController() <MWPhotoBrowserDelegate>
 
@@ -86,8 +88,10 @@
         }
     }
     
-    self.sendLabel.text = [NSString stringWithFormat:@"发送给：%@", data.sendto];
+    [UILabel changeLineSpaceForLabel:self.contentLabel WithSpace:4.0];
     
+    self.sendLabel.text = [NSString stringWithFormat:@"发送给：%@", data.sendto];
+
     if(hasImage){
         self.imageView.hidden = NO;
     }else{
@@ -137,7 +141,8 @@
 -(UILabel *)contentLabel{
     if(!_contentLabel){
         _contentLabel = [[UILabel alloc] init];
-        _contentLabel.font = [UIFont systemFontOfSize:18];
+        _contentLabel.font = FONT_L;
+        _contentLabel.textColor = COLOR_H1;
         _contentLabel.numberOfLines = 0;
         [self.view addSubview:_contentLabel];
     }
@@ -147,7 +152,8 @@
 -(UILabel *)sendLabel{
     if(!_sendLabel){
         _sendLabel = [[UILabel alloc] init];
-        _sendLabel.font = [UIFont systemFontOfSize:14];
+        _sendLabel.font = FONT_M;
+        _sendLabel.textColor = COLOR_H2;
         [self.view addSubview:_sendLabel];
     }
     return _sendLabel;

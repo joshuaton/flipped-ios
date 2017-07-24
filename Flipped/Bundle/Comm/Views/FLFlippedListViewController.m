@@ -205,6 +205,9 @@
     if(!_emptyLabel){
         _emptyLabel = [[UILabel alloc] init];
         _emptyLabel.text = @"暂无内容";
+        _emptyLabel.font = FONT_L;
+        _emptyLabel.textColor = COLOR_H1;
+        _emptyLabel.hidden = YES;
         [self.view addSubview:_emptyLabel];
     }
     return _emptyLabel;

@@ -286,6 +286,8 @@
     if(!_tipsLabel){
         _tipsLabel = [[UILabel alloc] init];
         _tipsLabel.text = @"对Ta说出心动的话";
+        _tipsLabel.font = FONT_L;
+        _tipsLabel.textColor = COLOR_H1;
         [self.view addSubview:_tipsLabel];
     }
     return _tipsLabel;
@@ -295,6 +297,8 @@
     if(!_phoneNumLabel){
         _phoneNumLabel = [[UILabel alloc] init];
         _phoneNumLabel.text = @"输入Ta的手机";
+        _phoneNumLabel.font = FONT_L;
+        _phoneNumLabel.textColor = COLOR_H1;
         [self.view addSubview:_phoneNumLabel];
     }
     return _phoneNumLabel;
@@ -305,6 +309,8 @@
         _phoneNumTextField = [[UITextField alloc] init];
         _phoneNumTextField.borderStyle = UITextBorderStyleLine;
         _phoneNumTextField.keyboardType = UIKeyboardTypePhonePad;
+        _phoneNumTextField.font = FONT_L;
+        _phoneNumTextField.textColor = COLOR_H1;
         [self.view addSubview:_phoneNumTextField];
     }
     return _phoneNumTextField;
@@ -314,6 +320,8 @@
     if(!_contentLabel){
         _contentLabel = [[UILabel alloc] init];
         _contentLabel.text = @"想对Ta说的话";
+        _contentLabel.font = FONT_L;
+        _contentLabel.textColor = COLOR_H1;
         [self.view addSubview:_contentLabel];
     }
     return _contentLabel;
@@ -323,8 +331,9 @@
     if(!_contentTextView){
         _contentTextView = [[UITextView alloc] init];
         _contentTextView.layer.borderWidth = 1;
-        _contentTextView.layer.borderColor = [UIColor blackColor].CGColor;
-        _contentTextView.font = [UIFont systemFontOfSize:16];
+        _contentTextView.layer.borderColor = COLOR_H1.CGColor;
+        _contentTextView.font = FONT_L;
+        _contentTextView.textColor = COLOR_H1;
         [self.view addSubview:_contentTextView];
     }
     return _contentTextView;
@@ -353,6 +362,8 @@
     if(!_addPicLabel){
         _addPicLabel = [[UILabel alloc] init];
         _addPicLabel.text = @"添加图片";
+        _addPicLabel.font = FONT_L;
+        _addPicLabel.textColor = COLOR_H1;
         [self.addPicView addSubview:_addPicLabel];
     }
     return _addPicLabel;

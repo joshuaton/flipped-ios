@@ -120,7 +120,7 @@
                 
                 //设置按钮的样式
                 [self.getVertifyCodeButton setTitle:@"获取验证码" forState:UIControlStateNormal];
-                [self.getVertifyCodeButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+                [self.getVertifyCodeButton setTitleColor:COLOR_H1 forState:UIControlStateNormal];
                 self.getVertifyCodeButton.userInteractionEnabled = YES;
             });
             
@@ -185,7 +185,8 @@
     if(!_phoneNumLabel){
         _phoneNumLabel = [[UILabel alloc] init];
         _phoneNumLabel.text = @"手机号";
-        _phoneNumLabel.font = [UIFont systemFontOfSize:18];
+        _phoneNumLabel.font = FONT_L;
+        _phoneNumLabel.textColor = COLOR_H1;
         [_phoneNumLabel sizeToFit];
         [self.view addSubview:_phoneNumLabel];
     }
@@ -196,6 +197,8 @@
     if(!_phoneNumTextField){
         _phoneNumTextField = [[UITextField alloc] init];
         _phoneNumTextField.placeholder = @"请输入手机号";
+        _phoneNumTextField.font = FONT_L;
+        _phoneNumTextField.textColor = COLOR_H1;
         _phoneNumTextField.leftViewMode = UITextFieldViewModeAlways;
         _phoneNumTextField.borderStyle = UITextBorderStyleLine;
         _phoneNumTextField.keyboardType = UIKeyboardTypePhonePad;
@@ -209,7 +212,8 @@
     if(!_vertifyCodeLabel){
         _vertifyCodeLabel = [[UILabel alloc] init];
         _vertifyCodeLabel.text = @"验证码";
-        _vertifyCodeLabel.font = [UIFont systemFontOfSize:18];
+        _vertifyCodeLabel.font = FONT_L;
+        _vertifyCodeLabel.textColor = COLOR_H1;
         [_vertifyCodeLabel sizeToFit];
         [self.view addSubview:_vertifyCodeLabel];
     }
@@ -220,6 +224,8 @@
     if(!_vertifyCodeTextField){
         _vertifyCodeTextField = [[UITextField alloc] init];
         _vertifyCodeTextField.placeholder = @"请输入验证码";
+        _vertifyCodeTextField.font = FONT_L;
+        _vertifyCodeTextField.textColor = COLOR_H1;
         _vertifyCodeTextField.leftViewMode = UITextFieldViewModeAlways;
         _vertifyCodeTextField.borderStyle = UITextBorderStyleLine;
         _vertifyCodeTextField.keyboardType = UIKeyboardTypePhonePad;
@@ -233,10 +239,10 @@
     if(!_getVertifyCodeButton){
         _getVertifyCodeButton = [[UIButton alloc] init];
         [_getVertifyCodeButton setTitle:@"获取验证码" forState:UIControlStateNormal];
-        [_getVertifyCodeButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [_getVertifyCodeButton setTitleColor:COLOR_H1 forState:UIControlStateNormal];
         _getVertifyCodeButton.layer.borderWidth = 1;
-        _getVertifyCodeButton.layer.borderColor = [UIColor blackColor].CGColor;
-        _getVertifyCodeButton.titleLabel.font = [UIFont systemFontOfSize:16];
+        _getVertifyCodeButton.layer.borderColor = COLOR_H1.CGColor;
+        _getVertifyCodeButton.titleLabel.font = FONT_L;
         [_getVertifyCodeButton addTarget:self action:@selector(getVertifyBtnClick:) forControlEvents:UIControlEventTouchUpInside];
         [_getVertifyCodeButton sizeToFit];
         [self.view addSubview:_getVertifyCodeButton];
@@ -248,10 +254,11 @@
     if(!_loginButton){
         _loginButton = [[UIButton alloc] init];
         [_loginButton setTitle:@"登录" forState:UIControlStateNormal];
-        [_loginButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [_loginButton setTitleColor:COLOR_H1 forState:UIControlStateNormal];
+        _loginButton.titleLabel.font = FONT_L;
         [_loginButton sizeToFit];
         _loginButton.layer.borderWidth = 1;
-        _loginButton.layer.borderColor = [UIColor blackColor].CGColor;
+        _loginButton.layer.borderColor = COLOR_H1.CGColor;
         [_loginButton addTarget:self action:@selector(loginBtnClick) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:_loginButton];
     }

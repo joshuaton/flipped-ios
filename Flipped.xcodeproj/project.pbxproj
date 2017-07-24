@@ -32,6 +32,7 @@
 		FBB9177F1F1254DA000C7353 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = FBB917791F1254DA000C7353 /* logo.png */; };
 		FBB917801F1254DA000C7353 /* post_add.png in Resources */ = {isa = PBXBuildFile; fileRef = FBB9177A1F1254DA000C7353 /* post_add.png */; };
 		FBB917811F1254DA000C7353 /* WechatIMG9.png in Resources */ = {isa = PBXBuildFile; fileRef = FBB9177B1F1254DA000C7353 /* WechatIMG9.png */; };
+		FBBA70651F24E35400CADD08 /* UILabel+ChangeLineSpaceAndWordSpace.m in Sources */ = {isa = PBXBuildFile; fileRef = FBBA70641F24E35400CADD08 /* UILabel+ChangeLineSpaceAndWordSpace.m */; };
 		FBCD22291F1A0F8100D8B718 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = FBCD22281F1A0F8100D8B718 /* NSString+MD5.m */; };
 		FBCD222C1F1A21EB00D8B718 /* NSString+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = FBCD222B1F1A21EB00D8B718 /* NSString+Base64.m */; };
 		FBCD22301F1A5A2400D8B718 /* FLAFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FBCD222F1F1A5A2400D8B718 /* FLAFHTTPSessionManager.m */; };
@@ -100,6 +101,8 @@
 		FBB917791F1254DA000C7353 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		FBB9177A1F1254DA000C7353 /* post_add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = post_add.png; sourceTree = "<group>"; };
 		FBB9177B1F1254DA000C7353 /* WechatIMG9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WechatIMG9.png; sourceTree = "<group>"; };
+		FBBA70631F24E34600CADD08 /* UILabel+ChangeLineSpaceAndWordSpace.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UILabel+ChangeLineSpaceAndWordSpace.h"; sourceTree = "<group>"; };
+		FBBA70641F24E35400CADD08 /* UILabel+ChangeLineSpaceAndWordSpace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+ChangeLineSpaceAndWordSpace.m"; sourceTree = "<group>"; };
 		FBCD22271F1A0F6C00D8B718 /* NSString+MD5.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
 		FBCD22281F1A0F8100D8B718 /* NSString+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
 		FBCD222A1F1A21E200D8B718 /* NSString+Base64.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Base64.h"; sourceTree = "<group>"; };
@@ -432,6 +435,8 @@
 				FBCD222B1F1A21EB00D8B718 /* NSString+Base64.m */,
 				FB7CF6D41F1BA83600CD9F5C /* FLToast.h */,
 				FB7CF6D51F1BA84200CD9F5C /* FLToast.m */,
+				FBBA70631F24E34600CADD08 /* UILabel+ChangeLineSpaceAndWordSpace.h */,
+				FBBA70641F24E35400CADD08 /* UILabel+ChangeLineSpaceAndWordSpace.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -633,6 +638,7 @@
 			files = (
 				FBD938D41F2491E200900842 /* FLNewMineViewController.m in Sources */,
 				FBD938DC1F249E0C00900842 /* FLFeedbackViewController.m in Sources */,
+				FBBA70651F24E35400CADD08 /* UILabel+ChangeLineSpaceAndWordSpace.m in Sources */,
 				FBB917751F1252C5000C7353 /* FLFlippedWordCell.m in Sources */,
 				FBD938CE1F248B4A00900842 /* FLHelpViewController.m in Sources */,
 				FB6173AF1F1112D0009649E2 /* FLPostViewController.m in Sources */,
@@ -762,6 +768,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = NJ84XW37VD;
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = Flipped/Info.plist;
@@ -772,6 +779,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.junshao.Flipped;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -782,6 +790,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = NJ84XW37VD;
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = Flipped/Info.plist;
@@ -792,6 +801,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.junshao.Flipped;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

@@ -10,6 +10,7 @@
 #import "Masonry.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "FLCommHeader.h"
+#import "UILabel+ChangeLineSpaceAndWordSpace.h"
 
 @interface FLFlippedWordCell()
 
@@ -33,6 +34,7 @@
         }
     }
     self.contentLabel.text = textContent;
+    [UILabel changeLineSpaceForLabel:self.contentLabel WithSpace:4.0];
     self.sendLabel.text = [NSString stringWithFormat:@"发送给：%@", data.sendto];
     
     self.lineView.hidden = YES;
@@ -114,7 +116,12 @@
     if(!_contentLabel){
         _contentLabel = [[UILabel alloc] init];
         _contentLabel.numberOfLines = 5;
-        _contentLabel.font = [UIFont systemFontOfSize:18];
+        _contentLabel.font = FONT_L;
+        _contentLabel.textColor = COLOR_H1;
+        
+        
+
+        
         [self.contentView addSubview:_contentLabel];
     }
     return _contentLabel;
@@ -123,7 +130,8 @@
 -(UILabel *)sendLabel{
     if(!_sendLabel){
         _sendLabel = [[UILabel alloc] init];
-        _sendLabel.font = [UIFont systemFontOfSize:14];
+        _sendLabel.font = FONT_M;
+        _sendLabel.textColor = COLOR_H2;
         [self.contentView addSubview:_sendLabel];
     }
     return _sendLabel;
@@ -132,7 +140,7 @@
 -(UIView *)lineView{
     if(!_lineView){
         _lineView = [[UIView alloc] init];
-        _lineView.backgroundColor = [UIColor blackColor];
+        _lineView.backgroundColor = COLOR_H4;
         [self.contentView addSubview:_lineView];
     }
     return _lineView;

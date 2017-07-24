@@ -7,6 +7,7 @@
 //
 
 #import "FLBaseViewController.h"
+#import "FLCommHeader.h"
 
 static __weak UIViewController* __currentViewController;
 
@@ -19,7 +20,12 @@ static __weak UIViewController* __currentViewController;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = COLOR_W;
+    
+    UIBarButtonItem * backButtonItem = [[UIBarButtonItem alloc] init];
+    backButtonItem.title = @"";
+    self.navigationItem.backBarButtonItem = backButtonItem;
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -41,8 +47,8 @@ static __weak UIViewController* __currentViewController;
     
     if(title && title.length > 0){
         [btn setTitle:title forState:UIControlStateNormal];
-        [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        btn.titleLabel.font = [UIFont systemFontOfSize:16];
+        [btn setTitleColor:COLOR_H1 forState:UIControlStateNormal];
+        btn.titleLabel.font = FONT_L;
     }
     if(image){
         [btn setImage:image forState:UIControlStateNormal];
@@ -60,8 +66,8 @@ static __weak UIViewController* __currentViewController;
     
     if(title && title.length > 0){
         [btn setTitle:title forState:UIControlStateNormal];
-        [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        btn.titleLabel.font = [UIFont systemFontOfSize:16];
+        [btn setTitleColor:COLOR_H1 forState:UIControlStateNormal];
+        btn.titleLabel.font = FONT_L;
     }
     if(image){
         [btn setImage:image forState:UIControlStateNormal];

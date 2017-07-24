@@ -13,6 +13,7 @@
 #import "FLHelpViewController.h"
 #import "FLLoginViewController.h"
 #import "FLFeedbackViewController.h"
+#import "FLCommHeader.h"
 
 @interface FLNewMineViewController() <UITableViewDataSource, UITableViewDelegate>
 
@@ -99,6 +100,9 @@
         default:
             break;
     }
+    
+    cell.textLabel.font = FONT_L;
+    cell.textLabel.textColor = COLOR_H1;
     
     return cell;
 }
