@@ -12,6 +12,7 @@
 #import "FLUserService.h"
 #import "FLToast.h"
 #import "FLHelpViewController.h"
+#import "FLUserInfoManager.h"
 
 @interface FLLoginViewController()
 
@@ -169,6 +170,13 @@
 }
 
 -(void)loginBtnClick{
+    
+    NSString *phoneNum = self.phoneNumTextField.text;
+    if([FLUserInfoManager isTestAccount:phoneNum]){
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject:phoneNum forKey:@"x-uid"];
+    }
+    
     [FLUserService loginWithPhoneNum:self.phoneNumTextField.text vertifyCode:self.vertifyCodeTextField.text successBlock:^{
         
         [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_LOGIN_SUCCESS object:self userInfo:nil];

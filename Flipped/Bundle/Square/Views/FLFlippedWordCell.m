@@ -11,6 +11,7 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "FLCommHeader.h"
 #import "UILabel+ChangeLineSpaceAndWordSpace.h"
+#import "FLStringUtils.h"
 
 @interface FLFlippedWordCell()
 
@@ -50,6 +51,9 @@
         if([content.type isEqualToString:@"picture"]){
             self.picImageView.hidden = NO;
             [self updateConstraints:YES];
+            
+            content.text = [FLStringUtils convertToHttpsWithUrl:content.text];
+
             [self.picImageView sd_setImageWithURL:[NSURL URLWithString:content.text] placeholderImage:[UIImage imageNamed:@"flipped_pic_default"]];
             continue;
         }

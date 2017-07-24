@@ -15,5 +15,6 @@
 
 +(FLUserInfoManager *)sharedUserInfoManager;
 -(BOOL)checkLogin;
++(BOOL)isTestAccount:(NSString *)account;
 
 @end

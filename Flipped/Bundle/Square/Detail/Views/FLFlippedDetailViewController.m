@@ -15,6 +15,7 @@
 #import "MWPhotoBrowser.h"
 #import "FLCommHeader.h"
 #import "UILabel+ChangeLineSpaceAndWordSpace.h"
+#import "FLStringUtils.h"
 
 @interface FLFlippedDetailViewController() <MWPhotoBrowserDelegate>
 
@@ -80,6 +81,9 @@
         if([content.type isEqualToString:@"text"]){
             self.contentLabel.text = content.text;
         }else if([content.type isEqualToString:@"picture"]){
+            
+            content.text = [FLStringUtils convertToHttpsWithUrl:content.text];
+            
             [self.imageView sd_setImageWithURL:[NSURL URLWithString:content.text] placeholderImage:[UIImage imageNamed:@"flipped_pic_default"]];
             hasImage = YES;
             

@@ -17,6 +17,7 @@
 		45D272481F0B43BC00AF180E /* comm_tab_square_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45D272441F0B43BC00AF180E /* comm_tab_square_selected@2x.png */; };
 		45F1C8BF1F1F2A6100A3B74C /* FLFlippedDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F1C8BE1F1F2A6100A3B74C /* FLFlippedDetailViewController.m */; };
 		583FCBD6E2C5D728117751C6 /* libPods-Flipped.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A6CB62EA12AEAE674DF275B1 /* libPods-Flipped.a */; };
+		FB4942A51F264F48005BCD9C /* FLStringUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = FB4942A41F264F48005BCD9C /* FLStringUtils.m */; };
 		FB6173AB1F1112D0009649E2 /* FLFlippedWord.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6173951F1112D0009649E2 /* FLFlippedWord.m */; };
 		FB6173AC1F1112D0009649E2 /* FLBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB61739A1F1112D0009649E2 /* FLBaseViewController.m */; };
 		FB6173AD1F1112D0009649E2 /* FLLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB61739E1F1112D0009649E2 /* FLLoginViewController.m */; };
@@ -76,6 +77,8 @@
 		7BA26D2BB5C6386B31F8E1A5 /* Pods-Flipped.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flipped.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Flipped/Pods-Flipped.debug.xcconfig"; sourceTree = "<group>"; };
 		7CA5465F4BAB318854577797 /* Pods-Flipped.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flipped.release.xcconfig"; path = "Pods/Target Support Files/Pods-Flipped/Pods-Flipped.release.xcconfig"; sourceTree = "<group>"; };
 		A6CB62EA12AEAE674DF275B1 /* libPods-Flipped.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Flipped.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB4942A31F264F3E005BCD9C /* FLStringUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLStringUtils.h; sourceTree = "<group>"; };
+		FB4942A41F264F48005BCD9C /* FLStringUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLStringUtils.m; sourceTree = "<group>"; };
 		FB6173941F1112D0009649E2 /* FLFlippedWord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLFlippedWord.h; sourceTree = "<group>"; };
 		FB6173951F1112D0009649E2 /* FLFlippedWord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLFlippedWord.m; sourceTree = "<group>"; };
 		FB6173971F1112D0009649E2 /* FLCommHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLCommHeader.h; sourceTree = "<group>"; };
@@ -437,6 +440,8 @@
 				FB7CF6D51F1BA84200CD9F5C /* FLToast.m */,
 				FBBA70631F24E34600CADD08 /* UILabel+ChangeLineSpaceAndWordSpace.h */,
 				FBBA70641F24E35400CADD08 /* UILabel+ChangeLineSpaceAndWordSpace.m */,
+				FB4942A31F264F3E005BCD9C /* FLStringUtils.h */,
+				FB4942A41F264F48005BCD9C /* FLStringUtils.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -645,6 +650,7 @@
 				FB6173B01F1112D0009649E2 /* FLSquareViewController.m in Sources */,
 				FBD938D11F248C0700900842 /* FLHelpService.m in Sources */,
 				FB6173AD1F1112D0009649E2 /* FLLoginViewController.m in Sources */,
+				FB4942A51F264F48005BCD9C /* FLStringUtils.m in Sources */,
 				FBD938DF1F24A1A700900842 /* FLFeedbackService.m in Sources */,
 				FBCD222C1F1A21EB00D8B718 /* NSString+Base64.m in Sources */,
 				FBE0D7801F19F135006D6C47 /* FLBaseService.m in Sources */,

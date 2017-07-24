@@ -15,6 +15,7 @@
 #import "FLCloudService.h"
 #import "FLCommHeader.h"
 #import "FLUserInfoManager.h"
+#import "FLStringUtils.h"
 
 @interface FLPostViewController() <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
@@ -156,8 +157,10 @@
         [FLCloudService uploadImage:self.selectedImageView.image withSuccessBlock:^(NSString *url) {
             
             FLContent *picContent = [[FLContent alloc] init];
-            picContent.type = @"picture";
+            picContent.type = @"picture";            
+            url = [FLStringUtils convertToHttpsWithUrl:url];
             picContent.text = url;
+
             [contentArr addObject:picContent];
             
             [FLFlippedWordsService publishFlippedWordsWithData:data successBlock:^{
