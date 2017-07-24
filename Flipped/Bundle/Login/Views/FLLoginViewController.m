@@ -38,8 +38,15 @@
     self.title = @"请登录";
     [self configLeftNavigationItemWithTitle:@"关闭" image:nil action:@selector(closeBtnClick)];
     
-    [self makeConstraints];
     
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    [self makeConstraints];
+
+    [self.phoneNumTextField becomeFirstResponder];
 }
 
 -(void)makeConstraints{

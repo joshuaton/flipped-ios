@@ -14,6 +14,7 @@
 #import "FLLoginViewController.h"
 #import "FLFeedbackViewController.h"
 #import "FLCommHeader.h"
+#import "FLUserInfoManager.h"
 
 @interface FLNewMineViewController() <UITableViewDataSource, UITableViewDelegate>
 
@@ -83,10 +84,10 @@
         }case 1:
         {
             if(indexPath.row == 0){
-                cell.textLabel.text = @"反馈问题";
+                cell.textLabel.text = @"使用帮助";
                 cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             }else if(indexPath.row == 1){
-                cell.textLabel.text = @"使用帮助";
+                cell.textLabel.text = @"反馈问题";
                 cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             }
             break;
@@ -114,6 +115,9 @@
     switch (indexPath.section) {
         case 0:
         {
+            if(![[FLUserInfoManager sharedUserInfoManager] checkLogin]){
+                return;
+            }
             FLMineViewController *vc = [[FLMineViewController alloc] init];
             vc.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:vc animated:YES];
@@ -122,11 +126,16 @@
         case 1:
         {
             if(indexPath.row == 0){
-                FLFeedbackViewController *vc = [[FLFeedbackViewController alloc] init];
+                FLHelpViewController *vc = [[FLHelpViewController alloc] init];
                 vc.hidesBottomBarWhenPushed = YES;
                 [self.navigationController pushViewController:vc animated:YES];
             }else if(indexPath.row == 1){
-                FLHelpViewController *vc = [[FLHelpViewController alloc] init];
+                
+                if(![[FLUserInfoManager sharedUserInfoManager] checkLogin]){
+                    return;
+                }
+                
+                FLFeedbackViewController *vc = [[FLFeedbackViewController alloc] init];
                 vc.hidesBottomBarWhenPushed = YES;
                 [self.navigationController pushViewController:vc animated:YES];
             }

@@ -18,7 +18,7 @@ static FLUserInfoManager *userInfoManager;
 
 @implementation FLUserInfoManager
 
-+(FLUserInfoManager *)sharedHttpSessionManager {
++(FLUserInfoManager *)sharedUserInfoManager {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         userInfoManager = [[FLUserInfoManager alloc] init];

@@ -34,7 +34,7 @@
 
 +(void)present{
     
-    if(![[FLUserInfoManager sharedHttpSessionManager] checkLogin]){
+    if(![[FLUserInfoManager sharedUserInfoManager] checkLogin]){
         return;
     }
     
@@ -54,9 +54,18 @@
     
     self.selectedImageView.hidden = YES;
     
-    [self makeConstraints];
-    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(otherClick)];
+    self.view.userInteractionEnabled = YES;
+    [self.view addGestureRecognizer:tap];
+}
 
+-(void)viewWillAppear:(BOOL)animated{
+    
+    [super viewWillAppear:animated];
+    
+    [self makeConstraints];
+
+    [self.phoneNumTextField becomeFirstResponder];
 }
 
 -(void)makeConstraints{
@@ -93,9 +102,9 @@
     
     [self.addPicView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.contentTextView.mas_bottom).offset(10);
-        make.left.equalTo(self.contentTextView);
-        make.right.equalTo(self.contentTextView);
-        make.height.equalTo(@200);
+        make.width.equalTo(@(self.addPicImageView.frame.size.width));
+        make.height.equalTo(@(self.addPicImageView.frame.size.height));
+        make.centerX.equalTo(self.addPicView.superview);
     }];
     
     [self.addPicImageView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -111,8 +120,9 @@
     [self.selectedImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.contentTextView.mas_bottom).offset(10);
         make.left.equalTo(self.contentTextView);
-        make.bottom.equalTo(self.selectedImageView.superview);
         make.right.equalTo(self.contentTextView);
+        make.height.equalTo(@250);
+
     }];
 }
 
@@ -248,6 +258,12 @@
 
 }
 
+-(void)otherClick{
+    
+    [self.phoneNumTextField resignFirstResponder];
+    [self.contentTextView resignFirstResponder];
+}
+
 #pragma mark - private
 
 -(void)showImage:(UIImage *)image{
@@ -353,6 +369,7 @@
     if(!_addPicImageView){
         _addPicImageView = [[UIImageView alloc] init];
         _addPicImageView.image = [UIImage imageNamed:@"flipped_post_add_pic"];
+        [_addPicImageView sizeToFit];
         [self.addPicView addSubview:_addPicImageView];
     }
     return _addPicImageView;

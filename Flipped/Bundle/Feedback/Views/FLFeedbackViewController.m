@@ -25,7 +25,7 @@
     
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.title = @"反馈问题";
-    [self configRightNavigationItemWithTitle:@"提交反馈" image:nil action:@selector(feedbackBtnDidClick)];
+    [self configRightNavigationItemWithTitle:@"提交" image:nil action:@selector(feedbackBtnDidClick)];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -38,6 +38,8 @@
         make.right.equalTo(self.contentTextView.superview).offset(-10);
         make.height.equalTo(@150);
     }];
+    
+    [self.contentTextView becomeFirstResponder];
 }
 
 -(void)feedbackBtnDidClick{
@@ -67,6 +69,14 @@
         _contentTextView.layer.borderColor = COLOR_H1.CGColor;
         _contentTextView.font = FONT_L;
         
+        UILabel *placeHolderLabel = [[UILabel alloc] init];
+        placeHolderLabel.text = @"对我们的应用有什么建议，发现了什么bug，请反馈给我们，谢谢！";
+        placeHolderLabel.numberOfLines = 0;
+        placeHolderLabel.textColor = COLOR_H2;
+        placeHolderLabel.font = FONT_L;
+        [placeHolderLabel sizeToFit];
+        [_contentTextView addSubview:placeHolderLabel];
+        [_contentTextView setValue:placeHolderLabel forKey:@"_placeholderLabel"];
 
         [self.view addSubview:_contentTextView];
     }

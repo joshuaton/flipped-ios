@@ -95,7 +95,7 @@
 #pragma mark - UITabBarControllerDelegate
 - (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController{
     
-    if(viewController == self.mineNav && ![[FLUserInfoManager sharedHttpSessionManager] checkLogin]){
+    if(viewController == self.mineNav && ![[FLUserInfoManager sharedUserInfoManager] checkLogin]){
         return NO;
     }
     

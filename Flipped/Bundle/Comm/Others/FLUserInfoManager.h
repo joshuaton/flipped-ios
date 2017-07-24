@@ -13,7 +13,7 @@
 @property (nonatomic, assign) BOOL login;
 @property (nonatomic, copy) NSString *uid;
 
-+(FLUserInfoManager *)sharedHttpSessionManager;
++(FLUserInfoManager *)sharedUserInfoManager;
 -(BOOL)checkLogin;
 
 @end
