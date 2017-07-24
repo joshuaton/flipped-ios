@@ -175,10 +175,9 @@
 -(void)loginBtnClick{
     
     NSString *phoneNum = self.phoneNumTextField.text;
-    if([FLUserInfoManager isTestAccount:phoneNum]){
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        [defaults setObject:phoneNum forKey:@"x-uid"];
-    }
+    phoneNum = [phoneNum stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:phoneNum forKey:@"x-uid"];
     
     [FLUserService loginWithPhoneNum:self.phoneNumTextField.text vertifyCode:self.vertifyCodeTextField.text successBlock:^{
         
