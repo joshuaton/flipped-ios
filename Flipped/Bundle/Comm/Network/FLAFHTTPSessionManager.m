@@ -30,7 +30,6 @@
         [self handleError:error];
         
         if(failure){
-            NSLog(@"http response error: %@", error);
             failure(task, error);
         }
     }];
@@ -148,7 +147,6 @@
     if(data){
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
         [FLToast showToast:json[@"err"]];
-        NSLog(@"http respnose error: %@", json[@"err"]);
     }
 
 }

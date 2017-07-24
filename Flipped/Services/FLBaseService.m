@@ -17,7 +17,7 @@ static FLAFHTTPSessionManager *manager;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         
-        NSURL *baseURL = [NSURL URLWithString:@"http://119.29.156.112/"];
+        NSURL *baseURL = [NSURL URLWithString:@"https://flippedwords.com/"];
         
         manager = [[FLAFHTTPSessionManager alloc] initWithBaseURL:baseURL];
         manager.requestSerializer = [AFJSONRequestSerializer serializer];
