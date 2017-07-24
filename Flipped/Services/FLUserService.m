@@ -38,6 +38,9 @@
 
     //计算key = md5(phone + md5(password + salt))
     NSString *salt = [defaults objectForKey:@"salt"];
+    if(!salt){
+        salt = @"";
+    }
     NSString *passwordSalt = [NSString stringWithFormat:@"%@%@", vertifyCode, salt];
     NSString *passwordSaltMd5 = [passwordSalt MD5];
     NSString *str = [NSString stringWithFormat:@"%@%@", phoneNum, passwordSaltMd5];

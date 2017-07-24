@@ -33,8 +33,11 @@
     [super viewDidLoad];
         
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:@"" forKey:@"uid"];
-    [defaults setObject:@"" forKey:@"key"];
+    NSDictionary *dic = [defaults dictionaryRepresentation];
+    for (id  key in dic) {
+        [defaults removeObjectForKey:key];
+    }
+    [defaults synchronize];
     
     self.title = @"请登录";
     [self configLeftNavigationItemWithTitle:@"关闭" image:nil action:@selector(closeBtnClick)];
