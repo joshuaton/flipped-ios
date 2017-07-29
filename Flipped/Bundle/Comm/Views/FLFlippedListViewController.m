@@ -154,6 +154,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     FLFlippedWordCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([FLFlippedWordCell class]) forIndexPath:indexPath];
+    cell.type = self.listType;
     [cell refreshWithData:self.flippedWords[indexPath.row]];
     return cell;
 }

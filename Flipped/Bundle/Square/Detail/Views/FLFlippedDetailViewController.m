@@ -64,7 +64,7 @@
         make.top.equalTo(self.sendLabel.mas_bottom).offset(10);
         make.left.equalTo(self.sendLabel);
         make.right.equalTo(self.sendLabel);
-        make.height.equalTo(@250);
+        make.height.equalTo(self.imageView.mas_width);
     }];
 
 }
@@ -101,6 +101,7 @@
     }else{
         self.imageView.hidden = YES;
     }
+    
 }
 
 #pragma mark - action
@@ -166,8 +167,8 @@
 -(UIImageView *)imageView{
     if(!_imageView){
         _imageView = [[UIImageView alloc] init];
-        _imageView.contentMode = UIViewContentModeScaleAspectFit;
-        
+        _imageView.contentMode = UIViewContentModeScaleAspectFill;
+        _imageView.clipsToBounds = YES;
         _imageView.userInteractionEnabled = YES;
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageViewClick)];
         [_imageView addGestureRecognizer:tap];

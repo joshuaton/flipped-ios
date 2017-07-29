@@ -11,6 +11,8 @@
 
 @interface FLFlippedWordCell : UITableViewCell
 
+@property (nonatomic, assign) NSInteger type;
+
 -(void)refreshWithData:(FLFlippedWord *)data;
 
 @end

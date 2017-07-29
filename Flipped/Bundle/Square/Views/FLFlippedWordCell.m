@@ -12,11 +12,13 @@
 #import "FLCommHeader.h"
 #import "UILabel+ChangeLineSpaceAndWordSpace.h"
 #import "FLStringUtils.h"
+#import "FLFlippedListViewController.h"
 
 @interface FLFlippedWordCell()
 
 @property (nonatomic, strong) UILabel *contentLabel;
 @property (nonatomic, strong) UILabel *sendLabel;
+@property (nonatomic, strong) UILabel *statusLabel;
 @property (nonatomic, strong) UIView *lineView;
 @property (nonatomic, strong) UILabel *distanceLabel;
 @property (nonatomic, strong) UIImageView *picImageView;
@@ -39,6 +41,21 @@
     self.sendLabel.text = [NSString stringWithFormat:@"发送给：%@", data.sendto];
     
     self.lineView.hidden = YES;
+    
+    if(self.type == FLFlippedListTypeSend){
+        self.lineView.hidden = NO;
+        
+        NSString *statusStr = @"";
+        if (data.status == 0 || data.status == 100){
+            statusStr = @"对方未读";
+        } else if (data.status == 200){
+            statusStr = @"对方已读";
+        }
+        
+        self.statusLabel.text = statusStr;
+
+
+    }
 //    if(!data.distance){
 //        data.distance = [NSNumber numberWithInt:0];
 //    }
@@ -89,7 +106,7 @@
         make.width.equalTo(@1);
     }];
     
-    [self.distanceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.statusLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.lineView);
         make.left.equalTo(self.lineView.mas_right).offset(5);
         make.bottom.equalTo(self.lineView);
@@ -139,6 +156,16 @@
         [self.contentView addSubview:_sendLabel];
     }
     return _sendLabel;
+}
+
+-(UILabel *)statusLabel{
+    if(!_statusLabel){
+        _statusLabel = [[UILabel alloc] init];
+        _statusLabel.font = FONT_M;
+        _statusLabel.textColor = COLOR_H2;
+        [self.contentView addSubview:_statusLabel];
+    }
+    return _statusLabel;
 }
 
 -(UIView *)lineView{

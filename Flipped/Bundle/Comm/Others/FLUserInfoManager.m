@@ -63,7 +63,7 @@ static FLUserInfoManager *userInfoManager;
 }
 
 +(BOOL)isTestAccount:(NSString *)account{
-    NSArray *testAccounts = @[@"13570825566"];
+    NSArray *testAccounts = @[@"13570825566", @"13410794959"];
 
     for(int i=0; i<testAccounts.count; i++){
         NSString *testAccount = testAccounts[i];
