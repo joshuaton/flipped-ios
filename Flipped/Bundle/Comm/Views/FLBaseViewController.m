@@ -38,7 +38,7 @@ static __weak UIViewController* __currentViewController;
     self.navigationController.navigationBar.titleTextAttributes = dict;
 
     
-
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
 
 }
 
