@@ -56,25 +56,17 @@
 
 
     }
-//    if(!data.distance){
-//        data.distance = [NSNumber numberWithInt:0];
-//    }
-//    self.distanceLabel.text = [NSString stringWithFormat:@"距离：%@m", data.distance];
     
     self.picImageView.hidden = YES;
-    [self updateConstraints:NO];
     for(int i=0; i<data.contents.count; i++){
         FLContent *content = data.contents[i];
         if([content.type isEqualToString:@"picture"]){
             self.picImageView.hidden = NO;
-            [self updateConstraints:YES];
-            
-            content.text = [FLStringUtils convertToHttpsWithUrl:content.text];
-
-            [self.picImageView sd_setImageWithURL:[NSURL URLWithString:content.text] placeholderImage:[UIImage imageNamed:@"flipped_pic_default"]];
-            continue;
+            break;
         }
     }
+    
+    
     
     [self makeConstraints];
 }
@@ -84,13 +76,7 @@
     [self.contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.contentLabel.superview).offset(10);
         make.left.equalTo(self.contentLabel.superview).offset(10);
-    }];
-    
-    [self.picImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.contentLabel);
-        make.left.equalTo(self.contentLabel.mas_right).offset(10);
-        make.bottom.lessThanOrEqualTo(self.picImageView.superview).offset(-10);
-        make.right.equalTo(self.picImageView.superview).offset(-10);
+        make.right.equalTo(self.contentLabel.superview).offset(-10);
     }];
     
     [self.sendLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -112,23 +98,10 @@
         make.bottom.equalTo(self.lineView);
     }];
     
-    
-}
-
--(void)updateConstraints:(BOOL)hasImage{
-    if(hasImage){
-        
-        [self.picImageView mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.width.equalTo(@(100*SCREEN_SCALE_WIDTH));
-            make.height.equalTo(@(100*SCREEN_SCALE_WIDTH));
-        }];
-    }else{
-        
-        [self.picImageView mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.width.equalTo(@(0));
-            make.height.equalTo(@(0));
-        }];
-    }
+    [self.picImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(self.statusLabel);
+        make.right.equalTo(self.picImageView.superview).offset(-10);
+    }];
 }
 
 #pragma mark - getter & setter
@@ -188,8 +161,7 @@
 -(UIImageView *)picImageView{
     if(!_picImageView){
         _picImageView = [[UIImageView alloc] init];
-        _picImageView.contentMode = UIViewContentModeScaleAspectFill;
-        _picImageView.clipsToBounds = YES;
+        _picImageView.image = [UIImage imageNamed:@"flipped_content_pic"];
         [self.contentView addSubview:_picImageView];
     }
     return _picImageView;

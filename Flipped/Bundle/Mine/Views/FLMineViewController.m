@@ -11,6 +11,7 @@
 #import "FLFlippedListViewController.h"
 #import "FLFlippedWordsService.h"
 #import "FLPostViewController.h"
+#import "FLCommHeader.h"
 
 @interface FLMineViewController()
 
@@ -98,6 +99,7 @@
     if(!_segmentControl){
         _segmentControl = [[UISegmentedControl alloc] initWithItems:self.segmentTitles];
         [_segmentControl addTarget:self action:@selector(segmentDidChange:) forControlEvents:UIControlEventValueChanged];
+        _segmentControl.tintColor = COLOR_M;
         [self.view addSubview:_segmentControl];
     }
     return _segmentControl;
