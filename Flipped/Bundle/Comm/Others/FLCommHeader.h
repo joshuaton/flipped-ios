@@ -22,6 +22,7 @@
 #define FONT_XS [UIFont systemFontOfSize:10]
 
 //color
+#define COLOR_M  [UIColor colorWithHexString:@"e17141"]  ///< 主色
 #define COLOR_B  [UIColor colorWithHexString:@"52beef"]  ///< 突出的非警告文字，按钮和icon边框
 #define COLOR_R  [UIColor colorWithHexString:@"ed4956"]  ///< 警告色、突出、提示气泡
 #define COLOR_P  [UIColor colorWithHexString:@"fd7196"]  ///< 性别icon

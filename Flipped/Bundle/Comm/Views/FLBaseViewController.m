@@ -22,9 +22,23 @@ static __weak UIViewController* __currentViewController;
     
     self.view.backgroundColor = COLOR_W;
     
+    //返回按钮不显示文字
     UIBarButtonItem * backButtonItem = [[UIBarButtonItem alloc] init];
     backButtonItem.title = @"";
     self.navigationItem.backBarButtonItem = backButtonItem;
+    
+    //返回按钮颜色
+    self.navigationController.navigationBar.tintColor = COLOR_W;
+    
+    //修改navigationBar背景色
+    self.navigationController.navigationBar.barTintColor = COLOR_M;
+    
+    //修改title文字颜色
+    NSDictionary *dict = [NSDictionary dictionaryWithObject:COLOR_W forKey:NSForegroundColorAttributeName];
+    self.navigationController.navigationBar.titleTextAttributes = dict;
+
+    
+
 
 }
 
@@ -47,7 +61,7 @@ static __weak UIViewController* __currentViewController;
     
     if(title && title.length > 0){
         [btn setTitle:title forState:UIControlStateNormal];
-        [btn setTitleColor:COLOR_H1 forState:UIControlStateNormal];
+        [btn setTitleColor:COLOR_W forState:UIControlStateNormal];
         btn.titleLabel.font = FONT_L;
     }
     if(image){
@@ -66,7 +80,7 @@ static __weak UIViewController* __currentViewController;
     
     if(title && title.length > 0){
         [btn setTitle:title forState:UIControlStateNormal];
-        [btn setTitleColor:COLOR_H1 forState:UIControlStateNormal];
+        [btn setTitleColor:COLOR_W forState:UIControlStateNormal];
         btn.titleLabel.font = FONT_L;
     }
     if(image){

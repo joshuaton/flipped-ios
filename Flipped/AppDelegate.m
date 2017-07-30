@@ -14,6 +14,7 @@
 #import "FLUserInfoManager.h"
 #import "FLNewMineViewController.h"
 #import "UIColor+HexColor.h"
+#import "FLCommHeader.h"
 
 @interface AppDelegate () <UITabBarControllerDelegate>
 
@@ -53,11 +54,17 @@
     [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor colorWithHexString:@"555555"]} forState:UIControlStateNormal];
     
     //选中字体颜色
-    [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor colorWithHexString:@"439c36"]} forState:UIControlStateSelected];
+    [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:COLOR_W} forState:UIControlStateSelected];
     
     self.tabBarController = [[UITabBarController alloc] init];
     self.tabBarController.delegate = self;
     self.tabBarController.viewControllers = @[self.squareNav, self.mineNav];
+    
+    //tabBar颜色
+    UIView *backView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 49)];
+    backView.backgroundColor = COLOR_M;
+    [self.tabBarController.tabBar insertSubview:backView atIndex:0];
+    self.tabBarController.tabBar.opaque = YES;
     
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
