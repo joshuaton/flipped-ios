@@ -21,4 +21,8 @@
 
 +(void)getFlippedWordsDetailWithId:(NSString *)flippedId successBlock:(void (^)(FLFlippedWord *data))successBlock failBlock:(void (^)(NSError *error))failedBlock;
 
++(void)commentFlippedWordWithId:(NSString *)flippedId content:(NSString *)contentStr successBlock:(void (^)())successBlock failBlock:(void (^)(NSError *error))failedBlock;
+
++(void)getCommentsWithId:(NSString *)flippedId successBlock:(void (^)(NSArray *comments))successBlock failBlock:(void (^)(NSError *error))failedBlock;
+
 @end

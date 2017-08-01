@@ -24,6 +24,8 @@
 		FB0715141F3064C000F5B0CA /* FLLink.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0715131F3064C000F5B0CA /* FLLink.m */; };
 		FB0715161F3069BD00F5B0CA /* flipped_detail_more@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB0715151F3069BD00F5B0CA /* flipped_detail_more@2x.png */; };
 		FB0715191F306C5300F5B0CA /* FLCommService.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0715181F306C5300F5B0CA /* FLCommService.m */; };
+		FB07151C1F30A43500F5B0CA /* FLComment.m in Sources */ = {isa = PBXBuildFile; fileRef = FB07151B1F30A43500F5B0CA /* FLComment.m */; };
+		FB07151F1F30A6C800F5B0CA /* FLCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB07151E1F30A6C800F5B0CA /* FLCommentCell.m */; };
 		FB4942A51F264F48005BCD9C /* FLStringUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = FB4942A41F264F48005BCD9C /* FLStringUtils.m */; };
 		FB6173AB1F1112D0009649E2 /* FLFlippedWord.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6173951F1112D0009649E2 /* FLFlippedWord.m */; };
 		FB6173AC1F1112D0009649E2 /* FLBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB61739A1F1112D0009649E2 /* FLBaseViewController.m */; };
@@ -96,6 +98,10 @@
 		FB0715151F3069BD00F5B0CA /* flipped_detail_more@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flipped_detail_more@2x.png"; sourceTree = "<group>"; };
 		FB0715171F306C4B00F5B0CA /* FLCommService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLCommService.h; sourceTree = "<group>"; };
 		FB0715181F306C5300F5B0CA /* FLCommService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLCommService.m; sourceTree = "<group>"; };
+		FB07151A1F30A42A00F5B0CA /* FLComment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLComment.h; sourceTree = "<group>"; };
+		FB07151B1F30A43500F5B0CA /* FLComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLComment.m; sourceTree = "<group>"; };
+		FB07151D1F30A6BE00F5B0CA /* FLCommentCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLCommentCell.h; sourceTree = "<group>"; };
+		FB07151E1F30A6C800F5B0CA /* FLCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLCommentCell.m; sourceTree = "<group>"; };
 		FB4942A31F264F3E005BCD9C /* FLStringUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLStringUtils.h; sourceTree = "<group>"; };
 		FB4942A41F264F48005BCD9C /* FLStringUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLStringUtils.m; sourceTree = "<group>"; };
 		FB6173941F1112D0009649E2 /* FLFlippedWord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLFlippedWord.h; sourceTree = "<group>"; };
@@ -291,6 +297,8 @@
 			children = (
 				45F1C8BD1F1F2A5800A3B74C /* FLFlippedDetailViewController.h */,
 				45F1C8BE1F1F2A6100A3B74C /* FLFlippedDetailViewController.m */,
+				FB07151D1F30A6BE00F5B0CA /* FLCommentCell.h */,
+				FB07151E1F30A6C800F5B0CA /* FLCommentCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -366,6 +374,8 @@
 				FB6173B21F11146A009649E2 /* FLContent.m */,
 				FB0715121F3064B800F5B0CA /* FLLink.h */,
 				FB0715131F3064C000F5B0CA /* FLLink.m */,
+				FB07151A1F30A42A00F5B0CA /* FLComment.h */,
+				FB07151B1F30A43500F5B0CA /* FLComment.m */,
 			);
 			name = Models;
 			path = Comm/Models;
@@ -715,8 +725,10 @@
 				FB6173AC1F1112D0009649E2 /* FLBaseViewController.m in Sources */,
 				FBD938B51F1F587200900842 /* FLUserInfoManager.m in Sources */,
 				FBD938D71F24956D00900842 /* UIColor+HexColor.m in Sources */,
+				FB07151C1F30A43500F5B0CA /* FLComment.m in Sources */,
 				FB6173B31F11146A009649E2 /* FLContent.m in Sources */,
 				FB7CF6D61F1BA84200CD9F5C /* FLToast.m in Sources */,
+				FB07151F1F30A6C800F5B0CA /* FLCommentCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

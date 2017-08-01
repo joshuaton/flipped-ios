@@ -85,4 +85,35 @@
     
 }
 
++(void)commentFlippedWordWithId:(NSString *)flippedId content:(NSString *)contentStr successBlock:(void (^)())successBlock failBlock:(void (^)(NSError *error))failedBlock{
+    
+    NSString *url = [NSString stringWithFormat:@"flippedwords/%@/comments", flippedId];
+    
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    params[@"contents"] = @[@{@"type":@"text", @"text":contentStr}];
+    
+    [[self sharedHttpSessionManager] FLPOST:url parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id _Nullable error) {
+        
+        successBlock();
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error ) {
+        failedBlock(error);
+    }];
+
+}
+
++(void)getCommentsWithId:(NSString *)flippedId successBlock:(void (^)(NSArray *comments))successBlock failBlock:(void (^)(NSError *error))failedBlock{
+    
+    NSString *url = [NSString stringWithFormat:@"flippedwords/%@/comments", flippedId];
+    
+    [[self sharedHttpSessionManager] FLGET:url parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSDictionary *result = (NSDictionary *)responseObject;
+        NSError *error;
+        NSMutableArray *modelArray = [FLFlippedWord arrayOfModelsFromDictionaries:result[@"comments"] error:&error];
+        
+        successBlock(modelArray);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        failedBlock(error);
+    }];
+}
+
 @end
