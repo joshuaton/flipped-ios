@@ -13,10 +13,11 @@
 #import "UILabel+ChangeLineSpaceAndWordSpace.h"
 #import "FLStringUtils.h"
 #import "FLFlippedListViewController.h"
+#import "FLCopyLabel.h"
 
 @interface FLFlippedWordCell()
 
-@property (nonatomic, strong) UILabel *contentLabel;
+@property (nonatomic, strong) FLCopyLabel *contentLabel;
 @property (nonatomic, strong) UILabel *sendLabel;
 @property (nonatomic, strong) UILabel *statusLabel;
 @property (nonatomic, strong) UIView *lineView;
@@ -106,9 +107,9 @@
 
 #pragma mark - getter & setter
 
--(UILabel *)contentLabel{
+-(FLCopyLabel *)contentLabel{
     if(!_contentLabel){
-        _contentLabel = [[UILabel alloc] init];
+        _contentLabel = [[FLCopyLabel alloc] init];
         _contentLabel.numberOfLines = 5;
         _contentLabel.font = FONT_L;
         _contentLabel.textColor = COLOR_H1;

@@ -144,15 +144,12 @@
 
 #pragma mark - getter & setter
 
--(UILabel *)contentLabel{
+-(FLCopyLabel *)contentLabel{
     if(!_contentLabel){
         _contentLabel = [[FLCopyLabel alloc] init];
         _contentLabel.font = FONT_L;
         _contentLabel.textColor = COLOR_H1;
         _contentLabel.numberOfLines = 0;
-        
-        
-
         
         [self.view addSubview:_contentLabel];
     }
