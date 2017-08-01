@@ -16,10 +16,11 @@
 #import "FLCommHeader.h"
 #import "UILabel+ChangeLineSpaceAndWordSpace.h"
 #import "FLStringUtils.h"
+#import "FLCopyLabel.h"
 
 @interface FLFlippedDetailViewController() <MWPhotoBrowserDelegate>
 
-@property (nonatomic, strong) UILabel *contentLabel;
+@property (nonatomic, strong) FLCopyLabel *contentLabel;
 @property (nonatomic, strong) UILabel *sendLabel;
 @property (nonatomic, strong) UIImageView *imageView;
 
@@ -145,10 +146,14 @@
 
 -(UILabel *)contentLabel{
     if(!_contentLabel){
-        _contentLabel = [[UILabel alloc] init];
+        _contentLabel = [[FLCopyLabel alloc] init];
         _contentLabel.font = FONT_L;
         _contentLabel.textColor = COLOR_H1;
         _contentLabel.numberOfLines = 0;
+        
+        
+
+        
         [self.view addSubview:_contentLabel];
     }
     return _contentLabel;
