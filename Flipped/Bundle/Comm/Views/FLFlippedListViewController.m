@@ -30,6 +30,8 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receivePostSuccess:) name:NOTIFICATION_POST_SUCCESS object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveLoginSuccess:) name:NOTIFICATION_LOGIN_SUCCESS object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveDeleteSuccess:) name:NOTIFICATION_DELETE_SUCCESS object:nil];
+
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -143,6 +145,20 @@
 
 -(void)receiveLoginSuccess:(NSNotification *)notification{
     [self.tableView.mj_header beginRefreshing];
+}
+
+-(void)receiveDeleteSuccess:(NSNotification *)notification{
+    NSString *id = [[notification userInfo] valueForKey:@"id"];
+    
+    for(int i=0; i<self.flippedWords.count; i++){
+        FLFlippedWord *data = self.flippedWords[i];
+        if([data.id isEqualToString:id]){
+            [self.flippedWords removeObject:data];
+            
+            [self.tableView reloadData];
+            break;
+        }
+    }
 }
 
 #pragma mark - UITableViewDataSource

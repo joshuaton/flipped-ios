@@ -146,11 +146,32 @@
                                   
                               }else if([link.rel isEqualToString:@"delete"]){
                                   
-                                  [FLCommService requestWithURI:link.uri method:link.method params:nil successBlock:^{
-                                      [FLToast showToast:@"删除成功"];
-                                  } failBlock:^(NSError *error) {
-                                      
+                                  UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"确认删除" message:@"您将删除此心动话，删除后不能恢复" preferredStyle:UIAlertControllerStyleAlert];
+                                  
+                                  UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil];
+                                  cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                                      [alertController dismissViewControllerAnimated:YES completion:nil];
                                   }];
+                                  [alertController addAction:cancelAction];
+                                  
+                                  UIAlertAction *OKAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+                                      [FLCommService requestWithURI:link.uri method:link.method params:nil successBlock:^{
+                                          [FLToast showToast:@"删除成功"];
+                                          
+                                          NSDictionary *userInfo = [NSDictionary dictionaryWithObject:self.data.id forKey:@"id"];
+                                          [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_DELETE_SUCCESS object:self userInfo:userInfo];
+
+                                          dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                                              [self.navigationController popViewControllerAnimated:YES];
+                                          });
+                                      } failBlock:^(NSError *error) {
+                                          
+                                      }];                                  }];
+                                  [alertController addAction:OKAction];
+                                  
+                                  [self presentViewController:alertController animated:YES completion:nil];
+                                  
+                                  
                               }
                           }];
     
