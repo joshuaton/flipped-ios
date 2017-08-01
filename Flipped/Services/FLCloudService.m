@@ -26,7 +26,7 @@
     NSString *sigUrl = [NSString stringWithFormat:@"youtusig?fileid=%@", filePathName];
     NSString *uploadUrl = [NSString stringWithFormat:@"https://gz.file.myqcloud.com/files/v2%@", filePathName];
     
-    [[self sharedHttpSessionManager] GET:sigUrl parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [[self sharedHttpSessionManager] FLGET:sigUrl parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         NSDictionary *result = (NSDictionary *)responseObject;
         NSString *sig = result[@"sig"];

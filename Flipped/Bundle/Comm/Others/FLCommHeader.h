@@ -16,8 +16,8 @@
 
 //font
 #define FONT_XL [UIFont systemFontOfSize:18]
-#define FONT_L [UIFont systemFontOfSize:16]
-#define FONT_M [UIFont systemFontOfSize:14]
+#define FONT_L [UIFont systemFontOfSize:16]     ///< 主文字
+#define FONT_M [UIFont systemFontOfSize:14]     ///< 副文字
 #define FONT_S [UIFont systemFontOfSize:12]
 #define FONT_XS [UIFont systemFontOfSize:10]
 

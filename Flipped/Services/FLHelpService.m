@@ -13,7 +13,7 @@
 
 +(void)getHelpContentWithSuccessBlock:(void (^)(NSMutableArray *contents))successBlock failBlock:(void (^)(NSError *error))failedBlock{
     
-    [[self sharedHttpSessionManager] GET:@"help" parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id _Nullable responseObject) {
+    [[self sharedHttpSessionManager] FLGET:@"help" parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id _Nullable responseObject) {
         NSDictionary *result = (NSDictionary *)responseObject;
         NSError *error;
         NSMutableArray *modelArray = [FLContent arrayOfModelsFromDictionaries:result[@"contents"] error:&error];

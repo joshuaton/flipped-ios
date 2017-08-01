@@ -16,7 +16,7 @@
 
 @implementation FLAFHTTPSessionManager
 
-- (NSURLSessionDataTask *)GET:(NSString *)URLString
+- (NSURLSessionDataTask *)FLGET:(NSString *)URLString
                    parameters:(id)parameters
                       success:(void (^)(NSURLSessionDataTask * task, id responseObject))success
                       failure:(void (^)(NSURLSessionDataTask * task, NSError * error))failure{
@@ -35,12 +35,26 @@
     }];
 }
 
--(NSURLSessionDataTask *)POST:(NSString *)URLString parameters:(id)parameters success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask * task, NSError * error))failure{
+-(NSURLSessionDataTask *)FLPOST:(NSString *)URLString parameters:(id)parameters success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask * task, NSError * error))failure{
     
     [self calTokenWithURL:URLString method:@"POST" parameters:parameters];
     
     return [self POST:URLString parameters:parameters progress:^(NSProgress * _Nonnull uploadProgress) {} success:success failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
+        [self handleStatusCode:task];
+        [self handleError:error];
+        
+        if(failure){
+            failure(task, error);
+        }
+    }];
+}
+
+-(NSURLSessionDataTask *)FLDELETE:(NSString *)URLString parameters:(id)parameters success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask * task, NSError * error))failure{
+    
+    [self calTokenWithURL:URLString method:@"DELETE" parameters:parameters];
+    
+    return [self DELETE:URLString parameters:parameters success:success failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [self handleStatusCode:task];
         [self handleError:error];
         
@@ -74,9 +88,11 @@
     
     //body
     NSString *body = @"";
-    if([method isEqualToString:@"POST"]){
-        NSData *tmpData = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:nil];
-        body = [[NSString alloc] initWithData:tmpData encoding:NSUTF8StringEncoding];
+    if([method isEqualToString:@"POST"] || [method isEqualToString:@"DELETE"]){
+        if(parameters){
+            NSData *tmpData = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:nil];
+            body = [[NSString alloc] initWithData:tmpData encoding:NSUTF8StringEncoding];
+        }
     }
     
     //key

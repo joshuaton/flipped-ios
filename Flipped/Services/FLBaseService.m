@@ -27,6 +27,8 @@ static FLAFHTTPSessionManager *manager;
         manager.responseSerializer.acceptableContentTypes= [NSSet setWithObjects:@"text/html", @"application/json", nil];
         
 
+        
+
     });
     
     return manager;

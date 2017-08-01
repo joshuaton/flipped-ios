@@ -21,7 +21,7 @@
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
     dict[@"contents"] = modelArray;
     
-    [[self sharedHttpSessionManager] POST:@"feedbacks" parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id _Nullable error) {
+    [[self sharedHttpSessionManager] FLPOST:@"feedbacks" parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id _Nullable error) {
         successBlock();
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error ) {
         failedBlock(error);

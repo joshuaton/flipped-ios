@@ -10,11 +10,13 @@
 
 @interface FLAFHTTPSessionManager : AFHTTPSessionManager
 
-- (NSURLSessionDataTask *)GET:(NSString *)URLString
+- (NSURLSessionDataTask *)FLGET:(NSString *)URLString
                    parameters:(id)parameters
                       success:(void (^)(NSURLSessionDataTask * task, id responseObject))success
                       failure:(void (^)(NSURLSessionDataTask * task, NSError * error))failure;
 
--(NSURLSessionDataTask *)POST:(NSString *)URLString parameters:(id)parameters success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask * task, NSError * error))failure;
+-(NSURLSessionDataTask *)FLPOST:(NSString *)URLString parameters:(id)parameters success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask * task, NSError * error))failure;
+
+-(NSURLSessionDataTask *)FLDELETE:(NSString *)URLString parameters:(id)parameters success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask * task, NSError * error))failure;
 
 @end

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "JSONModel.h"
 #import "FLContent.h"
+#import "FLLink.h"
 
 @protocol FLFlippedWord;
 
@@ -22,6 +23,7 @@
 @property (nonatomic, assign) NSInteger ctime;
 @property (nonatomic, strong) NSNumber<Optional> *distance;
 @property (nonatomic, strong) NSArray<FLContent> *contents;
+@property (nonatomic, strong) NSArray<FLLink> *links;
 
 
 @end

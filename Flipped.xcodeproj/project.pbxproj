@@ -18,6 +18,12 @@
 		45F1C8BF1F1F2A6100A3B74C /* FLFlippedDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F1C8BE1F1F2A6100A3B74C /* FLFlippedDetailViewController.m */; };
 		583FCBD6E2C5D728117751C6 /* libPods-Flipped.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A6CB62EA12AEAE674DF275B1 /* libPods-Flipped.a */; };
 		FB0715051F305CAD00F5B0CA /* FLCopyLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0715041F305CAD00F5B0CA /* FLCopyLabel.m */; };
+		FB07150F1F30625D00F5B0CA /* PopMenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB07150B1F30625D00F5B0CA /* PopMenuTableViewCell.m */; };
+		FB0715101F30625D00F5B0CA /* PopMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB07150C1F30625D00F5B0CA /* PopMenuTableViewCell.xib */; };
+		FB0715111F30625D00F5B0CA /* QQPopMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = FB07150E1F30625D00F5B0CA /* QQPopMenuView.m */; };
+		FB0715141F3064C000F5B0CA /* FLLink.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0715131F3064C000F5B0CA /* FLLink.m */; };
+		FB0715161F3069BD00F5B0CA /* flipped_detail_more@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB0715151F3069BD00F5B0CA /* flipped_detail_more@2x.png */; };
+		FB0715191F306C5300F5B0CA /* FLCommService.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0715181F306C5300F5B0CA /* FLCommService.m */; };
 		FB4942A51F264F48005BCD9C /* FLStringUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = FB4942A41F264F48005BCD9C /* FLStringUtils.m */; };
 		FB6173AB1F1112D0009649E2 /* FLFlippedWord.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6173951F1112D0009649E2 /* FLFlippedWord.m */; };
 		FB6173AC1F1112D0009649E2 /* FLBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB61739A1F1112D0009649E2 /* FLBaseViewController.m */; };
@@ -80,6 +86,16 @@
 		A6CB62EA12AEAE674DF275B1 /* libPods-Flipped.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Flipped.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB0715031F305CA000F5B0CA /* FLCopyLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLCopyLabel.h; sourceTree = "<group>"; };
 		FB0715041F305CAD00F5B0CA /* FLCopyLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLCopyLabel.m; sourceTree = "<group>"; };
+		FB07150A1F30625D00F5B0CA /* PopMenuTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopMenuTableViewCell.h; sourceTree = "<group>"; };
+		FB07150B1F30625D00F5B0CA /* PopMenuTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopMenuTableViewCell.m; sourceTree = "<group>"; };
+		FB07150C1F30625D00F5B0CA /* PopMenuTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopMenuTableViewCell.xib; sourceTree = "<group>"; };
+		FB07150D1F30625D00F5B0CA /* QQPopMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QQPopMenuView.h; sourceTree = "<group>"; };
+		FB07150E1F30625D00F5B0CA /* QQPopMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QQPopMenuView.m; sourceTree = "<group>"; };
+		FB0715121F3064B800F5B0CA /* FLLink.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLLink.h; sourceTree = "<group>"; };
+		FB0715131F3064C000F5B0CA /* FLLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLLink.m; sourceTree = "<group>"; };
+		FB0715151F3069BD00F5B0CA /* flipped_detail_more@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flipped_detail_more@2x.png"; sourceTree = "<group>"; };
+		FB0715171F306C4B00F5B0CA /* FLCommService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLCommService.h; sourceTree = "<group>"; };
+		FB0715181F306C5300F5B0CA /* FLCommService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLCommService.m; sourceTree = "<group>"; };
 		FB4942A31F264F3E005BCD9C /* FLStringUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLStringUtils.h; sourceTree = "<group>"; };
 		FB4942A41F264F48005BCD9C /* FLStringUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLStringUtils.m; sourceTree = "<group>"; };
 		FB6173941F1112D0009649E2 /* FLFlippedWord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLFlippedWord.h; sourceTree = "<group>"; };
@@ -184,6 +200,8 @@
 				FBD938D01F248C0700900842 /* FLHelpService.m */,
 				FBD938DD1F24A19F00900842 /* FLFeedbackService.h */,
 				FBD938DE1F24A1A700900842 /* FLFeedbackService.m */,
+				FB0715171F306C4B00F5B0CA /* FLCommService.h */,
+				FB0715181F306C5300F5B0CA /* FLCommService.m */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -234,6 +252,7 @@
 		45D272261F0B34D500AF180E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FB0715151F3069BD00F5B0CA /* flipped_detail_more@2x.png */,
 				FBD938C81F1FA33900900842 /* flipped_pic_default.png */,
 				FBD938AE1F1E29E600900842 /* flipped_post_add_pic@2x.png */,
 				FBB917761F1254DA000C7353 /* flipped_content_pic@2x.png */,
@@ -299,6 +318,19 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		FB0715091F30625D00F5B0CA /* QQPopMenuView */ = {
+			isa = PBXGroup;
+			children = (
+				FB07150A1F30625D00F5B0CA /* PopMenuTableViewCell.h */,
+				FB07150B1F30625D00F5B0CA /* PopMenuTableViewCell.m */,
+				FB07150C1F30625D00F5B0CA /* PopMenuTableViewCell.xib */,
+				FB07150D1F30625D00F5B0CA /* QQPopMenuView.h */,
+				FB07150E1F30625D00F5B0CA /* QQPopMenuView.m */,
+			);
+			name = QQPopMenuView;
+			path = MTA/QQPopMenuView;
+			sourceTree = "<group>";
+		};
 		FB6173911F1112D0009649E2 /* Bundle */ = {
 			isa = PBXGroup;
 			children = (
@@ -332,6 +364,8 @@
 				FB6173951F1112D0009649E2 /* FLFlippedWord.m */,
 				FB6173B11F11145C009649E2 /* FLContent.h */,
 				FB6173B21F11146A009649E2 /* FLContent.m */,
+				FB0715121F3064B800F5B0CA /* FLLink.h */,
+				FB0715131F3064C000F5B0CA /* FLLink.m */,
 			);
 			name = Models;
 			path = Comm/Models;
@@ -463,6 +497,7 @@
 		FBD938B61F1F9D5800900842 /* SecondLib */ = {
 			isa = PBXGroup;
 			children = (
+				FB0715091F30625D00F5B0CA /* QQPopMenuView */,
 				FBD938B71F1F9D5800900842 /* MTA */,
 			);
 			name = SecondLib;
@@ -579,9 +614,11 @@
 				FBB917801F1254DA000C7353 /* post_add.png in Resources */,
 				45D272481F0B43BC00AF180E /* comm_tab_square_selected@2x.png in Resources */,
 				FBB9177D1F1254DA000C7353 /* flipped_content_video@2x.png in Resources */,
+				FB0715101F30625D00F5B0CA /* PopMenuTableViewCell.xib in Resources */,
 				FBB9177F1F1254DA000C7353 /* logo.png in Resources */,
 				FBD938C91F1FA33900900842 /* flipped_pic_default.png in Resources */,
 				FBB917811F1254DA000C7353 /* WechatIMG9.png in Resources */,
+				FB0715161F3069BD00F5B0CA /* flipped_detail_more@2x.png in Resources */,
 				45D2721B1F0B343E00AF180E /* Assets.xcassets in Resources */,
 				FBB9177C1F1254DA000C7353 /* flipped_content_pic@2x.png in Resources */,
 				FBB9177E1F1254DA000C7353 /* flipped_content_sound@2x.png in Resources */,
@@ -657,10 +694,14 @@
 				FBD938D11F248C0700900842 /* FLHelpService.m in Sources */,
 				FB6173AD1F1112D0009649E2 /* FLLoginViewController.m in Sources */,
 				FB4942A51F264F48005BCD9C /* FLStringUtils.m in Sources */,
+				FB0715111F30625D00F5B0CA /* QQPopMenuView.m in Sources */,
 				FBD938DF1F24A1A700900842 /* FLFeedbackService.m in Sources */,
 				FBCD222C1F1A21EB00D8B718 /* NSString+Base64.m in Sources */,
 				FBE0D7801F19F135006D6C47 /* FLBaseService.m in Sources */,
+				FB0715191F306C5300F5B0CA /* FLCommService.m in Sources */,
+				FB07150F1F30625D00F5B0CA /* PopMenuTableViewCell.m in Sources */,
 				FB6173AB1F1112D0009649E2 /* FLFlippedWord.m in Sources */,
+				FB0715141F3064C000F5B0CA /* FLLink.m in Sources */,
 				4571952B1F0C907300671634 /* FLFlippedWordsService.m in Sources */,
 				FBCD22301F1A5A2400D8B718 /* FLAFHTTPSessionManager.m in Sources */,
 				45D272131F0B343E00AF180E /* AppDelegate.m in Sources */,

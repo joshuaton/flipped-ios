@@ -15,16 +15,15 @@
 
 +(void)getNearbyFlippedWordsWithSuccessBlock:(void (^)(NSMutableArray *flippedWords))successBlock failBlock:(void (^)(NSError *error))failedBlock{
     
-    [[self sharedHttpSessionManager] GET:@"nearby_flippedwords" parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+    [[self sharedHttpSessionManager] FLGET:@"nearby_flippedwords" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary *result = (NSDictionary *)responseObject;
         NSError *error;
         NSMutableArray *modelArray = [FLFlippedWord arrayOfModelsFromDictionaries:result[@"flippedwords"] error:&error];
         
         successBlock(modelArray);
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
+
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
         failedBlock(error);
     }];
     
@@ -32,7 +31,7 @@
 
 +(void)getSendFlippedWordsWithSuccessBlock:(void (^)(NSMutableArray *flippedWords))successBlock failBlock:(void (^)(NSError *error))failedBlock{
     
-    [[self sharedHttpSessionManager] GET:@"mypub_flippedwords" parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id _Nullable responseObject) {
+    [[self sharedHttpSessionManager] FLGET:@"mypub_flippedwords" parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id _Nullable responseObject) {
         NSDictionary *result = (NSDictionary *)responseObject;
         NSError *error;
         NSMutableArray *modelArray = [FLFlippedWord arrayOfModelsFromDictionaries:result[@"flippedwords"] error:&error];
@@ -46,7 +45,7 @@
 
 +(void)getReceiveFlippedWordsWithSuccessBlock:(void (^)(NSMutableArray *flippedWords))successBlock failBlock:(void (^)(NSError *error))failedBlock{
     
-    [[self sharedHttpSessionManager] GET:@"my_flippedwords" parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id _Nullable responseObject) {
+    [[self sharedHttpSessionManager] FLGET:@"my_flippedwords" parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id _Nullable responseObject) {
         NSDictionary *result = (NSDictionary *)responseObject;
         NSError *error;
         NSMutableArray *modelArray = [FLFlippedWord arrayOfModelsFromDictionaries:result[@"flippedwords"] error:&error];
@@ -63,7 +62,7 @@
         
     NSDictionary *dict = [data toDictionary];
     
-    [[self sharedHttpSessionManager] POST:@"flippedwords" parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id _Nullable error) {
+    [[self sharedHttpSessionManager] FLPOST:@"flippedwords" parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id _Nullable error) {
         successBlock();
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error ) {
         failedBlock(error);
@@ -74,7 +73,7 @@
     
     NSString *url = [NSString stringWithFormat:@"flippedwords/%@", flippedId];
     
-    [[self sharedHttpSessionManager] GET:url parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id _Nullable responseObject) {
+    [[self sharedHttpSessionManager] FLGET:url parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id _Nullable responseObject) {
         NSDictionary *result = (NSDictionary *)responseObject;
         NSError *error;
         NSMutableArray *modelArray = [FLFlippedWord arrayOfModelsFromDictionaries:@[result] error:&error];

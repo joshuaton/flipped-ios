@@ -17,6 +17,9 @@
 #import "UILabel+ChangeLineSpaceAndWordSpace.h"
 #import "FLStringUtils.h"
 #import "FLCopyLabel.h"
+#import "QQPopMenuView.h"
+#import "FLCommService.h"
+
 
 @interface FLFlippedDetailViewController() <MWPhotoBrowserDelegate>
 
@@ -26,6 +29,8 @@
 
 @property (nonatomic, strong) NSMutableArray *photos;
 
+@property (nonatomic, strong) FLFlippedWord *data;
+
 @end
 
 @implementation FLFlippedDetailViewController
@@ -34,12 +39,13 @@
     [super viewDidLoad];
     
     self.title = @"详情";
-    [self configRightNavigationItemWithTitle:@"举报" image:nil action:@selector(reportBtnClick)];
+    [self configRightNavigationItemWithTitle:nil image:[UIImage imageNamed:@"flipped_detail_more"] action:@selector(moreBtnClick)];
 
     [self makeConstraints];
     
     [FLFlippedWordsService getFlippedWordsDetailWithId:self.flippedId successBlock:^(FLFlippedWord *data) {
         
+        self.data = data;
         [self showData:data];
     } failBlock:^(NSError *error) {
         NSLog(@"get detail error");
@@ -107,8 +113,48 @@
 
 #pragma mark - action
 
--(void)reportBtnClick{
-    [FLToast showToast:@"举报内容已收到，会尽快处理"];
+-(void)moreBtnClick{
+    
+    NSArray<FLLink> *links = self.data.links;
+    
+    NSMutableArray *menuData = [[NSMutableArray alloc] init];
+    for(int i=0; i<links.count; i++){
+        FLLink *link = links[i];
+        NSDictionary *dict;
+        if([link.rel isEqualToString:@"report"]){
+            dict = @{@"title" : @"举报"};
+        }else if([link.rel isEqualToString:@"delete"]){
+            dict = @{@"title" : @"删除"};
+        }
+        [menuData addObject:dict];
+    }
+    
+    
+    [QQPopMenuView showWithItems:menuData
+                           width:130
+                triangleLocation:CGPointMake([UIScreen mainScreen].bounds.size.width-30, 64+5)
+                          action:^(NSInteger index) {
+                              FLLink *link = links[index];
+                              
+                              if([link.rel isEqualToString:@"report"]){
+                                  
+                                  [FLCommService requestWithURI:link.uri method:link.method params:nil successBlock:^{
+                                      [FLToast showToast:@"举报成功，我们会尽快处理"];
+                                  } failBlock:^(NSError *error) {
+                                      
+                                  }];
+                                  
+                              }else if([link.rel isEqualToString:@"delete"]){
+                                  
+                                  [FLCommService requestWithURI:link.uri method:link.method params:nil successBlock:^{
+                                      [FLToast showToast:@"删除成功"];
+                                  } failBlock:^(NSError *error) {
+                                      
+                                  }];
+                              }
+                          }];
+    
+    
 }
 
 -(void)imageViewClick{
