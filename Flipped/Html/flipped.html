@@ -1,0 +1,441 @@
+
+<!doctype html>
+<html lang="zh-Hans-CN">
+<head>
+    <meta charset="utf-8">
+    <meta content="True" name="HandheldFriendly" />
+    <meta name="viewport" content="width=320,initial-scale=1,maximum-scale=2,user-scalable=0">
+    <meta name="robots" content="all"/>
+    <meta name="Copyright" content="Tencent"/>
+    <meta name="theme-color" content="#ff4e7d">
+    <meta name="msapplication-navbutton-color" content="#ff4e7d">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="x5-orientation" content="portrait">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="x5-page-mode" content="app">
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <title>爱要说</title>
+    <script src="https://ossweb-img.qq.com/images/js/jquery/jquery-3.1.1.min.js" type="application/javascript"></script>
+    <script src="https://imgcache.qq.com/tencentvideo_v1/3party/zepto.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="https://ossweb-img.qq.com/images/js/jquery/bootstrap-grid.min.css">
+    <style>
+        body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{margin:0;padding:0}
+        article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section { display:block; }
+        table{border-collapse:collapse;border-spacing:0}  audio,canvas,video { display: inline-block;*display: inline;*zoom: 1;}
+        fieldset,img{border:0}  address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal}
+        ol,ul{list-style:none}  caption,th{text-align:left}  h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}
+        q:before,q:after{content:''}  abbr,acronym{border:0;font-variant:normal}  sup{vertical-align:text-top}  sub{vertical-align:text-bottom}
+        input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit} input,textarea,select{*font-size:100%}
+        @media screen and (min-width:720px) and (max-width:799px){ body{ font-size:24px}  html{ font-size:24px}}
+        @media screen and (min-width:400px) and (max-width:479px){  body{font-size:13px}  html{ font-size:13px}}
+        @media screen and (min-width:360px) and (max-width:399px){  body{font-size:12px}  html{ font-size:12px} }
+        @media screen and (max-width:359px){  body{font-size:8px}  html{ font-size:8px} }
+        .container-92{width:92%;margin:0 auto}  .section-title{font-size:1.6rem;margin:1.5rem auto 0}
+        .name {font-size: 1.25rem;margin: -0.8rem 0 0 -1rem;line-height:1.5rem;} .publish-time{font-size: 1.08rem;line-height: 2.1rem;}
+        .avatar img{width: 3rem;height:3rem;border-radius: 1.5rem}
+        .row div{padding:0;} .inform{height:2.88rem;margin:1.58rem auto 0;border-bottom: 1px solid #cbcbcf;overflow: hidden}
+        .name,.publish-time{padding:0;} .inform div{height: 4.58rem}
+        .publish-time{text-align: right;color: #8a8a8a} .title-s{font-size: 1.41rem;margin:0 auto 1.5rem}
+        .ariticle p{font-size: 1.4rem;margin:1rem auto}
+        .page-card img{width:100%;margin:0 auto} .part-container p{height:auto} .part-container p.blank{height:0.01rem}
+        .part-container{padding:0 0 1.2rem} .tag-container{width: 100%;margin:1rem auto 0.5rem;}
+        .tag-container .tag{height:1.375rem;display: inline-block;font-size: 0.83rem;padding:0 0.5rem}
+        .tag-container p{color:#8a8a8a;height: 1.375rem;border:1px solid #cbcbcf;text-align: center;line-height: 1.375rem;margin:0 0.5rem 0 0;border-radius: 2px}
+        .girl:after{content:'';display:inline-block;background:url(http://game.gtimg.cn/images/user/act/a20170106/images/girl.png) no-repeat;
+            width: 13px;height: 13px;  -webkit-background-size:100% auto;background-size:100% auto;margin:1rem 0 0 0.5rem}
+        .boy:after{
+            content:'';
+            display:inline-block;
+            width: 13px;
+            height: 13px;
+            -webkit-background-size:100% auto;
+            background-size:100% auto;
+            margin:1rem 0 0 0.5rem;
+            }
+        .title-h{font-weight: normal} .college{font-size:1rem;color: #8a8a8a;margin-left: -1rem}
+        .college span{display: inline-block;margin:0 1rem 0 0}
+        .part-container img{width:100%} .comment-tab p{color:#8a8a8a;font-size: 1rem;margin:0 1rem 0 0;padding:0;} .comment-tab{margin:1rem auto 0}
+        .comment-tab{padding-bottom:1rem} .comment-title{ font-size: 1.25rem;padding:0.6rem 0 0.6rem 2rem;color: #59595a;background:#f3f3f8 }
+        .comment-bubble{margin:1rem auto 0} .hot-comments{width:100%}
+        .content-main{margin:0 auto} .col-3 a,.col-3 p{display: inline-block;text-align: right}
+        .content-main img{width:70%;margin:1rem auto} .content-main p{width:120%;overflow: auto;word-wrap: break-word} .col-3 a{display: block;width:100%;text-align: right}
+        .small-avatar{overflow: hidden;max-width:13%} .small-inform p{display: inline-block;color: #8a8a8a;line-height: 2.5rem;width:68%}
+        .small-avatar img{width:2.5rem;margin:0;border-radius: 1.25rem} .small-inform{height:2.5rem;overflow: hidden} .like{display: block;height:2.5rem;width:100%;line-height: 2.5rem;color: #262626;text-decoration: none;text-align: right;}
+        .col-s{max-width:13%} .like-container{max-width:15%;height: 2.5rem;position:absolute;right:4%;}
+        .pages p{line-height: 1.8rem;text-align: justify;letter-spacing: normal;word-wrap:normal;word-break: break-all}
+        .content-bubble{ margin:1rem auto} .small-inform p:first-child{margin:0 0.5rem 0 0}
+        .like::before{position:absolute;background:url(http://game.gtimg.cn/images/user/act/a20170106/images/new/like.png) center left no-repeat;background-size:90% auto;
+            -webkit-background-size:90% auto;width: 1.5rem;height:1.4rem;content: '';display: inline-block;top:0;bottom:0.5rem;margin:auto 0rem auto -2rem;}
+        .comment-blue{color: #52beef;display: inline-block;margin:0 0.3rem} .comment-data{height:2rem;width:83%;margin:0 0 0 13%;border-bottom: 1px solid #cbcbcf}
+        .comment-data p{display: inline-block;color: #c6c6c6;float:right} .comment-data .dot{margin:0 0.5rem;}
+        .hot-comments .content-bubble:last-child .comment-data{border:none}
+        .all-comments .content-bubble:last-child .comment-data{border:none} .col-9{max-width:64%;flex: 0 0 64%}
+        .campus-ariticle{padding:1rem 0 1rem 1rem} .frame-window{width:100%;height:7600px}
+        .warp {padding-left: 15px;padding-right: 15px;}
+        .title {font-size: 19px;margin-top: 19px;line-height: 27px; margin-bottom: 19px; }
+        .new-title{ font-size: 20px; margin-top: 19px; line-height: 27px; margin-bottom: 19px; }
+        .title .ding { display: inline-block; width: 18px; height: 18px; line-height: 18px; font-size: 11px;
+            text-align: center;  background: #52beef;  color: #fff;  border-radius: 4px; vertical-align: middle;  }
+        .come { padding-bottom: 19px;  margin-bottom: 19px;  font-size: 12px;  color: #8a8a8a;  border-bottom: 1px solid #cbcbcf;  clear: both;  overflow: hidden; }
+        .come .left {float: left; }  .come .time { float: right; }  .tag .item { float: left; margin-right: 6px; }
+        .tag .item a{display: inline-block; padding: 3px 8px; border: 1px solid #cbcbcf; border-radius: 2px; font-size: 10px; color: #8a8a8a; }
+        .pic{  clear: both;  overflow: hidden;  margin-top: 19px; font-size: 19px; color: #262626;  }
+        .pic .title { font-weight: normal; margin-bottom: 19px;  }
+        .pic .img-warp { position: relative; margin-bottom:19px; }
+        .pic .img { margin:0 auto; width: 100%; }
+        #mod_player {margin-bottom:19px; }
+        .tool-button{position: fixed;bottom:0;height:3rem;width:100%;background: #fff;overflow: hidden;border-top:1px solid #cbcbcf;}
+        .tool-button a{position:relative;overflow: hidden;display: inline-block;width:32%;height:3rem;text-align: center;line-height: 3rem;font-size: 1.2rem;color: #000;text-decoration:none}
+        .tool-button a span{content:'';display: inline-block;width:1.3rem;height:100%;text-indent: -9999px;margin: 0 0.5rem 0 0}
+        .tool-button a p{display: inline-block}
+        .follow span{background: url(http://game.gtimg.cn/images/user/act/a20170106/images/new/star.png) center center no-repeat;background-size:90% auto;-webkit-background-size:90% auto }
+        .share span{background: url(http://game.gtimg.cn/images/user/act/a20170106/images/new/share.png) center center no-repeat;background-size:90% auto;-webkit-background-size:90% auto}
+        .comment span{background: url(http://game.gtimg.cn/images/user/act/a20170106/images/new/comment.png) center center  no-repeat;background-size:90% auto;-webkit-background-size:90% auto}
+        .share p:after ,.follow p:after{content:'line';text-indent:-9999px;display:inline-block;height:1.2rem;border-right:1px solid #cbcbcf;position: absolute;top:0;bottom:0;margin:auto;right:0;}
+        div#all-comment{padding-bottom: 3rem} #kuaibao-container{padding-bottom: 3rem}
+        .vote-container{
+            width:100%;margin:0 auto;overflow: hidden;height:50px;
+        }
+        .vote-container p{
+            margin:0.9rem auto;
+            font-size:16px;
+        }
+        .tag-container p{color:#7cccf2;background: #dcf2fc;border: none}
+        .grey-word{width:100%;margin:0 auto}
+        .grey-word p{
+            color: #8a8a8a;font-size: 1rem;margin:0 auto;padding:0;text-align: center;
+        }
+        .grey-word p:first-child{
+            border-right:1px solid #8a8a8a;text-align: center;
+        }
+        .grey-word p:nth-child(2){
+            text-align: center;
+        }
+        .vote-btn{
+            width:100%;margin:1rem auto 3.5rem;
+            position: relative;
+            height:30px
+        }
+        .vote-btn:after{
+            content:'';
+            display: block;
+            position:absolute;
+            left:0;
+            bottom:-20px;
+            border-bottom:1px solid #f3f3f8;
+            height:1px;
+            width:100%;
+        }
+        .vote-btn a{
+            display: block;
+            height:30px;
+            width:80%;
+            text-align: center;
+            line-height: 30px;
+            text-decoration: none;
+            color:#fff;
+            border-radius: 5px;
+            position: absolute;
+        }
+        .vote-btn a.blue{
+            background: #52beef;
+            left:0;
+        }
+        .vote-btn a.red{
+            background: #ed4956;
+
+            right:0;
+        }
+        .vote-container .blue{
+            color: #52beef;
+
+        }
+        .vote-container .red{
+            color:  #ed4956;
+        }
+        p.red{
+            text-align: right;
+        }
+        .vote-flex{
+            height:50px;
+            width:90%;
+            margin:1.6rem auto 0;
+            display: flex;
+            display: -webkit-box;
+            flex-direction: row;
+            align-items:center;
+            justify-content: flex-start;
+            align-content:center
+        }
+        .blue-votes{
+            position: relative;
+            width:50%;
+            background: #52beef;
+            height:6px;
+        }
+        .blue-votes:after{
+            content:'';
+            position:absolute;
+            z-index:99;
+            right:-0.9rem;
+            top:-0.6rem;
+            width:1.8rem;
+            height:1.8rem;
+            background: url(http://game.gtimg.cn/images/user/act/a20170106/images/pk.png) no-repeat;
+            background-size: 100% auto;
+        }
+        .red-votes{
+            position: relative;
+            width:50%;
+            background: #ed4956;
+            height:6px;
+        }
+        .col-1{
+            max-width:7.33%;
+            text-overflow: ellipsis;
+        }
+        .col-10{
+            max-width:83%;
+        }
+        .add-friends{
+            position:absolute;
+            background: #52beef;
+            border-radius: 6px;
+            text-decoration: none;
+            line-height:2rem;
+            text-align: center;
+            width:6rem;
+            height:2rem;
+            color:#fff;
+            font-size:1rem;
+            display:block;
+            right:0;  }
+        .show-more-comment{display:block;width:100%;color:#000;text-align: center;text-decoration: none;height:3rem;line-height:3rem;font-size: 1.2rem}
+        .window{
+            position:fixed;
+            width:100%;height:100%;
+            background: rgba(0,0,0,0.6);
+        }
+        .words{ position:  absolute; }
+        .arrow{ position: absolute;}
+
+        .vote{width:5rem;line-height: 1.4rem;text-align: center;color: #fff;margin-bottom: 0.3rem}
+        .vote-red{background:#ed4956} .vote-blue{background:#52beef }
+        .monkey-404{
+            position:absolute;z-index: 999;
+            top:0;left:0;right:0;bottom:0;margin:auto;
+            width:125px;
+            height:130px;
+        }
+        .monkey-404 img{
+            width:100%;height:auto;
+        }
+        .monkey-404 p{
+            width:100%;text-align: center;color: #bbbcbf;
+        }
+
+        .window{  position:fixed;  width:100%;height:100%;  background: rgba(0,0,0,0.6);  }
+        .words{ position:  absolute; }
+        .arrow{ position: absolute;}
+        .vote{width:5rem;line-height: 1.4rem;text-align: center;color: #fff}
+        .vote-red{background:#ed4956} .vote-blue{background:#52beef }
+        .name.boy{width:100%;margin:-0.8rem 0 0 0} .college{margin-left:0}
+        .monkey-404{
+            position:absolute;z-index: 999;
+            top:0;left:0;right:0;bottom:0;margin:auto;
+            width:125px;
+            height:130px;
+        }
+        .monkey-404 img{
+            width:100%;height:auto;
+        }
+        .monkey-404 p{
+            width:100%;text-align: center;color: #bbbcbf;
+        }
+
+        .download {
+            line-height: 0;
+            display: block;
+            overflow: hidden;
+            text-decoration: none;
+        }
+
+        .downloadText {
+            float:left;display: block;
+            font-size: 14px;
+            line-height: 40px;
+            padding: 0 5px;
+            text-decoration: none;
+            outline: none;
+            color: #fff;
+        }
+
+        .button {
+            float:right;display: block;
+            font-size: 14px;
+            line-height: 40px;
+            padding: 0 20px;
+            text-decoration: none;
+            outline: none;
+            color: #fff;
+            background: #e17141;
+        }
+
+        .downloadBar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 40px;
+            margin: 0;
+            -webkit-transition: .1s all ease-in;
+            text-align: center;
+            background: rgba(56,58,70,.8);
+        }
+
+        .logo {
+            float: left; height:35px;
+            padding-top: 5px;
+            padding-left: 5px;
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+
+<div class="app" id="app"> 
+    <section class="container-92 section-title" id="header">
+    <div class="row inform">
+        <div class="col-10 col-md-10">
+            <p class="name boy" id="sender"></p>
+        </div>
+    </div>
+    </section> 
+    <section class="container-92 ariticle" id="ariticle" style="margin-bottom:40px"> 
+        <div class="part-container">
+            <p id="content"></p>
+            <img src="" class="photo-correct 0" id="image" />
+        </div> 
+    </section> 
+</div>
+
+<div class="downloadBar">
+    <a href="http://dwz.cn/6lmbn2" class="download">
+    <img class="logo" src="http://cmtest-10046755.cossh.myqcloud.com/logo_200.png">
+    <span class="downloadText">刻下心动一瞬</span>
+    <span class="button">立即下载</span>
+    </a>
+</div>
+
+<script>
+
+loadData();
+
+String.prototype.replaceAll = function(s1,s2){ 
+    return this.replace(new RegExp(s1,"gm"),s2); 
+}
+
+function getUrlPara(paraName, sUrl){
+    if (typeof(sUrl) == 'undefined') {
+        sUrl = document.location.href;
+    }
+    var urlRegex = new RegExp(paraName + "=[^&\?]*", "igm");
+    var para = sUrl.match(urlRegex);
+    if (!para) {
+        return "";
+    }
+    var v = para[0];
+    var from = v.indexOf("=");
+    var paraValue = v.substr(from + 1, v.length);
+    while (paraValue.indexOf('<') >= 0) {
+        paraValue = paraValue.replace('<', '');
+    }
+    if (paraValue.indexOf("#") > 0) {
+        from = paraValue.indexOf("#");
+        paraValue = paraValue.substr(0, from);
+    }
+    paraValue.replace(/'/g, "").replace(/"/g, "")
+    return paraValue;
+}
+
+function encodeHtml(s){
+    REGX_HTML_ENCODE = /"|&|'|<|>|[\x00-\x20]|[\x7F-\xFF]|[\u0100-\u2700]/g;
+    return ( typeof s != "string") ? s : s.replace(REGX_HTML_ENCODE, function($0) {
+        var c = $0.charCodeAt(0), r = ["&#"];
+        c = (c == 0x20) ? 0xA0 : c;
+        r.push(c);
+        r.push(";");
+        return r.join("");
+    });
+};
+
+function loadData(){
+    var flippedId = getUrlPara('flippedId');
+
+    $.ajax({
+        url : 'https://flippedwords.com/flippedwords/'+encodeHtml(flippedId),
+        type: 'get',
+        dataType: 'json',
+        headers : {
+            'x-uid':'weixin'
+        },
+        success: function(data){
+            console.log(data);
+            showData(data);
+        },
+        error:  function(jqXHR, textStatus, errorThrown){
+            if(jqXHR.status == 401){
+                console.log('401');
+                return;
+            }
+            
+            var text404 = [
+                '<div class="monkey-404">',
+                '<img src="http://game.gtimg.cn/images/user/act/a20170106/images/404.png" alt="">',
+                '<p>内容已被原作者删除</p>',
+                '</div>'
+            ].join('');
+            $('#app').append(text404);
+            $('.inform').hide();
+            $('#comments,.tool-button').remove();
+        }
+    })
+}    
+
+function showData(data){
+    var sendto = '发送给: '+data.sendto;
+    var textContent = '';
+    var pictureContent = '';
+
+    var contents = data.contents;
+    for(var i=0; i<contents.length; i++){
+        var content = contents[i];
+        if(content.type == 'text'){
+            textContent = content.text;
+            continue;
+        }else if(content.type == 'picture'){
+            pictureContent = content.text;
+            pictureContent = pictureContent.replaceAll('http://', 'https://');
+            continue;
+        }
+    }
+
+    $('#sender').html(encodeHtml(sendto));
+    $('#content').html(encodeHtml(textContent));
+    $('#image').attr("src", encodeHtml(pictureContent));
+}
+
+
+
+    
+</script>
+
+</body>
+</html>
