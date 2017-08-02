@@ -20,6 +20,7 @@
 #import "QQPopMenuView.h"
 #import "FLCommService.h"
 #import "FLCommentCell.h"
+#import "FLUserInfoManager.h"
 
 
 @interface FLFlippedDetailViewController() <MWPhotoBrowserDelegate, UITableViewDataSource, UITableViewDelegate>
@@ -268,6 +269,10 @@
 #pragma mark - action
 
 -(void)moreBtnClick{
+    
+    if(![[FLUserInfoManager sharedUserInfoManager] checkLogin]){
+        return;
+    }
     
     NSArray<FLLink> *links = self.data.links;
     
