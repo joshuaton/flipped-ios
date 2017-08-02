@@ -38,7 +38,7 @@
 @property (nonatomic, strong) NSMutableArray *photos;
 
 @property (nonatomic, strong) FLFlippedWord *data;
-@property (nonatomic, strong) NSArray *comments;
+@property (nonatomic, strong) NSMutableArray *comments;
 
 @end
 
@@ -63,10 +63,14 @@
     
     [self loadComment:NO];
     
+//    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickOther)];
+//    self.view.userInteractionEnabled = YES;
+//    [self.view addGestureRecognizer:tap];
+    
     //使用NSNotificationCenter 鍵盤出現時
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillShown:)
-                                                 name:UIKeyboardWillChangeFrameNotification object:nil];
+                                                 name:UIKeyboardWillShowNotification object:nil];
     //使用NSNotificationCenter 鍵盤隐藏時
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillBeHidden:)
@@ -213,7 +217,7 @@
     
     [FLFlippedWordsService getCommentsWithId:self.flippedId successBlock:^(NSArray *comments) {
         
-        self.comments = comments;
+        self.comments = [comments mutableCopy];
         [self.tableView reloadData];
         
         if(gotoEnd){
@@ -251,8 +255,6 @@
 - (void)keyboardWillBeHidden:(NSNotification*)notification{
     NSDictionary *info = [notification userInfo];
     CGFloat duration = [[info objectForKey:UIKeyboardAnimationDurationUserInfoKey] floatValue];
-    NSValue *value = [info objectForKey:UIKeyboardFrameEndUserInfoKey];
-    CGSize keyboardSize = [value CGRectValue].size;
     
     [self.commentView layoutIfNeeded];
     
@@ -333,6 +335,8 @@
 
 -(void)imageViewClick{
     
+    [self.commentTextField resignFirstResponder];
+    
     MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
     browser.displayActionButton = NO; // Show action button to allow sharing, copying, etc (defaults to YES)
     browser.displayNavArrows = NO; // Whether to display left and right nav arrows on toolbar (defaults to NO)
@@ -368,6 +372,10 @@
     }];
 }
 
+-(void)clickOther{
+    [self.commentTextField resignFirstResponder];
+}
+
 #pragma mark - MWPhotoBrowserDelegate
 
 - (NSUInteger)numberOfPhotosInPhotoBrowser:(MWPhotoBrowser *)photoBrowser {
@@ -399,10 +407,84 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
+    FLComment *comment = self.comments[indexPath.row];
+    NSArray *links = comment.links;
+    if(!links || links.count == 0){
+        return;
+    }
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    UIAlertAction *action;
+    
+    for(int i=0; i<links.count; i++){
+        FLLink *link = links[i];
+        
+        if([link.rel isEqualToString:@"delete"]){
+            action = [UIAlertAction actionWithTitle:@"删除" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+                
+                UIAlertController *deleteController = [UIAlertController alertControllerWithTitle:@"确认删除" message:@"您将删除此评论，删除后不能恢复" preferredStyle:UIAlertControllerStyleAlert];
+                
+                UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil];
+                cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    [alertController dismissViewControllerAnimated:YES completion:nil];
+                }];
+                [deleteController addAction:cancelAction];
+                
+                UIAlertAction *OKAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+                    [FLCommService requestWithURI:link.uri method:link.method params:nil successBlock:^{
+                        
+                        [self.comments removeObjectAtIndex:indexPath.row];
+                        [self.tableView reloadData];
+                        
+                    } failBlock:^(NSError *error) {
+                        
+                    }];                                  }];
+                [deleteController addAction:OKAction];
+                
+                [self presentViewController:deleteController animated:YES completion:nil];
+                
+                
+            }];
+            [alertController addAction:action];
+
+        }
+    }
+    
+    action = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    [alertController addAction:action];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 44;
+}
+
+- (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, 30)];
+    UILabel *label = [[UILabel alloc] init];
+    label.textColor = COLOR_H1;
+    label.font = FONT_M;
+    label.text = @"全部评论";
+    [label sizeToFit];
+    label.frame = CGRectMake(10, (30-label.frame.size.height)/2, label.frame.size.width, label.frame.size.height);
+
+    headerView.backgroundColor = COLOR_H5;
+    [headerView addSubview:label];
+    
+    return headerView;
+    
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    
+    if(self.comments.count > 0){
+        return 30.0;
+    }
+    return 0;
 }
 
 #pragma mark - getter & setter
