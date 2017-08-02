@@ -425,7 +425,7 @@
         FLLink *link = links[i];
         
         if([link.rel isEqualToString:@"delete"]){
-            action = [UIAlertAction actionWithTitle:@"删除" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+            action = [UIAlertAction actionWithTitle:@"删除评论" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
                 
                 UIAlertController *deleteController = [UIAlertController alertControllerWithTitle:@"确认删除" message:@"您将删除此评论，删除后不能恢复" preferredStyle:UIAlertControllerStyleAlert];
                 
@@ -591,7 +591,7 @@
 -(UITextField *)commentTextField{
     if(!_commentTextField){
         _commentTextField = [[UITextField alloc] init];
-        _commentTextField.placeholder = @"看到这条心动话，您有什么感想...";
+        _commentTextField.placeholder = @"说点什么吧...";
         _commentTextField.font = FONT_L;
         _commentTextField.layer.cornerRadius = 4;
         _commentTextField.layer.borderColor = COLOR_H4.CGColor;
