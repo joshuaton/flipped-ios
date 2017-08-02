@@ -19,7 +19,7 @@
 @property (nonatomic, copy) NSString *sendto;
 @property (nonatomic, assign) CGFloat lat;
 @property (nonatomic, assign) CGFloat lng;
-@property (nonatomic, assign) NSInteger status;
+@property (nonatomic, assign) NSNumber<Optional> *status;
 @property (nonatomic, assign) NSInteger ctime;
 @property (nonatomic, strong) NSNumber<Optional> *distance;
 @property (nonatomic, strong) NSArray<FLContent> *contents;

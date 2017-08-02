@@ -8,6 +8,7 @@
 
 #import "FLCommentCell.h"
 #import "Masonry.h"
+#import "FLCommHeader.h"
 
 @interface FLCommentCell()
 
@@ -20,7 +21,7 @@
 
 -(void)refreshWithData:(FLComment *)data{
     
-    self.uidLabel.text = data.uid;
+    self.uidLabel.text = [NSString stringWithFormat:@"来自%@", data.uid];
     NSArray<FLContent> *contents = data.contents;
     
     for(int i=0; i<contents.count; i++){
@@ -36,22 +37,25 @@
 
 -(void)makeConstraints{
     
-    [self.uidLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.uidLabel).offset(10);
-        make.left.equalTo(self.uidLabel).offset(10);
-        make.right.equalTo(self.uidLabel).offset(-10);
+    [self.contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(@10);
+        make.left.equalTo(@10);
+        make.right.equalTo(@10);
     }];
     
-    [self.contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.uidLabel.mas_bottom).offset(10);
-        make.left.equalTo(self.uidLabel);
-        make.right.equalTo(self.uidLabel);
+    [self.uidLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.contentLabel.mas_bottom).offset(5);
+        make.left.equalTo(self.contentLabel);
+        make.right.equalTo(self.contentLabel);
+        make.bottom.equalTo(@-10);
     }];
 }
 
 -(UILabel *)uidLabel{
     if(!_uidLabel){
         _uidLabel = [[UILabel alloc] init];
+        _uidLabel.textColor = COLOR_H2;
+        _uidLabel.font = FONT_S;
         [self.contentView addSubview:_uidLabel];
     }
     return _uidLabel;
@@ -60,6 +64,8 @@
 -(UILabel *)contentLabel{
     if(!_contentLabel){
         _contentLabel = [[UILabel alloc] init];
+        _contentLabel.textColor = COLOR_H1;
+        _contentLabel.font = FONT_M;
         [self.contentView addSubview:_contentLabel];
     }
     return _contentLabel;

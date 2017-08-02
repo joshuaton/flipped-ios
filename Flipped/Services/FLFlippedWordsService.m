@@ -9,6 +9,7 @@
 #import "FLFlippedWordsService.h"
 #import "FLFlippedWord.h"
 #import "FLCommHeader.h"
+#import "FLComment.h"
 
 @implementation FLFlippedWordsService
 
@@ -108,7 +109,7 @@
     [[self sharedHttpSessionManager] FLGET:url parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         NSDictionary *result = (NSDictionary *)responseObject;
         NSError *error;
-        NSMutableArray *modelArray = [FLFlippedWord arrayOfModelsFromDictionaries:result[@"comments"] error:&error];
+        NSMutableArray *modelArray = [FLComment arrayOfModelsFromDictionaries:result[@"comments"] error:&error];
         
         successBlock(modelArray);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {

@@ -46,50 +46,63 @@
 
 -(void)viewDidLoad{
     [super viewDidLoad];
-    
-    self.automaticallyAdjustsScrollViewInsets = NO;
-    
+        
     self.title = @"详情";
     [self configRightNavigationItemWithTitle:nil image:[UIImage imageNamed:@"flipped_detail_more"] action:@selector(moreBtnClick)];
-
-    [self makeConstraints];
     
     [FLFlippedWordsService getFlippedWordsDetailWithId:self.flippedId successBlock:^(FLFlippedWord *data) {
         
         self.data = data;
         [self showData:data];
+        
+
     } failBlock:^(NSError *error) {
         NSLog(@"get detail error");
 
     }];
     
-    [FLFlippedWordsService getCommentsWithId:self.flippedId successBlock:^(NSArray *comments) {
-        
-        self.comments = comments;
-    } failBlock:^(NSError *error) {
-        
-    }];
+    [self loadComment:NO];
+    
+    //使用NSNotificationCenter 鍵盤出現時
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShown:)
+                                                 name:UIKeyboardWillChangeFrameNotification object:nil];
+    //使用NSNotificationCenter 鍵盤隐藏時
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillBeHidden:)
+                                                 name:UIKeyboardWillHideNotification object:nil];
 }
 
--(void)makeConstraints{
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     
+    [self makeConstraints];
+
+}
+
+-(void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+#pragma mark - private
+
+-(void)makeConstraints{
+        
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.tableView.superview);
-        make.left.equalTo(self.tableView.superview);
-        make.bottom.equalTo(self.tableView.superview);
-        make.right.equalTo(self.tableView.superview);
+        make.top.equalTo(@0);
+        make.left.equalTo(@0);
+        make.bottom.equalTo(self.commentView.mas_top);
+        make.right.equalTo(@0);
     }];
     
     [self.headerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(@(SCREEN_WIDTH));
     }];
     
-    
-    
     [self.contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.contentLabel.superview).offset(64+10);
-        make.left.equalTo(self.contentLabel.superview).offset(10);
-        make.right.equalTo(self.contentLabel.superview).offset(-10);
+        make.top.equalTo(@10);
+        make.left.equalTo(@10);
+        make.right.equalTo(@-10);
     }];
     
     [self.sendLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -103,32 +116,33 @@
         make.left.equalTo(self.sendLabel);
         make.right.equalTo(self.sendLabel);
         make.height.equalTo(self.imageView.mas_width);
+        make.bottom.equalTo(self.headerView).offset(-10);
     }];
     
     [self.commentView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.commentView.superview);
-        make.bottom.equalTo(self.commentView.superview);
-        make.right.equalTo(self.commentView.superview);
+        make.left.equalTo(@0);
+        make.bottom.equalTo(@0);
+        make.right.equalTo(@0);
         make.height.equalTo(@45);
     }];
     
     [self.commentLineView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.commentLineView.superview);
-        make.left.equalTo(self.commentLineView.superview);
-        make.right.equalTo(self.commentLineView.superview);
+        make.top.equalTo(@0);
+        make.left.equalTo(@0);
+        make.right.equalTo(@0);
         make.height.equalTo(@1);
     }];
     
     [self.commentButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.commentLineView.mas_bottom).offset(5);
-        make.bottom.equalTo(self.commentButton.superview).offset(-5);
-        make.right.equalTo(self.commentButton.superview).offset(-10);
+        make.bottom.equalTo(@-5);
+        make.right.equalTo(@-10);
         make.width.equalTo(@65);
     }];
     
     [self.commentTextBorderView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.commentButton);
-        make.left.equalTo(self.commentTextBorderView.superview).offset(10);
+        make.left.equalTo(@10);
         make.bottom.equalTo(self.commentButton);
         make.right.equalTo(self.commentButton.mas_left).offset(-10);
     }];
@@ -139,6 +153,8 @@
         make.bottom.equalTo(self.commentTextBorderView);
         make.right.equalTo(self.commentTextBorderView).offset(-10);
     }];
+    
+    
 
 }
 
@@ -175,6 +191,80 @@
         self.imageView.hidden = YES;
     }
     
+    if(self.imageView.hidden){
+        
+        [self.imageView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.sendLabel.mas_bottom).offset(10);
+            make.left.equalTo(self.sendLabel);
+            make.bottom.equalTo(self.headerView).offset(-10);
+            make.width.equalTo(@0);
+            make.height.equalTo(@0);
+        }];
+    }
+    
+    CGFloat height = [self.headerView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
+    CGRect frame = self.headerView.frame;
+    frame.size.height = height;
+    self.headerView.frame =frame;
+    self.tableView.tableHeaderView = self.headerView;
+}
+
+-(void)loadComment:(BOOL)gotoEnd{
+    
+    [FLFlippedWordsService getCommentsWithId:self.flippedId successBlock:^(NSArray *comments) {
+        
+        self.comments = comments;
+        [self.tableView reloadData];
+        
+        if(gotoEnd){
+            [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.comments.count-1 inSection:0]  atScrollPosition:UITableViewScrollPositionBottom animated:NO];
+        }
+    } failBlock:^(NSError *error) {
+        
+    }];
+}
+
+#pragma mark - notification
+
+//实现当键盘出现的时候计算键盘的高度大小。用于输入框显示位置
+- (void)keyboardWillShown:(NSNotification*)notification
+{
+    NSDictionary *info = [notification userInfo];
+    CGFloat duration = [[info objectForKey:UIKeyboardAnimationDurationUserInfoKey] floatValue];
+    NSValue *value = [info objectForKey:UIKeyboardFrameEndUserInfoKey];
+    CGSize keyboardSize = [value CGRectValue].size;
+    
+    [self.commentView layoutIfNeeded];
+    
+    [self.commentView mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(@(-keyboardSize.height));
+    }];
+    [UIView animateWithDuration:duration animations:^{
+        [self.commentView layoutIfNeeded];
+        [self.tableView layoutIfNeeded];
+        [self.headerView layoutIfNeeded];
+    }];
+    
+    
+}
+//当键盘隐藏的时候
+- (void)keyboardWillBeHidden:(NSNotification*)notification{
+    NSDictionary *info = [notification userInfo];
+    CGFloat duration = [[info objectForKey:UIKeyboardAnimationDurationUserInfoKey] floatValue];
+    NSValue *value = [info objectForKey:UIKeyboardFrameEndUserInfoKey];
+    CGSize keyboardSize = [value CGRectValue].size;
+    
+    [self.commentView layoutIfNeeded];
+    
+    [self.commentView mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(@0);
+    }];
+    [UIView animateWithDuration:duration animations:^{
+        [self.commentView layoutIfNeeded];
+        [self.tableView layoutIfNeeded];
+        [self.headerView layoutIfNeeded];
+    }];
+
 }
 
 #pragma mark - action
@@ -270,6 +360,9 @@
     
     [FLFlippedWordsService commentFlippedWordWithId:self.data.id content:contentStr successBlock:^{
         
+        [self loadComment:YES];
+        [self.commentTextField resignFirstResponder];
+        self.commentTextField.text = @"";
     } failBlock:^(NSError *error) {
         
     }];
@@ -322,7 +415,6 @@
         [_tableView registerClass:[FLCommentCell class] forCellReuseIdentifier:NSStringFromClass([FLCommentCell class])];
         _tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
         _tableView.tableHeaderView = self.headerView;
-        
         [self.view addSubview:_tableView];
     }
     return _tableView;
