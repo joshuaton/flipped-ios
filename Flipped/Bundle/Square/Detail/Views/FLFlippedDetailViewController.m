@@ -63,10 +63,6 @@
     
     [self loadComment:NO];
     
-//    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickOther)];
-//    self.view.userInteractionEnabled = YES;
-//    [self.view addGestureRecognizer:tap];
-    
     //使用NSNotificationCenter 鍵盤出現時
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillShown:)
@@ -362,6 +358,11 @@
         return;
     }
     
+    if(contentStr.length > 140){
+        [FLToast showToast:@"评论不能超过140个字~"];
+        return;
+    }
+    
     [FLFlippedWordsService commentFlippedWordWithId:self.data.id content:contentStr successBlock:^{
         
         [self loadComment:YES];
@@ -407,6 +408,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
+    [self.commentTextField resignFirstResponder];
     
     FLComment *comment = self.comments[indexPath.row];
     NSArray *links = comment.links;
@@ -475,6 +478,10 @@
     headerView.backgroundColor = COLOR_H5;
     [headerView addSubview:label];
     
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickOther)];
+    headerView.userInteractionEnabled = YES;
+    [headerView addGestureRecognizer:tap];
+    
     return headerView;
     
 }
@@ -506,6 +513,10 @@
     if(!_headerView){
         _headerView = [[UIView alloc] init];
         _headerView.userInteractionEnabled = YES;
+        
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickOther)];
+        _headerView.userInteractionEnabled = YES;
+        [_headerView addGestureRecognizer:tap];
 
     }
     return _headerView;
