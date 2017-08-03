@@ -19,9 +19,7 @@
     <meta name="x5-page-mode" content="app">
     <meta http-equiv="Cache-Control" content="no-cache" />
     <title>爱要说</title>
-    <script src="https://ossweb-img.qq.com/images/js/jquery/jquery-3.1.1.min.js" type="application/javascript"></script>
     <script src="https://imgcache.qq.com/tencentvideo_v1/3party/zepto.js" type="text/javascript"></script>
-    <link rel="stylesheet" href="https://ossweb-img.qq.com/images/js/jquery/bootstrap-grid.min.css">
     <style>
         body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{margin:0;padding:0}
         article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section { display:block; }
@@ -298,7 +296,7 @@
         }
 
         .logo {
-            float: left; height:35px;
+            float: left; height:30px;
             padding-top: 5px;
             padding-left: 5px;
         }
@@ -377,7 +375,7 @@ function encodeHtml(s){
 };
 
 function loadData(){
-    var flippedId = getUrlPara('flippedId');
+    var flippedId = getUrlPara('id');
 
     $.ajax({
         url : 'https://flippedwords.com/flippedwords/'+encodeHtml(flippedId),

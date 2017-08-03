@@ -24,6 +24,7 @@
 @property (nonatomic, strong) NSNumber<Optional> *distance;
 @property (nonatomic, strong) NSArray<FLContent> *contents;
 @property (nonatomic, strong) NSArray<FLLink> *links;
+@property (nonatomic, assign) NSInteger commentnum;
 
 
 @end
