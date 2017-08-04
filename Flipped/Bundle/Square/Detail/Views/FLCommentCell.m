@@ -14,6 +14,7 @@
 
 @property (nonatomic, strong) UILabel *uidLabel;
 @property (nonatomic, strong) UILabel *contentLabel;
+@property (nonatomic, strong) UILabel *floorNumLabel;
 
 @end
 
@@ -32,6 +33,8 @@
         }
     }
     
+    self.floorNumLabel.text = [NSString stringWithFormat:@"%ld楼", data.floor];
+    
     [self makeConstraints];
 }
 
@@ -48,6 +51,12 @@
         make.left.equalTo(self.contentLabel);
         make.right.equalTo(self.contentLabel);
         make.bottom.equalTo(@-10);
+    }];
+    
+    [self.floorNumLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.uidLabel);
+        make.bottom.equalTo(self.uidLabel);
+        make.right.equalTo(@-10);
     }];
 }
 
@@ -69,6 +78,16 @@
         [self.contentView addSubview:_contentLabel];
     }
     return _contentLabel;
+}
+
+-(UILabel *)floorNumLabel{
+    if(!_floorNumLabel){
+        _floorNumLabel = [[UILabel alloc] init];
+        _floorNumLabel.textColor = COLOR_H2;
+        _floorNumLabel.font = FONT_S;
+        [self.contentView addSubview:_floorNumLabel];
+    }
+    return _floorNumLabel;
 }
 
 @end
