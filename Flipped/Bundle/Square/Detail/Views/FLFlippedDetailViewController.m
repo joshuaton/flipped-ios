@@ -47,7 +47,10 @@
 
 -(void)viewDidLoad{
     [super viewDidLoad];
-        
+    
+    [self makeConstraints];
+
+    
     self.title = @"详情";
     [self configRightNavigationItemWithTitle:nil image:[UIImage imageNamed:@"flipped_detail_more"] action:@selector(moreBtnClick)];
     
@@ -64,6 +67,16 @@
     
     [self loadComment:NO];
     
+    
+    
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    
+    [self.commentTextField resignFirstResponder];
+    
     //使用NSNotificationCenter 鍵盤出現時
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillShown:)
@@ -72,18 +85,16 @@
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillBeHidden:)
                                                  name:UIKeyboardWillHideNotification object:nil];
+
 }
 
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
+-(void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
     
-    [self makeConstraints];
-
-}
-
--(void)dealloc{
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+
 }
+
 
 #pragma mark - private
 
@@ -218,7 +229,7 @@
         [self.tableView reloadData];
         
         if(gotoEnd){
-            [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.comments.count-1 inSection:0]  atScrollPosition:UITableViewScrollPositionBottom animated:NO];
+            [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.comments.count-1 inSection:0]  atScrollPosition:UITableViewScrollPositionBottom animated:YES];
         }
     } failBlock:^(NSError *error) {
         
@@ -230,39 +241,35 @@
 //实现当键盘出现的时候计算键盘的高度大小。用于输入框显示位置
 - (void)keyboardWillShown:(NSNotification*)notification
 {
+    
+    NSLog(@"junshao keyboardWillShown");
+    
     NSDictionary *info = [notification userInfo];
-    CGFloat duration = [[info objectForKey:UIKeyboardAnimationDurationUserInfoKey] floatValue];
+//    CGFloat duration = [[info objectForKey:UIKeyboardAnimationDurationUserInfoKey] floatValue];
     NSValue *value = [info objectForKey:UIKeyboardFrameEndUserInfoKey];
     CGSize keyboardSize = [value CGRectValue].size;
     
-    [self.commentView layoutIfNeeded];
     
     [self.commentView mas_updateConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(@(-keyboardSize.height));
     }];
-    [UIView animateWithDuration:duration animations:^{
-        [self.commentView layoutIfNeeded];
-        [self.tableView layoutIfNeeded];
-        [self.headerView layoutIfNeeded];
-    }];
+//    [UIView animateWithDuration:duration animations:^{
+//        [self.commentView layoutIfNeeded];
+//        [self.tableView layoutIfNeeded];
+//        [self.headerView layoutIfNeeded];
+//    }];
     
     
 }
 //当键盘隐藏的时候
 - (void)keyboardWillBeHidden:(NSNotification*)notification{
-    NSDictionary *info = [notification userInfo];
-    CGFloat duration = [[info objectForKey:UIKeyboardAnimationDurationUserInfoKey] floatValue];
     
-    [self.commentView layoutIfNeeded];
+    NSLog(@"junshao keyboardWillBeHidden");
     
     [self.commentView mas_updateConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(@0);
     }];
-    [UIView animateWithDuration:duration animations:^{
-        [self.commentView layoutIfNeeded];
-        [self.tableView layoutIfNeeded];
-        [self.headerView layoutIfNeeded];
-    }];
+
 
 }
 
