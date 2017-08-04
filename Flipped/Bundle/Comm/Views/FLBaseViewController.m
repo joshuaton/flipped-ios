@@ -40,12 +40,17 @@ static __weak UIViewController* __currentViewController;
     
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
 
+    NSLog(@"%@ viewDidLoad", NSStringFromClass([self class]));
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
     __currentViewController = self;
+}
+
+-(void)dealloc{
+    NSLog(@"%@ dealloc", NSStringFromClass([self class]));
 }
 
 + (UIViewController*)currentViewController {
