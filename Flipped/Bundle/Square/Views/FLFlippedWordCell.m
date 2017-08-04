@@ -47,9 +47,10 @@
         self.lineView.hidden = NO;
         
         NSString *statusStr = @"";
-        if (data.status == 0 || data.status == 100){
+        NSInteger status = [data.status integerValue];
+        if (status == 0 || status == 100){
             statusStr = @"对方未读";
-        } else if (data.status == 200){
+        } else if (status == 200){
             statusStr = @"对方已读";
         }
         
