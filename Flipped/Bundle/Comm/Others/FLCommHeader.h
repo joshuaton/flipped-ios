@@ -8,6 +8,9 @@
 
 #import "UIColor+HexColor.h"
 
+#define Weak_Self __weak Strong_Self
+#define Strong_Self __typeof(self)
+
 #define SCREEN_WIDTH      [[UIScreen mainScreen] bounds].size.width
 #define SCREEN_HEIGHT     [[UIScreen mainScreen] bounds].size.height
 

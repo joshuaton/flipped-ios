@@ -15,9 +15,11 @@
 #import "FLNewMineViewController.h"
 #import "UIColor+HexColor.h"
 #import "FLCommHeader.h"
+#import "FLSplashViewController.h"
 
 @interface AppDelegate () <UITabBarControllerDelegate>
 
+@property (nonatomic, strong) FLSplashViewController *splashViewController;
 @property (nonatomic, strong) UITabBarController *tabBarController;
 @property (nonatomic, strong) UINavigationController *squareNav;
 @property (nonatomic, strong) UINavigationController *mineNav;
@@ -66,7 +68,19 @@
     [self.tabBarController.tabBar insertSubview:backView atIndex:0];
     self.tabBarController.tabBar.opaque = YES;
     
-    self.window.rootViewController = self.tabBarController;
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSNumber *splashShowed = [defaults objectForKey:@"splashShowed"];
+    if(!splashShowed || [splashShowed isEqualToNumber:[NSNumber numberWithBool:NO]]){
+        self.splashViewController = [[FLSplashViewController alloc] init];
+        Weak_Self wself = self;
+        self.splashViewController.clickEnterButtonCallback = ^{
+            wself.window.rootViewController = wself.tabBarController;
+        };
+        self.window.rootViewController = self.splashViewController;
+    }else{
+        self.window.rootViewController = self.tabBarController;
+    }
+    
     [self.window makeKeyAndVisible];
         
     return YES;

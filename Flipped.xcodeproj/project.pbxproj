@@ -36,6 +36,10 @@
 		FB6173B01F1112D0009649E2 /* FLSquareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6173AA1F1112D0009649E2 /* FLSquareViewController.m */; };
 		FB6173B31F11146A009649E2 /* FLContent.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6173B21F11146A009649E2 /* FLContent.m */; };
 		FB7CF6D61F1BA84200CD9F5C /* FLToast.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7CF6D51F1BA84200CD9F5C /* FLToast.m */; };
+		FB81176A1F3F4F950045202B /* FLSplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8117691F3F4F950045202B /* FLSplashViewController.m */; };
+		FB8117741F3F555B0045202B /* flipped_splash0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB8117711F3F555B0045202B /* flipped_splash0@2x.png */; };
+		FB8117751F3F555B0045202B /* flipped_splash1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB8117721F3F555B0045202B /* flipped_splash1@2x.png */; };
+		FB8117761F3F555B0045202B /* flipped_splash2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB8117731F3F555B0045202B /* flipped_splash2@2x.png */; };
 		FBB917751F1252C5000C7353 /* FLFlippedWordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FBB917741F1252C5000C7353 /* FLFlippedWordCell.m */; };
 		FBB9177C1F1254DA000C7353 /* flipped_content_pic@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FBB917761F1254DA000C7353 /* flipped_content_pic@2x.png */; };
 		FBB9177D1F1254DA000C7353 /* flipped_content_video@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FBB917771F1254DA000C7353 /* flipped_content_video@2x.png */; };
@@ -123,6 +127,11 @@
 		FB6173B21F11146A009649E2 /* FLContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLContent.m; sourceTree = "<group>"; };
 		FB7CF6D41F1BA83600CD9F5C /* FLToast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLToast.h; sourceTree = "<group>"; };
 		FB7CF6D51F1BA84200CD9F5C /* FLToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLToast.m; sourceTree = "<group>"; };
+		FB8117681F3F4F8D0045202B /* FLSplashViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLSplashViewController.h; sourceTree = "<group>"; };
+		FB8117691F3F4F950045202B /* FLSplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLSplashViewController.m; sourceTree = "<group>"; };
+		FB8117711F3F555B0045202B /* flipped_splash0@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flipped_splash0@2x.png"; sourceTree = "<group>"; };
+		FB8117721F3F555B0045202B /* flipped_splash1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flipped_splash1@2x.png"; sourceTree = "<group>"; };
+		FB8117731F3F555B0045202B /* flipped_splash2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flipped_splash2@2x.png"; sourceTree = "<group>"; };
 		FBB917731F1252B9000C7353 /* FLFlippedWordCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FLFlippedWordCell.h; path = ../../Square/Views/FLFlippedWordCell.h; sourceTree = "<group>"; };
 		FBB917741F1252C5000C7353 /* FLFlippedWordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLFlippedWordCell.m; path = ../../Square/Views/FLFlippedWordCell.m; sourceTree = "<group>"; };
 		FBB917761F1254DA000C7353 /* flipped_content_pic@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flipped_content_pic@2x.png"; sourceTree = "<group>"; };
@@ -261,6 +270,9 @@
 		45D272261F0B34D500AF180E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FB8117711F3F555B0045202B /* flipped_splash0@2x.png */,
+				FB8117721F3F555B0045202B /* flipped_splash1@2x.png */,
+				FB8117731F3F555B0045202B /* flipped_splash2@2x.png */,
 				FB0715151F3069BD00F5B0CA /* flipped_detail_more@2x.png */,
 				FBD938C81F1FA33900900842 /* flipped_pic_default.png */,
 				FBD938AE1F1E29E600900842 /* flipped_post_add_pic@2x.png */,
@@ -548,6 +560,8 @@
 			children = (
 				FBD938CC1F248B3E00900842 /* FLHelpViewController.h */,
 				FBD938CD1F248B4A00900842 /* FLHelpViewController.m */,
+				FB8117681F3F4F8D0045202B /* FLSplashViewController.h */,
+				FB8117691F3F4F950045202B /* FLSplashViewController.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -640,6 +654,9 @@
 				FBD938C91F1FA33900900842 /* flipped_pic_default.png in Resources */,
 				FBB917811F1254DA000C7353 /* WechatIMG9.png in Resources */,
 				FB0715161F3069BD00F5B0CA /* flipped_detail_more@2x.png in Resources */,
+				FB8117761F3F555B0045202B /* flipped_splash2@2x.png in Resources */,
+				FB8117741F3F555B0045202B /* flipped_splash0@2x.png in Resources */,
+				FB8117751F3F555B0045202B /* flipped_splash1@2x.png in Resources */,
 				45D2721B1F0B343E00AF180E /* Assets.xcassets in Resources */,
 				FBB9177C1F1254DA000C7353 /* flipped_content_pic@2x.png in Resources */,
 				FBB9177E1F1254DA000C7353 /* flipped_content_sound@2x.png in Resources */,
@@ -732,6 +749,7 @@
 				FBD938B21F1E306A00900842 /* FLCloudService.m in Sources */,
 				FB6173AE1F1112D0009649E2 /* FLMineViewController.m in Sources */,
 				45F1C8BF1F1F2A6100A3B74C /* FLFlippedDetailViewController.m in Sources */,
+				FB81176A1F3F4F950045202B /* FLSplashViewController.m in Sources */,
 				FBE0D77D1F19C792006D6C47 /* FLFlippedListViewController.m in Sources */,
 				FBCD22291F1A0F8100D8B718 /* NSString+MD5.m in Sources */,
 				FB6173AC1F1112D0009649E2 /* FLBaseViewController.m in Sources */,
