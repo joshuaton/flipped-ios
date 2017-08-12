@@ -30,7 +30,7 @@
     self.imageView1.frame = CGRectMake(SCREEN_WIDTH, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
     self.imageView2.frame = CGRectMake(SCREEN_WIDTH*2, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
  
-    self.enterButton.frame = CGRectMake(SCREEN_WIDTH*2+(SCREEN_WIDTH-BUTTON_WIDTH)/2, SCREEN_HEIGHT-50, BUTTON_WIDTH, 30);
+    self.enterButton.frame = CGRectMake(SCREEN_WIDTH*2+(SCREEN_WIDTH-BUTTON_WIDTH)/2, SCREEN_HEIGHT-50*SCREEN_SCALE_HEIGHT, BUTTON_WIDTH, 30);
 }
 
 #pragma mark - action
