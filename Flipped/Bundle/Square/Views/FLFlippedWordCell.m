@@ -42,8 +42,10 @@
     self.sendLabel.text = [NSString stringWithFormat:@"发送给：%@", data.sendto];
     
     self.lineView.hidden = YES;
+    self.backgroundColor = COLOR_W;
     
     if(self.type == FLFlippedListTypeSend){
+        
         self.lineView.hidden = NO;
         
         NSString *statusStr = @"";
@@ -53,9 +55,18 @@
         } else if (status == 200){
             statusStr = @"对方已读";
         }
-        
         self.statusLabel.text = statusStr;
 
+    }else if(self.type == FLFlippedListTypeReceive){
+
+        NSString *statusStr = @"";
+        NSInteger status = [data.status integerValue];
+        if (status == 0 ){
+            self.lineView.hidden = NO;
+            statusStr = @"新收到的";
+            self.backgroundColor = [UIColor colorWithHexString:@"ffac38"];
+        }
+        self.statusLabel.text = statusStr;
 
     }
     

@@ -179,6 +179,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    FLFlippedWordCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    cell.backgroundColor = COLOR_W;
+    
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
     FLFlippedDetailViewController *vc = [[FLFlippedDetailViewController alloc] init];
