@@ -3,21 +3,21 @@
     {
       "orientation" : "portrait",
       "idiom" : "iphone",
-      "filename" : "lauch_640_1136-2.png",
+      "filename" : "LaunchImage-568h@2x-2.png",
       "extent" : "full-screen",
       "scale" : "1x"
     },
     {
       "orientation" : "portrait",
       "idiom" : "iphone",
-      "filename" : "LaunchImage-568h@2x.png",
+      "filename" : "LaunchImage-568h@2x-1.png",
       "extent" : "full-screen",
       "scale" : "2x"
     },
     {
       "orientation" : "portrait",
       "idiom" : "iphone",
-      "filename" : "lauch_640_1136-1.png",
+      "filename" : "LaunchImage-568h@2x.png",
       "extent" : "full-screen",
       "subtype" : "retina4",
       "scale" : "2x"
