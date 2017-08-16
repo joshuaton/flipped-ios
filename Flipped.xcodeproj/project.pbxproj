@@ -18,9 +18,6 @@
 		45F1C8BF1F1F2A6100A3B74C /* FLFlippedDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F1C8BE1F1F2A6100A3B74C /* FLFlippedDetailViewController.m */; };
 		583FCBD6E2C5D728117751C6 /* libPods-Flipped.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A6CB62EA12AEAE674DF275B1 /* libPods-Flipped.a */; };
 		FB0715051F305CAD00F5B0CA /* FLCopyLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0715041F305CAD00F5B0CA /* FLCopyLabel.m */; };
-		FB07150F1F30625D00F5B0CA /* PopMenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB07150B1F30625D00F5B0CA /* PopMenuTableViewCell.m */; };
-		FB0715101F30625D00F5B0CA /* PopMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB07150C1F30625D00F5B0CA /* PopMenuTableViewCell.xib */; };
-		FB0715111F30625D00F5B0CA /* QQPopMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = FB07150E1F30625D00F5B0CA /* QQPopMenuView.m */; };
 		FB0715141F3064C000F5B0CA /* FLLink.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0715131F3064C000F5B0CA /* FLLink.m */; };
 		FB0715161F3069BD00F5B0CA /* flipped_detail_more@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB0715151F3069BD00F5B0CA /* flipped_detail_more@2x.png */; };
 		FB0715191F306C5300F5B0CA /* FLCommService.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0715181F306C5300F5B0CA /* FLCommService.m */; };
@@ -40,6 +37,12 @@
 		FB8117741F3F555B0045202B /* flipped_splash0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB8117711F3F555B0045202B /* flipped_splash0@2x.png */; };
 		FB8117751F3F555B0045202B /* flipped_splash1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB8117721F3F555B0045202B /* flipped_splash1@2x.png */; };
 		FB8117761F3F555B0045202B /* flipped_splash2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB8117731F3F555B0045202B /* flipped_splash2@2x.png */; };
+		FB8117AD1F44940A0045202B /* libmtasdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB8117A01F44940A0045202B /* libmtasdk.a */; };
+		FB8117AE1F44940A0045202B /* PopMenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8117A51F44940A0045202B /* PopMenuTableViewCell.m */; };
+		FB8117AF1F44940A0045202B /* PopMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB8117A61F44940A0045202B /* PopMenuTableViewCell.xib */; };
+		FB8117B01F44940A0045202B /* QQPopMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8117A81F44940A0045202B /* QQPopMenuView.m */; };
+		FB8117B21F4494170045202B /* ZegoLiveRoom.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB8117AC1F44940A0045202B /* ZegoLiveRoom.framework */; };
+		FB8117B31F4494170045202B /* ZegoLiveRoom.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FB8117AC1F44940A0045202B /* ZegoLiveRoom.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FBB917751F1252C5000C7353 /* FLFlippedWordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FBB917741F1252C5000C7353 /* FLFlippedWordCell.m */; };
 		FBB9177C1F1254DA000C7353 /* flipped_content_pic@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FBB917761F1254DA000C7353 /* flipped_content_pic@2x.png */; };
 		FBB9177D1F1254DA000C7353 /* flipped_content_video@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FBB917771F1254DA000C7353 /* flipped_content_video@2x.png */; };
@@ -54,7 +57,6 @@
 		FBD938AF1F1E29E600900842 /* flipped_post_add_pic@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FBD938AE1F1E29E600900842 /* flipped_post_add_pic@2x.png */; };
 		FBD938B21F1E306A00900842 /* FLCloudService.m in Sources */ = {isa = PBXBuildFile; fileRef = FBD938B11F1E306A00900842 /* FLCloudService.m */; };
 		FBD938B51F1F587200900842 /* FLUserInfoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FBD938B41F1F587200900842 /* FLUserInfoManager.m */; };
-		FBD938BB1F1F9D8A00900842 /* libmtasdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FBD938B81F1F9D8A00900842 /* libmtasdk.a */; };
 		FBD938BD1F1F9DB200900842 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FBD938BC1F1F9DB100900842 /* libz.tbd */; };
 		FBD938BF1F1F9DB900900842 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FBD938BE1F1F9DB900900842 /* libsqlite3.tbd */; };
 		FBD938C11F1F9DC000900842 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBD938C01F1F9DC000900842 /* Security.framework */; };
@@ -72,6 +74,20 @@
 		FBE0D7801F19F135006D6C47 /* FLBaseService.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE0D77F1F19F135006D6C47 /* FLBaseService.m */; };
 		FBE0D7831F19F279006D6C47 /* FLUserService.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE0D7821F19F279006D6C47 /* FLUserService.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		FB8117941F4491EB0045202B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				FB8117B31F4494170045202B /* ZegoLiveRoom.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		457195291F0C906900671634 /* FLFlippedWordsService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLFlippedWordsService.h; sourceTree = "<group>"; };
@@ -93,11 +109,6 @@
 		A6CB62EA12AEAE674DF275B1 /* libPods-Flipped.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Flipped.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB0715031F305CA000F5B0CA /* FLCopyLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLCopyLabel.h; sourceTree = "<group>"; };
 		FB0715041F305CAD00F5B0CA /* FLCopyLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLCopyLabel.m; sourceTree = "<group>"; };
-		FB07150A1F30625D00F5B0CA /* PopMenuTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopMenuTableViewCell.h; sourceTree = "<group>"; };
-		FB07150B1F30625D00F5B0CA /* PopMenuTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopMenuTableViewCell.m; sourceTree = "<group>"; };
-		FB07150C1F30625D00F5B0CA /* PopMenuTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopMenuTableViewCell.xib; sourceTree = "<group>"; };
-		FB07150D1F30625D00F5B0CA /* QQPopMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QQPopMenuView.h; sourceTree = "<group>"; };
-		FB07150E1F30625D00F5B0CA /* QQPopMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QQPopMenuView.m; sourceTree = "<group>"; };
 		FB0715121F3064B800F5B0CA /* FLLink.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLLink.h; sourceTree = "<group>"; };
 		FB0715131F3064C000F5B0CA /* FLLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLLink.m; sourceTree = "<group>"; };
 		FB0715151F3069BD00F5B0CA /* flipped_detail_more@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flipped_detail_more@2x.png"; sourceTree = "<group>"; };
@@ -132,6 +143,15 @@
 		FB8117711F3F555B0045202B /* flipped_splash0@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flipped_splash0@2x.png"; sourceTree = "<group>"; };
 		FB8117721F3F555B0045202B /* flipped_splash1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flipped_splash1@2x.png"; sourceTree = "<group>"; };
 		FB8117731F3F555B0045202B /* flipped_splash2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flipped_splash2@2x.png"; sourceTree = "<group>"; };
+		FB8117A01F44940A0045202B /* libmtasdk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmtasdk.a; sourceTree = "<group>"; };
+		FB8117A11F44940A0045202B /* MTA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTA.h; sourceTree = "<group>"; };
+		FB8117A21F44940A0045202B /* MTAConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTAConfig.h; sourceTree = "<group>"; };
+		FB8117A41F44940A0045202B /* PopMenuTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopMenuTableViewCell.h; sourceTree = "<group>"; };
+		FB8117A51F44940A0045202B /* PopMenuTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopMenuTableViewCell.m; sourceTree = "<group>"; };
+		FB8117A61F44940A0045202B /* PopMenuTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopMenuTableViewCell.xib; sourceTree = "<group>"; };
+		FB8117A71F44940A0045202B /* QQPopMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QQPopMenuView.h; sourceTree = "<group>"; };
+		FB8117A81F44940A0045202B /* QQPopMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QQPopMenuView.m; sourceTree = "<group>"; };
+		FB8117AC1F44940A0045202B /* ZegoLiveRoom.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ZegoLiveRoom.framework; sourceTree = "<group>"; };
 		FBB917731F1252B9000C7353 /* FLFlippedWordCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FLFlippedWordCell.h; path = ../../Square/Views/FLFlippedWordCell.h; sourceTree = "<group>"; };
 		FBB917741F1252C5000C7353 /* FLFlippedWordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLFlippedWordCell.m; path = ../../Square/Views/FLFlippedWordCell.m; sourceTree = "<group>"; };
 		FBB917761F1254DA000C7353 /* flipped_content_pic@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flipped_content_pic@2x.png"; sourceTree = "<group>"; };
@@ -153,9 +173,6 @@
 		FBD938B11F1E306A00900842 /* FLCloudService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLCloudService.m; sourceTree = "<group>"; };
 		FBD938B31F1F586600900842 /* FLUserInfoManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLUserInfoManager.h; sourceTree = "<group>"; };
 		FBD938B41F1F587200900842 /* FLUserInfoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLUserInfoManager.m; sourceTree = "<group>"; };
-		FBD938B81F1F9D8A00900842 /* libmtasdk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmtasdk.a; sourceTree = "<group>"; };
-		FBD938B91F1F9D8A00900842 /* MTA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTA.h; sourceTree = "<group>"; };
-		FBD938BA1F1F9D8A00900842 /* MTAConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTAConfig.h; sourceTree = "<group>"; };
 		FBD938BC1F1F9DB100900842 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		FBD938BE1F1F9DB900900842 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		FBD938C01F1F9DC000900842 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -188,14 +205,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB8117B21F4494170045202B /* ZegoLiveRoom.framework in Frameworks */,
 				FBD938C71F1F9DD400900842 /* CoreTelephony.framework in Frameworks */,
 				FBD938C51F1F9DCE00900842 /* SystemConfiguration.framework in Frameworks */,
 				FBD938C31F1F9DC800900842 /* CFNetwork.framework in Frameworks */,
 				FBD938C11F1F9DC000900842 /* Security.framework in Frameworks */,
 				FBD938BF1F1F9DB900900842 /* libsqlite3.tbd in Frameworks */,
+				FB8117AD1F44940A0045202B /* libmtasdk.a in Frameworks */,
 				FBD938BD1F1F9DB200900842 /* libz.tbd in Frameworks */,
 				583FCBD6E2C5D728117751C6 /* libPods-Flipped.a in Frameworks */,
-				FBD938BB1F1F9D8A00900842 /* libmtasdk.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,11 +262,11 @@
 		45D2720D1F0B343E00AF180E /* Flipped */ = {
 			isa = PBXGroup;
 			children = (
+				FB81179E1F44940A0045202B /* SecondLib */,
 				FB6173911F1112D0009649E2 /* Bundle */,
 				457195281F0C903400671634 /* Services */,
 				45D272261F0B34D500AF180E /* Resources */,
 				FBCD22261F1A0F5700D8B718 /* Utils */,
-				FBD938B61F1F9D5800900842 /* SecondLib */,
 				FB2EC86F1F3212B300238756 /* Html */,
 				45D272111F0B343E00AF180E /* AppDelegate.h */,
 				45D272121F0B343E00AF180E /* AppDelegate.m */,
@@ -339,19 +357,6 @@
 				A6CB62EA12AEAE674DF275B1 /* libPods-Flipped.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		FB0715091F30625D00F5B0CA /* QQPopMenuView */ = {
-			isa = PBXGroup;
-			children = (
-				FB07150A1F30625D00F5B0CA /* PopMenuTableViewCell.h */,
-				FB07150B1F30625D00F5B0CA /* PopMenuTableViewCell.m */,
-				FB07150C1F30625D00F5B0CA /* PopMenuTableViewCell.xib */,
-				FB07150D1F30625D00F5B0CA /* QQPopMenuView.h */,
-				FB07150E1F30625D00F5B0CA /* QQPopMenuView.m */,
-			);
-			name = QQPopMenuView;
-			path = MTA/QQPopMenuView;
 			sourceTree = "<group>";
 		};
 		FB2EC86F1F3212B300238756 /* Html */ = {
@@ -499,6 +504,62 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		FB81179E1F44940A0045202B /* SecondLib */ = {
+			isa = PBXGroup;
+			children = (
+				FB81179F1F44940A0045202B /* MTA */,
+				FB8117A31F44940A0045202B /* QQPopMenuView */,
+				FB8117A91F44940A0045202B /* ZegoLiveRoom-all */,
+			);
+			path = SecondLib;
+			sourceTree = "<group>";
+		};
+		FB81179F1F44940A0045202B /* MTA */ = {
+			isa = PBXGroup;
+			children = (
+				FB8117A01F44940A0045202B /* libmtasdk.a */,
+				FB8117A11F44940A0045202B /* MTA.h */,
+				FB8117A21F44940A0045202B /* MTAConfig.h */,
+			);
+			path = MTA;
+			sourceTree = "<group>";
+		};
+		FB8117A31F44940A0045202B /* QQPopMenuView */ = {
+			isa = PBXGroup;
+			children = (
+				FB8117A41F44940A0045202B /* PopMenuTableViewCell.h */,
+				FB8117A51F44940A0045202B /* PopMenuTableViewCell.m */,
+				FB8117A61F44940A0045202B /* PopMenuTableViewCell.xib */,
+				FB8117A71F44940A0045202B /* QQPopMenuView.h */,
+				FB8117A81F44940A0045202B /* QQPopMenuView.m */,
+			);
+			path = QQPopMenuView;
+			sourceTree = "<group>";
+		};
+		FB8117A91F44940A0045202B /* ZegoLiveRoom-all */ = {
+			isa = PBXGroup;
+			children = (
+				FB8117AA1F44940A0045202B /* iphoneos */,
+				FB8117AB1F44940A0045202B /* iphoneos_simulator */,
+			);
+			path = "ZegoLiveRoom-all";
+			sourceTree = "<group>";
+		};
+		FB8117AA1F44940A0045202B /* iphoneos */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = iphoneos;
+			sourceTree = "<group>";
+		};
+		FB8117AB1F44940A0045202B /* iphoneos_simulator */ = {
+			isa = PBXGroup;
+			children = (
+				FB8117AC1F44940A0045202B /* ZegoLiveRoom.framework */,
+			);
+			path = iphoneos_simulator;
+			sourceTree = "<group>";
+		};
 		FBCD22261F1A0F5700D8B718 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -525,26 +586,6 @@
 				FBCD222F1F1A5A2400D8B718 /* FLAFHTTPSessionManager.m */,
 			);
 			path = Network;
-			sourceTree = "<group>";
-		};
-		FBD938B61F1F9D5800900842 /* SecondLib */ = {
-			isa = PBXGroup;
-			children = (
-				FB0715091F30625D00F5B0CA /* QQPopMenuView */,
-				FBD938B71F1F9D5800900842 /* MTA */,
-			);
-			name = SecondLib;
-			path = Bundle/Square/Detail/SecondLib;
-			sourceTree = "<group>";
-		};
-		FBD938B71F1F9D5800900842 /* MTA */ = {
-			isa = PBXGroup;
-			children = (
-				FBD938B81F1F9D8A00900842 /* libmtasdk.a */,
-				FBD938B91F1F9D8A00900842 /* MTA.h */,
-				FBD938BA1F1F9D8A00900842 /* MTAConfig.h */,
-			);
-			path = MTA;
 			sourceTree = "<group>";
 		};
 		FBD938CA1F248B2B00900842 /* Help */ = {
@@ -596,6 +637,7 @@
 				45D272091F0B343E00AF180E /* Resources */,
 				59ABA2A1D7B76B2EE9E94848 /* [CP] Embed Pods Frameworks */,
 				8B75BD1FAA80B8A0E5DA556B /* [CP] Copy Pods Resources */,
+				FB8117941F4491EB0045202B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -617,7 +659,7 @@
 				TargetAttributes = {
 					45D2720A1F0B343E00AF180E = {
 						CreatedOnToolsVersion = 8.3;
-						DevelopmentTeam = NJ84XW37VD;
+						DevelopmentTeam = 4A3DYJG93C;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -649,8 +691,8 @@
 				FBB917801F1254DA000C7353 /* post_add.png in Resources */,
 				45D272481F0B43BC00AF180E /* comm_tab_square_selected@2x.png in Resources */,
 				FBB9177D1F1254DA000C7353 /* flipped_content_video@2x.png in Resources */,
-				FB0715101F30625D00F5B0CA /* PopMenuTableViewCell.xib in Resources */,
 				FBB9177F1F1254DA000C7353 /* logo.png in Resources */,
+				FB8117AF1F44940A0045202B /* PopMenuTableViewCell.xib in Resources */,
 				FBD938C91F1FA33900900842 /* flipped_pic_default.png in Resources */,
 				FBB917811F1254DA000C7353 /* WechatIMG9.png in Resources */,
 				FB0715161F3069BD00F5B0CA /* flipped_detail_more@2x.png in Resources */,
@@ -733,14 +775,14 @@
 				FBD938D11F248C0700900842 /* FLHelpService.m in Sources */,
 				FB6173AD1F1112D0009649E2 /* FLLoginViewController.m in Sources */,
 				FB4942A51F264F48005BCD9C /* FLStringUtils.m in Sources */,
-				FB0715111F30625D00F5B0CA /* QQPopMenuView.m in Sources */,
 				FBD938DF1F24A1A700900842 /* FLFeedbackService.m in Sources */,
+				FB8117AE1F44940A0045202B /* PopMenuTableViewCell.m in Sources */,
 				FBCD222C1F1A21EB00D8B718 /* NSString+Base64.m in Sources */,
 				FBE0D7801F19F135006D6C47 /* FLBaseService.m in Sources */,
 				FB0715191F306C5300F5B0CA /* FLCommService.m in Sources */,
-				FB07150F1F30625D00F5B0CA /* PopMenuTableViewCell.m in Sources */,
 				FB6173AB1F1112D0009649E2 /* FLFlippedWord.m in Sources */,
 				FB0715141F3064C000F5B0CA /* FLLink.m in Sources */,
+				FB8117B01F44940A0045202B /* QQPopMenuView.m in Sources */,
 				4571952B1F0C907300671634 /* FLFlippedWordsService.m in Sources */,
 				FBCD22301F1A5A2400D8B718 /* FLAFHTTPSessionManager.m in Sources */,
 				45D272131F0B343E00AF180E /* AppDelegate.m in Sources */,
@@ -864,14 +906,19 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = NJ84XW37VD;
+				DEVELOPMENT_TEAM = 4A3DYJG93C;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Flipped/SecondLib/ZegoLiveRoom-all/iphoneos_simulator",
+				);
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = Flipped/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Flipped/Bundle/Square/Detail/SecondLib/MTA",
+					"$(PROJECT_DIR)/Flipped/SecondLib/MTA",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.junshao.Flipped;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -887,14 +934,19 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = NJ84XW37VD;
+				DEVELOPMENT_TEAM = 4A3DYJG93C;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Flipped/SecondLib/ZegoLiveRoom-all/iphoneos_simulator",
+				);
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = Flipped/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Flipped/Bundle/Square/Detail/SecondLib/MTA",
+					"$(PROJECT_DIR)/Flipped/SecondLib/MTA",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.junshao.Flipped;
 				PRODUCT_NAME = "$(TARGET_NAME)";

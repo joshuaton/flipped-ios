@@ -7,7 +7,6 @@
 //
 
 #import "MTA.h"
-#import "MTAConfig.h"
 #import "AppDelegate.h"
 #import "FLSquareViewController.h"
 #import "FLMineViewController.h"
@@ -16,6 +15,9 @@
 #import "UIColor+HexColor.h"
 #import "FLCommHeader.h"
 #import "FLSplashViewController.h"
+#import <ZegoLiveRoom/ZegoLiveRoom.h>
+
+static ZegoLiveRoomApi *g_ZegoApi = nil;
 
 @interface AppDelegate () <UITabBarControllerDelegate>
 
@@ -82,6 +84,8 @@
     }
     
     [self.window makeKeyAndVisible];
+    
+    [self setupZegoLive];
         
     return YES;
 }
@@ -111,6 +115,43 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+#pragma mark - private
+
+-(void)setupZegoLive{
+    
+    // 设置是否开启“测试环境”,在初始化SDK之前调用，true:开启 false:关闭
+    [ZegoLiveRoomApi setUseTestEnv:true];
+    
+    //设置实时视频环境，在初始化SDK之前调用，type设置为2
+    [ZegoLiveRoomApi setBusinessType:2];
+    
+    //设置调试模式,建议在初始化SDK前调用,方便在开发模式下查问题。
+    #ifdef DEBUG
+    [ZegoLiveRoomApi setVerbose:YES];
+    #endif
+
+    //设置用户信息，在loginRoom之前调用
+    [ZegoLiveRoomApi setUserID:@"18923881572" userName:@"junshao"];
+    
+    
+    // Demo 把signKey先写到代码中
+    // ！！！注意：这个Appid和signKey需要从server下发到App，避免在App中存储，防止盗用
+    Byte signkey[] = {0x91,0x93,0xcc,0x66,0x2a,0x1c,0xe,0xc1,
+        0x35,0xec,0x71,0xfb,0x7,0x19,0x4b,0x38,
+        0x15,0xf1,0x43,0xf5,0x7c,0xd2,0xb5,0x9a,
+        0xe3,0xdd,0xdb,0xe0,0xf1,0x74,0x36,0xd};
+//    NSData * appSign = [[NSData alloc] initWithBytes:signkey length:32];
+    uint appID = 1;
+    
+    // 初始化SDK
+    NSData *sign = [[NSData alloc]initWithBytes:signkey length:32];
+    g_ZegoApi = [[ZegoLiveRoomApi alloc] initWithAppID:appID appSignature:sign];
+    
+    // 设置是否开启“硬件加速”, true: 开启  false:关闭
+    // ！！！打开硬编硬解，业务侧需要有后台控制开关，避免碰到版本升级或者硬件升级时出现硬编硬解失败的问题，若硬编失败我们会转成软编。
+    [ZegoLiveRoomApi requireHardwareEncoder:true];
 }
 
 #pragma mark - UITabBarControllerDelegate
