@@ -41,8 +41,9 @@
 		FB8117AE1F44940A0045202B /* PopMenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8117A51F44940A0045202B /* PopMenuTableViewCell.m */; };
 		FB8117AF1F44940A0045202B /* PopMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB8117A61F44940A0045202B /* PopMenuTableViewCell.xib */; };
 		FB8117B01F44940A0045202B /* QQPopMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8117A81F44940A0045202B /* QQPopMenuView.m */; };
-		FB8117B21F4494170045202B /* ZegoLiveRoom.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB8117AC1F44940A0045202B /* ZegoLiveRoom.framework */; };
-		FB8117B31F4494170045202B /* ZegoLiveRoom.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FB8117AC1F44940A0045202B /* ZegoLiveRoom.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FB8117B71F45F1990045202B /* ZegoLiveRoom.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FB8117B41F45F1950045202B /* ZegoLiveRoom.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FB8117B91F45F1B10045202B /* ZegoLiveRoom.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB8117B41F45F1950045202B /* ZegoLiveRoom.framework */; };
+		FB8117BB1F45F1F60045202B /* ZegoLiveRoom.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB8117BA1F45F1F60045202B /* ZegoLiveRoom.framework */; };
 		FBB917751F1252C5000C7353 /* FLFlippedWordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FBB917741F1252C5000C7353 /* FLFlippedWordCell.m */; };
 		FBB9177C1F1254DA000C7353 /* flipped_content_pic@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FBB917761F1254DA000C7353 /* flipped_content_pic@2x.png */; };
 		FBB9177D1F1254DA000C7353 /* flipped_content_video@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FBB917771F1254DA000C7353 /* flipped_content_video@2x.png */; };
@@ -76,13 +77,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		FB8117941F4491EB0045202B /* Embed Frameworks */ = {
+		FB8117B81F45F19A0045202B /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				FB8117B31F4494170045202B /* ZegoLiveRoom.framework in Embed Frameworks */,
+				FB8117B71F45F1990045202B /* ZegoLiveRoom.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -151,7 +152,8 @@
 		FB8117A61F44940A0045202B /* PopMenuTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopMenuTableViewCell.xib; sourceTree = "<group>"; };
 		FB8117A71F44940A0045202B /* QQPopMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QQPopMenuView.h; sourceTree = "<group>"; };
 		FB8117A81F44940A0045202B /* QQPopMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QQPopMenuView.m; sourceTree = "<group>"; };
-		FB8117AC1F44940A0045202B /* ZegoLiveRoom.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ZegoLiveRoom.framework; sourceTree = "<group>"; };
+		FB8117B41F45F1950045202B /* ZegoLiveRoom.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ZegoLiveRoom.framework; sourceTree = "<group>"; };
+		FB8117BA1F45F1F60045202B /* ZegoLiveRoom.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ZegoLiveRoom.framework; sourceTree = "<group>"; };
 		FBB917731F1252B9000C7353 /* FLFlippedWordCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FLFlippedWordCell.h; path = ../../Square/Views/FLFlippedWordCell.h; sourceTree = "<group>"; };
 		FBB917741F1252C5000C7353 /* FLFlippedWordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLFlippedWordCell.m; path = ../../Square/Views/FLFlippedWordCell.m; sourceTree = "<group>"; };
 		FBB917761F1254DA000C7353 /* flipped_content_pic@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flipped_content_pic@2x.png"; sourceTree = "<group>"; };
@@ -205,12 +207,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB8117B21F4494170045202B /* ZegoLiveRoom.framework in Frameworks */,
+				FB8117B91F45F1B10045202B /* ZegoLiveRoom.framework in Frameworks */,
 				FBD938C71F1F9DD400900842 /* CoreTelephony.framework in Frameworks */,
 				FBD938C51F1F9DCE00900842 /* SystemConfiguration.framework in Frameworks */,
 				FBD938C31F1F9DC800900842 /* CFNetwork.framework in Frameworks */,
 				FBD938C11F1F9DC000900842 /* Security.framework in Frameworks */,
 				FBD938BF1F1F9DB900900842 /* libsqlite3.tbd in Frameworks */,
+				FB8117BB1F45F1F60045202B /* ZegoLiveRoom.framework in Frameworks */,
 				FB8117AD1F44940A0045202B /* libmtasdk.a in Frameworks */,
 				FBD938BD1F1F9DB200900842 /* libz.tbd in Frameworks */,
 				583FCBD6E2C5D728117751C6 /* libPods-Flipped.a in Frameworks */,
@@ -548,6 +551,7 @@
 		FB8117AA1F44940A0045202B /* iphoneos */ = {
 			isa = PBXGroup;
 			children = (
+				FB8117B41F45F1950045202B /* ZegoLiveRoom.framework */,
 			);
 			path = iphoneos;
 			sourceTree = "<group>";
@@ -555,7 +559,7 @@
 		FB8117AB1F44940A0045202B /* iphoneos_simulator */ = {
 			isa = PBXGroup;
 			children = (
-				FB8117AC1F44940A0045202B /* ZegoLiveRoom.framework */,
+				FB8117BA1F45F1F60045202B /* ZegoLiveRoom.framework */,
 			);
 			path = iphoneos_simulator;
 			sourceTree = "<group>";
@@ -637,7 +641,7 @@
 				45D272091F0B343E00AF180E /* Resources */,
 				59ABA2A1D7B76B2EE9E94848 /* [CP] Embed Pods Frameworks */,
 				8B75BD1FAA80B8A0E5DA556B /* [CP] Copy Pods Resources */,
-				FB8117941F4491EB0045202B /* Embed Frameworks */,
+				FB8117B81F45F19A0045202B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -911,6 +915,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Flipped/SecondLib/ZegoLiveRoom-all/iphoneos_simulator",
+					"$(PROJECT_DIR)/Flipped/SecondLib/ZegoLiveRoom-all/iphoneos",
 				);
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = Flipped/Info.plist;
@@ -939,6 +944,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Flipped/SecondLib/ZegoLiveRoom-all/iphoneos_simulator",
+					"$(PROJECT_DIR)/Flipped/SecondLib/ZegoLiveRoom-all/iphoneos",
 				);
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = Flipped/Info.plist;
