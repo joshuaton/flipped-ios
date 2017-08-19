@@ -16,6 +16,7 @@
 #import "FLCommHeader.h"
 #import "FLSplashViewController.h"
 #import <ZegoLiveRoom/ZegoLiveRoom.h>
+#import "FLVideoMainViewController.h"
 
 static ZegoLiveRoomApi *g_ZegoApi = nil;
 
@@ -24,6 +25,7 @@ static ZegoLiveRoomApi *g_ZegoApi = nil;
 @property (nonatomic, strong) FLSplashViewController *splashViewController;
 @property (nonatomic, strong) UITabBarController *tabBarController;
 @property (nonatomic, strong) UINavigationController *squareNav;
+@property (nonatomic, strong) UINavigationController *videoNav;
 @property (nonatomic, strong) UINavigationController *mineNav;
 
 @end
@@ -46,6 +48,13 @@ static ZegoLiveRoomApi *g_ZegoApi = nil;
     UITabBarItem *squareTabBarItem = [[UITabBarItem alloc] initWithTitle:@"广场" image:squareImage selectedImage:squareImageSelected];
     squareViewController.tabBarItem = squareTabBarItem;
     
+    FLVideoMainViewController *videoViewController = [[FLVideoMainViewController alloc] init];
+    self.videoNav = [[UINavigationController alloc] initWithRootViewController:videoViewController];
+    UIImage *videoImage = [[UIImage imageNamed:@"comm_tab_square"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIImage *videoImageSelected = [[UIImage imageNamed:@"comm_tab_square_selected"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UITabBarItem *videoTabBarItem = [[UITabBarItem alloc] initWithTitle:@"视频" image:videoImage selectedImage:videoImageSelected];
+    videoViewController.tabBarItem = videoTabBarItem;
+    
     FLNewMineViewController *mineViewController = [[FLNewMineViewController alloc] init];
     self.mineNav = [[UINavigationController alloc] initWithRootViewController:mineViewController];
     
@@ -62,7 +71,7 @@ static ZegoLiveRoomApi *g_ZegoApi = nil;
     
     self.tabBarController = [[UITabBarController alloc] init];
     self.tabBarController.delegate = self;
-    self.tabBarController.viewControllers = @[self.squareNav, self.mineNav];
+    self.tabBarController.viewControllers = @[self.squareNav, self.videoNav, self.mineNav];
     
     //tabBar颜色
     UIView *backView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 49)];
@@ -85,8 +94,6 @@ static ZegoLiveRoomApi *g_ZegoApi = nil;
     
     [self.window makeKeyAndVisible];
     
-    [self setupZegoLive];
-        
     return YES;
 }
 
@@ -118,41 +125,6 @@ static ZegoLiveRoomApi *g_ZegoApi = nil;
 }
 
 #pragma mark - private
-
--(void)setupZegoLive{
-    
-    // 设置是否开启“测试环境”,在初始化SDK之前调用，true:开启 false:关闭
-    [ZegoLiveRoomApi setUseTestEnv:true];
-    
-    //设置实时视频环境，在初始化SDK之前调用，type设置为2
-    [ZegoLiveRoomApi setBusinessType:2];
-    
-    //设置调试模式,建议在初始化SDK前调用,方便在开发模式下查问题。
-    #ifdef DEBUG
-    [ZegoLiveRoomApi setVerbose:YES];
-    #endif
-
-    //设置用户信息，在loginRoom之前调用
-    [ZegoLiveRoomApi setUserID:@"18923881572" userName:@"junshao"];
-    
-    
-    // Demo 把signKey先写到代码中
-    // ！！！注意：这个Appid和signKey需要从server下发到App，避免在App中存储，防止盗用
-    Byte signkey[] = {0x91,0x93,0xcc,0x66,0x2a,0x1c,0xe,0xc1,
-        0x35,0xec,0x71,0xfb,0x7,0x19,0x4b,0x38,
-        0x15,0xf1,0x43,0xf5,0x7c,0xd2,0xb5,0x9a,
-        0xe3,0xdd,0xdb,0xe0,0xf1,0x74,0x36,0xd};
-//    NSData * appSign = [[NSData alloc] initWithBytes:signkey length:32];
-    uint appID = 1;
-    
-    // 初始化SDK
-    NSData *sign = [[NSData alloc]initWithBytes:signkey length:32];
-    g_ZegoApi = [[ZegoLiveRoomApi alloc] initWithAppID:appID appSignature:sign];
-    
-    // 设置是否开启“硬件加速”, true: 开启  false:关闭
-    // ！！！打开硬编硬解，业务侧需要有后台控制开关，避免碰到版本升级或者硬件升级时出现硬编硬解失败的问题，若硬编失败我们会转成软编。
-    [ZegoLiveRoomApi requireHardwareEncoder:true];
-}
 
 #pragma mark - UITabBarControllerDelegate
 - (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController{
