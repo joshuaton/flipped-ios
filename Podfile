@@ -12,5 +12,7 @@ pod 'Masonry'
 pod 'JSONModel'
 pod 'MBProgressHUD'
 pod 'MWPhotoBrowser'
+pod 'WechatOpenSDK'
+
 
 end

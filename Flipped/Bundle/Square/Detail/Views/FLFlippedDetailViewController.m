@@ -21,6 +21,7 @@
 #import "FLCommService.h"
 #import "FLCommentCell.h"
 #import "FLUserInfoManager.h"
+#import "CPShareView.h"
 
 
 @interface FLFlippedDetailViewController() <MWPhotoBrowserDelegate, UITableViewDataSource, UITableViewDelegate>
@@ -39,6 +40,7 @@
 @property (nonatomic, strong) NSMutableArray *photos;
 
 @property (nonatomic, strong) FLFlippedWord *data;
+@property (nonatomic, strong) NSString *contentText;
 @property (nonatomic, strong) NSMutableArray *comments;
 
 @end
@@ -181,6 +183,7 @@
         
         if([content.type isEqualToString:@"text"]){
             self.contentLabel.text = content.text;
+            self.contentText = content.text;
         }else if([content.type isEqualToString:@"picture"]){
             
             content.text = [FLStringUtils convertToHttpsWithUrl:content.text];
@@ -284,8 +287,11 @@
     NSArray<FLLink> *links = self.data.links;
     
     NSMutableArray *menuData = [[NSMutableArray alloc] init];
+    [menuData addObject:@{@"title" : @"分享"}];
+
     for(int i=0; i<links.count; i++){
         FLLink *link = links[i];
+        
         NSDictionary *dict;
         if([link.rel isEqualToString:@"report"]){
             dict = @{@"title" : @"举报"};
@@ -295,12 +301,23 @@
         [menuData addObject:dict];
     }
     
-    
     [QQPopMenuView showWithItems:menuData
                            width:130
     triangleLocation:CGPointMake([UIScreen mainScreen].bounds.size.width-30, 64+5)
       action:^(NSInteger index) {
-          FLLink *link = links[index];
+          
+          //分享
+          if(index == 0){
+              [CPShareView sharedInstance].shareDesc = self.contentText;
+              [CPShareView sharedInstance].shareTitle = @"爱要说";
+              [CPShareView sharedInstance].shareUrl = [NSString stringWithFormat:@"https://flippedwords.com/d.html?id=%@", self.data.id];
+              [CPShareView sharedInstance].previewImageUrl = @"https://cmtest-10046755.cossh.myqcloud.com/logo_200.png";
+              [CPShareView sharedInstance].shareBtnTypes = @[@(ShareButtonTypeWXFriend), @(ShareButtonTypeWXTimeline)];
+              [[CPShareView sharedInstance] show];
+              return;
+          }
+          
+          FLLink *link = links[index-1];
           
           if([link.rel isEqualToString:@"report"]){
               
