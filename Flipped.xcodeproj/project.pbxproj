@@ -59,6 +59,11 @@
 		FB8118031F4924050045202B /* CPDiscovery_sharem_wx@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB8117F31F4924050045202B /* CPDiscovery_sharem_wx@2x.png */; };
 		FB8118041F4924050045202B /* CPDiscovery_sharem_zone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB8117F41F4924050045202B /* CPDiscovery_sharem_zone@2x.png */; };
 		FB8118091F4924630045202B /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB8118061F4924630045202B /* libWeChatSDK.a */; };
+		FB81180E1F5161730045202B /* flipped_splash_button@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB81180A1F5161730045202B /* flipped_splash_button@3x.png */; };
+		FB81180F1F5161730045202B /* flipped_splash0@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB81180B1F5161730045202B /* flipped_splash0@3x.png */; };
+		FB8118101F5161730045202B /* flipped_splash1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB81180C1F5161730045202B /* flipped_splash1@3x.png */; };
+		FB8118111F5161730045202B /* flipped_splash2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB81180D1F5161730045202B /* flipped_splash2@3x.png */; };
+		FB8118151F5167690045202B /* UIImage+scaleImage.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8118141F5167690045202B /* UIImage+scaleImage.m */; };
 		FBB917751F1252C5000C7353 /* FLFlippedWordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FBB917741F1252C5000C7353 /* FLFlippedWordCell.m */; };
 		FBB9177C1F1254DA000C7353 /* flipped_content_pic@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FBB917761F1254DA000C7353 /* flipped_content_pic@2x.png */; };
 		FBB9177D1F1254DA000C7353 /* flipped_content_video@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FBB917771F1254DA000C7353 /* flipped_content_video@2x.png */; };
@@ -153,8 +158,6 @@
 		FB8117A61F44940A0045202B /* PopMenuTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopMenuTableViewCell.xib; sourceTree = "<group>"; };
 		FB8117A71F44940A0045202B /* QQPopMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QQPopMenuView.h; sourceTree = "<group>"; };
 		FB8117A81F44940A0045202B /* QQPopMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QQPopMenuView.m; sourceTree = "<group>"; };
-		FB8117BA1F45F1F60045202B /* ZegoLiveRoom.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ZegoLiveRoom.framework; sourceTree = "<group>"; };
-		FB8117C41F4752E60045202B /* ZegoLiveRoom.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ZegoLiveRoom.framework; sourceTree = "<group>"; };
 		FB8117C81F47537B0045202B /* FLVideoMainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLVideoMainViewController.h; sourceTree = "<group>"; };
 		FB8117C91F4753840045202B /* FLVideoMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLVideoMainViewController.m; sourceTree = "<group>"; };
 		FB8117E01F4924050045202B /* CPShareEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPShareEntity.h; sourceTree = "<group>"; };
@@ -180,6 +183,12 @@
 		FB8118061F4924630045202B /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
 		FB8118071F4924630045202B /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
 		FB8118081F4924630045202B /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		FB81180A1F5161730045202B /* flipped_splash_button@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flipped_splash_button@3x.png"; sourceTree = "<group>"; };
+		FB81180B1F5161730045202B /* flipped_splash0@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flipped_splash0@3x.png"; sourceTree = "<group>"; };
+		FB81180C1F5161730045202B /* flipped_splash1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flipped_splash1@3x.png"; sourceTree = "<group>"; };
+		FB81180D1F5161730045202B /* flipped_splash2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flipped_splash2@3x.png"; sourceTree = "<group>"; };
+		FB8118131F5167690045202B /* UIImage+scaleImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+scaleImage.h"; sourceTree = "<group>"; };
+		FB8118141F5167690045202B /* UIImage+scaleImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+scaleImage.m"; sourceTree = "<group>"; };
 		FBB917731F1252B9000C7353 /* FLFlippedWordCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FLFlippedWordCell.h; path = ../../Square/Views/FLFlippedWordCell.h; sourceTree = "<group>"; };
 		FBB917741F1252C5000C7353 /* FLFlippedWordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLFlippedWordCell.m; path = ../../Square/Views/FLFlippedWordCell.m; sourceTree = "<group>"; };
 		FBB917761F1254DA000C7353 /* flipped_content_pic@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flipped_content_pic@2x.png"; sourceTree = "<group>"; };
@@ -316,6 +325,10 @@
 		45D272261F0B34D500AF180E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FB81180A1F5161730045202B /* flipped_splash_button@3x.png */,
+				FB81180B1F5161730045202B /* flipped_splash0@3x.png */,
+				FB81180C1F5161730045202B /* flipped_splash1@3x.png */,
+				FB81180D1F5161730045202B /* flipped_splash2@3x.png */,
 				FB8117711F3F555B0045202B /* flipped_splash0@2x.png */,
 				FB8117721F3F555B0045202B /* flipped_splash1@2x.png */,
 				FB8117731F3F555B0045202B /* flipped_splash2@2x.png */,
@@ -398,6 +411,7 @@
 		FB6173911F1112D0009649E2 /* Bundle */ = {
 			isa = PBXGroup;
 			children = (
+				FB8118121F5167690045202B /* Category */,
 				FB8117DF1F4924050045202B /* CPShare */,
 				FB8117C61F47535A0045202B /* Video */,
 				FB6173931F1112D0009649E2 /* Models */,
@@ -540,7 +554,6 @@
 				FB8118051F4924630045202B /* WXSDK */,
 				FB81179F1F44940A0045202B /* MTA */,
 				FB8117A31F44940A0045202B /* QQPopMenuView */,
-				FB8117A91F44940A0045202B /* ZegoLiveRoom-all */,
 			);
 			path = SecondLib;
 			sourceTree = "<group>";
@@ -565,31 +578,6 @@
 				FB8117A81F44940A0045202B /* QQPopMenuView.m */,
 			);
 			path = QQPopMenuView;
-			sourceTree = "<group>";
-		};
-		FB8117A91F44940A0045202B /* ZegoLiveRoom-all */ = {
-			isa = PBXGroup;
-			children = (
-				FB8117AA1F44940A0045202B /* iphoneos */,
-				FB8117AB1F44940A0045202B /* iphoneos_simulator */,
-			);
-			path = "ZegoLiveRoom-all";
-			sourceTree = "<group>";
-		};
-		FB8117AA1F44940A0045202B /* iphoneos */ = {
-			isa = PBXGroup;
-			children = (
-				FB8117C41F4752E60045202B /* ZegoLiveRoom.framework */,
-			);
-			path = iphoneos;
-			sourceTree = "<group>";
-		};
-		FB8117AB1F44940A0045202B /* iphoneos_simulator */ = {
-			isa = PBXGroup;
-			children = (
-				FB8117BA1F45F1F60045202B /* ZegoLiveRoom.framework */,
-			);
-			path = iphoneos_simulator;
 			sourceTree = "<group>";
 		};
 		FB8117C61F47535A0045202B /* Video */ = {
@@ -652,6 +640,15 @@
 				FB8118081F4924630045202B /* WXApiObject.h */,
 			);
 			path = WXSDK;
+			sourceTree = "<group>";
+		};
+		FB8118121F5167690045202B /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				FB8118131F5167690045202B /* UIImage+scaleImage.h */,
+				FB8118141F5167690045202B /* UIImage+scaleImage.m */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 		FBCD22261F1A0F5700D8B718 /* Utils */ = {
@@ -783,6 +780,7 @@
 				FBD938AF1F1E29E600900842 /* flipped_post_add_pic@2x.png in Resources */,
 				FBB917801F1254DA000C7353 /* post_add.png in Resources */,
 				FB8118021F4924050045202B /* CPDiscovery_sharem_tweet@2x.png in Resources */,
+				FB81180E1F5161730045202B /* flipped_splash_button@3x.png in Resources */,
 				FB8117FF1F4924050045202B /* CPDiscovery_sharem_report@2x.png in Resources */,
 				45D272481F0B43BC00AF180E /* comm_tab_square_selected@2x.png in Resources */,
 				FBB9177D1F1254DA000C7353 /* flipped_content_video@2x.png in Resources */,
@@ -802,8 +800,11 @@
 				FB8117761F3F555B0045202B /* flipped_splash2@2x.png in Resources */,
 				FB8117741F3F555B0045202B /* flipped_splash0@2x.png in Resources */,
 				FB8117751F3F555B0045202B /* flipped_splash1@2x.png in Resources */,
+				FB8118101F5161730045202B /* flipped_splash1@3x.png in Resources */,
 				45D2721B1F0B343E00AF180E /* Assets.xcassets in Resources */,
+				FB8118111F5161730045202B /* flipped_splash2@3x.png in Resources */,
 				FBB9177C1F1254DA000C7353 /* flipped_content_pic@2x.png in Resources */,
+				FB81180F1F5161730045202B /* flipped_splash0@3x.png in Resources */,
 				FBB9177E1F1254DA000C7353 /* flipped_content_sound@2x.png in Resources */,
 				FB8117FE1F4924050045202B /* CPDiscovery_sharem_qq@2x.png in Resources */,
 				45D272461F0B43BC00AF180E /* comm_tab_mine_selected@2x.png in Resources */,
@@ -909,6 +910,7 @@
 				FBD938D71F24956D00900842 /* UIColor+HexColor.m in Sources */,
 				FB07151C1F30A43500F5B0CA /* FLComment.m in Sources */,
 				FB6173B31F11146A009649E2 /* FLContent.m in Sources */,
+				FB8118151F5167690045202B /* UIImage+scaleImage.m in Sources */,
 				FB7CF6D61F1BA84200CD9F5C /* FLToast.m in Sources */,
 				FB07151F1F30A6C800F5B0CA /* FLCommentCell.m in Sources */,
 			);
@@ -1018,11 +1020,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 4A3DYJG93C;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Flipped/SecondLib/ZegoLiveRoom-all/iphoneos_simulator",
-					"$(PROJECT_DIR)/Flipped/SecondLib/ZegoLiveRoom-all/iphoneos",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = Flipped/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1048,11 +1046,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 4A3DYJG93C;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Flipped/SecondLib/ZegoLiveRoom-all/iphoneos_simulator",
-					"$(PROJECT_DIR)/Flipped/SecondLib/ZegoLiveRoom-all/iphoneos",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = Flipped/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

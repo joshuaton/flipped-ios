@@ -24,10 +24,10 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>weixin</string>
+			<string>WXSDK</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>wx22c5290a1c12665f</string>
+				<string>wxf72f0e149d736899</string>
 			</array>
 		</dict>
 	</array>
@@ -54,5 +54,16 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+        <string>itmss</string>
+        <string>itms-appss</string>
+        <string>mqq</string>
+        <string>mqqopensdkapiV2</string>
+        <string>mqqapi</string>
+        <string>weixin</string>
+        <string>wechat</string>
+        <string>itmss</string>
+    </array>
 </dict>
 </plist>

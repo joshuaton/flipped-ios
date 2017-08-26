@@ -41,6 +41,7 @@
 
 @property (nonatomic, strong) FLFlippedWord *data;
 @property (nonatomic, strong) NSString *contentText;
+@property (nonatomic, strong) NSString *picUrl;
 @property (nonatomic, strong) NSMutableArray *comments;
 
 @end
@@ -193,6 +194,8 @@
             
             self.photos = [NSMutableArray array];
             [self.photos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:content.text]]];
+            
+            self.picUrl = content.text;
         }
     }
     
@@ -312,6 +315,9 @@
               [CPShareView sharedInstance].shareTitle = @"爱要说";
               [CPShareView sharedInstance].shareUrl = [NSString stringWithFormat:@"https://flippedwords.com/d.html?id=%@", self.data.id];
               [CPShareView sharedInstance].previewImageUrl = @"https://cmtest-10046755.cossh.myqcloud.com/logo_200.png";
+//              if(self.picUrl.length > 0){
+//                  [CPShareView sharedInstance].previewImageUrl = self.picUrl;
+//              }
               [CPShareView sharedInstance].shareBtnTypes = @[@(ShareButtonTypeWXFriend), @(ShareButtonTypeWXTimeline)];
               [[CPShareView sharedInstance] show];
               return;

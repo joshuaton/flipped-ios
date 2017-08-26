@@ -9,7 +9,8 @@
 #import "FLSplashViewController.h"
 #import "FLCommHeader.h"
 
-#define BUTTON_WIDTH 100
+#define BUTTON_HEIGHT 50
+#define BUTTON_WIDTH BUTTON_HEIGHT*3.85
 
 @interface FLSplashViewController()
 
@@ -30,7 +31,7 @@
     self.imageView1.frame = CGRectMake(SCREEN_WIDTH, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
     self.imageView2.frame = CGRectMake(SCREEN_WIDTH*2, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
  
-    self.enterButton.frame = CGRectMake(SCREEN_WIDTH*2+(SCREEN_WIDTH-BUTTON_WIDTH)/2, SCREEN_HEIGHT-50*SCREEN_SCALE_HEIGHT, BUTTON_WIDTH, 30);
+    self.enterButton.frame = CGRectMake(SCREEN_WIDTH*2+(SCREEN_WIDTH-BUTTON_WIDTH)/2, SCREEN_HEIGHT-57*SCREEN_SCALE_HEIGHT-BUTTON_HEIGHT, BUTTON_WIDTH, BUTTON_HEIGHT);
 }
 
 #pragma mark - action
@@ -97,12 +98,7 @@
 -(UIButton *)enterButton{
     if(!_enterButton){
         _enterButton = [[UIButton alloc] init];
-        [_enterButton setTitle:@"立即体验" forState:UIControlStateNormal];
-        [_enterButton setTitleColor:COLOR_W forState:UIControlStateNormal];
-        _enterButton.titleLabel.font = FONT_L;
-        _enterButton.layer.cornerRadius = 4;
-        _enterButton.layer.borderColor = COLOR_W.CGColor;
-        _enterButton.layer.borderWidth = 1;
+        [_enterButton setBackgroundImage:[UIImage imageNamed:@"flipped_splash_button"] forState:UIControlStateNormal];
         [_enterButton addTarget:self action:@selector(buttonClick) forControlEvents:UIControlEventTouchUpInside];
         [self.scrollView addSubview:_enterButton];
     }

@@ -8,6 +8,7 @@
 
 #import "CPShareManager.h"
 #import "WXApi.h"
+#import "UIImage+scaleImage.h"
 
 NSInteger callLoginType;
 

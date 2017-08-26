@@ -15,10 +15,8 @@
 #import "UIColor+HexColor.h"
 #import "FLCommHeader.h"
 #import "FLSplashViewController.h"
-#import <ZegoLiveRoom/ZegoLiveRoom.h>
 #import "FLVideoMainViewController.h"
-
-static ZegoLiveRoomApi *g_ZegoApi = nil;
+#import "WXApi.h"
 
 @interface AppDelegate () <UITabBarControllerDelegate>
 
@@ -37,6 +35,7 @@ static ZegoLiveRoomApi *g_ZegoApi = nil;
     // Override point for customization after application launch.
     
     [MTA startWithAppkey:@"I82NYP3VM7PZ"];
+    [WXApi registerApp:@"wxf72f0e149d736899"];
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
@@ -81,6 +80,7 @@ static ZegoLiveRoomApi *g_ZegoApi = nil;
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSNumber *splashShowed = [defaults objectForKey:@"splashShowed"];
+//    splashShowed = @0;
     if(!splashShowed || [splashShowed isEqualToNumber:[NSNumber numberWithBool:NO]]){
         self.splashViewController = [[FLSplashViewController alloc] init];
         Weak_Self wself = self;
