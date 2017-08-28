@@ -64,13 +64,4 @@ typedef void(^WillShareBlock)(CPShareEntity *model, SharePlat plat);
  */
 - (void)share:(CPShareEntity*)model toPlat:(SharePlat)sharePlat shareCompletionBlock:(ShareCompletionBlock)completionBlock;
 
-/**
- *  处理分享回调url
- *
- *  @param url 回调url
- *
- *  @return 处理结果
- */
-+ (BOOL)handleShareCallBackUrl:(NSURL *)url;
-
 @end

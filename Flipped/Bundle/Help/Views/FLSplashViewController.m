@@ -25,6 +25,7 @@
 @implementation FLSplashViewController
 
 -(void)viewDidLoad{
+    [super viewDidLoad];
     
     self.scrollView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
     self.imageView0.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);

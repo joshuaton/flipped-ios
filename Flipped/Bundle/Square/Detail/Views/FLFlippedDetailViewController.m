@@ -506,7 +506,7 @@
     UILabel *label = [[UILabel alloc] init];
     label.textColor = COLOR_H1;
     label.font = FONT_M;
-    label.text = [NSString stringWithFormat:@"全部评论 共%ld条", self.data.commentnum];
+    label.text = [NSString stringWithFormat:@"全部评论 共%ld条", (long)self.data.commentnum];
     [label sizeToFit];
     label.frame = CGRectMake(10, (30-label.frame.size.height)/2, label.frame.size.width, label.frame.size.height);
 

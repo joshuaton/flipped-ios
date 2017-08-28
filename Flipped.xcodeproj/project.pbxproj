@@ -32,6 +32,21 @@
 		FB6173AF1F1112D0009649E2 /* FLPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6173A61F1112D0009649E2 /* FLPostViewController.m */; };
 		FB6173B01F1112D0009649E2 /* FLSquareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6173AA1F1112D0009649E2 /* FLSquareViewController.m */; };
 		FB6173B31F11146A009649E2 /* FLContent.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6173B21F11146A009649E2 /* FLContent.m */; };
+		FB6E90B91F5308ED0050BA96 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6E90B81F5308ED0050BA96 /* UIKit.framework */; };
+		FB6E90BB1F5308F90050BA96 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6E90BA1F5308F90050BA96 /* Foundation.framework */; };
+		FB6E90BD1F5309030050BA96 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6E90BC1F5309030050BA96 /* AVFoundation.framework */; };
+		FB6E90BF1F5309110050BA96 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6E90BE1F5309110050BA96 /* CoreVideo.framework */; };
+		FB6E90C11F53091B0050BA96 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6E90C01F53091B0050BA96 /* VideoToolbox.framework */; };
+		FB6E90C31F5309230050BA96 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6E90C21F5309230050BA96 /* Accelerate.framework */; };
+		FB6E90C51F5309310050BA96 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6E90C41F5309310050BA96 /* CoreMedia.framework */; };
+		FB6E90C71F5309390050BA96 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6E90C61F5309390050BA96 /* CoreGraphics.framework */; };
+		FB6E90C91F5309450050BA96 /* libprotobuf.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6E90C81F5309450050BA96 /* libprotobuf.tbd */; };
+		FB6E90CB1F5309520050BA96 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6E90CA1F5309520050BA96 /* libsqlite3.0.tbd */; };
+		FB6E90CD1F53095C0050BA96 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6E90CC1F53095C0050BA96 /* libresolv.tbd */; };
+		FB6E90CF1F5309630050BA96 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6E90CE1F5309630050BA96 /* libiconv.tbd */; };
+		FB6E90D11F5309750050BA96 /* libbz2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6E90D01F5309750050BA96 /* libbz2.tbd */; };
+		FB6E90D31F53097D0050BA96 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6E90D21F53097D0050BA96 /* libc++.tbd */; };
+		FB6E90D51F5309850050BA96 /* libstdc++.6.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6E90D41F5309850050BA96 /* libstdc++.6.tbd */; };
 		FB7CF6D61F1BA84200CD9F5C /* FLToast.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7CF6D51F1BA84200CD9F5C /* FLToast.m */; };
 		FB81176A1F3F4F950045202B /* FLSplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8117691F3F4F950045202B /* FLSplashViewController.m */; };
 		FB8117741F3F555B0045202B /* flipped_splash0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB8117711F3F555B0045202B /* flipped_splash0@2x.png */; };
@@ -79,7 +94,6 @@
 		FBD938B21F1E306A00900842 /* FLCloudService.m in Sources */ = {isa = PBXBuildFile; fileRef = FBD938B11F1E306A00900842 /* FLCloudService.m */; };
 		FBD938B51F1F587200900842 /* FLUserInfoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FBD938B41F1F587200900842 /* FLUserInfoManager.m */; };
 		FBD938BD1F1F9DB200900842 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FBD938BC1F1F9DB100900842 /* libz.tbd */; };
-		FBD938BF1F1F9DB900900842 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FBD938BE1F1F9DB900900842 /* libsqlite3.tbd */; };
 		FBD938C11F1F9DC000900842 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBD938C01F1F9DC000900842 /* Security.framework */; };
 		FBD938C31F1F9DC800900842 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBD938C21F1F9DC800900842 /* CFNetwork.framework */; };
 		FBD938C51F1F9DCE00900842 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBD938C41F1F9DCE00900842 /* SystemConfiguration.framework */; };
@@ -143,6 +157,21 @@
 		FB6173AA1F1112D0009649E2 /* FLSquareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLSquareViewController.m; sourceTree = "<group>"; };
 		FB6173B11F11145C009649E2 /* FLContent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLContent.h; sourceTree = "<group>"; };
 		FB6173B21F11146A009649E2 /* FLContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLContent.m; sourceTree = "<group>"; };
+		FB6E90B81F5308ED0050BA96 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		FB6E90BA1F5308F90050BA96 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		FB6E90BC1F5309030050BA96 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		FB6E90BE1F5309110050BA96 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		FB6E90C01F53091B0050BA96 /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
+		FB6E90C21F5309230050BA96 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		FB6E90C41F5309310050BA96 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		FB6E90C61F5309390050BA96 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		FB6E90C81F5309450050BA96 /* libprotobuf.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libprotobuf.tbd; path = usr/lib/libprotobuf.tbd; sourceTree = SDKROOT; };
+		FB6E90CA1F5309520050BA96 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		FB6E90CC1F53095C0050BA96 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
+		FB6E90CE1F5309630050BA96 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
+		FB6E90D01F5309750050BA96 /* libbz2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbz2.tbd; path = usr/lib/libbz2.tbd; sourceTree = SDKROOT; };
+		FB6E90D21F53097D0050BA96 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		FB6E90D41F5309850050BA96 /* libstdc++.6.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.tbd"; path = "usr/lib/libstdc++.6.tbd"; sourceTree = SDKROOT; };
 		FB7CF6D41F1BA83600CD9F5C /* FLToast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLToast.h; sourceTree = "<group>"; };
 		FB7CF6D51F1BA84200CD9F5C /* FLToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLToast.m; sourceTree = "<group>"; };
 		FB8117681F3F4F8D0045202B /* FLSplashViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLSplashViewController.h; sourceTree = "<group>"; };
@@ -211,7 +240,6 @@
 		FBD938B31F1F586600900842 /* FLUserInfoManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLUserInfoManager.h; sourceTree = "<group>"; };
 		FBD938B41F1F587200900842 /* FLUserInfoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLUserInfoManager.m; sourceTree = "<group>"; };
 		FBD938BC1F1F9DB100900842 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
-		FBD938BE1F1F9DB900900842 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		FBD938C01F1F9DC000900842 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		FBD938C21F1F9DC800900842 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		FBD938C41F1F9DCE00900842 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -242,14 +270,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FBD938C71F1F9DD400900842 /* CoreTelephony.framework in Frameworks */,
+				FB6E90D51F5309850050BA96 /* libstdc++.6.tbd in Frameworks */,
+				FB6E90D31F53097D0050BA96 /* libc++.tbd in Frameworks */,
+				FB6E90D11F5309750050BA96 /* libbz2.tbd in Frameworks */,
+				FBD938BD1F1F9DB200900842 /* libz.tbd in Frameworks */,
+				FB6E90CF1F5309630050BA96 /* libiconv.tbd in Frameworks */,
+				FB6E90CD1F53095C0050BA96 /* libresolv.tbd in Frameworks */,
+				FB6E90CB1F5309520050BA96 /* libsqlite3.0.tbd in Frameworks */,
+				FB6E90C91F5309450050BA96 /* libprotobuf.tbd in Frameworks */,
+				FB6E90C71F5309390050BA96 /* CoreGraphics.framework in Frameworks */,
+				FB6E90C51F5309310050BA96 /* CoreMedia.framework in Frameworks */,
 				FBD938C51F1F9DCE00900842 /* SystemConfiguration.framework in Frameworks */,
+				FB6E90C31F5309230050BA96 /* Accelerate.framework in Frameworks */,
+				FB6E90C11F53091B0050BA96 /* VideoToolbox.framework in Frameworks */,
+				FB6E90BF1F5309110050BA96 /* CoreVideo.framework in Frameworks */,
+				FB6E90BD1F5309030050BA96 /* AVFoundation.framework in Frameworks */,
+				FB6E90BB1F5308F90050BA96 /* Foundation.framework in Frameworks */,
+				FB6E90B91F5308ED0050BA96 /* UIKit.framework in Frameworks */,
+				FBD938C71F1F9DD400900842 /* CoreTelephony.framework in Frameworks */,
 				FB8118091F4924630045202B /* libWeChatSDK.a in Frameworks */,
 				FBD938C31F1F9DC800900842 /* CFNetwork.framework in Frameworks */,
 				FBD938C11F1F9DC000900842 /* Security.framework in Frameworks */,
-				FBD938BF1F1F9DB900900842 /* libsqlite3.tbd in Frameworks */,
 				FB8117AD1F44940A0045202B /* libmtasdk.a in Frameworks */,
-				FBD938BD1F1F9DB200900842 /* libz.tbd in Frameworks */,
 				583FCBD6E2C5D728117751C6 /* libPods-Flipped.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -389,12 +431,26 @@
 		9A1F3DF625175D85E4F4E9C4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FB6E90D41F5309850050BA96 /* libstdc++.6.tbd */,
+				FB6E90D21F53097D0050BA96 /* libc++.tbd */,
+				FB6E90D01F5309750050BA96 /* libbz2.tbd */,
+				FB6E90CE1F5309630050BA96 /* libiconv.tbd */,
+				FB6E90CC1F53095C0050BA96 /* libresolv.tbd */,
+				FB6E90CA1F5309520050BA96 /* libsqlite3.0.tbd */,
+				FB6E90C81F5309450050BA96 /* libprotobuf.tbd */,
+				FBD938BC1F1F9DB100900842 /* libz.tbd */,
+				FB6E90C61F5309390050BA96 /* CoreGraphics.framework */,
+				FB6E90C41F5309310050BA96 /* CoreMedia.framework */,
+				FB6E90C21F5309230050BA96 /* Accelerate.framework */,
+				FB6E90C01F53091B0050BA96 /* VideoToolbox.framework */,
+				FB6E90BE1F5309110050BA96 /* CoreVideo.framework */,
+				FB6E90BC1F5309030050BA96 /* AVFoundation.framework */,
+				FB6E90BA1F5308F90050BA96 /* Foundation.framework */,
+				FB6E90B81F5308ED0050BA96 /* UIKit.framework */,
 				FBD938C61F1F9DD400900842 /* CoreTelephony.framework */,
 				FBD938C41F1F9DCE00900842 /* SystemConfiguration.framework */,
 				FBD938C21F1F9DC800900842 /* CFNetwork.framework */,
 				FBD938C01F1F9DC000900842 /* Security.framework */,
-				FBD938BE1F1F9DB900900842 /* libsqlite3.tbd */,
-				FBD938BC1F1F9DB100900842 /* libz.tbd */,
 				A6CB62EA12AEAE674DF275B1 /* libPods-Flipped.a */,
 			);
 			name = Frameworks;
@@ -1020,7 +1076,12 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 4A3DYJG93C;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Flipped/SecondLib/Video/AVSDK",
+					"$(PROJECT_DIR)/Flipped/SecondLib/Video",
+					"$(PROJECT_DIR)/Flipped/SecondLib/Video/IMSDK",
+				);
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = Flipped/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1046,7 +1107,12 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 4A3DYJG93C;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Flipped/SecondLib/Video/AVSDK",
+					"$(PROJECT_DIR)/Flipped/SecondLib/Video",
+					"$(PROJECT_DIR)/Flipped/SecondLib/Video/IMSDK",
+				);
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = Flipped/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

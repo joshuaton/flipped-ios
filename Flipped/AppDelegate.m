@@ -71,6 +71,8 @@
     self.tabBarController = [[UITabBarController alloc] init];
     self.tabBarController.delegate = self;
     self.tabBarController.viewControllers = @[self.squareNav, self.videoNav, self.mineNav];
+//    self.tabBarController.viewControllers = @[self.squareNav, self.mineNav];
+
     
     //tabBar颜色
     UIView *backView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 49)];

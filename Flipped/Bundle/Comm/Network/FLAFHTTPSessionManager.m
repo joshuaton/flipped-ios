@@ -81,7 +81,7 @@
     
     //随机值rd
     NSInteger rd = arc4random() % 10000;
-    NSLog(@"rd: %ld", rd);
+    NSLog(@"rd: %ld", (long)rd);
     
     //请求uri
     NSString *uri = [NSString stringWithFormat:@"/%@", urlStr];
@@ -103,14 +103,14 @@
     }
     
     //计算signature = base64(hmacsha1(key, phone + ts + rd + method + uri + body))
-    NSString *str = [NSString stringWithFormat:@"%@%@%ld%@%@%@", uid, ts, rd, method, uri, body];
+    NSString *str = [NSString stringWithFormat:@"%@%@%ld%@%@%@", uid, ts, (long)rd, method, uri, body];
     NSLog(@"hmacsha1 value: %@", str);
     NSString *signature = [self hmacSha1AndBase64:key text:str];
     
     //计算token = base64(jsonencode({"ts": ts, "rd": rd, "sign": signature}))
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
     dict[@"ts"] = ts;
-    dict[@"rd"] = [NSString stringWithFormat:@"%ld", rd];
+    dict[@"rd"] = [NSString stringWithFormat:@"%ld", (long)rd];
     dict[@"sign"] = signature;
     
     NSData *data=[NSJSONSerialization dataWithJSONObject:dict options:0 error:nil];
@@ -154,7 +154,7 @@
     
     if(statusCode != 200){
         NSError *error = task.error;
-        NSLog(@"statusCode : %ld error: %@", statusCode, error);
+        NSLog(@"statusCode : %ld error: %@", (long)statusCode, error);
     }
 }
 

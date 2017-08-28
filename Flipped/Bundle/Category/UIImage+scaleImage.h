@@ -12,8 +12,6 @@
 /**
  *  按imageSize的长宽比等比缩放到maxSize大小,保证计算出来的size至少有一条(较大的边)边和maxSize一样大
  *
- *  @param maxSize
- *  @param imageSize
  *
  *  @return size 不大于maxSize
  */
@@ -21,8 +19,6 @@
 /**
  *  按imageSize的长宽比等比缩放到maxSize大小,保证计算出来的size至少有一条(较小的边)边和maxSize一样大
  *
- *  @param maxSize
- *  @param imageSize
  *
  *  @return size 不小于maxSize
  */
@@ -30,7 +26,6 @@
 /**
  *  压缩图片
  *
- *  @return 
  */
 - (NSData *)compressImage;
 /**
@@ -44,8 +39,6 @@
 /**
  *  通过颜色色值生成图片
  *
- *  @param color
- *  @param size
  *
  *  @return 生成的图片
  */
@@ -53,8 +46,6 @@
 /**
  *  用vImage方法模糊图片
  *
- *  @param image 需要模糊的图片
- *  @param blur  模糊半径
  *
  *  @return 模糊后的图片
  */
@@ -63,17 +54,13 @@
 /**
  *  自己缓存图片指针
  *
- *  @param imageName
  *
- *  @return
  */
 +(UIImage*)cp_imageNamed:(NSString*)imageName;
 /**
  *  线程安全的imageNamed方法
  *
- *  @param imageName
  *
- *  @return 
  */
 +(UIImage*)save_imageNamed:(NSString*)imageName;
 +(void)setImage:(UIImage*)image forKey:(id<NSCopying>)key;

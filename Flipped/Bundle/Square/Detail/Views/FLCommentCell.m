@@ -33,7 +33,7 @@
         }
     }
     
-    self.floorNumLabel.text = [NSString stringWithFormat:@"%ld楼", data.floor];
+    self.floorNumLabel.text = [NSString stringWithFormat:@"%ld楼", (long)data.floor];
     
     [self makeConstraints];
 }

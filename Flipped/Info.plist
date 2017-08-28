@@ -17,7 +17,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.1.3</string>
+	<string>1.1.7</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -32,11 +32,24 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1010300</string>
+	<string>1010700</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>itmss</string>
+		<string>itms-appss</string>
+		<string>mqq</string>
+		<string>mqqopensdkapiV2</string>
+		<string>mqqapi</string>
+		<string>weixin</string>
+		<string>wechat</string>
+		<string>itmss</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
 	<string>此 App 需要您的同意才能启动拍照</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>用于采集麦克风数据，作为直播音频数据来源</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>此 App 需要您的同意才能读取媒体资料库</string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -54,16 +67,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-    <key>LSApplicationQueriesSchemes</key>
-    <array>
-        <string>itmss</string>
-        <string>itms-appss</string>
-        <string>mqq</string>
-        <string>mqqopensdkapiV2</string>
-        <string>mqqapi</string>
-        <string>weixin</string>
-        <string>wechat</string>
-        <string>itmss</string>
-    </array>
 </dict>
 </plist>
