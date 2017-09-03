@@ -138,4 +138,25 @@
     return YES;
 }
 
+#pragma mark - private
+
+-(void)setupVideo{
+    //托管模式登录
+    
+    [[ILiveSDK getInstance] initSdk:[kSdkAppId intValue] accountType:[kSdkAccountType intValue]];
+    [[ILiveLoginManager getInstance] tlsLogin:@"userid" pwd:password succ:^{
+        NSLog(@"-----> succ");
+    } failed:^(NSString *moudle, int errId, NSString *errMsg) {
+        NSLog(@"-----> fail %@,%d,%@",moudle,errId,errMsg);
+    }];
+    //独立模式登录
+    //identifier 是登录用户的账号(由用户的业务后台生成)
+    //sig : 是登录鉴权（由用户的业务后台生成，可参考随心播后台(https://github.com/zhaoyang21cn/SuiXinBoPHPServer)）
+    [[ILiveLoginManager getInstance] iLiveLogin:identifier sig:sig succ:^{
+        NSLog(@"-----> succ");
+    } failed:^(NSString *module, int errId, NSString *errMsg) {
+        NSLog(@"-----> fail %@,%d,%@",moudle,errId,errMsg);
+    }];
+}
+
 @end
