@@ -17,6 +17,11 @@
 		45D272481F0B43BC00AF180E /* comm_tab_square_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45D272441F0B43BC00AF180E /* comm_tab_square_selected@2x.png */; };
 		45F1C8BF1F1F2A6100A3B74C /* FLFlippedDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F1C8BE1F1F2A6100A3B74C /* FLFlippedDetailViewController.m */; };
 		583FCBD6E2C5D728117751C6 /* libPods-Flipped.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A6CB62EA12AEAE674DF275B1 /* libPods-Flipped.a */; };
+		FB0366451F5D8F2C00B0545F /* FLVideoService.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0366441F5D8F2C00B0545F /* FLVideoService.m */; };
+		FB03664B1F5D93F300B0545F /* FLVideoHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FB03664A1F5D93F300B0545F /* FLVideoHelper.m */; };
+		FB0366561F5D9E0100B0545F /* CallC2CMakeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0366531F5D9E0100B0545F /* CallC2CMakeViewController.m */; };
+		FB0366571F5D9E0100B0545F /* CallC2CRecvViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0366551F5D9E0100B0545F /* CallC2CRecvViewController.m */; };
+		FB0366591F5D9E6900B0545F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB0366581F5D9E6900B0545F /* Main.storyboard */; };
 		FB0715051F305CAD00F5B0CA /* FLCopyLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0715041F305CAD00F5B0CA /* FLCopyLabel.m */; };
 		FB0715141F3064C000F5B0CA /* FLLink.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0715131F3064C000F5B0CA /* FLLink.m */; };
 		FB0715161F3069BD00F5B0CA /* flipped_detail_more@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB0715151F3069BD00F5B0CA /* flipped_detail_more@2x.png */; };
@@ -90,15 +95,16 @@
 		FBCD22291F1A0F8100D8B718 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = FBCD22281F1A0F8100D8B718 /* NSString+MD5.m */; };
 		FBCD222C1F1A21EB00D8B718 /* NSString+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = FBCD222B1F1A21EB00D8B718 /* NSString+Base64.m */; };
 		FBCD22301F1A5A2400D8B718 /* FLAFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FBCD222F1F1A5A2400D8B718 /* FLAFHTTPSessionManager.m */; };
-		FBD8FDDE1F5B9919008BB33A /* QAVSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBD8FDC81F5B9919008BB33A /* QAVSDK.framework */; };
-		FBD8FDDF1F5B9919008BB33A /* xplatform.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBD8FDC91F5B9919008BB33A /* xplatform.framework */; };
-		FBD8FDE51F5B9919008BB33A /* IMCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBD8FDD11F5B9919008BB33A /* IMCore.framework */; };
-		FBD8FDE61F5B9919008BB33A /* ImSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBD8FDD21F5B9919008BB33A /* ImSDK.framework */; };
-		FBD8FDE71F5B9919008BB33A /* IMSDKBugly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBD8FDD31F5B9919008BB33A /* IMSDKBugly.framework */; };
-		FBD8FDE81F5B9919008BB33A /* QALSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBD8FDD41F5B9919008BB33A /* QALSDK.framework */; };
-		FBD8FDE91F5B9919008BB33A /* TLSSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBD8FDD51F5B9919008BB33A /* TLSSDK.framework */; };
-		FBD8FDF01F5B9919008BB33A /* TILCallSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBD8FDDD1F5B9919008BB33A /* TILCallSDK.framework */; };
-		FBD8FDF11F5B9978008BB33A /* ILiveSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBD8FDCF1F5B9919008BB33A /* ILiveSDK.framework */; };
+		FBD8FE1E1F5CEADE008BB33A /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBD8FE1D1F5CEADE008BB33A /* AssetsLibrary.framework */; };
+		FBD8FE621F5CECB2008BB33A /* QAVSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBD8FE4C1F5CECB2008BB33A /* QAVSDK.framework */; };
+		FBD8FE631F5CECB2008BB33A /* xplatform.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBD8FE4D1F5CECB2008BB33A /* xplatform.framework */; };
+		FBD8FE681F5CECB2008BB33A /* ILiveSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBD8FE531F5CECB2008BB33A /* ILiveSDK.framework */; };
+		FBD8FE691F5CECB2008BB33A /* IMCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBD8FE551F5CECB2008BB33A /* IMCore.framework */; };
+		FBD8FE6A1F5CECB2008BB33A /* ImSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBD8FE561F5CECB2008BB33A /* ImSDK.framework */; };
+		FBD8FE6B1F5CECB2008BB33A /* IMSDKBugly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBD8FE571F5CECB2008BB33A /* IMSDKBugly.framework */; };
+		FBD8FE6C1F5CECB2008BB33A /* QALSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBD8FE581F5CECB2008BB33A /* QALSDK.framework */; };
+		FBD8FE6D1F5CECB2008BB33A /* TLSSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBD8FE591F5CECB2008BB33A /* TLSSDK.framework */; };
+		FBD8FE741F5CECB2008BB33A /* TILCallSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBD8FE611F5CECB2008BB33A /* TILCallSDK.framework */; };
 		FBD938AF1F1E29E600900842 /* flipped_post_add_pic@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FBD938AE1F1E29E600900842 /* flipped_post_add_pic@2x.png */; };
 		FBD938B21F1E306A00900842 /* FLCloudService.m in Sources */ = {isa = PBXBuildFile; fileRef = FBD938B11F1E306A00900842 /* FLCloudService.m */; };
 		FBD938B51F1F587200900842 /* FLUserInfoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FBD938B41F1F587200900842 /* FLUserInfoManager.m */; };
@@ -137,6 +143,16 @@
 		7BA26D2BB5C6386B31F8E1A5 /* Pods-Flipped.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flipped.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Flipped/Pods-Flipped.debug.xcconfig"; sourceTree = "<group>"; };
 		7CA5465F4BAB318854577797 /* Pods-Flipped.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flipped.release.xcconfig"; path = "Pods/Target Support Files/Pods-Flipped/Pods-Flipped.release.xcconfig"; sourceTree = "<group>"; };
 		A6CB62EA12AEAE674DF275B1 /* libPods-Flipped.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Flipped.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB0366421F5D88D300B0545F /* Flipped.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Flipped.pch; sourceTree = "<group>"; };
+		FB0366431F5D8F2400B0545F /* FLVideoService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLVideoService.h; sourceTree = "<group>"; };
+		FB0366441F5D8F2C00B0545F /* FLVideoService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLVideoService.m; sourceTree = "<group>"; };
+		FB0366491F5D93E700B0545F /* FLVideoHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLVideoHelper.h; sourceTree = "<group>"; };
+		FB03664A1F5D93F300B0545F /* FLVideoHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLVideoHelper.m; sourceTree = "<group>"; };
+		FB0366521F5D9E0100B0545F /* CallC2CMakeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CallC2CMakeViewController.h; sourceTree = "<group>"; };
+		FB0366531F5D9E0100B0545F /* CallC2CMakeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CallC2CMakeViewController.m; sourceTree = "<group>"; };
+		FB0366541F5D9E0100B0545F /* CallC2CRecvViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CallC2CRecvViewController.h; sourceTree = "<group>"; };
+		FB0366551F5D9E0100B0545F /* CallC2CRecvViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CallC2CRecvViewController.m; sourceTree = "<group>"; };
+		FB0366581F5D9E6900B0545F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		FB0715031F305CA000F5B0CA /* FLCopyLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLCopyLabel.h; sourceTree = "<group>"; };
 		FB0715041F305CAD00F5B0CA /* FLCopyLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLCopyLabel.m; sourceTree = "<group>"; };
 		FB0715121F3064B800F5B0CA /* FLLink.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLLink.h; sourceTree = "<group>"; };
@@ -153,7 +169,6 @@
 		FB4942A41F264F48005BCD9C /* FLStringUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLStringUtils.m; sourceTree = "<group>"; };
 		FB6173941F1112D0009649E2 /* FLFlippedWord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLFlippedWord.h; sourceTree = "<group>"; };
 		FB6173951F1112D0009649E2 /* FLFlippedWord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLFlippedWord.m; sourceTree = "<group>"; };
-		FB6173971F1112D0009649E2 /* FLCommHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLCommHeader.h; sourceTree = "<group>"; };
 		FB6173991F1112D0009649E2 /* FLBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLBaseViewController.h; sourceTree = "<group>"; };
 		FB61739A1F1112D0009649E2 /* FLBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLBaseViewController.m; sourceTree = "<group>"; };
 		FB61739D1F1112D0009649E2 /* FLLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLLoginViewController.h; sourceTree = "<group>"; };
@@ -243,15 +258,16 @@
 		FBCD222B1F1A21EB00D8B718 /* NSString+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Base64.m"; sourceTree = "<group>"; };
 		FBCD222E1F1A5A1600D8B718 /* FLAFHTTPSessionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLAFHTTPSessionManager.h; sourceTree = "<group>"; };
 		FBCD222F1F1A5A2400D8B718 /* FLAFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLAFHTTPSessionManager.m; sourceTree = "<group>"; };
-		FBD8FDC81F5B9919008BB33A /* QAVSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QAVSDK.framework; sourceTree = "<group>"; };
-		FBD8FDC91F5B9919008BB33A /* xplatform.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = xplatform.framework; sourceTree = "<group>"; };
-		FBD8FDCF1F5B9919008BB33A /* ILiveSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ILiveSDK.framework; sourceTree = "<group>"; };
-		FBD8FDD11F5B9919008BB33A /* IMCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IMCore.framework; sourceTree = "<group>"; };
-		FBD8FDD21F5B9919008BB33A /* ImSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ImSDK.framework; sourceTree = "<group>"; };
-		FBD8FDD31F5B9919008BB33A /* IMSDKBugly.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IMSDKBugly.framework; sourceTree = "<group>"; };
-		FBD8FDD41F5B9919008BB33A /* QALSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QALSDK.framework; sourceTree = "<group>"; };
-		FBD8FDD51F5B9919008BB33A /* TLSSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TLSSDK.framework; sourceTree = "<group>"; };
-		FBD8FDDD1F5B9919008BB33A /* TILCallSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TILCallSDK.framework; sourceTree = "<group>"; };
+		FBD8FE1D1F5CEADE008BB33A /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		FBD8FE4C1F5CECB2008BB33A /* QAVSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QAVSDK.framework; sourceTree = "<group>"; };
+		FBD8FE4D1F5CECB2008BB33A /* xplatform.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = xplatform.framework; sourceTree = "<group>"; };
+		FBD8FE531F5CECB2008BB33A /* ILiveSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ILiveSDK.framework; sourceTree = "<group>"; };
+		FBD8FE551F5CECB2008BB33A /* IMCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IMCore.framework; sourceTree = "<group>"; };
+		FBD8FE561F5CECB2008BB33A /* ImSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ImSDK.framework; sourceTree = "<group>"; };
+		FBD8FE571F5CECB2008BB33A /* IMSDKBugly.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IMSDKBugly.framework; sourceTree = "<group>"; };
+		FBD8FE581F5CECB2008BB33A /* QALSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QALSDK.framework; sourceTree = "<group>"; };
+		FBD8FE591F5CECB2008BB33A /* TLSSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TLSSDK.framework; sourceTree = "<group>"; };
+		FBD8FE611F5CECB2008BB33A /* TILCallSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TILCallSDK.framework; sourceTree = "<group>"; };
 		FBD938AE1F1E29E600900842 /* flipped_post_add_pic@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flipped_post_add_pic@2x.png"; sourceTree = "<group>"; };
 		FBD938B01F1E305E00900842 /* FLCloudService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLCloudService.h; sourceTree = "<group>"; };
 		FBD938B11F1E306A00900842 /* FLCloudService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLCloudService.m; sourceTree = "<group>"; };
@@ -288,38 +304,39 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FBD8FDF11F5B9978008BB33A /* ILiveSDK.framework in Frameworks */,
+				FBD8FE1E1F5CEADE008BB33A /* AssetsLibrary.framework in Frameworks */,
 				FB6E90D51F5309850050BA96 /* libstdc++.6.tbd in Frameworks */,
 				FB6E90D31F53097D0050BA96 /* libc++.tbd in Frameworks */,
+				FBD8FE6A1F5CECB2008BB33A /* ImSDK.framework in Frameworks */,
 				FB6E90D11F5309750050BA96 /* libbz2.tbd in Frameworks */,
+				FBD8FE741F5CECB2008BB33A /* TILCallSDK.framework in Frameworks */,
+				FBD8FE631F5CECB2008BB33A /* xplatform.framework in Frameworks */,
 				FBD938BD1F1F9DB200900842 /* libz.tbd in Frameworks */,
 				FB6E90CF1F5309630050BA96 /* libiconv.tbd in Frameworks */,
 				FB6E90CD1F53095C0050BA96 /* libresolv.tbd in Frameworks */,
-				FBD8FDE51F5B9919008BB33A /* IMCore.framework in Frameworks */,
-				FBD8FDDE1F5B9919008BB33A /* QAVSDK.framework in Frameworks */,
 				FB6E90CB1F5309520050BA96 /* libsqlite3.0.tbd in Frameworks */,
 				FB6E90C91F5309450050BA96 /* libprotobuf.tbd in Frameworks */,
-				FBD8FDE71F5B9919008BB33A /* IMSDKBugly.framework in Frameworks */,
 				FB6E90C71F5309390050BA96 /* CoreGraphics.framework in Frameworks */,
 				FB6E90C51F5309310050BA96 /* CoreMedia.framework in Frameworks */,
+				FBD8FE6D1F5CECB2008BB33A /* TLSSDK.framework in Frameworks */,
+				FBD8FE6B1F5CECB2008BB33A /* IMSDKBugly.framework in Frameworks */,
+				FBD8FE691F5CECB2008BB33A /* IMCore.framework in Frameworks */,
 				FBD938C51F1F9DCE00900842 /* SystemConfiguration.framework in Frameworks */,
-				FBD8FDE81F5B9919008BB33A /* QALSDK.framework in Frameworks */,
 				FB6E90C31F5309230050BA96 /* Accelerate.framework in Frameworks */,
 				FB6E90C11F53091B0050BA96 /* VideoToolbox.framework in Frameworks */,
-				FBD8FDDF1F5B9919008BB33A /* xplatform.framework in Frameworks */,
 				FB6E90BF1F5309110050BA96 /* CoreVideo.framework in Frameworks */,
+				FBD8FE6C1F5CECB2008BB33A /* QALSDK.framework in Frameworks */,
 				FB6E90BD1F5309030050BA96 /* AVFoundation.framework in Frameworks */,
 				FB6E90BB1F5308F90050BA96 /* Foundation.framework in Frameworks */,
 				FB6E90B91F5308ED0050BA96 /* UIKit.framework in Frameworks */,
 				FBD938C71F1F9DD400900842 /* CoreTelephony.framework in Frameworks */,
 				FB8118091F4924630045202B /* libWeChatSDK.a in Frameworks */,
 				FBD938C31F1F9DC800900842 /* CFNetwork.framework in Frameworks */,
+				FBD8FE621F5CECB2008BB33A /* QAVSDK.framework in Frameworks */,
+				FBD8FE681F5CECB2008BB33A /* ILiveSDK.framework in Frameworks */,
 				FBD938C11F1F9DC000900842 /* Security.framework in Frameworks */,
-				FBD8FDE61F5B9919008BB33A /* ImSDK.framework in Frameworks */,
 				FB8117AD1F44940A0045202B /* libmtasdk.a in Frameworks */,
 				583FCBD6E2C5D728117751C6 /* libPods-Flipped.a in Frameworks */,
-				FBD8FDF01F5B9919008BB33A /* TILCallSDK.framework in Frameworks */,
-				FBD8FDE91F5B9919008BB33A /* TLSSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,6 +360,8 @@
 				FBD938DE1F24A1A700900842 /* FLFeedbackService.m */,
 				FB0715171F306C4B00F5B0CA /* FLCommService.h */,
 				FB0715181F306C5300F5B0CA /* FLCommService.m */,
+				FB0366431F5D8F2400B0545F /* FLVideoService.h */,
+				FB0366441F5D8F2C00B0545F /* FLVideoService.m */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -351,9 +370,10 @@
 			isa = PBXGroup;
 			children = (
 				45D2720D1F0B343E00AF180E /* Flipped */,
+				FBD8FE4A1F5CECB2008BB33A /* Frameworks */,
 				45D2720C1F0B343E00AF180E /* Products */,
 				7FA5BF810DC2AD5D3BA783A1 /* Pods */,
-				9A1F3DF625175D85E4F4E9C4 /* Frameworks */,
+				9A1F3DF625175D85E4F4E9C4 /* SystemLibrarys */,
 			);
 			sourceTree = "<group>";
 		};
@@ -368,16 +388,17 @@
 		45D2720D1F0B343E00AF180E /* Flipped */ = {
 			isa = PBXGroup;
 			children = (
-				FB81179E1F44940A0045202B /* SecondLib */,
 				FB6173911F1112D0009649E2 /* Bundle */,
 				457195281F0C903400671634 /* Services */,
-				45D272261F0B34D500AF180E /* Resources */,
 				FBCD22261F1A0F5700D8B718 /* Utils */,
 				FB2EC86F1F3212B300238756 /* Html */,
+				45D272261F0B34D500AF180E /* Resources */,
+				FB81179E1F44940A0045202B /* SecondLib */,
 				45D272111F0B343E00AF180E /* AppDelegate.h */,
 				45D272121F0B343E00AF180E /* AppDelegate.m */,
 				45D2721A1F0B343E00AF180E /* Assets.xcassets */,
 				45D2721F1F0B343E00AF180E /* Info.plist */,
+				FB0366581F5D9E6900B0545F /* Main.storyboard */,
 				45D2720E1F0B343E00AF180E /* Supporting Files */,
 			);
 			path = Flipped;
@@ -387,6 +408,7 @@
 			isa = PBXGroup;
 			children = (
 				45D2720F1F0B343E00AF180E /* main.m */,
+				FB0366421F5D88D300B0545F /* Flipped.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -455,9 +477,10 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		9A1F3DF625175D85E4F4E9C4 /* Frameworks */ = {
+		9A1F3DF625175D85E4F4E9C4 /* SystemLibrarys */ = {
 			isa = PBXGroup;
 			children = (
+				FBD8FE1D1F5CEADE008BB33A /* AssetsLibrary.framework */,
 				FB6E90D41F5309850050BA96 /* libstdc++.6.tbd */,
 				FB6E90D21F53097D0050BA96 /* libc++.tbd */,
 				FB6E90D01F5309750050BA96 /* libbz2.tbd */,
@@ -480,7 +503,7 @@
 				FBD938C01F1F9DC000900842 /* Security.framework */,
 				A6CB62EA12AEAE674DF275B1 /* libPods-Flipped.a */,
 			);
-			name = Frameworks;
+			name = SystemLibrarys;
 			sourceTree = "<group>";
 		};
 		FB2EC86F1F3212B300238756 /* Html */ = {
@@ -539,7 +562,6 @@
 		FB6173961F1112D0009649E2 /* Others */ = {
 			isa = PBXGroup;
 			children = (
-				FB6173971F1112D0009649E2 /* FLCommHeader.h */,
 				FBD938B31F1F586600900842 /* FLUserInfoManager.h */,
 				FBD938B41F1F587200900842 /* FLUserInfoManager.m */,
 			);
@@ -631,21 +653,9 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		FB6E90EB1F5B84FB0050BA96 /* Video */ = {
-			isa = PBXGroup;
-			children = (
-				FBD8FDC71F5B9919008BB33A /* AVSDK */,
-				FBD8FDCF1F5B9919008BB33A /* ILiveSDK.framework */,
-				FBD8FDD01F5B9919008BB33A /* IMSDK */,
-				FBD8FDDD1F5B9919008BB33A /* TILCallSDK.framework */,
-			);
-			path = Video;
-			sourceTree = "<group>";
-		};
 		FB81179E1F44940A0045202B /* SecondLib */ = {
 			isa = PBXGroup;
 			children = (
-				FB6E90EB1F5B84FB0050BA96 /* Video */,
 				FB8118051F4924630045202B /* WXSDK */,
 				FB81179F1F44940A0045202B /* MTA */,
 				FB8117A31F44940A0045202B /* QQPopMenuView */,
@@ -679,6 +689,8 @@
 			isa = PBXGroup;
 			children = (
 				FB8117C71F4753680045202B /* Views */,
+				FB0366491F5D93E700B0545F /* FLVideoHelper.h */,
+				FB03664A1F5D93F300B0545F /* FLVideoHelper.m */,
 			);
 			path = Video;
 			sourceTree = "<group>";
@@ -688,6 +700,10 @@
 			children = (
 				FB8117C81F47537B0045202B /* FLVideoMainViewController.h */,
 				FB8117C91F4753840045202B /* FLVideoMainViewController.m */,
+				FB0366521F5D9E0100B0545F /* CallC2CMakeViewController.h */,
+				FB0366531F5D9E0100B0545F /* CallC2CMakeViewController.m */,
+				FB0366541F5D9E0100B0545F /* CallC2CRecvViewController.h */,
+				FB0366551F5D9E0100B0545F /* CallC2CRecvViewController.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -774,23 +790,34 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
-		FBD8FDC71F5B9919008BB33A /* AVSDK */ = {
+		FBD8FE4A1F5CECB2008BB33A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				FBD8FDC81F5B9919008BB33A /* QAVSDK.framework */,
-				FBD8FDC91F5B9919008BB33A /* xplatform.framework */,
+				FBD8FE541F5CECB2008BB33A /* IMSDK */,
+				FBD8FE4B1F5CECB2008BB33A /* AVSDK */,
+				FBD8FE531F5CECB2008BB33A /* ILiveSDK.framework */,
+				FBD8FE611F5CECB2008BB33A /* TILCallSDK.framework */,
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
+		FBD8FE4B1F5CECB2008BB33A /* AVSDK */ = {
+			isa = PBXGroup;
+			children = (
+				FBD8FE4C1F5CECB2008BB33A /* QAVSDK.framework */,
+				FBD8FE4D1F5CECB2008BB33A /* xplatform.framework */,
 			);
 			path = AVSDK;
 			sourceTree = "<group>";
 		};
-		FBD8FDD01F5B9919008BB33A /* IMSDK */ = {
+		FBD8FE541F5CECB2008BB33A /* IMSDK */ = {
 			isa = PBXGroup;
 			children = (
-				FBD8FDD11F5B9919008BB33A /* IMCore.framework */,
-				FBD8FDD21F5B9919008BB33A /* ImSDK.framework */,
-				FBD8FDD31F5B9919008BB33A /* IMSDKBugly.framework */,
-				FBD8FDD41F5B9919008BB33A /* QALSDK.framework */,
-				FBD8FDD51F5B9919008BB33A /* TLSSDK.framework */,
+				FBD8FE551F5CECB2008BB33A /* IMCore.framework */,
+				FBD8FE561F5CECB2008BB33A /* ImSDK.framework */,
+				FBD8FE571F5CECB2008BB33A /* IMSDKBugly.framework */,
+				FBD8FE581F5CECB2008BB33A /* QALSDK.framework */,
+				FBD8FE591F5CECB2008BB33A /* TLSSDK.framework */,
 			);
 			path = IMSDK;
 			sourceTree = "<group>";
@@ -908,6 +935,7 @@
 				FBD938C91F1FA33900900842 /* flipped_pic_default.png in Resources */,
 				FB8118031F4924050045202B /* CPDiscovery_sharem_wx@2x.png in Resources */,
 				FBB917811F1254DA000C7353 /* WechatIMG9.png in Resources */,
+				FB0366591F5D9E6900B0545F /* Main.storyboard in Resources */,
 				FB0715161F3069BD00F5B0CA /* flipped_detail_more@2x.png in Resources */,
 				FB8117F91F4924050045202B /* CPDiscovery_sharem_cancel_follow@2x.png in Resources */,
 				FB8117FD1F4924050045202B /* CPDiscovery_sharem_friends_network@2x.png in Resources */,
@@ -999,6 +1027,8 @@
 				FB6173AD1F1112D0009649E2 /* FLLoginViewController.m in Sources */,
 				FB4942A51F264F48005BCD9C /* FLStringUtils.m in Sources */,
 				FB8117F61F4924050045202B /* CPShareManager.m in Sources */,
+				FB0366561F5D9E0100B0545F /* CallC2CMakeViewController.m in Sources */,
+				FB03664B1F5D93F300B0545F /* FLVideoHelper.m in Sources */,
 				FBD938DF1F24A1A700900842 /* FLFeedbackService.m in Sources */,
 				FB8117AE1F44940A0045202B /* PopMenuTableViewCell.m in Sources */,
 				FB8117F81F4924050045202B /* CPShareViewCell.m in Sources */,
@@ -1013,12 +1043,14 @@
 				FBCD22301F1A5A2400D8B718 /* FLAFHTTPSessionManager.m in Sources */,
 				45D272131F0B343E00AF180E /* AppDelegate.m in Sources */,
 				FBE0D7831F19F279006D6C47 /* FLUserService.m in Sources */,
+				FB0366571F5D9E0100B0545F /* CallC2CRecvViewController.m in Sources */,
 				45D272101F0B343E00AF180E /* main.m in Sources */,
 				FBD938B21F1E306A00900842 /* FLCloudService.m in Sources */,
 				FB6173AE1F1112D0009649E2 /* FLMineViewController.m in Sources */,
 				45F1C8BF1F1F2A6100A3B74C /* FLFlippedDetailViewController.m in Sources */,
 				FB81176A1F3F4F950045202B /* FLSplashViewController.m in Sources */,
 				FBE0D77D1F19C792006D6C47 /* FLFlippedListViewController.m in Sources */,
+				FB0366451F5D8F2C00B0545F /* FLVideoService.m in Sources */,
 				FBCD22291F1A0F8100D8B718 /* NSString+MD5.m in Sources */,
 				FB6173AC1F1112D0009649E2 /* FLBaseViewController.m in Sources */,
 				FB8117CA1F4753840045202B /* FLVideoMainViewController.m in Sources */,
@@ -1138,11 +1170,24 @@
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Flipped/SecondLib/Video/AVSDK",
-					"$(PROJECT_DIR)/Flipped/SecondLib/Video",
-					"$(PROJECT_DIR)/Flipped/SecondLib/Video/IMSDK",
+					"$(PROJECT_DIR)/Frameworks/AVSDK",
+					"$(PROJECT_DIR)/Frameworks",
+					"$(PROJECT_DIR)/Frameworks/IMSDK",
 				);
-				GCC_PREFIX_HEADER = "";
+				GCC_PREFIX_HEADER = Flipped/Flipped.pch;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/DACircularProgress\"",
+					"\"${PODS_ROOT}/Headers/Public/JSONModel\"",
+					"\"${PODS_ROOT}/Headers/Public/MBProgressHUD\"",
+					"\"${PODS_ROOT}/Headers/Public/MJRefresh\"",
+					"\"${PODS_ROOT}/Headers/Public/MWPhotoBrowser\"",
+					"\"${PODS_ROOT}/Headers/Public/Masonry\"",
+					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+					"\"${PODS_ROOT}/Headers/Public/WechatOpenSDK\"",
+				);
 				INFOPLIST_FILE = Flipped/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1169,11 +1214,24 @@
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Flipped/SecondLib/Video/AVSDK",
-					"$(PROJECT_DIR)/Flipped/SecondLib/Video",
-					"$(PROJECT_DIR)/Flipped/SecondLib/Video/IMSDK",
+					"$(PROJECT_DIR)/Frameworks/AVSDK",
+					"$(PROJECT_DIR)/Frameworks",
+					"$(PROJECT_DIR)/Frameworks/IMSDK",
 				);
-				GCC_PREFIX_HEADER = "";
+				GCC_PREFIX_HEADER = Flipped/Flipped.pch;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/DACircularProgress\"",
+					"\"${PODS_ROOT}/Headers/Public/JSONModel\"",
+					"\"${PODS_ROOT}/Headers/Public/MBProgressHUD\"",
+					"\"${PODS_ROOT}/Headers/Public/MJRefresh\"",
+					"\"${PODS_ROOT}/Headers/Public/MWPhotoBrowser\"",
+					"\"${PODS_ROOT}/Headers/Public/Masonry\"",
+					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+					"\"${PODS_ROOT}/Headers/Public/WechatOpenSDK\"",
+				);
 				INFOPLIST_FILE = Flipped/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

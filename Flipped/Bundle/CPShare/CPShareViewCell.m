@@ -8,7 +8,6 @@
 
 #import "CPShareViewCell.h"
 #import "CPShareView.h"
-#import "FLCommHeader.h"
 
 @interface CPShareViewCell()
 

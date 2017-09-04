@@ -7,7 +7,6 @@
 //
 
 #import "FLBaseViewController.h"
-#import "FLCommHeader.h"
 
 static __weak UIViewController* __currentViewController;
 

@@ -11,7 +11,6 @@
 #import "FLFlippedWordsService.h"
 #import "MJRefresh.h"
 #import "Masonry.h"
-#import "FLCommHeader.h"
 #import "FLFlippedDetailViewController.h"
 
 @interface FLFlippedListViewController() <UITableViewDataSource, UITableViewDelegate>

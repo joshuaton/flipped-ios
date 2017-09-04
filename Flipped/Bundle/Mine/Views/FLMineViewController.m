@@ -11,7 +11,6 @@
 #import "FLFlippedListViewController.h"
 #import "FLFlippedWordsService.h"
 #import "FLPostViewController.h"
-#import "FLCommHeader.h"
 
 @interface FLMineViewController()
 

@@ -8,7 +8,6 @@
 
 #import "FLFlippedWordsService.h"
 #import "FLFlippedWord.h"
-#import "FLCommHeader.h"
 #import "FLComment.h"
 
 @implementation FLFlippedWordsService

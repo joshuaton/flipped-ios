@@ -8,7 +8,6 @@
 
 #import "FLCommentCell.h"
 #import "Masonry.h"
-#import "FLCommHeader.h"
 
 @interface FLCommentCell()
 

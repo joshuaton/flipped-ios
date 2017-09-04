@@ -13,7 +13,6 @@
 #import "FLHelpViewController.h"
 #import "FLLoginViewController.h"
 #import "FLFeedbackViewController.h"
-#import "FLCommHeader.h"
 #import "FLUserInfoManager.h"
 
 @interface FLNewMineViewController() <UITableViewDataSource, UITableViewDelegate>

@@ -7,7 +7,6 @@
 //
 
 #import "FLSplashViewController.h"
-#import "FLCommHeader.h"
 
 #define BUTTON_HEIGHT 50
 #define BUTTON_WIDTH BUTTON_HEIGHT*3.85

@@ -10,7 +10,6 @@
 #import "CPShareEntity.h"
 #import "CPShareManager.h"
 #import "CPShareViewCell.h"
-#import "FLCommHeader.h"
 #import "FLToast.h"
 
 #define CANCEL_HEIGHT   50.0

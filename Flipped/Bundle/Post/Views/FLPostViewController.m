@@ -8,12 +8,10 @@
 
 #import "FLPostViewController.h"
 #import "Masonry.h"
-#import "FLCommHeader.h"
 #import "FLFlippedWord.h"
 #import "FLFlippedWordsService.h"
 #import "FLToast.h"
 #import "FLCloudService.h"
-#import "FLCommHeader.h"
 #import "FLUserInfoManager.h"
 #import "FLStringUtils.h"
 

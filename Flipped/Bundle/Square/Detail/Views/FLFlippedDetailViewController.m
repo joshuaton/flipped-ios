@@ -13,7 +13,6 @@
 #import "FLToast.h"
 #import "MWPhoto.h"
 #import "MWPhotoBrowser.h"
-#import "FLCommHeader.h"
 #import "UILabel+ChangeLineSpaceAndWordSpace.h"
 #import "FLStringUtils.h"
 #import "FLCopyLabel.h"

@@ -10,7 +10,6 @@
 #import "FLHelpService.h"
 #import "FLContent.h"
 #import "Masonry.h"
-#import "FLCommHeader.h"
 
 @interface FLHelpViewController()
 

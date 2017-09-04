@@ -9,7 +9,6 @@
 #import "FLFlippedWordCell.h"
 #import "Masonry.h"
 #import <SDWebImage/UIImageView+WebCache.h>
-#import "FLCommHeader.h"
 #import "UILabel+ChangeLineSpaceAndWordSpace.h"
 #import "FLStringUtils.h"
 #import "FLFlippedListViewController.h"

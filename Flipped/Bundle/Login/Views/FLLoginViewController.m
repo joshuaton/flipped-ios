@@ -7,12 +7,12 @@
 //
 
 #import "FLLoginViewController.h"
-#import "FLCommHeader.h"
 #import "Masonry.h"
 #import "FLUserService.h"
 #import "FLToast.h"
 #import "FLHelpViewController.h"
 #import "FLUserInfoManager.h"
+#import "FLVideoHelper.h"
 
 @interface FLLoginViewController()
 
@@ -182,6 +182,9 @@
     [FLUserService loginWithPhoneNum:self.phoneNumTextField.text vertifyCode:self.vertifyCodeTextField.text successBlock:^{
         
         [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_LOGIN_SUCCESS object:self userInfo:nil];
+        
+        //登录video
+        [FLVideoHelper login];
         
         [self dismissViewControllerAnimated:YES completion:^{
             

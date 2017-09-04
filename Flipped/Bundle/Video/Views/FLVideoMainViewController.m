@@ -8,12 +8,12 @@
 
 #import "FLVideoMainViewController.h"
 #import "Masonry.h"
-#import "FLCommHeader.h"
-#import <TILCallSDK/TILCallSDK.h>
 #import "FLUserInfoManager.h"
+#import "CallC2CMakeViewController.h"
+#import "CallC2CRecvViewController.h"
 
-@interface FLVideoMainViewController() <TILCallNotificationListener,TILCallStatusListener, TILCallMemberEventListener>
-
+@interface FLVideoMainViewController() <TILCallIncomingCallListener>
+@property (nonatomic, strong) UILabel *myUidLabel;
 @property (nonatomic, strong) UITextField *textFiled;
 @property (nonatomic, strong) UIButton *button;
 
@@ -26,8 +26,15 @@
 -(void)viewDidLoad{
     [super viewDidLoad];
     
-    [self.textFiled mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.myUidLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(@(50+64));
+        make.left.equalTo(@10);
+        make.right.equalTo(@-10);
+        make.height.equalTo(@30);
+    }];
+    
+    [self.textFiled mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.myUidLabel.mas_bottom).offset(10);
         make.left.equalTo(@10);
         make.right.equalTo(@-10);
         make.height.equalTo(@30);
@@ -39,6 +46,11 @@
         make.right.equalTo(@-10);
         make.height.equalTo(@30);
     }];
+    
+    self.myUidLabel.text = [NSString stringWithFormat:@"我的账号: %@", [FLUserInfoManager sharedUserInfoManager].uid];
+    
+    [[TILCallManager sharedInstance] setIncomingCallListener:self];
+
 }
 
 
@@ -54,70 +66,39 @@
 
 -(void)makeCall{
     
-    TILCallConfig * config = [[TILCallConfig alloc] init];
-    TILCallBaseConfig * baseConfig = [[TILCallBaseConfig alloc] init];
-    baseConfig.callType = TILCALL_TYPE_VIDEO;
-    baseConfig.isSponsor = YES;
-    baseConfig.peerId = self.textFiled.text;
-    baseConfig.heartBeatInterval = 15;
-    config.baseConfig = baseConfig;
+    NSString *peerId = self.textFiled.text;
     
-    TILCallListener * listener = [[TILCallListener alloc] init];
-    //注意：
-    //［通知回调］可以获取通话的事件通知，建议双人和多人都走notifListener
-    // [通话状态回调] 也可以获取通话的事件通知
-    listener.callStatusListener = self;
-    listener.memberEventListener = self;
-    listener.notifListener = self;
-    config.callListener = listener;
-    
-    TILCallSponsorConfig *sponsorConfig = [[TILCallSponsorConfig alloc] init];
-    sponsorConfig.waitLimit = 10;
-    sponsorConfig.callId = (int)([[NSDate date] timeIntervalSince1970]) % 1000 * 1000 + arc4random() % 1000;
-    sponsorConfig.onlineInvite = YES;
-    config.sponsorConfig = sponsorConfig;
-    
-    _call = [[TILC2CCall alloc] initWithConfig:config];
-    [_call createRenderViewIn:self.view];
-    [_call makeCall:nil custom:nil result:^(TILCallError *err) {
-        if(err){
-            NSLog(@"呼叫失败");
-        }
-        else{
-            NSLog(@"呼叫成功");
-        }
-    }];
-}
-
-#pragma mark - 音视频事件回调
-- (void)onMemberAudioOn:(BOOL)isOn members:(NSArray *)members
-{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    CallC2CMakeViewController *make = [storyboard instantiateViewControllerWithIdentifier:@"CallC2CMakeViewController"];
+    make.peerId = peerId;
+    [self presentViewController:make animated:YES completion:nil];
     
 }
 
-- (void)onMemberCameraVideoOn:(BOOL)isOn members:(NSArray *)members
-{
-    if(isOn){
-        for (TILCallMember *member in members) {
-            NSString *identifier = member.identifier;
-            if([identifier isEqualToString:[FLUserInfoManager sharedUserInfoManager].uid]){
-                [_call addRenderFor:[FLUserInfoManager sharedUserInfoManager].uid atFrame:self.view.bounds];
-                [_call sendRenderViewToBack:[FLUserInfoManager sharedUserInfoManager].uid];
-            }
-            else{
-                [_call addRenderFor:identifier atFrame:CGRectMake(20, 20, 120, 160)];
-            }
-        }
-    }
-    else{
-        for (TILCallMember *member in members) {
-            NSString *identifier = member.identifier;
-            [_call removeRenderFor:identifier];
-        }
-    }
+#pragma mark - TILCallIncomingCallListener
+
+- (void)onC2CCallInvitation:(TILCallInvitation *)invitation{
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    CallC2CRecvViewController *call = [storyboard instantiateViewControllerWithIdentifier:@"CallC2CRecvViewController"];
+    call.invite = invitation;
+    UINavigationController *nav = (UINavigationController*)[UIApplication sharedApplication].delegate.window.rootViewController;
+    [nav presentViewController:call animated:YES completion:nil];
+}
+
+- (void)onMultiCallInvitation:(TILCallInvitation *)invitation{
 }
 
 #pragma mark - getter & setter
+
+-(UILabel *)myUidLabel{
+    if(!_myUidLabel){
+        _myUidLabel = [[UILabel alloc] init];
+        _myUidLabel.textColor = COLOR_M;
+        [self.view addSubview:_myUidLabel];
+    }
+    return _myUidLabel;
+}
 
 -(UITextField *)textFiled{
     if(!_textFiled){
