@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		45471A5B1F5EB08E009E1DED /* QAVSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45471A511F5EB08E009E1DED /* QAVSDK.framework */; };
+		45471A5C1F5EB08E009E1DED /* xplatform.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45471A521F5EB08E009E1DED /* xplatform.framework */; };
+		45471A5D1F5EB08E009E1DED /* ILiveSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45471A531F5EB08E009E1DED /* ILiveSDK.framework */; };
+		45471A5E1F5EB08E009E1DED /* IMCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45471A551F5EB08E009E1DED /* IMCore.framework */; };
+		45471A5F1F5EB08E009E1DED /* ImSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45471A561F5EB08E009E1DED /* ImSDK.framework */; };
+		45471A601F5EB08E009E1DED /* IMSDKBugly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45471A571F5EB08E009E1DED /* IMSDKBugly.framework */; };
+		45471A611F5EB08E009E1DED /* QALSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45471A581F5EB08E009E1DED /* QALSDK.framework */; };
+		45471A621F5EB08E009E1DED /* TLSSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45471A591F5EB08E009E1DED /* TLSSDK.framework */; };
+		45471A631F5EB08E009E1DED /* TILCallSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45471A5A1F5EB08E009E1DED /* TILCallSDK.framework */; };
+		45471A661F5EB1C3009E1DED /* FLFlippedCallsService.m in Sources */ = {isa = PBXBuildFile; fileRef = 45471A651F5EB1C3009E1DED /* FLFlippedCallsService.m */; };
 		4571952B1F0C907300671634 /* FLFlippedWordsService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4571952A1F0C907300671634 /* FLFlippedWordsService.m */; };
 		45D272101F0B343E00AF180E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D2720F1F0B343E00AF180E /* main.m */; };
 		45D272131F0B343E00AF180E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D272121F0B343E00AF180E /* AppDelegate.m */; };
@@ -96,15 +106,6 @@
 		FBCD222C1F1A21EB00D8B718 /* NSString+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = FBCD222B1F1A21EB00D8B718 /* NSString+Base64.m */; };
 		FBCD22301F1A5A2400D8B718 /* FLAFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FBCD222F1F1A5A2400D8B718 /* FLAFHTTPSessionManager.m */; };
 		FBD8FE1E1F5CEADE008BB33A /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBD8FE1D1F5CEADE008BB33A /* AssetsLibrary.framework */; };
-		FBD8FE621F5CECB2008BB33A /* QAVSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBD8FE4C1F5CECB2008BB33A /* QAVSDK.framework */; };
-		FBD8FE631F5CECB2008BB33A /* xplatform.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBD8FE4D1F5CECB2008BB33A /* xplatform.framework */; };
-		FBD8FE681F5CECB2008BB33A /* ILiveSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBD8FE531F5CECB2008BB33A /* ILiveSDK.framework */; };
-		FBD8FE691F5CECB2008BB33A /* IMCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBD8FE551F5CECB2008BB33A /* IMCore.framework */; };
-		FBD8FE6A1F5CECB2008BB33A /* ImSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBD8FE561F5CECB2008BB33A /* ImSDK.framework */; };
-		FBD8FE6B1F5CECB2008BB33A /* IMSDKBugly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBD8FE571F5CECB2008BB33A /* IMSDKBugly.framework */; };
-		FBD8FE6C1F5CECB2008BB33A /* QALSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBD8FE581F5CECB2008BB33A /* QALSDK.framework */; };
-		FBD8FE6D1F5CECB2008BB33A /* TLSSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBD8FE591F5CECB2008BB33A /* TLSSDK.framework */; };
-		FBD8FE741F5CECB2008BB33A /* TILCallSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBD8FE611F5CECB2008BB33A /* TILCallSDK.framework */; };
 		FBD938AF1F1E29E600900842 /* flipped_post_add_pic@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FBD938AE1F1E29E600900842 /* flipped_post_add_pic@2x.png */; };
 		FBD938B21F1E306A00900842 /* FLCloudService.m in Sources */ = {isa = PBXBuildFile; fileRef = FBD938B11F1E306A00900842 /* FLCloudService.m */; };
 		FBD938B51F1F587200900842 /* FLUserInfoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FBD938B41F1F587200900842 /* FLUserInfoManager.m */; };
@@ -126,6 +127,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		45471A511F5EB08E009E1DED /* QAVSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QAVSDK.framework; sourceTree = "<group>"; };
+		45471A521F5EB08E009E1DED /* xplatform.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = xplatform.framework; sourceTree = "<group>"; };
+		45471A531F5EB08E009E1DED /* ILiveSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ILiveSDK.framework; sourceTree = "<group>"; };
+		45471A551F5EB08E009E1DED /* IMCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IMCore.framework; sourceTree = "<group>"; };
+		45471A561F5EB08E009E1DED /* ImSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ImSDK.framework; sourceTree = "<group>"; };
+		45471A571F5EB08E009E1DED /* IMSDKBugly.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IMSDKBugly.framework; sourceTree = "<group>"; };
+		45471A581F5EB08E009E1DED /* QALSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QALSDK.framework; sourceTree = "<group>"; };
+		45471A591F5EB08E009E1DED /* TLSSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TLSSDK.framework; sourceTree = "<group>"; };
+		45471A5A1F5EB08E009E1DED /* TILCallSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TILCallSDK.framework; sourceTree = "<group>"; };
+		45471A641F5EB1BB009E1DED /* FLFlippedCallsService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLFlippedCallsService.h; sourceTree = "<group>"; };
+		45471A651F5EB1C3009E1DED /* FLFlippedCallsService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLFlippedCallsService.m; sourceTree = "<group>"; };
 		457195291F0C906900671634 /* FLFlippedWordsService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLFlippedWordsService.h; sourceTree = "<group>"; };
 		4571952A1F0C907300671634 /* FLFlippedWordsService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLFlippedWordsService.m; sourceTree = "<group>"; };
 		45D2720B1F0B343E00AF180E /* Flipped.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flipped.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -259,15 +271,6 @@
 		FBCD222E1F1A5A1600D8B718 /* FLAFHTTPSessionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLAFHTTPSessionManager.h; sourceTree = "<group>"; };
 		FBCD222F1F1A5A2400D8B718 /* FLAFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLAFHTTPSessionManager.m; sourceTree = "<group>"; };
 		FBD8FE1D1F5CEADE008BB33A /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
-		FBD8FE4C1F5CECB2008BB33A /* QAVSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QAVSDK.framework; sourceTree = "<group>"; };
-		FBD8FE4D1F5CECB2008BB33A /* xplatform.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = xplatform.framework; sourceTree = "<group>"; };
-		FBD8FE531F5CECB2008BB33A /* ILiveSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ILiveSDK.framework; sourceTree = "<group>"; };
-		FBD8FE551F5CECB2008BB33A /* IMCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IMCore.framework; sourceTree = "<group>"; };
-		FBD8FE561F5CECB2008BB33A /* ImSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ImSDK.framework; sourceTree = "<group>"; };
-		FBD8FE571F5CECB2008BB33A /* IMSDKBugly.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IMSDKBugly.framework; sourceTree = "<group>"; };
-		FBD8FE581F5CECB2008BB33A /* QALSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QALSDK.framework; sourceTree = "<group>"; };
-		FBD8FE591F5CECB2008BB33A /* TLSSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TLSSDK.framework; sourceTree = "<group>"; };
-		FBD8FE611F5CECB2008BB33A /* TILCallSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TILCallSDK.framework; sourceTree = "<group>"; };
 		FBD938AE1F1E29E600900842 /* flipped_post_add_pic@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flipped_post_add_pic@2x.png"; sourceTree = "<group>"; };
 		FBD938B01F1E305E00900842 /* FLCloudService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLCloudService.h; sourceTree = "<group>"; };
 		FBD938B11F1E306A00900842 /* FLCloudService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLCloudService.m; sourceTree = "<group>"; };
@@ -307,10 +310,8 @@
 				FBD8FE1E1F5CEADE008BB33A /* AssetsLibrary.framework in Frameworks */,
 				FB6E90D51F5309850050BA96 /* libstdc++.6.tbd in Frameworks */,
 				FB6E90D31F53097D0050BA96 /* libc++.tbd in Frameworks */,
-				FBD8FE6A1F5CECB2008BB33A /* ImSDK.framework in Frameworks */,
+				45471A5F1F5EB08E009E1DED /* ImSDK.framework in Frameworks */,
 				FB6E90D11F5309750050BA96 /* libbz2.tbd in Frameworks */,
-				FBD8FE741F5CECB2008BB33A /* TILCallSDK.framework in Frameworks */,
-				FBD8FE631F5CECB2008BB33A /* xplatform.framework in Frameworks */,
 				FBD938BD1F1F9DB200900842 /* libz.tbd in Frameworks */,
 				FB6E90CF1F5309630050BA96 /* libiconv.tbd in Frameworks */,
 				FB6E90CD1F53095C0050BA96 /* libresolv.tbd in Frameworks */,
@@ -318,23 +319,25 @@
 				FB6E90C91F5309450050BA96 /* libprotobuf.tbd in Frameworks */,
 				FB6E90C71F5309390050BA96 /* CoreGraphics.framework in Frameworks */,
 				FB6E90C51F5309310050BA96 /* CoreMedia.framework in Frameworks */,
-				FBD8FE6D1F5CECB2008BB33A /* TLSSDK.framework in Frameworks */,
-				FBD8FE6B1F5CECB2008BB33A /* IMSDKBugly.framework in Frameworks */,
-				FBD8FE691F5CECB2008BB33A /* IMCore.framework in Frameworks */,
+				45471A5E1F5EB08E009E1DED /* IMCore.framework in Frameworks */,
+				45471A601F5EB08E009E1DED /* IMSDKBugly.framework in Frameworks */,
 				FBD938C51F1F9DCE00900842 /* SystemConfiguration.framework in Frameworks */,
 				FB6E90C31F5309230050BA96 /* Accelerate.framework in Frameworks */,
+				45471A5C1F5EB08E009E1DED /* xplatform.framework in Frameworks */,
 				FB6E90C11F53091B0050BA96 /* VideoToolbox.framework in Frameworks */,
 				FB6E90BF1F5309110050BA96 /* CoreVideo.framework in Frameworks */,
-				FBD8FE6C1F5CECB2008BB33A /* QALSDK.framework in Frameworks */,
 				FB6E90BD1F5309030050BA96 /* AVFoundation.framework in Frameworks */,
 				FB6E90BB1F5308F90050BA96 /* Foundation.framework in Frameworks */,
+				45471A611F5EB08E009E1DED /* QALSDK.framework in Frameworks */,
+				45471A5D1F5EB08E009E1DED /* ILiveSDK.framework in Frameworks */,
 				FB6E90B91F5308ED0050BA96 /* UIKit.framework in Frameworks */,
 				FBD938C71F1F9DD400900842 /* CoreTelephony.framework in Frameworks */,
 				FB8118091F4924630045202B /* libWeChatSDK.a in Frameworks */,
 				FBD938C31F1F9DC800900842 /* CFNetwork.framework in Frameworks */,
-				FBD8FE621F5CECB2008BB33A /* QAVSDK.framework in Frameworks */,
-				FBD8FE681F5CECB2008BB33A /* ILiveSDK.framework in Frameworks */,
+				45471A5B1F5EB08E009E1DED /* QAVSDK.framework in Frameworks */,
+				45471A621F5EB08E009E1DED /* TLSSDK.framework in Frameworks */,
 				FBD938C11F1F9DC000900842 /* Security.framework in Frameworks */,
+				45471A631F5EB08E009E1DED /* TILCallSDK.framework in Frameworks */,
 				FB8117AD1F44940A0045202B /* libmtasdk.a in Frameworks */,
 				583FCBD6E2C5D728117751C6 /* libPods-Flipped.a in Frameworks */,
 			);
@@ -343,6 +346,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		45471A501F5EB08E009E1DED /* AVSDK */ = {
+			isa = PBXGroup;
+			children = (
+				45471A511F5EB08E009E1DED /* QAVSDK.framework */,
+				45471A521F5EB08E009E1DED /* xplatform.framework */,
+			);
+			path = AVSDK;
+			sourceTree = "<group>";
+		};
+		45471A541F5EB08E009E1DED /* IMSDK */ = {
+			isa = PBXGroup;
+			children = (
+				45471A551F5EB08E009E1DED /* IMCore.framework */,
+				45471A561F5EB08E009E1DED /* ImSDK.framework */,
+				45471A571F5EB08E009E1DED /* IMSDKBugly.framework */,
+				45471A581F5EB08E009E1DED /* QALSDK.framework */,
+				45471A591F5EB08E009E1DED /* TLSSDK.framework */,
+			);
+			path = IMSDK;
+			sourceTree = "<group>";
+		};
 		457195281F0C903400671634 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -362,6 +386,8 @@
 				FB0715181F306C5300F5B0CA /* FLCommService.m */,
 				FB0366431F5D8F2400B0545F /* FLVideoService.h */,
 				FB0366441F5D8F2C00B0545F /* FLVideoService.m */,
+				45471A641F5EB1BB009E1DED /* FLFlippedCallsService.h */,
+				45471A651F5EB1C3009E1DED /* FLFlippedCallsService.m */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -793,33 +819,12 @@
 		FBD8FE4A1F5CECB2008BB33A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				FBD8FE541F5CECB2008BB33A /* IMSDK */,
-				FBD8FE4B1F5CECB2008BB33A /* AVSDK */,
-				FBD8FE531F5CECB2008BB33A /* ILiveSDK.framework */,
-				FBD8FE611F5CECB2008BB33A /* TILCallSDK.framework */,
+				45471A501F5EB08E009E1DED /* AVSDK */,
+				45471A541F5EB08E009E1DED /* IMSDK */,
+				45471A531F5EB08E009E1DED /* ILiveSDK.framework */,
+				45471A5A1F5EB08E009E1DED /* TILCallSDK.framework */,
 			);
 			path = Frameworks;
-			sourceTree = "<group>";
-		};
-		FBD8FE4B1F5CECB2008BB33A /* AVSDK */ = {
-			isa = PBXGroup;
-			children = (
-				FBD8FE4C1F5CECB2008BB33A /* QAVSDK.framework */,
-				FBD8FE4D1F5CECB2008BB33A /* xplatform.framework */,
-			);
-			path = AVSDK;
-			sourceTree = "<group>";
-		};
-		FBD8FE541F5CECB2008BB33A /* IMSDK */ = {
-			isa = PBXGroup;
-			children = (
-				FBD8FE551F5CECB2008BB33A /* IMCore.framework */,
-				FBD8FE561F5CECB2008BB33A /* ImSDK.framework */,
-				FBD8FE571F5CECB2008BB33A /* IMSDKBugly.framework */,
-				FBD8FE581F5CECB2008BB33A /* QALSDK.framework */,
-				FBD8FE591F5CECB2008BB33A /* TLSSDK.framework */,
-			);
-			path = IMSDK;
 			sourceTree = "<group>";
 		};
 		FBD938CA1F248B2B00900842 /* Help */ = {
@@ -1038,6 +1043,7 @@
 				FB6173AB1F1112D0009649E2 /* FLFlippedWord.m in Sources */,
 				FB0715141F3064C000F5B0CA /* FLLink.m in Sources */,
 				FB8117B01F44940A0045202B /* QQPopMenuView.m in Sources */,
+				45471A661F5EB1C3009E1DED /* FLFlippedCallsService.m in Sources */,
 				4571952B1F0C907300671634 /* FLFlippedWordsService.m in Sources */,
 				FB8117F71F4924050045202B /* CPShareView.m in Sources */,
 				FBCD22301F1A5A2400D8B718 /* FLAFHTTPSessionManager.m in Sources */,

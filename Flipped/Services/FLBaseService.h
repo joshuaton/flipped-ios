@@ -11,7 +11,6 @@
 
 @interface FLBaseService : NSObject
 
-
 +(FLAFHTTPSessionManager *)sharedHttpSessionManager;
 
 @end
