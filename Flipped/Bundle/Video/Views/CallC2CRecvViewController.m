@@ -51,6 +51,20 @@
     responderConfig.controlRole = @"interactTest";
     config.responderConfig = responderConfig;
     _call = [[TILC2CCall alloc] initWithConfig:config];
+    
+    //自动接收通话
+    __weak typeof(self) ws = self;
+    [_call createRenderViewIn:self.view];
+    [_call accept:^(TILCallError *err) {
+        if(err){
+            [ws setText:[NSString stringWithFormat:@"接受失败:%@-%d-%@",err.domain,err.code,err.errMsg]];
+            [ws selfDismiss];
+        }
+        else{
+            [ws setText:@"通话建立成功"];
+            [ws setButtonEnable:YES];
+        }
+    }];
 }
 
 - (IBAction)recvInvite:(id)sender {
