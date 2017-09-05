@@ -89,7 +89,7 @@
             
             self.tipsLabel.text = @"正在匹配中";
             
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(wait_timeout * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 self.tipsLabel.text = @"没有匹配到，点击重新匹配";
                 [[TILCallManager sharedInstance] setIncomingCallListener:nil];
             });
