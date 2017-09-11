@@ -6,6 +6,9 @@
 //  Copyright © 2017年 junshao. All rights reserved.
 //
 
+//todo 登录判断
+//todo 通话界面修改
+
 #import "FLVideoMainViewController.h"
 #import "Masonry.h"
 #import "FLUserInfoManager.h"
