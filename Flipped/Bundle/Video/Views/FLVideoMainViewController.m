@@ -12,13 +12,21 @@
 #import "CallC2CMakeViewController.h"
 #import "CallC2CRecvViewController.h"
 #import "FLFlippedCallsService.h"
+#import <Lottie/Lottie.h>
+
+typedef NS_ENUM(NSInteger, MatchStatus) {
+    MatchStatusDefault = 0,
+    MatchStatusMatching,
+    MatchStatusSuccess,
+    MatchStatusFailed,
+};
 
 @interface FLVideoMainViewController() <TILCallIncomingCallListener>
-@property (nonatomic, strong) UILabel *myUidLabel;
-@property (nonatomic, strong) UITextField *textFiled;
-@property (nonatomic, strong) UIButton *button;
 @property (nonatomic, strong) UIButton *matchButton;
 @property (nonatomic, strong) UILabel *tipsLabel;
+@property (nonatomic, strong) LOTAnimationView *animation;
+
+
 
 @end
 
@@ -27,54 +35,30 @@
 -(void)viewDidLoad{
     [super viewDidLoad];
     
-    [self.myUidLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(@(50+64));
-        make.left.equalTo(@10);
-        make.right.equalTo(@-10);
-        make.height.equalTo(@30);
-    }];
-    
-    [self.textFiled mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.myUidLabel.mas_bottom).offset(10);
-        make.left.equalTo(@10);
-        make.right.equalTo(@-10);
-        make.height.equalTo(@30);
-    }];
-    
-    [self.button mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.textFiled.mas_bottom).offset(10);
-        make.left.equalTo(@10);
-        make.right.equalTo(@-10);
-        make.height.equalTo(@30);
+    [self.animation mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.equalTo(self.animation.superview);
+        make.left.equalTo(@100);
+        make.right.equalTo(@-100);
+        make.height.equalTo(self.animation.mas_width);
     }];
     
     [self.matchButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.button.mas_bottom).offset(10);
+        make.center.equalTo(self.matchButton.superview);
         make.left.equalTo(@10);
         make.right.equalTo(@-10);
-        make.height.equalTo(@30);
+        make.height.equalTo(@50);
     }];
     
     [self.tipsLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.matchButton.mas_bottom).offset(10);
         make.left.equalTo(@10);
         make.right.equalTo(@-10);
-        make.height.equalTo(@30);
     }];
-    
-    self.myUidLabel.text = [NSString stringWithFormat:@"我的账号: %@", [FLUserInfoManager sharedUserInfoManager].uid];
-    
-
 }
 
 
 
 #pragma mark - action
-
--(void)btnClick{
-    
-    [self makeCall];
-}
 
 -(void)matchBtnClick{
     [FLFlippedCallsService getFlippedCallWithSuccessBlock:^(NSString *uid, NSInteger callTimeout, NSInteger wait_timeout) {
@@ -89,11 +73,13 @@
             
             self.tipsLabel.text = @"正在匹配中";
             
+
+            
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(wait_timeout * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 self.tipsLabel.text = @"没有匹配到，点击重新匹配";
                 [[TILCallManager sharedInstance] setIncomingCallListener:nil];
             });
-        }else if(uid.length > 0 && ![uid isEqualToString:[FLUserInfoManager sharedUserInfoManager].uid]){
+        }else if(uid.length > 0){
             [[TILCallManager sharedInstance] setIncomingCallListener:nil];
             
             NSString *peerId = uid;
@@ -109,15 +95,32 @@
 
 #pragma mark - private
 
--(void)makeCall{
+-(void)statusChanged:(MatchStatus)status{
     
-    NSString *peerId = self.textFiled.text;
-    
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    CallC2CMakeViewController *make = [storyboard instantiateViewControllerWithIdentifier:@"CallC2CMakeViewController"];
-    make.peerId = peerId;
-    [self presentViewController:make animated:YES completion:nil];
-    
+    if(status == MatchStatusDefault){
+        
+        [self.animation removeFromSuperview];
+        self.animation = nil;
+        
+    }else if(status == MatchStatusMatching){
+        
+        self.animation = [LOTAnimationView animationNamed:@"like"];
+        self.animation.loopAnimation = YES;
+        [self.view addSubview:self.animation];
+        [self.animation playWithCompletion:^(BOOL animationFinished) {
+            // Do Something
+        }];
+        
+    }else if(status == MatchStatusSuccess){
+        
+        [self.animation removeFromSuperview];
+        self.animation = nil;
+        
+    }else if(status == MatchStatusFailed){
+        
+        [self.animation removeFromSuperview];
+        self.animation = nil;
+    }
 }
 
 #pragma mark - TILCallIncomingCallListener
@@ -137,37 +140,6 @@
 }
 
 #pragma mark - getter & setter
-
--(UILabel *)myUidLabel{
-    if(!_myUidLabel){
-        _myUidLabel = [[UILabel alloc] init];
-        _myUidLabel.textColor = COLOR_M;
-        [self.view addSubview:_myUidLabel];
-    }
-    return _myUidLabel;
-}
-
--(UITextField *)textFiled{
-    if(!_textFiled){
-        _textFiled = [[UITextField alloc] init];
-        _textFiled.layer.borderWidth = 1;
-        _textFiled.layer.borderColor = COLOR_M.CGColor;
-        [self.view addSubview:_textFiled];
-    }
-    return _textFiled;
-}
-
--(UIButton *)button{
-    if(!_button){
-        _button = [[UIButton alloc] init];
-        [_button setTitle:@"发起通话" forState:UIControlStateNormal];
-        _button.backgroundColor = COLOR_M;
-        [_button setTitleColor:COLOR_W forState:UIControlStateNormal];
-        [_button addTarget:self action:@selector(btnClick) forControlEvents:UIControlEventTouchUpInside];
-        [self.view addSubview:_button];
-    }
-    return _button;
-}
 
 -(UIButton *)matchButton{
     if(!_matchButton){

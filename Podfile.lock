@@ -16,6 +16,7 @@ PODS:
     - AFNetworking/NSURLSession
   - DACircularProgress (2.3.1)
   - JSONModel (1.7.0)
+  - lottie-ios (1.5.2)
   - Masonry (1.0.2)
   - MBProgressHUD (0.9.2)
   - MJRefresh (3.1.12)
@@ -31,6 +32,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking
   - JSONModel
+  - lottie-ios
   - Masonry
   - MBProgressHUD
   - MJRefresh
@@ -42,6 +44,7 @@ SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
   JSONModel: 840bc0fcffb24b8454d2c026bf26fea454b8e98d
+  lottie-ios: 255a0e95973a5c4424e809d7a5c19f7384c73e84
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
@@ -49,6 +52,6 @@ SPEC CHECKSUMS:
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   WechatOpenSDK: ad1e7be1b66416df847ac50830c798b70c9e365e
 
-PODFILE CHECKSUM: a3d16cd811ed57d3ad05abf57e3c38c175802b04
+PODFILE CHECKSUM: 8544b0a4576036e662e15d114153b4d9b24af89d
 
 COCOAPODS: 1.2.1

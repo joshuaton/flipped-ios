@@ -9,8 +9,6 @@
 #import "QQPopMenuView.h"
 #import "PopMenuTableViewCell.h"
 
-#define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
-
 static CGFloat const kCellHeight = 44;
 
 @interface QQPopMenuView ()<UITableViewDelegate,UITableViewDataSource,UIGestureRecognizerDelegate>

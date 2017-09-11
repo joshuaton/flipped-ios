@@ -27,11 +27,13 @@
 		45D272481F0B43BC00AF180E /* comm_tab_square_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45D272441F0B43BC00AF180E /* comm_tab_square_selected@2x.png */; };
 		45F1C8BF1F1F2A6100A3B74C /* FLFlippedDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F1C8BE1F1F2A6100A3B74C /* FLFlippedDetailViewController.m */; };
 		583FCBD6E2C5D728117751C6 /* libPods-Flipped.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A6CB62EA12AEAE674DF275B1 /* libPods-Flipped.a */; };
+		D3A52729718E7338334331EC /* libPods-Flipped.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E2120D7ACD634DE7FDAEBA /* libPods-Flipped.a */; };
 		FB0366451F5D8F2C00B0545F /* FLVideoService.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0366441F5D8F2C00B0545F /* FLVideoService.m */; };
 		FB03664B1F5D93F300B0545F /* FLVideoHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FB03664A1F5D93F300B0545F /* FLVideoHelper.m */; };
 		FB0366561F5D9E0100B0545F /* CallC2CMakeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0366531F5D9E0100B0545F /* CallC2CMakeViewController.m */; };
 		FB0366571F5D9E0100B0545F /* CallC2CRecvViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0366551F5D9E0100B0545F /* CallC2CRecvViewController.m */; };
 		FB0366591F5D9E6900B0545F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB0366581F5D9E6900B0545F /* Main.storyboard */; };
+		FB03665C1F6429CD00B0545F /* like.json in Resources */ = {isa = PBXBuildFile; fileRef = FB03665B1F6429CD00B0545F /* like.json */; };
 		FB0715051F305CAD00F5B0CA /* FLCopyLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0715041F305CAD00F5B0CA /* FLCopyLabel.m */; };
 		FB0715141F3064C000F5B0CA /* FLLink.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0715131F3064C000F5B0CA /* FLLink.m */; };
 		FB0715161F3069BD00F5B0CA /* flipped_detail_more@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB0715151F3069BD00F5B0CA /* flipped_detail_more@2x.png */; };
@@ -152,6 +154,7 @@
 		45D272441F0B43BC00AF180E /* comm_tab_square_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "comm_tab_square_selected@2x.png"; sourceTree = "<group>"; };
 		45F1C8BD1F1F2A5800A3B74C /* FLFlippedDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLFlippedDetailViewController.h; sourceTree = "<group>"; };
 		45F1C8BE1F1F2A6100A3B74C /* FLFlippedDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLFlippedDetailViewController.m; sourceTree = "<group>"; };
+		52E2120D7ACD634DE7FDAEBA /* libPods-Flipped.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Flipped.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BA26D2BB5C6386B31F8E1A5 /* Pods-Flipped.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flipped.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Flipped/Pods-Flipped.debug.xcconfig"; sourceTree = "<group>"; };
 		7CA5465F4BAB318854577797 /* Pods-Flipped.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flipped.release.xcconfig"; path = "Pods/Target Support Files/Pods-Flipped/Pods-Flipped.release.xcconfig"; sourceTree = "<group>"; };
 		A6CB62EA12AEAE674DF275B1 /* libPods-Flipped.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Flipped.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -165,6 +168,7 @@
 		FB0366541F5D9E0100B0545F /* CallC2CRecvViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CallC2CRecvViewController.h; sourceTree = "<group>"; };
 		FB0366551F5D9E0100B0545F /* CallC2CRecvViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CallC2CRecvViewController.m; sourceTree = "<group>"; };
 		FB0366581F5D9E6900B0545F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		FB03665B1F6429CD00B0545F /* like.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = like.json; sourceTree = "<group>"; };
 		FB0715031F305CA000F5B0CA /* FLCopyLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLCopyLabel.h; sourceTree = "<group>"; };
 		FB0715041F305CAD00F5B0CA /* FLCopyLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLCopyLabel.m; sourceTree = "<group>"; };
 		FB0715121F3064B800F5B0CA /* FLLink.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLLink.h; sourceTree = "<group>"; };
@@ -340,6 +344,7 @@
 				45471A631F5EB08E009E1DED /* TILCallSDK.framework in Frameworks */,
 				FB8117AD1F44940A0045202B /* libmtasdk.a in Frameworks */,
 				583FCBD6E2C5D728117751C6 /* libPods-Flipped.a in Frameworks */,
+				D3A52729718E7338334331EC /* libPods-Flipped.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,6 +447,7 @@
 		45D272261F0B34D500AF180E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FB03665A1F6429CD00B0545F /* animation */,
 				FB81180A1F5161730045202B /* flipped_splash_button@3x.png */,
 				FB81180B1F5161730045202B /* flipped_splash0@3x.png */,
 				FB81180C1F5161730045202B /* flipped_splash1@3x.png */,
@@ -530,6 +536,14 @@
 				A6CB62EA12AEAE674DF275B1 /* libPods-Flipped.a */,
 			);
 			name = SystemLibrarys;
+			sourceTree = "<group>";
+		};
+		FB03665A1F6429CD00B0545F /* animation */ = {
+			isa = PBXGroup;
+			children = (
+				FB03665B1F6429CD00B0545F /* like.json */,
+			);
+			path = animation;
 			sourceTree = "<group>";
 		};
 		FB2EC86F1F3212B300238756 /* Html */ = {
@@ -823,6 +837,7 @@
 				45471A541F5EB08E009E1DED /* IMSDK */,
 				45471A531F5EB08E009E1DED /* ILiveSDK.framework */,
 				45471A5A1F5EB08E009E1DED /* TILCallSDK.framework */,
+				52E2120D7ACD634DE7FDAEBA /* libPods-Flipped.a */,
 			);
 			path = Frameworks;
 			sourceTree = "<group>";
@@ -946,6 +961,7 @@
 				FB8117FD1F4924050045202B /* CPDiscovery_sharem_friends_network@2x.png in Resources */,
 				FB8117FC1F4924050045202B /* CPDiscovery_sharem_follow@2x.png in Resources */,
 				FB8118011F4924050045202B /* CPDiscovery_sharem_team_info@2x.png in Resources */,
+				FB03665C1F6429CD00B0545F /* like.json in Resources */,
 				FB8117761F3F555B0045202B /* flipped_splash2@2x.png in Resources */,
 				FB8117741F3F555B0045202B /* flipped_splash0@2x.png in Resources */,
 				FB8117751F3F555B0045202B /* flipped_splash1@2x.png in Resources */,
