@@ -52,7 +52,7 @@
     self.videoNav = [[UINavigationController alloc] initWithRootViewController:videoViewController];
     UIImage *videoImage = [[UIImage imageNamed:@"comm_tab_square"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     UIImage *videoImageSelected = [[UIImage imageNamed:@"comm_tab_square_selected"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    UITabBarItem *videoTabBarItem = [[UITabBarItem alloc] initWithTitle:@"视频" image:videoImage selectedImage:videoImageSelected];
+    UITabBarItem *videoTabBarItem = [[UITabBarItem alloc] initWithTitle:@"配聊" image:videoImage selectedImage:videoImageSelected];
     videoViewController.tabBarItem = videoTabBarItem;
     
     FLNewMineViewController *mineViewController = [[FLNewMineViewController alloc] init];
@@ -135,6 +135,10 @@
 - (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController{
     
     if(viewController == self.mineNav && ![[FLUserInfoManager sharedUserInfoManager] checkLogin]){
+        return NO;
+    }
+    
+    if(viewController == self.videoNav && ![[FLUserInfoManager sharedUserInfoManager] checkLogin]){
         return NO;
     }
     

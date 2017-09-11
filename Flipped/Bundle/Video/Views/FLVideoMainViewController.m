@@ -6,7 +6,6 @@
 //  Copyright © 2017年 junshao. All rights reserved.
 //
 
-//todo 登录判断
 //todo 通话界面修改
 
 #import "FLVideoMainViewController.h"
@@ -42,16 +41,18 @@ typedef NS_ENUM(NSInteger, MatchStatus) {
 -(void)viewDidLoad{
     [super viewDidLoad];
     
+    self.title = @"配聊";
+    
+    [self.tipsLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(self.tipsLabel.superview).offset(-(60+48)*SCREEN_SCALE_HEIGHT);
+        make.centerX.equalTo(self.tipsLabel.superview);
+    }];
+    
     [self.matchButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.matchButton.superview.mas_centerY).offset(20);
+        make.bottom.equalTo(self.tipsLabel.mas_top).offset(-30*SCREEN_SCALE_HEIGHT);
         make.left.equalTo(@(100*SCREEN_SCALE_WIDTH));
         make.right.equalTo(@(-100*SCREEN_SCALE_WIDTH));
         make.height.equalTo(@50);
-    }];
-    
-    [self.tipsLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.matchButton.mas_bottom).offset((30*SCREEN_SCALE_HEIGHT));\
-        make.centerX.equalTo(self.tipsLabel.superview);
     }];
     
     [self.matchTipImageView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -138,8 +139,8 @@ typedef NS_ENUM(NSInteger, MatchStatus) {
         
         [self.animation mas_makeConstraints:^(MASConstraintMaker *make) {
             make.center.equalTo(self.matchTipImageView);
-            make.left.equalTo(@(85*SCREEN_SCALE_WIDTH));
-            make.right.equalTo(@(-85*SCREEN_SCALE_WIDTH));
+            make.left.equalTo(@(35*SCREEN_SCALE_WIDTH));
+            make.right.equalTo(@(-35*SCREEN_SCALE_WIDTH));
             make.height.equalTo(self.animation.mas_width);
         }];
         
