@@ -25,4 +25,12 @@
     }];
 }
 
++(void)quitFlippedCallWithSuccessBlock:(void (^)())successBlock failBlock:(void (^)(NSError *error))failedBlock{
+    [[self sharedHttpSessionManager] FLDELETE:@"flippedcalls" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        successBlock();
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        failedBlock(error);
+    }];
+}
+
 @end

@@ -12,4 +12,6 @@
 
 +(void)getFlippedCallWithSuccessBlock:(void (^)(NSString *uid, NSInteger callTimeout, NSInteger wait_timeout))successBlock failBlock:(void (^)(NSError *error))failedBlock;
 
++(void)quitFlippedCallWithSuccessBlock:(void (^)())successBlock failBlock:(void (^)(NSError *error))failedBlock;
+
 @end

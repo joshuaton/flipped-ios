@@ -7,6 +7,7 @@
 //
 
 #import "CallC2CMakeViewController.h"
+#import "FLFlippedCallsService.h"
 
 @interface CallC2CMakeViewController () <TILCallNotificationListener,TILCallStatusListener, TILCallMemberEventListener>
 @property (nonatomic, strong) TILC2CCall *call;
@@ -71,6 +72,12 @@
         }
         else{
             [ws setText:@"挂断成功"];
+            
+            [FLFlippedCallsService quitFlippedCallWithSuccessBlock:^{
+                
+            } failBlock:^(NSError *error) {
+                
+            }];
         }
         [ws selfDismiss];
     }];

@@ -22,9 +22,13 @@ typedef NS_ENUM(NSInteger, MatchStatus) {
 };
 
 @interface FLVideoMainViewController() <TILCallIncomingCallListener>
+
+@property (nonatomic, strong) UIImageView *matchTipImageView;
 @property (nonatomic, strong) UIButton *matchButton;
 @property (nonatomic, strong) UILabel *tipsLabel;
 @property (nonatomic, strong) LOTAnimationView *animation;
+
+@property (nonatomic, assign) NSInteger status;
 
 
 
@@ -35,25 +39,24 @@ typedef NS_ENUM(NSInteger, MatchStatus) {
 -(void)viewDidLoad{
     [super viewDidLoad];
     
-    [self.animation mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.center.equalTo(self.animation.superview);
-        make.left.equalTo(@100);
-        make.right.equalTo(@-100);
-        make.height.equalTo(self.animation.mas_width);
-    }];
-    
     [self.matchButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.center.equalTo(self.matchButton.superview);
-        make.left.equalTo(@10);
-        make.right.equalTo(@-10);
+        make.top.equalTo(self.matchButton.superview.mas_centerY).offset(20);
+        make.left.equalTo(@(100*SCREEN_SCALE_WIDTH));
+        make.right.equalTo(@(-100*SCREEN_SCALE_WIDTH));
         make.height.equalTo(@50);
     }];
     
     [self.tipsLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.matchButton.mas_bottom).offset(10);
-        make.left.equalTo(@10);
-        make.right.equalTo(@-10);
+        make.top.equalTo(self.matchButton.mas_bottom).offset((30*SCREEN_SCALE_HEIGHT));\
+        make.centerX.equalTo(self.tipsLabel.superview);
     }];
+    
+    [self.matchTipImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.matchTipImageView.superview);
+        make.top.equalTo(@(200*SCREEN_SCALE_HEIGHT));
+    }];
+    
+    [self statusChanged:MatchStatusDefault];
 }
 
 
@@ -61,66 +64,106 @@ typedef NS_ENUM(NSInteger, MatchStatus) {
 #pragma mark - action
 
 -(void)matchBtnClick{
-    [FLFlippedCallsService getFlippedCallWithSuccessBlock:^(NSString *uid, NSInteger callTimeout, NSInteger wait_timeout) {
+    
+    if(self.status == MatchStatusMatching){
         
-        NSLog(@"junshao match uid %@", uid);
-        NSLog(@"junshao callTimeout %ld", callTimeout);
-        NSLog(@"junshao wait_timeout %ld", wait_timeout);
-        
-        //没有匹配到，监听秒数为callTimeout
-        if(wait_timeout > 0){
-            [[TILCallManager sharedInstance] setIncomingCallListener:self];
+        [self statusChanged:MatchStatusDefault];
+        [FLFlippedCallsService quitFlippedCallWithSuccessBlock:^{
             
-            self.tipsLabel.text = @"正在匹配中";
+        } failBlock:^(NSError *error) {
             
-
+        }];
+    }else{
+        [FLFlippedCallsService getFlippedCallWithSuccessBlock:^(NSString *uid, NSInteger callTimeout, NSInteger wait_timeout) {
             
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(wait_timeout * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                self.tipsLabel.text = @"没有匹配到，点击重新匹配";
-                [[TILCallManager sharedInstance] setIncomingCallListener:nil];
-            });
-        }else if(uid.length > 0){
-            [[TILCallManager sharedInstance] setIncomingCallListener:nil];
+            NSLog(@"junshao match uid %@", uid);
+            NSLog(@"junshao callTimeout %ld", callTimeout);
+            NSLog(@"junshao wait_timeout %ld", wait_timeout);
             
-            NSString *peerId = uid;
-            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-            CallC2CMakeViewController *make = [storyboard instantiateViewControllerWithIdentifier:@"CallC2CMakeViewController"];
-            make.peerId = peerId;
-            [self presentViewController:make animated:YES completion:nil];
-        }
-    } failBlock:^(NSError *error) {
-        
-    }];
+            //没有匹配到，监听秒数为callTimeout
+            if(wait_timeout > 0){
+                [self statusChanged:MatchStatusMatching];
+                
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(wait_timeout * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    [self statusChanged:MatchStatusFailed];
+                });
+            }else if(uid.length > 0){
+                [self statusChanged:MatchStatusSuccess];
+                
+                NSString *peerId = uid;
+                UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                CallC2CMakeViewController *make = [storyboard instantiateViewControllerWithIdentifier:@"CallC2CMakeViewController"];
+                make.peerId = peerId;
+                [self presentViewController:make animated:YES completion:nil];
+            }
+        } failBlock:^(NSError *error) {
+            NSLog(@"junshao error");
+            [self statusChanged:MatchStatusFailed];
+        }];
+    }
+    
+    
 }
 
 #pragma mark - private
 
 -(void)statusChanged:(MatchStatus)status{
     
+    self.status = status;
+    
     if(status == MatchStatusDefault){
         
+        self.matchTipImageView.hidden = NO;
         [self.animation removeFromSuperview];
         self.animation = nil;
+        self.tipsLabel.text = @"点击开始匹配心动的Ta";
+        [self.matchButton setTitle:@"点击匹配" forState:UIControlStateNormal];
+        
+        [[TILCallManager sharedInstance] setIncomingCallListener:nil];
         
     }else if(status == MatchStatusMatching){
         
+        self.matchTipImageView.hidden = YES;
         self.animation = [LOTAnimationView animationNamed:@"like"];
         self.animation.loopAnimation = YES;
         [self.view addSubview:self.animation];
         [self.animation playWithCompletion:^(BOOL animationFinished) {
             // Do Something
         }];
+        self.tipsLabel.text = @"正在匹配中...";
+        [self.matchButton setTitle:@"退出匹配" forState:UIControlStateNormal];
+        
+        [self.animation mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.center.equalTo(self.matchTipImageView);
+            make.left.equalTo(@(85*SCREEN_SCALE_WIDTH));
+            make.right.equalTo(@(-85*SCREEN_SCALE_WIDTH));
+            make.height.equalTo(self.animation.mas_width);
+        }];
+        
+        [[TILCallManager sharedInstance] setIncomingCallListener:self];
         
     }else if(status == MatchStatusSuccess){
         
+        self.matchTipImageView.hidden = NO;
         [self.animation removeFromSuperview];
         self.animation = nil;
+        self.tipsLabel.text = @"点击开始匹配心动的Ta";
+        [self.matchButton setTitle:@"点击匹配" forState:UIControlStateNormal];
+        
+        [[TILCallManager sharedInstance] setIncomingCallListener:nil];
         
     }else if(status == MatchStatusFailed){
         
+        self.matchTipImageView.hidden = NO;
         [self.animation removeFromSuperview];
         self.animation = nil;
+        self.tipsLabel.text = @"没有匹配到，点击重新匹配";
+        [self.matchButton setTitle:@"点击匹配" forState:UIControlStateNormal];
+        
+        [[TILCallManager sharedInstance] setIncomingCallListener:nil];
+
     }
+    
 }
 
 #pragma mark - TILCallIncomingCallListener
@@ -141,11 +184,22 @@ typedef NS_ENUM(NSInteger, MatchStatus) {
 
 #pragma mark - getter & setter
 
+-(UIImageView *)matchTipImageView{
+    if(!_matchTipImageView){
+        _matchTipImageView = [[UIImageView alloc] init];
+        _matchTipImageView.image = [UIImage imageNamed:@"flipped_match_tips"];
+        [self.view addSubview:_matchTipImageView];
+    }
+    return _matchTipImageView;
+}
+
 -(UIButton *)matchButton{
     if(!_matchButton){
         _matchButton = [[UIButton alloc] init];
         [_matchButton setTitle:@"点击匹配" forState:UIControlStateNormal];
         _matchButton.backgroundColor = COLOR_M;
+        _matchButton.titleLabel.font = FONT_L;
+        _matchButton.layer.cornerRadius = 4;
         [_matchButton setTitleColor:COLOR_W forState:UIControlStateNormal];
         [_matchButton addTarget:self action:@selector(matchBtnClick) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:_matchButton];
@@ -156,6 +210,7 @@ typedef NS_ENUM(NSInteger, MatchStatus) {
 -(UILabel *)tipsLabel{
     if(!_tipsLabel){
         _tipsLabel = [[UILabel alloc] init];
+        _tipsLabel.font = FONT_M;
         _tipsLabel.textColor = COLOR_M;
         [self.view addSubview:_tipsLabel];
     }
