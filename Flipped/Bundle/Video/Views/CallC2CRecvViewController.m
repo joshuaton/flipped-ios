@@ -195,23 +195,29 @@
 //    [self setButtonEnable:YES];
 //}
 //
-//- (void)onCallEnd:(TILCallEndCode)code
-//{
-//    switch (code) {
-//        case TILCALL_END_SPONSOR_CANCEL:
-//            [self setText:@"对方已取消通话"];
-//            break;
-//        case TILCALL_END_SPONSOR_TIMEOUT:
-//            [self setText:@"对方已结束通话"];
-//            break;
-//        case TILCALL_END_PEER_HANGUP:
-//            [self setText:@"对方已挂断"];
-//            break;
-//        default:
-//            break;
-//    }
-//    [self selfDismiss];
-//}
+- (void)onCallEnd:(TILCallEndCode)code
+{
+    switch (code) {
+        case TILCALL_END_SPONSOR_CANCEL:
+            [self setText:@"对方已取消通话"];
+            break;
+        case TILCALL_END_SPONSOR_TIMEOUT:
+            [self setText:@"对方已结束通话"];
+            break;
+        case TILCALL_END_PEER_HANGUP:
+            [self setText:@"对方已挂断"];
+            break;
+        default:
+            break;
+    }
+    [self selfDismiss];
+    
+    [FLFlippedCallsService quitFlippedCallWithSuccessBlock:^{
+        
+    } failBlock:^(NSError *error) {
+        
+    }];
+}
 
 #pragma mark - 设备操作（使用ILiveRoomManager接口，也可以使用TILCallSDK接口）
 - (IBAction)closeCamera:(id)sender {

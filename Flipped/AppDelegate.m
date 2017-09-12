@@ -50,8 +50,8 @@
     
     FLVideoMainViewController *videoViewController = [[FLVideoMainViewController alloc] init];
     self.videoNav = [[UINavigationController alloc] initWithRootViewController:videoViewController];
-    UIImage *videoImage = [[UIImage imageNamed:@"comm_tab_square"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    UIImage *videoImageSelected = [[UIImage imageNamed:@"comm_tab_square_selected"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIImage *videoImage = [[UIImage imageNamed:@"comm_tab_video"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIImage *videoImageSelected = [[UIImage imageNamed:@"comm_tab_video_selected"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     UITabBarItem *videoTabBarItem = [[UITabBarItem alloc] initWithTitle:@"配聊" image:videoImage selectedImage:videoImageSelected];
     videoViewController.tabBarItem = videoTabBarItem;
     
