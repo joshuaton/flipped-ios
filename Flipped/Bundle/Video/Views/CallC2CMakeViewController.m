@@ -251,25 +251,31 @@
 //    [self setEnableButton:YES];
 //}
 //
-//- (void)onCallEnd:(TILCallEndCode)code{
-//    switch (code) {
-//        case TILCALL_END_SPONSOR_TIMEOUT:
-//            [self setText:@"对方没有接听"];
-//            break;
-//        case TILCALL_END_RESPONDER_REFUSE:
-//            [self setText:@"接受方已拒绝"];
-//            break;
-//        case TILCALL_END_PEER_HANGUP:
-//            [self setText:@"对方已挂断"];
-//            break;
-//        case TILCALL_END_RESPONDER_LINEBUSY:
-//            [self setText:@"对方正忙"];
-//            break;
-//        default:
-//            break;
-//    }
-//    [self selfDismiss];
-//}
+- (void)onCallEnd:(TILCallEndCode)code{
+    switch (code) {
+        case TILCALL_END_SPONSOR_TIMEOUT:
+            [self setText:@"对方没有接听"];
+            break;
+        case TILCALL_END_RESPONDER_REFUSE:
+            [self setText:@"接受方已拒绝"];
+            break;
+        case TILCALL_END_PEER_HANGUP:
+            [self setText:@"对方已挂断"];
+            break;
+        case TILCALL_END_RESPONDER_LINEBUSY:
+            [self setText:@"对方正忙"];
+            break;
+        default:
+            break;
+    }
+    [self selfDismiss];
+    
+    [FLFlippedCallsService quitFlippedCallWithSuccessBlock:^{
+        
+    } failBlock:^(NSError *error) {
+        
+    }];
+}
 
 
 
