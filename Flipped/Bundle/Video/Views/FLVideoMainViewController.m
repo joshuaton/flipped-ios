@@ -92,13 +92,14 @@ typedef NS_ENUM(NSInteger, MatchStatus) {
                     [self statusChanged:MatchStatusFailed];
                 });
             }else if(uid.length > 0){
-                [self statusChanged:MatchStatusSuccess];
+                [self statusChanged:MatchStatusDefault];
                 
                 NSString *peerId = uid;
                 UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
                 CallC2CMakeViewController *make = [storyboard instantiateViewControllerWithIdentifier:@"CallC2CMakeViewController"];
                 make.peerId = peerId;
                 [self presentViewController:make animated:YES completion:nil];
+                
             }
         } failBlock:^(NSError *error) {
             NSLog(@"junshao error");
@@ -174,13 +175,14 @@ typedef NS_ENUM(NSInteger, MatchStatus) {
 
 - (void)onC2CCallInvitation:(TILCallInvitation *)invitation{
     
-    self.tipsLabel.text = @"";
+    [self statusChanged:MatchStatusDefault];
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     CallC2CRecvViewController *call = [storyboard instantiateViewControllerWithIdentifier:@"CallC2CRecvViewController"];
     call.invite = invitation;
     UINavigationController *nav = (UINavigationController*)[UIApplication sharedApplication].delegate.window.rootViewController;
     [nav presentViewController:call animated:YES completion:nil];
+    
 }
 
 - (void)onMultiCallInvitation:(TILCallInvitation *)invitation{

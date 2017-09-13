@@ -128,11 +128,11 @@
         for (TILCallMember *member in members) {
             NSString *identifier = member.identifier;
             if([identifier isEqualToString:_myId]){
-                [_call addRenderFor:_myId atFrame:self.view.bounds];
-                [_call sendRenderViewToBack:_myId];
+                [_call addRenderFor:_myId atFrame:CGRectMake(20, 20, 120, 160)];
             }
             else{
-                [_call addRenderFor:identifier atFrame:CGRectMake(20, 20, 120, 160)];
+                [_call addRenderFor:identifier atFrame:self.view.bounds];
+                [_call sendRenderViewToBack:identifier];
             }
         }
     }
