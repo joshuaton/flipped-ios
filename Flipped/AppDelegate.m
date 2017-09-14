@@ -37,6 +37,7 @@
     
     [MTA startWithAppkey:@"I82NYP3VM7PZ"];
     [WXApi registerApp:@"wxf72f0e149d736899"];
+    [[ILiveSDK getInstance] initSdk:1400038614 accountType:14999];
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     

@@ -14,9 +14,8 @@
 
 +(void)login{
     
-    [[ILiveSDK getInstance] initSdk:1400038614 accountType:14999];
     
-    if(![[FLUserInfoManager sharedUserInfoManager] checkLogin]){
+    if(![[FLUserInfoManager sharedUserInfoManager] isLogin]){
         return;
     }
     

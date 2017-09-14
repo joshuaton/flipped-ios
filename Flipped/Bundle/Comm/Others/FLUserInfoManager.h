@@ -14,7 +14,8 @@
 @property (nonatomic, copy) NSString *uid;
 
 +(FLUserInfoManager *)sharedUserInfoManager;
--(BOOL)checkLogin;
+-(BOOL)checkLogin; //判断登录，未登录弹出登录页
+-(BOOL)isLogin; //只判断登录
 +(BOOL)isTestAccount:(NSString *)account;
 
 @end
