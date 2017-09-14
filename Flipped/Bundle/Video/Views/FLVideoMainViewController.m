@@ -31,6 +31,7 @@ typedef NS_ENUM(NSInteger, MatchStatus) {
 @property (nonatomic, strong) LOTAnimationView *animation;
 
 @property (nonatomic, assign) NSInteger status;
+@property (nonatomic, strong) NSTimer *timer;
 
 
 
@@ -63,6 +64,12 @@ typedef NS_ENUM(NSInteger, MatchStatus) {
     [self statusChanged:MatchStatusDefault];
 }
 
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    
+    [self statusChanged:MatchStatusDefault];
+}
+
 
 
 #pragma mark - action
@@ -81,16 +88,14 @@ typedef NS_ENUM(NSInteger, MatchStatus) {
         [FLFlippedCallsService getFlippedCallWithSuccessBlock:^(NSString *uid, NSInteger callTimeout, NSInteger wait_timeout) {
             
             NSLog(@"junshao match uid %@", uid);
-            NSLog(@"junshao callTimeout %ld", callTimeout);
-            NSLog(@"junshao wait_timeout %ld", wait_timeout);
+            NSLog(@"junshao callTimeout %ld", (long)callTimeout);
+            NSLog(@"junshao wait_timeout %ld", (long)wait_timeout);
             
             //没有匹配到，监听秒数为callTimeout
             if(wait_timeout > 0){
                 [self statusChanged:MatchStatusMatching];
                 
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(wait_timeout * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                    [self statusChanged:MatchStatusFailed];
-                });
+                self.timer = [NSTimer scheduledTimerWithTimeInterval:wait_timeout target:self selector:@selector(matchFailed) userInfo:nil repeats:NO];
             }else if(uid.length > 0){
                 [self statusChanged:MatchStatusDefault];
                 
@@ -112,11 +117,16 @@ typedef NS_ENUM(NSInteger, MatchStatus) {
 
 #pragma mark - private
 
+-(void)matchFailed{
+    [self statusChanged:MatchStatusFailed];
+}
+
 -(void)statusChanged:(MatchStatus)status{
     
     self.status = status;
     
     if(status == MatchStatusDefault){
+        [self.timer invalidate];
         
         self.matchTipImageView.hidden = NO;
         [self.animation removeFromSuperview];
@@ -170,6 +180,8 @@ typedef NS_ENUM(NSInteger, MatchStatus) {
     }
     
 }
+
+
 
 #pragma mark - TILCallIncomingCallListener
 
