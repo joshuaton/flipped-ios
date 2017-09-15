@@ -18,6 +18,7 @@
 
 @property (nonatomic, strong) FLCopyLabel *contentLabel;
 @property (nonatomic, strong) UILabel *sendLabel;
+@property (nonatomic, strong) UILabel *commentNumLabel;
 @property (nonatomic, strong) UILabel *statusLabel;
 @property (nonatomic, strong) UIView *lineView;
 @property (nonatomic, strong) UILabel *distanceLabel;
@@ -39,6 +40,7 @@
     self.contentLabel.text = textContent;
     [UILabel changeLineSpaceForLabel:self.contentLabel WithSpace:4.0];
     self.sendLabel.text = [NSString stringWithFormat:@"发送给：%@", data.sendto];
+    self.commentNumLabel.text = [NSString stringWithFormat:@"评论%ld条", data.commentnum];
     
     self.lineView.hidden = YES;
     self.backgroundColor = COLOR_W;
@@ -97,10 +99,16 @@
         make.bottom.lessThanOrEqualTo(self.sendLabel.superview).offset(-10);
     }];
     
-    [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.commentNumLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.sendLabel);
         make.left.equalTo(self.sendLabel.mas_right).offset(5);
         make.bottom.equalTo(self.sendLabel);
+    }];
+    
+    [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.commentNumLabel);
+        make.left.equalTo(self.commentNumLabel.mas_right).offset(5);
+        make.bottom.equalTo(self.commentNumLabel);
         make.width.equalTo(@1);
     }];
     
@@ -124,10 +132,6 @@
         _contentLabel.numberOfLines = 5;
         _contentLabel.font = FONT_L;
         _contentLabel.textColor = COLOR_H1;
-        
-        
-
-        
         [self.contentView addSubview:_contentLabel];
     }
     return _contentLabel;
@@ -141,6 +145,16 @@
         [self.contentView addSubview:_sendLabel];
     }
     return _sendLabel;
+}
+
+-(UILabel *)commentNumLabel{
+    if(!_commentNumLabel){
+        _commentNumLabel = [[UILabel alloc] init];
+        _commentNumLabel.font = FONT_M;
+        _commentNumLabel.textColor = COLOR_H2;
+        [self.contentView addSubview:_commentNumLabel];
+    }
+    return _commentNumLabel;
 }
 
 -(UILabel *)statusLabel{
