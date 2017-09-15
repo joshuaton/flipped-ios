@@ -39,7 +39,7 @@
     }
     self.contentLabel.text = textContent;
     [UILabel changeLineSpaceForLabel:self.contentLabel WithSpace:4.0];
-    self.sendLabel.text = [NSString stringWithFormat:@"发送给：%@", data.sendto];
+    self.sendLabel.text = [NSString stringWithFormat:@"发送给:%@", data.sendto];
     self.commentNumLabel.text = [NSString stringWithFormat:@"评论%ld条", data.commentnum];
     
     self.lineView.hidden = YES;
