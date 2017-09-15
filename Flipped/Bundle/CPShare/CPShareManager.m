@@ -45,7 +45,7 @@ NSInteger callLoginType;
 
 - (void)share:(CPShareEntity*)entity toPlat:(SharePlat)sharePlat shareCompletionBlock:(ShareCompletionBlock)completionBlock {
     if (entity.previewImageUrl.length == 0) {
-        entity.previewImageUrl = @"https://campus-10046755.file.myqcloud.com/logo/logo.png";
+        entity.previewImageUrl = @"https://flipped-1251789367.cosgz.myqcloud.com/images/logo180.png";
     }
     
     self.completionBlock = completionBlock;
