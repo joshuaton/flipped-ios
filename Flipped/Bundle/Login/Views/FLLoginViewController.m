@@ -31,13 +31,24 @@
 -(void)viewDidLoad{
     
     [super viewDidLoad];
-        
+    
+    //清空本地登录数据
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSDictionary *dic = [defaults dictionaryRepresentation];
     for (id  key in dic) {
+        if([key isEqualToString:@"splashShowed"]){
+            continue;
+        }
         [defaults removeObjectForKey:key];
     }
     [defaults synchronize];
+    
+    //登出视频sdk
+    [[ILiveLoginManager getInstance] iLiveLogout:^{
+        
+    } failed:^(NSString *module, int errId, NSString *errMsg) {
+        
+    }];
     
     self.title = @"请登录";
     [self configLeftNavigationItemWithTitle:@"关闭" image:nil action:@selector(closeBtnClick)];

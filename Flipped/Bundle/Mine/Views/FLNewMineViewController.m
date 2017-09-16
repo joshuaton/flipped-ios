@@ -9,7 +9,6 @@
 #import "FLNewMineViewController.h"
 #import "Masonry.h"
 #import "UIColor+HexColor.h"
-#import "FLMineViewController.h"
 #import "FLHelpViewController.h"
 #import "FLLoginViewController.h"
 #import "FLFeedbackViewController.h"
@@ -47,20 +46,16 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 3;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     switch (section) {
         case 0:{
-            return 1;
-            break;
-        }
-        case 1:{
             return 2;
             break;
         }
-        case 2:{
+        case 1:{
             return 1;
             break;
         }
@@ -77,11 +72,6 @@
     switch (indexPath.section) {
         case 0:
         {
-            cell.textLabel.text = @"我的心动话";
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            break;
-        }case 1:
-        {
             if(indexPath.row == 0){
                 cell.textLabel.text = @"使用帮助";
                 cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -91,7 +81,7 @@
             }
             break;
         }
-        case 2:
+        case 1:
         {
             cell.textLabel.text = @"退出登录";
             cell.accessoryType = UITableViewCellAccessoryNone;
@@ -112,17 +102,8 @@
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
     switch (indexPath.section) {
+
         case 0:
-        {
-            if(![[FLUserInfoManager sharedUserInfoManager] checkLogin]){
-                return;
-            }
-            FLMineViewController *vc = [[FLMineViewController alloc] init];
-            vc.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:vc animated:YES];
-            break;
-        }
-        case 1:
         {
             if(indexPath.row == 0){
                 FLHelpViewController *vc = [[FLHelpViewController alloc] init];
@@ -141,7 +122,7 @@
 
             break;
         }
-        case 2:
+        case 1:
         {
             [self.navigationController.tabBarController setSelectedIndex:0];
             [FLLoginViewController present];

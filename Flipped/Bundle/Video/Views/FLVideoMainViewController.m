@@ -27,6 +27,7 @@ typedef NS_ENUM(NSInteger, MatchStatus) {
 
 @property (nonatomic, strong) UIImageView *matchTipImageView;
 @property (nonatomic, strong) UIButton *matchButton;
+@property (nonatomic, strong) UIButton *cancelButton;
 @property (nonatomic, strong) UILabel *tipsLabel;
 @property (nonatomic, strong) LOTAnimationView *animation;
 
@@ -56,6 +57,15 @@ typedef NS_ENUM(NSInteger, MatchStatus) {
         make.height.equalTo(@50);
     }];
     
+    [self.cancelButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.matchButton);
+        make.left.equalTo(self.matchButton);
+        make.bottom.equalTo(self.matchButton);
+        make.right.equalTo(self.matchButton);
+        make.width.equalTo(self.matchButton);
+        make.height.equalTo(self.matchButton);
+    }];
+    
     [self.matchTipImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.matchTipImageView.superview);
         make.top.equalTo(@(200*SCREEN_SCALE_HEIGHT));
@@ -75,44 +85,45 @@ typedef NS_ENUM(NSInteger, MatchStatus) {
 #pragma mark - action
 
 -(void)matchBtnClick{
+    [self statusChanged:MatchStatusMatching];
     
-    if(self.status == MatchStatusMatching){
+    [FLFlippedCallsService getFlippedCallWithSuccessBlock:^(NSString *uid, NSInteger callTimeout, NSInteger wait_timeout) {
         
-        [self statusChanged:MatchStatusDefault];
-        [FLFlippedCallsService quitFlippedCallWithSuccessBlock:^{
+        NSLog(@"junshao match uid %@", uid);
+        NSLog(@"junshao callTimeout %ld", (long)callTimeout);
+        NSLog(@"junshao wait_timeout %ld", (long)wait_timeout);
+        
+        //没有匹配到，监听秒数为callTimeout
+        if(wait_timeout > 0){
+            [self statusChanged:MatchStatusMatching];
             
-        } failBlock:^(NSError *error) {
+            self.timer = [NSTimer scheduledTimerWithTimeInterval:wait_timeout target:self selector:@selector(matchFailed) userInfo:nil repeats:NO];
+        }
+        //匹配到，拉起视频
+        else if(uid.length > 0){
+            [self statusChanged:MatchStatusDefault];
             
-        }];
-    }else{
-        [FLFlippedCallsService getFlippedCallWithSuccessBlock:^(NSString *uid, NSInteger callTimeout, NSInteger wait_timeout) {
+            NSString *peerId = uid;
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            CallC2CMakeViewController *make = [storyboard instantiateViewControllerWithIdentifier:@"CallC2CMakeViewController"];
+            make.peerId = peerId;
+            [self presentViewController:make animated:YES completion:nil];
             
-            NSLog(@"junshao match uid %@", uid);
-            NSLog(@"junshao callTimeout %ld", (long)callTimeout);
-            NSLog(@"junshao wait_timeout %ld", (long)wait_timeout);
-            
-            //没有匹配到，监听秒数为callTimeout
-            if(wait_timeout > 0){
-                [self statusChanged:MatchStatusMatching];
-                
-                self.timer = [NSTimer scheduledTimerWithTimeInterval:wait_timeout target:self selector:@selector(matchFailed) userInfo:nil repeats:NO];
-            }else if(uid.length > 0){
-                [self statusChanged:MatchStatusDefault];
-                
-                NSString *peerId = uid;
-                UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-                CallC2CMakeViewController *make = [storyboard instantiateViewControllerWithIdentifier:@"CallC2CMakeViewController"];
-                make.peerId = peerId;
-                [self presentViewController:make animated:YES completion:nil];
-                
-            }
-        } failBlock:^(NSError *error) {
-            NSLog(@"junshao error");
-            [self statusChanged:MatchStatusFailed];
-        }];
-    }
+        }
+    } failBlock:^(NSError *error) {
+        NSLog(@"junshao error");
+        [self statusChanged:MatchStatusFailed];
+    }];
+}
+
+-(void)cancelBtnClick{
     
-    
+    [self statusChanged:MatchStatusDefault];
+    [FLFlippedCallsService quitFlippedCallWithSuccessBlock:^{
+        
+    } failBlock:^(NSError *error) {
+        
+    }];
 }
 
 #pragma mark - private
@@ -127,61 +138,66 @@ typedef NS_ENUM(NSInteger, MatchStatus) {
     
     if(status == MatchStatusDefault){
         [self.timer invalidate];
-        
         self.matchTipImageView.hidden = NO;
+        self.matchButton.hidden = NO;
+        self.cancelButton.hidden = YES;
+        self.tipsLabel.text = @"点击开始匹配心动的Ta";
+        
         [self.animation removeFromSuperview];
         self.animation = nil;
-        self.tipsLabel.text = @"点击开始匹配心动的Ta";
-        [self.matchButton setTitle:@"点击匹配" forState:UIControlStateNormal];
         
         [[TILCallManager sharedInstance] setIncomingCallListener:nil];
         
     }else if(status == MatchStatusMatching){
         
+        self.matchButton.hidden = YES;
+        self.cancelButton.hidden = NO;
         self.matchTipImageView.hidden = YES;
-        self.animation = [LOTAnimationView animationNamed:@"like"];
-        self.animation.loopAnimation = YES;
-        [self.view addSubview:self.animation];
-        [self.animation playWithCompletion:^(BOOL animationFinished) {
-            // Do Something
-        }];
         self.tipsLabel.text = @"正在匹配中...";
-        [self.matchButton setTitle:@"退出匹配" forState:UIControlStateNormal];
         
-        [self.animation mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.center.equalTo(self.matchTipImageView);
-            make.left.equalTo(@(35*SCREEN_SCALE_WIDTH));
-            make.right.equalTo(@(-35*SCREEN_SCALE_WIDTH));
-            make.height.equalTo(self.animation.mas_width);
-        }];
-        
+        if(self.animation == nil){
+            self.animation = [LOTAnimationView animationNamed:@"like"];
+            self.animation.loopAnimation = YES;
+            [self.view addSubview:self.animation];
+            [self.animation playWithCompletion:^(BOOL animationFinished) {
+                // Do Something
+            }];
+            
+            [self.animation mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.center.equalTo(self.matchTipImageView);
+                make.left.equalTo(@(35*SCREEN_SCALE_WIDTH));
+                make.right.equalTo(@(-35*SCREEN_SCALE_WIDTH));
+                make.height.equalTo(self.animation.mas_width);
+            }];
+        }
+       
         [[TILCallManager sharedInstance] setIncomingCallListener:self];
         
     }else if(status == MatchStatusSuccess){
         
+        self.matchButton.hidden = NO;
+        self.cancelButton.hidden = YES;
         self.matchTipImageView.hidden = NO;
+        self.tipsLabel.text = @"点击开始匹配心动的Ta";
+
         [self.animation removeFromSuperview];
         self.animation = nil;
-        self.tipsLabel.text = @"点击开始匹配心动的Ta";
-        [self.matchButton setTitle:@"点击匹配" forState:UIControlStateNormal];
         
         [[TILCallManager sharedInstance] setIncomingCallListener:nil];
         
     }else if(status == MatchStatusFailed){
         
+        self.matchButton.hidden = NO;
+        self.cancelButton.hidden = YES;
         self.matchTipImageView.hidden = NO;
+        self.tipsLabel.text = @"没有匹配到，点击重新匹配";
+        
         [self.animation removeFromSuperview];
         self.animation = nil;
-        self.tipsLabel.text = @"没有匹配到，点击重新匹配";
-        [self.matchButton setTitle:@"点击匹配" forState:UIControlStateNormal];
         
         [[TILCallManager sharedInstance] setIncomingCallListener:nil];
-
     }
-    
 }
-
-
 
 #pragma mark - TILCallIncomingCallListener
 
@@ -223,6 +239,20 @@ typedef NS_ENUM(NSInteger, MatchStatus) {
         [self.view addSubview:_matchButton];
     }
     return _matchButton;
+}
+
+-(UIButton *)cancelButton{
+    if(!_cancelButton){
+        _cancelButton = [[UIButton alloc] init];
+        [_cancelButton setTitle:@"退出匹配" forState:UIControlStateNormal];
+        _cancelButton.backgroundColor = COLOR_M;
+        _cancelButton.titleLabel.font = FONT_L;
+        _cancelButton.layer.cornerRadius = 4;
+        [_cancelButton setTitleColor:COLOR_W forState:UIControlStateNormal];
+        [_cancelButton addTarget:self action:@selector(cancelBtnClick) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:_cancelButton];
+    }
+    return _cancelButton;
 }
 
 -(UILabel *)tipsLabel{

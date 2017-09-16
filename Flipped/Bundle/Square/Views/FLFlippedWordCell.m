@@ -18,9 +18,10 @@
 
 @property (nonatomic, strong) FLCopyLabel *contentLabel;
 @property (nonatomic, strong) UILabel *sendLabel;
+@property (nonatomic, strong) UIView *lineView1;
 @property (nonatomic, strong) UILabel *commentNumLabel;
-@property (nonatomic, strong) UILabel *statusLabel;
 @property (nonatomic, strong) UIView *lineView;
+@property (nonatomic, strong) UILabel *statusLabel;
 @property (nonatomic, strong) UILabel *distanceLabel;
 @property (nonatomic, strong) UIImageView *picImageView;
 
@@ -40,7 +41,7 @@
     self.contentLabel.text = textContent;
     [UILabel changeLineSpaceForLabel:self.contentLabel WithSpace:4.0];
     self.sendLabel.text = [NSString stringWithFormat:@"发送给:%@", data.sendto];
-    self.commentNumLabel.text = [NSString stringWithFormat:@"评论%ld条", data.commentnum];
+    self.commentNumLabel.text = [NSString stringWithFormat:@"%ld条评论", data.commentnum];
     
     self.lineView.hidden = YES;
     self.backgroundColor = COLOR_W;
@@ -99,10 +100,17 @@
         make.bottom.lessThanOrEqualTo(self.sendLabel.superview).offset(-10);
     }];
     
-    [self.commentNumLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.lineView1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.sendLabel);
         make.left.equalTo(self.sendLabel.mas_right).offset(5);
         make.bottom.equalTo(self.sendLabel);
+        make.width.equalTo(@1);
+    }];
+    
+    [self.commentNumLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.lineView1);
+        make.left.equalTo(self.lineView1.mas_right).offset(5);
+        make.bottom.equalTo(self.lineView1);
     }];
     
     [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -145,6 +153,15 @@
         [self.contentView addSubview:_sendLabel];
     }
     return _sendLabel;
+}
+
+-(UIView *)lineView1{
+    if(!_lineView1){
+        _lineView1 = [[UIView alloc] init];
+        _lineView1.backgroundColor = COLOR_H4;
+        [self.contentView addSubview:_lineView1];
+    }
+    return _lineView1;
 }
 
 -(UILabel *)commentNumLabel{

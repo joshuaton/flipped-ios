@@ -77,11 +77,11 @@
     NSTimeInterval nowtime = [[NSDate date] timeIntervalSince1970]*1000;
     long long theTime = [[NSNumber numberWithDouble:nowtime] longLongValue];
     NSString *ts = [NSString stringWithFormat:@"%llu",theTime];
-    NSLog(@"ts: %@", ts);
+//    NSLog(@"ts: %@", ts);
     
     //随机值rd
     NSInteger rd = arc4random() % 10000;
-    NSLog(@"rd: %ld", (long)rd);
+//    NSLog(@"rd: %ld", (long)rd);
     
     //请求uri
     NSString *uri = [NSString stringWithFormat:@"/%@", urlStr];
@@ -97,14 +97,14 @@
     
     //key
     NSString *key = [defaults objectForKey:@"key"];
-    NSLog(@"hmacsha1 key: %@", key);
+//    NSLog(@"hmacsha1 key: %@", key);
     if(!key || key.length == 0){
         return;
     }
     
     //计算signature = base64(hmacsha1(key, phone + ts + rd + method + uri + body))
     NSString *str = [NSString stringWithFormat:@"%@%@%ld%@%@%@", uid, ts, (long)rd, method, uri, body];
-    NSLog(@"hmacsha1 value: %@", str);
+//    NSLog(@"hmacsha1 value: %@", str);
     NSString *signature = [self hmacSha1AndBase64:key text:str];
     
     //计算token = base64(jsonencode({"ts": ts, "rd": rd, "sign": signature}))
@@ -115,10 +115,10 @@
     
     NSData *data=[NSJSONSerialization dataWithJSONObject:dict options:0 error:nil];
     NSString *json=[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    NSLog(@"json: %@", json);
+//    NSLog(@"json: %@", json);
     
     NSString *token = [json base64EncodedString];
-    NSLog(@"token: %@", token);
+//    NSLog(@"token: %@", token);
     
     [self.requestSerializer setValue:token forHTTPHeaderField:@"Authorization"];
 }

@@ -9,7 +9,6 @@
 #import "MTA.h"
 #import "AppDelegate.h"
 #import "FLSquareViewController.h"
-#import "FLMineViewController.h"
 #import "FLUserInfoManager.h"
 #import "FLNewMineViewController.h"
 #import "UIColor+HexColor.h"
@@ -46,7 +45,7 @@
     
     UIImage *squareImage = [[UIImage imageNamed:@"comm_tab_square"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     UIImage *squareImageSelected = [[UIImage imageNamed:@"comm_tab_square_selected"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    UITabBarItem *squareTabBarItem = [[UITabBarItem alloc] initWithTitle:@"广场" image:squareImage selectedImage:squareImageSelected];
+    UITabBarItem *squareTabBarItem = [[UITabBarItem alloc] initWithTitle:@"爱要说" image:squareImage selectedImage:squareImageSelected];
     squareViewController.tabBarItem = squareTabBarItem;
     
     FLVideoMainViewController *videoViewController = [[FLVideoMainViewController alloc] init];

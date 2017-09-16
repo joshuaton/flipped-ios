@@ -12,6 +12,7 @@
 #import "MJRefresh.h"
 #import "Masonry.h"
 #import "FLFlippedDetailViewController.h"
+#import "FLUserInfoManager.h"
 
 @interface FLFlippedListViewController() <UITableViewDataSource, UITableViewDelegate>
 
@@ -37,6 +38,12 @@
     [super viewWillAppear:animated];
     
     [self makeConstraints];
+    
+    //如果没有登录不加载数据
+    if(![[FLUserInfoManager sharedUserInfoManager] isLogin] && self.listType != FLFlippedListTypeSquare){
+        [self showEmptyLabel:@"请登录后查看"];
+        return;
+    }
     
     if(!self.isLoaded){
         [self loadData];
@@ -117,11 +124,11 @@
 
 -(void)showData{
     if(self.flippedWords.count == 0){
-        self.emptyLabel.hidden = NO;
+        [self showEmptyLabel:@"暂无数据"];
         self.tableView.hidden = YES;
     }else{
         self.emptyLabel.hidden = YES;
-        self.tableView.hidden = NO;
+        [self hideEmptyLabel];
         [self.tableView reloadData];
     }
     
@@ -134,6 +141,15 @@
 -(void)endRefresh{
     [self.tableView.mj_header endRefreshing];
     [self.tableView.mj_footer endRefreshing];
+}
+
+-(void)showEmptyLabel:(NSString *)text{
+    self.emptyLabel.hidden = NO;
+    self.emptyLabel.text = text;
+}
+
+-(void)hideEmptyLabel{
+    self.emptyLabel.hidden = YES;
 }
 
 #pragma mark - notification

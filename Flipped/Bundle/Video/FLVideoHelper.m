@@ -9,6 +9,7 @@
 #import "FLVideoHelper.h"
 #import "FLUserInfoManager.h"
 #import "FLVideoService.h"
+#import "FLToast.h"
 
 @implementation FLVideoHelper
 
@@ -24,7 +25,7 @@
         [[ILiveLoginManager getInstance] iLiveLogin:[FLUserInfoManager sharedUserInfoManager].uid sig:sig succ:^{
             NSLog(@"-----> video login succ");
         } failed:^(NSString *module, int errId, NSString *errMsg) {
-            NSLog(@"-----> video login fail %@,%d,%@",module,errId,errMsg);
+            [FLToast showToast:[NSString stringWithFormat:@"video login fail %@,%d,%@", module,errId,errMsg]];
         }];
     } failBlock:^(NSError *error) {
         
