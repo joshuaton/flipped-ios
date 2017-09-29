@@ -17,14 +17,17 @@
 #import "WXApi.h"
 #import "FLVideoService.h"
 #import "FLVideoHelper.h"
+#import <MapKit/MapKit.h>
 
-@interface AppDelegate () <UITabBarControllerDelegate>
+@interface AppDelegate () <UITabBarControllerDelegate, CLLocationManagerDelegate>
 
 @property (nonatomic, strong) FLSplashViewController *splashViewController;
 @property (nonatomic, strong) UITabBarController *tabBarController;
 @property (nonatomic, strong) UINavigationController *squareNav;
 @property (nonatomic, strong) UINavigationController *videoNav;
 @property (nonatomic, strong) UINavigationController *mineNav;
+
+@property (nonatomic, strong) CLLocationManager *locationManager;
 
 @end
 
@@ -45,7 +48,7 @@
     
     UIImage *squareImage = [[UIImage imageNamed:@"comm_tab_square"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     UIImage *squareImageSelected = [[UIImage imageNamed:@"comm_tab_square_selected"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    UITabBarItem *squareTabBarItem = [[UITabBarItem alloc] initWithTitle:@"爱要说" image:squareImage selectedImage:squareImageSelected];
+    UITabBarItem *squareTabBarItem = [[UITabBarItem alloc] initWithTitle:@"表白墙" image:squareImage selectedImage:squareImageSelected];
     squareViewController.tabBarItem = squareTabBarItem;
     
     FLVideoMainViewController *videoViewController = [[FLVideoMainViewController alloc] init];
@@ -99,6 +102,8 @@
     
     [FLVideoHelper login];
     
+    [self startLocation];
+    
     return YES;
 }
 
@@ -130,6 +135,57 @@
 }
 
 #pragma mark - private
+
+-(void)startLocation{
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    self.locationManager.distanceFilter = 100.0f;
+    if ([[[UIDevice currentDevice ]systemVersion] doubleValue] >8.0){
+        [self.locationManager requestWhenInUseAuthorization];
+    }
+    [self.locationManager startUpdatingLocation];
+}
+
+
+
+#pragma mark - CLLocationManagerDelegate
+
+- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
+    switch (status) {
+            
+        case kCLAuthorizationStatusNotDetermined:
+            if ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
+                [self.locationManager requestWhenInUseAuthorization];
+            }break;
+        default:break;
+    }
+}
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
+    if ([error code] == kCLErrorDenied) {
+        NSLog(@"访问被拒绝");
+    }
+    if ([error code] == kCLErrorLocationUnknown) {
+        NSLog(@"无法获取位置信息");
+    }
+}
+//定位代理经纬度回调
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
+    CLLocation *newLocation = locations[0];
+    
+    CLLocationCoordinate2D oldCoordinate = newLocation.coordinate;
+    
+    NSLog(@"旧的经度：%f,旧的纬度：%f",oldCoordinate.longitude,oldCoordinate.latitude);
+    
+    [FLUserInfoManager sharedUserInfoManager].lng = oldCoordinate.longitude;
+    [FLUserInfoManager sharedUserInfoManager].lat = oldCoordinate.latitude;
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_LOCATION_SUCCESS object:self userInfo:nil];
+    
+    //系统会一直更新数据，直到选择停止更新，因为我们只需要获得一次经纬度即可，所以获取之后就停止更新
+    [manager stopUpdatingLocation];
+}
 
 #pragma mark - UITabBarControllerDelegate
 - (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController{
