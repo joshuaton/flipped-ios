@@ -18,9 +18,8 @@
 @interface FLPostViewController() <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 @property (nonatomic, strong) UILabel *tipsLabel;
-@property (nonatomic, strong) UILabel *phoneNumLabel;
 @property (nonatomic, strong) UITextField *phoneNumTextField;
-@property (nonatomic, strong) UILabel *contentLabel;
+@property (nonatomic, strong) UIView *lineView;
 @property (nonatomic, strong) UITextView *contentTextView;
 @property (nonatomic, strong) UIView *addPicView;
 @property (nonatomic, strong) UIImageView *addPicImageView;
@@ -47,7 +46,7 @@
 -(void)viewDidLoad{
     [super viewDidLoad];
 
-    self.title = @"发布动心话";
+    self.title = @"发布到表白墙";
     [self configRightNavigationItemWithTitle:@"发布" image:nil action:@selector(postBtnDidClick)];
     [self configLeftNavigationItemWithTitle:@"关闭" image:nil action:@selector(closeBtnDidClick)];
     
@@ -74,28 +73,23 @@
         make.centerX.equalTo(self.tipsLabel.superview);
     }];
     
-    [self.phoneNumLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.tipsLabel.mas_bottom).offset(20);
-        make.left.equalTo(self.phoneNumLabel.superview).offset(10);
-        make.right.equalTo(self.phoneNumLabel.superview).offset(-10);
-    }];
-    
     [self.phoneNumTextField mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.phoneNumLabel.mas_bottom).offset(5);
+        make.top.equalTo(self.tipsLabel.mas_bottom).offset(25);
         make.left.equalTo(self.phoneNumTextField.superview).offset(10);
         make.right.equalTo(self.phoneNumTextField.superview).offset(-10);
     }];
     
-    [self.contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.phoneNumTextField.mas_bottom).offset(10);
+    [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.phoneNumTextField.mas_bottom).offset(5+8);//8是文字离边框的距离
         make.left.equalTo(self.phoneNumTextField);
         make.right.equalTo(self.phoneNumTextField);
+        make.height.equalTo(@1);
     }];
     
     [self.contentTextView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.contentLabel.mas_bottom).offset(5);
-        make.left.equalTo(self.contentLabel);
-        make.right.equalTo(self.contentLabel);
+        make.top.equalTo(self.lineView.mas_bottom).offset(5);
+        make.left.equalTo(self.phoneNumTextField);
+        make.right.equalTo(self.phoneNumTextField);
         make.height.equalTo(@100);
     }];
     
@@ -108,12 +102,12 @@
     
     [self.addPicImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.addPicImageView.superview);
-        make.centerX.equalTo(self.addPicImageView.superview);
+        make.left.equalTo(self.contentTextView);
     }];
     
     [self.addPicLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.addPicImageView.mas_bottom);
-        make.centerX.equalTo(self.addPicImageView.mas_centerX);
+        make.top.equalTo(self.addPicImageView.mas_bottom).offset(5);
+        make.centerX.equalTo(self.addPicImageView);
     }];
     
     [self.selectedImageView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -302,56 +296,66 @@
 -(UILabel *)tipsLabel{
     if(!_tipsLabel){
         _tipsLabel = [[UILabel alloc] init];
-        _tipsLabel.text = @"对Ta说出心动的话";
-        _tipsLabel.font = FONT_L;
-        _tipsLabel.textColor = COLOR_H1;
+        _tipsLabel.text = @"对Ta表白，系统会通过短信匿名通知到Ta";
+        _tipsLabel.font = FONT_M;
+        _tipsLabel.textColor = COLOR_H2;
         [self.view addSubview:_tipsLabel];
     }
     return _tipsLabel;
 }
 
--(UILabel *)phoneNumLabel{
-    if(!_phoneNumLabel){
-        _phoneNumLabel = [[UILabel alloc] init];
-        _phoneNumLabel.text = @"输入Ta的手机";
-        _phoneNumLabel.font = FONT_L;
-        _phoneNumLabel.textColor = COLOR_H1;
-        [self.view addSubview:_phoneNumLabel];
-    }
-    return _phoneNumLabel;
-}
-
 -(UITextField *)phoneNumTextField{
     if(!_phoneNumTextField){
         _phoneNumTextField = [[UITextField alloc] init];
-        _phoneNumTextField.borderStyle = UITextBorderStyleLine;
-        _phoneNumTextField.keyboardType = UIKeyboardTypePhonePad;
         _phoneNumTextField.font = FONT_L;
         _phoneNumTextField.textColor = COLOR_H1;
+        _phoneNumTextField.leftView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 5, 0)];
+        //设置显示模式为永远显示(默认不显示)
+        _phoneNumTextField.leftViewMode = UITextFieldViewModeAlways;
+        
+        NSString *holderText = @"输入Ta的手机号";
+        NSMutableAttributedString *placeholder = [[NSMutableAttributedString alloc] initWithString:holderText];
+        [placeholder addAttribute:NSForegroundColorAttributeName
+                            value:COLOR_H4
+                            range:NSMakeRange(0, holderText.length)];
+        [placeholder addAttribute:NSFontAttributeName
+                            value:FONT_L
+                            range:NSMakeRange(0, holderText.length)];
+        _phoneNumTextField.attributedPlaceholder = placeholder;
+        
         [self.view addSubview:_phoneNumTextField];
     }
     return _phoneNumTextField;
 }
 
--(UILabel *)contentLabel{
-    if(!_contentLabel){
-        _contentLabel = [[UILabel alloc] init];
-        _contentLabel.text = @"想对Ta说的话";
-        _contentLabel.font = FONT_L;
-        _contentLabel.textColor = COLOR_H1;
-        [self.view addSubview:_contentLabel];
+-(UIView *)lineView{
+    if(!_lineView){
+        _lineView = [[UIView alloc] init];
+        _lineView.backgroundColor = COLOR_H4;
+        [self.view addSubview:_lineView];
     }
-    return _contentLabel;
+    return _lineView;
 }
 
 -(UITextView *)contentTextView{
     if(!_contentTextView){
         _contentTextView = [[UITextView alloc] init];
-        _contentTextView.layer.borderWidth = 1;
-        _contentTextView.layer.borderColor = COLOR_H1.CGColor;
         _contentTextView.font = FONT_L;
         _contentTextView.textColor = COLOR_H1;
         [self.view addSubview:_contentTextView];
+        
+        UILabel *placeHolderLabel = [[UILabel alloc] init];
+        placeHolderLabel.text = @"说点什么吧...";
+        placeHolderLabel.numberOfLines = 0;
+        placeHolderLabel.textColor = COLOR_H4;
+        placeHolderLabel.font = FONT_L;
+        [placeHolderLabel sizeToFit];
+        [_contentTextView addSubview:placeHolderLabel];
+        
+        [_contentTextView setValue:placeHolderLabel forKey:@"_placeholderLabel"];
+        
+        [self.view addSubview:_contentTextView];
+
     }
     return _contentTextView;
 }
@@ -380,8 +384,8 @@
     if(!_addPicLabel){
         _addPicLabel = [[UILabel alloc] init];
         _addPicLabel.text = @"添加图片";
-        _addPicLabel.font = FONT_L;
-        _addPicLabel.textColor = COLOR_H1;
+        _addPicLabel.font = FONT_M;
+        _addPicLabel.textColor = COLOR_H2;
         [self.addPicView addSubview:_addPicLabel];
     }
     return _addPicLabel;
