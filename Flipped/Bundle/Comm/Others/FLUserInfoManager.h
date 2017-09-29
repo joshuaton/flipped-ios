@@ -7,11 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
 
 @interface FLUserInfoManager : NSObject
 
 @property (nonatomic, assign) BOOL login;
 @property (nonatomic, copy) NSString *uid;
+@property (nonatomic, assign) double lng;
+@property (nonatomic, assign) double lat;
 
 +(FLUserInfoManager *)sharedUserInfoManager;
 -(BOOL)checkLogin; //判断登录，未登录弹出登录页
