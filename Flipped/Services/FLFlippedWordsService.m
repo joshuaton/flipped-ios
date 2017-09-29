@@ -9,11 +9,18 @@
 #import "FLFlippedWordsService.h"
 #import "FLFlippedWord.h"
 #import "FLComment.h"
+#import <CoreLocation/CoreLocation.h>
+#import "FLUserInfoManager.h"
 
 @implementation FLFlippedWordsService
 
 
 +(void)getNearbyFlippedWordsWithSuccessBlock:(void (^)(NSMutableArray *flippedWords))successBlock failBlock:(void (^)(NSError *error))failedBlock{
+    
+    NSString *url = @"nearby_flippedwords";
+    if([FLUserInfoManager sharedUserInfoManager].lat && [FLUserInfoManager sharedUserInfoManager].lng){
+        url = [NSString stringWithFormat:@"%@?lat=%f&lng=%f", url, [FLUserInfoManager sharedUserInfoManager].lat, [FLUserInfoManager sharedUserInfoManager].lng];
+    }
     
     [[self sharedHttpSessionManager] FLGET:@"nearby_flippedwords" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         
@@ -45,6 +52,11 @@
 
 +(void)getReceiveFlippedWordsWithSuccessBlock:(void (^)(NSMutableArray *flippedWords))successBlock failBlock:(void (^)(NSError *error))failedBlock{
     
+    NSString *url = @"my_flippedwords";
+    if([FLUserInfoManager sharedUserInfoManager].lat && [FLUserInfoManager sharedUserInfoManager].lng){
+        url = [NSString stringWithFormat:@"%@?lat=%f&lng=%f", url, [FLUserInfoManager sharedUserInfoManager].lat, [FLUserInfoManager sharedUserInfoManager].lng];
+    }
+    
     [[self sharedHttpSessionManager] FLGET:@"my_flippedwords" parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id _Nullable responseObject) {
         NSDictionary *result = (NSDictionary *)responseObject;
         NSError *error;
@@ -60,7 +72,11 @@
 
 +(void)publishFlippedWordsWithData:(FLFlippedWord *)data successBlock:(void (^)())successBlock failBlock:(void (^)(NSError *error))failedBlock{
         
-    NSDictionary *dict = [data toDictionary];
+    NSMutableDictionary *dict = [[data toDictionary] mutableCopy];
+    if([FLUserInfoManager sharedUserInfoManager].lat && [FLUserInfoManager sharedUserInfoManager].lng){
+        dict[@"lat"] = @([FLUserInfoManager sharedUserInfoManager].lat);
+        dict[@"lng"] = @([FLUserInfoManager sharedUserInfoManager].lng);
+    }
     
     [[self sharedHttpSessionManager] FLPOST:@"flippedwords" parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id _Nullable error) {
         successBlock();
