@@ -28,11 +28,37 @@ static FLUserInfoManager *userInfoManager;
     return userInfoManager;
 }
 
+#pragma mark - getter & setter
+
 -(NSString *)uid{
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *uid = [defaults objectForKey:@"x-uid"];
     return uid;
 }
+
+-(double)lng{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    double lng = [[defaults objectForKey:@"lng"] doubleValue];
+    return lng;
+}
+
+-(void)setLng:(double)lng{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:@(lng) forKey:@"lng"];
+}
+
+-(double)lat{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    double lat = [[defaults objectForKey:@"lat"] doubleValue];
+    return lat;
+}
+
+-(void)setLat:(double)lat{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:@(lat) forKey:@"lat"];
+}
+
+#pragma mark - public
 
 -(BOOL)isLogin{
     

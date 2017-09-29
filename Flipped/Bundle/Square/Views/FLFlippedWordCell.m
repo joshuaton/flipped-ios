@@ -17,12 +17,10 @@
 @interface FLFlippedWordCell()
 
 @property (nonatomic, strong) FLCopyLabel *contentLabel;
-@property (nonatomic, strong) UILabel *sendLabel;
-@property (nonatomic, strong) UIView *lineView1;
-@property (nonatomic, strong) UILabel *commentNumLabel;
-@property (nonatomic, strong) UIView *lineView;
+@property (nonatomic, strong) UIButton *sendtoButton;
+@property (nonatomic, strong) UIButton *commentNumButton;
 @property (nonatomic, strong) UILabel *statusLabel;
-@property (nonatomic, strong) UILabel *distanceLabel;
+@property (nonatomic, strong) UIButton *distanceButton;
 @property (nonatomic, strong) UIImageView *picImageView;
 
 @end
@@ -40,15 +38,38 @@
     }
     self.contentLabel.text = textContent;
     [UILabel changeLineSpaceForLabel:self.contentLabel WithSpace:4.0];
-    self.sendLabel.text = [NSString stringWithFormat:@"发送给:%@", data.sendto];
-    self.commentNumLabel.text = [NSString stringWithFormat:@"%ld条评论", data.commentnum];
+    [self.sendtoButton setTitle:data.sendto forState:UIControlStateNormal];
+    [self.commentNumButton setTitle:[NSString stringWithFormat:@"%ld", (long)data.commentnum] forState:UIControlStateNormal];
     
-    self.lineView.hidden = YES;
+    //发送的显示已读未读statusLabel
+    if(self.type == FLFlippedListTypeSend){
+        self.distanceButton.hidden = YES;
+        self.statusLabel.hidden = NO;
+    }
+    //其余的显示距离
+    else{
+        self.distanceButton.hidden = NO;
+        self.statusLabel.hidden = YES;
+        
+        NSInteger distance = [data.distance integerValue];
+        if(distance > 0){
+            
+            NSString *distanceStr = @"";
+            if(distance >= 1000){
+                distanceStr = [NSString stringWithFormat:@"%.2fkm", distance/1000.0];
+            }else{
+                distanceStr = [NSString stringWithFormat:@"%ldm", (long)distance];
+            }
+            [self.distanceButton setTitle:distanceStr forState:UIControlStateNormal];
+            self.distanceButton.hidden = NO;
+        }else{
+            self.distanceButton.hidden = YES;
+        }
+    }
+    
     self.backgroundColor = COLOR_W;
     
     if(self.type == FLFlippedListTypeSend){
-        
-        self.lineView.hidden = NO;
         
         NSString *statusStr = @"";
         NSInteger status = [data.status integerValue];
@@ -64,7 +85,6 @@
         NSString *statusStr = @"";
         NSInteger status = [data.status integerValue];
         if (status == 0 ){
-            self.lineView.hidden = NO;
             statusStr = @"新收到的";
             self.backgroundColor = [UIColor colorWithHexString:@"ffac38"];
         }
@@ -94,36 +114,28 @@
         make.right.equalTo(self.contentLabel.superview).offset(-10);
     }];
     
-    [self.sendLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.sendtoButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.contentLabel.mas_bottom).offset(10);
-        make.left.equalTo(self.sendLabel.superview).offset(10);
-        make.bottom.lessThanOrEqualTo(self.sendLabel.superview).offset(-10);
+        make.left.equalTo(self.sendtoButton.superview).offset(10);
+        make.bottom.lessThanOrEqualTo(self.sendtoButton.superview).offset(-10);
     }];
     
-    [self.lineView1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.sendLabel);
-        make.left.equalTo(self.sendLabel.mas_right).offset(5);
-        make.bottom.equalTo(self.sendLabel);
-        make.width.equalTo(@1);
+    [self.commentNumButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.sendtoButton);
+        make.left.equalTo(self.sendtoButton.mas_right).offset(10);
+        make.bottom.equalTo(self.sendtoButton);
     }];
     
-    [self.commentNumLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.lineView1);
-        make.left.equalTo(self.lineView1.mas_right).offset(5);
-        make.bottom.equalTo(self.lineView1);
-    }];
-    
-    [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.commentNumLabel);
-        make.left.equalTo(self.commentNumLabel.mas_right).offset(5);
-        make.bottom.equalTo(self.commentNumLabel);
-        make.width.equalTo(@1);
+    [self.distanceButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.commentNumButton);
+        make.left.equalTo(self.commentNumButton.mas_right).offset(10);
+        make.bottom.equalTo(self.commentNumButton);
     }];
     
     [self.statusLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.lineView);
-        make.left.equalTo(self.lineView.mas_right).offset(5);
-        make.bottom.equalTo(self.lineView);
+        make.top.equalTo(self.commentNumButton);
+        make.left.equalTo(self.commentNumButton.mas_right).offset(10);
+        make.bottom.equalTo(self.commentNumButton);
     }];
     
     [self.picImageView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -145,33 +157,28 @@
     return _contentLabel;
 }
 
--(UILabel *)sendLabel{
-    if(!_sendLabel){
-        _sendLabel = [[UILabel alloc] init];
-        _sendLabel.font = FONT_M;
-        _sendLabel.textColor = COLOR_H2;
-        [self.contentView addSubview:_sendLabel];
+-(UIButton *)sendtoButton{
+    if(!_sendtoButton){
+        _sendtoButton = [[UIButton alloc] init];
+        _sendtoButton.userInteractionEnabled = NO;
+        _sendtoButton.titleLabel.font = FONT_M;
+        [_sendtoButton setTitleColor:COLOR_H2 forState:UIControlStateNormal];
+        [_sendtoButton setImage:[UIImage imageNamed:@"flipped_sendto_icon"] forState:UIControlStateNormal];
+        [self.contentView addSubview:_sendtoButton];
     }
-    return _sendLabel;
+    return _sendtoButton;
 }
 
--(UIView *)lineView1{
-    if(!_lineView1){
-        _lineView1 = [[UIView alloc] init];
-        _lineView1.backgroundColor = COLOR_H4;
-        [self.contentView addSubview:_lineView1];
+-(UIButton *)commentNumButton{
+    if(!_commentNumButton){
+        _commentNumButton = [[UIButton alloc] init];
+        _commentNumButton.userInteractionEnabled = NO;
+        [_commentNumButton setImage:[UIImage imageNamed:@"flipped_comment_num_icon"] forState:UIControlStateNormal];
+        _commentNumButton.titleLabel.font = FONT_M;
+        [_commentNumButton setTitleColor:COLOR_H2 forState:UIControlStateNormal];
+        [self.contentView addSubview:_commentNumButton];
     }
-    return _lineView1;
-}
-
--(UILabel *)commentNumLabel{
-    if(!_commentNumLabel){
-        _commentNumLabel = [[UILabel alloc] init];
-        _commentNumLabel.font = FONT_M;
-        _commentNumLabel.textColor = COLOR_H2;
-        [self.contentView addSubview:_commentNumLabel];
-    }
-    return _commentNumLabel;
+    return _commentNumButton;
 }
 
 -(UILabel *)statusLabel{
@@ -184,21 +191,16 @@
     return _statusLabel;
 }
 
--(UIView *)lineView{
-    if(!_lineView){
-        _lineView = [[UIView alloc] init];
-        _lineView.backgroundColor = COLOR_H4;
-        [self.contentView addSubview:_lineView];
+-(UIButton *)distanceButton{
+    if(!_distanceButton){
+        _distanceButton = [[UIButton alloc] init];
+        _distanceButton.userInteractionEnabled = NO;
+        [_distanceButton setImage:[UIImage imageNamed:@"flipped_distance_icon"] forState:UIControlStateNormal];
+        _distanceButton.titleLabel.font = FONT_M;
+        [_distanceButton setTitleColor:COLOR_H2 forState:UIControlStateNormal];
+        [self.contentView addSubview:_distanceButton];
     }
-    return _lineView;
-}
-
--(UILabel *)distanceLabel{
-    if(!_distanceLabel){
-        _distanceLabel = [[UILabel alloc] init];
-        [self.contentView addSubview:_distanceLabel];
-    }
-    return _distanceLabel;
+    return _distanceButton;
 }
 
 -(UIImageView *)picImageView{

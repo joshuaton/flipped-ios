@@ -29,7 +29,7 @@
 -(void)viewDidLoad{
     [super viewDidLoad];
     
-    self.title = @"爱要说";
+    self.title = @"表白墙";
     [self configRightNavigationItemWithTitle:@"发布" image:nil action:@selector(postBtnDidClick)];
     
     self.segmentTitles = [NSArray arrayWithObjects:@"广场", @"我收到的", @"我发送的", nil];
@@ -59,7 +59,7 @@
     [self.squareListView.view mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.segmentControl.mas_bottom).offset(10);
         make.left.equalTo(self.squareListView.view.superview);
-        make.bottom.equalTo(self.squareListView.view.superview);
+        make.bottom.equalTo(self.squareListView.view.superview).offset(-49);
         make.right.equalTo(self.squareListView.view.superview);
     }];
 

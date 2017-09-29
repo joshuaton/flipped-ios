@@ -31,6 +31,9 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receivePostSuccess:) name:NOTIFICATION_POST_SUCCESS object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveLoginSuccess:) name:NOTIFICATION_LOGIN_SUCCESS object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveDeleteSuccess:) name:NOTIFICATION_DELETE_SUCCESS object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveLocationSuccess:) name:NOTIFICATION_LOCATION_SUCCESS object:nil];
+
+    
 
 }
 
@@ -77,6 +80,7 @@
     switch (self.listType) {
         case FLFlippedListTypeSquare:
         {
+            
             [FLFlippedWordsService getNearbyFlippedWordsWithSuccessBlock:^(NSMutableArray *flippedWords) {
                 self.flippedWords = flippedWords;
                 
@@ -174,6 +178,9 @@
             break;
         }
     }
+}
+-(void)receiveLocationSuccess:(NSNotification *)notification{
+    [self.tableView.mj_header beginRefreshing];
 }
 
 #pragma mark - UITableViewDataSource
