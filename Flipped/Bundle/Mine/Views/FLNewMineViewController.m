@@ -45,6 +45,10 @@
     return 10.0;
 }
 
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    return [[UIView alloc] init];
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 3;
 }
