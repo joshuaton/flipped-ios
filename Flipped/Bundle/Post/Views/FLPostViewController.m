@@ -21,7 +21,6 @@
 @property (nonatomic, strong) UITextField *phoneNumTextField;
 @property (nonatomic, strong) UIView *lineView;
 @property (nonatomic, strong) UITextView *contentTextView;
-@property (nonatomic, strong) UIView *addPicView;
 @property (nonatomic, strong) UIImageView *addPicImageView;
 @property (nonatomic, strong) UILabel *addPicLabel;
 @property (nonatomic, strong) UIImageView *selectedImageView;
@@ -90,18 +89,11 @@
         make.top.equalTo(self.lineView.mas_bottom).offset(5);
         make.left.equalTo(self.phoneNumTextField);
         make.right.equalTo(self.phoneNumTextField);
-        make.height.equalTo(@100);
-    }];
-    
-    [self.addPicView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.contentTextView.mas_bottom).offset(10);
-        make.width.equalTo(@(self.addPicImageView.frame.size.width));
-        make.height.equalTo(@(self.addPicImageView.frame.size.height));
-        make.centerX.equalTo(self.addPicView.superview);
+        make.height.equalTo(@150);
     }];
     
     [self.addPicImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.addPicImageView.superview);
+        make.top.equalTo(self.contentTextView.mas_bottom).offset(10);
         make.left.equalTo(self.contentTextView);
     }];
     
@@ -125,6 +117,15 @@
     
     NSString *phoneNum = self.phoneNumTextField.text;
     NSString *contentStr = self.contentTextView.text;
+    phoneNum = [phoneNum stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    phoneNum = [phoneNum stringByReplacingOccurrencesOfString:@" " withString:@""];
+    phoneNum = [phoneNum stringByTrimmingCharactersInSet:[NSCharacterSet controlCharacterSet]];
+    
+    if(phoneNum.length != 11){
+        [FLToast showToast:@"手机号格式不正确"];
+        return;
+    }
+    
     contentStr = [contentStr stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     if(!contentStr || contentStr.length == 0){
         [FLToast showToast:@"内容不能为空"];
@@ -239,7 +240,8 @@
     
         self.selectedImageView.image = nil;
         self.selectedImageView.hidden = YES;
-        self.addPicView.hidden = NO;
+        self.addPicImageView.hidden = NO;
+        self.addPicLabel.hidden = NO;
     }];
     
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
@@ -264,7 +266,8 @@
 -(void)showImage:(UIImage *)image{
     
     self.selectedImageView.hidden = NO;
-    self.addPicView.hidden = YES;
+    self.addPicImageView.hidden = YES;
+    self.addPicLabel.hidden = YES;
     
     self.selectedImageView.image = image;
 }
@@ -331,7 +334,7 @@
 -(UIView *)lineView{
     if(!_lineView){
         _lineView = [[UIView alloc] init];
-        _lineView.backgroundColor = COLOR_H4;
+        _lineView.backgroundColor = COLOR_H5;
         [self.view addSubview:_lineView];
     }
     return _lineView;
@@ -360,22 +363,15 @@
     return _contentTextView;
 }
 
--(UIView *)addPicView{
-    if(!_addPicView){
-        _addPicView = [[UIView alloc] init];
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addPicClick)];
-        [_addPicView addGestureRecognizer:tap];
-        [self.view addSubview:_addPicView];
-    }
-    return _addPicView;
-}
-
 -(UIImageView *)addPicImageView{
     if(!_addPicImageView){
         _addPicImageView = [[UIImageView alloc] init];
         _addPicImageView.image = [UIImage imageNamed:@"flipped_post_add_pic"];
         [_addPicImageView sizeToFit];
-        [self.addPicView addSubview:_addPicImageView];
+        _addPicImageView.userInteractionEnabled = YES;
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addPicClick)];
+        [_addPicImageView addGestureRecognizer:tap];
+        [self.view addSubview:_addPicImageView];
     }
     return _addPicImageView;
 }
@@ -386,7 +382,7 @@
         _addPicLabel.text = @"添加图片";
         _addPicLabel.font = FONT_M;
         _addPicLabel.textColor = COLOR_H2;
-        [self.addPicView addSubview:_addPicLabel];
+        [self.view addSubview:_addPicLabel];
     }
     return _addPicLabel;
 }

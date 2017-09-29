@@ -22,7 +22,7 @@
         url = [NSString stringWithFormat:@"%@?lat=%f&lng=%f", url, [FLUserInfoManager sharedUserInfoManager].lat, [FLUserInfoManager sharedUserInfoManager].lng];
     }
     
-    [[self sharedHttpSessionManager] FLGET:@"nearby_flippedwords" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+    [[self sharedHttpSessionManager] FLGET:url parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         
         NSDictionary *result = (NSDictionary *)responseObject;
         NSError *error;
@@ -57,7 +57,7 @@
         url = [NSString stringWithFormat:@"%@?lat=%f&lng=%f", url, [FLUserInfoManager sharedUserInfoManager].lat, [FLUserInfoManager sharedUserInfoManager].lng];
     }
     
-    [[self sharedHttpSessionManager] FLGET:@"my_flippedwords" parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id _Nullable responseObject) {
+    [[self sharedHttpSessionManager] FLGET:url parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id _Nullable responseObject) {
         NSDictionary *result = (NSDictionary *)responseObject;
         NSError *error;
         NSMutableArray *modelArray = [FLFlippedWord arrayOfModelsFromDictionaries:result[@"flippedwords"] error:&error];

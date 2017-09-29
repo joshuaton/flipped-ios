@@ -51,20 +51,27 @@
         self.distanceButton.hidden = NO;
         self.statusLabel.hidden = YES;
         
-        NSInteger distance = [data.distance integerValue];
-        if(distance > 0){
-            
-            NSString *distanceStr = @"";
-            if(distance >= 1000){
-                distanceStr = [NSString stringWithFormat:@"%.2fkm", distance/1000.0];
-            }else{
-                distanceStr = [NSString stringWithFormat:@"%ldm", (long)distance];
-            }
-            [self.distanceButton setTitle:distanceStr forState:UIControlStateNormal];
-            self.distanceButton.hidden = NO;
-        }else{
+        if(data.distance == nil){
             self.distanceButton.hidden = YES;
+        }else{
+            
+            self.distanceButton.hidden = NO;
+            NSInteger distance = [data.distance integerValue];
+            if(distance > 0){
+                
+                NSString *distanceStr = @"";
+                if(distance >= 1000){
+                    distanceStr = [NSString stringWithFormat:@"%.2fkm", distance/1000.0];
+                }else{
+                    distanceStr = [NSString stringWithFormat:@"%ldm", (long)distance];
+                }
+                [self.distanceButton setTitle:distanceStr forState:UIControlStateNormal];
+            }else if(distance == 0){
+                [self.distanceButton setTitle:@"就在您身边" forState:UIControlStateNormal];
+            }
         }
+        
+        
     }
     
     self.backgroundColor = COLOR_W;
