@@ -61,16 +61,12 @@
         self.data = data;
         [self showData:data];
         
+        [self loadComment:NO];
 
     } failBlock:^(NSError *error) {
         NSLog(@"get detail error");
 
     }];
-    
-    [self loadComment:NO];
-    
-    
-    
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -231,6 +227,7 @@
     [FLFlippedWordsService getCommentsWithId:self.flippedId successBlock:^(NSArray *comments) {
         
         self.comments = [comments mutableCopy];
+        self.data.commentnum = self.comments.count;
         [self.tableView reloadData];
         
         if(gotoEnd){
@@ -473,6 +470,7 @@
                     [FLCommService requestWithURI:link.uri method:link.method params:nil successBlock:^{
                         
                         [self.comments removeObjectAtIndex:indexPath.row];
+                        self.data.commentnum = self.comments.count;
                         [self.tableView reloadData];
                         
                     } failBlock:^(NSError *error) {
