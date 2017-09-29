@@ -28,6 +28,8 @@
 #define SCREEN_SCALE_WIDTH  (SCREEN_WIDTH/375.0)
 #define SCREEN_SCALE_HEIGHT  (SCREEN_HEIGHT/667.0)
 
+#define STATUS_BAR_HEIGHT [[UIApplication sharedApplication] statusBarFrame].size.height
+
 //font
 #define FONT_XL [UIFont systemFontOfSize:18]
 #define FONT_L [UIFont systemFontOfSize:16]     ///< 主文字

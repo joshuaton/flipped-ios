@@ -49,7 +49,7 @@
 -(void)makeConstraints{
     
     [self.segmentControl mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.segmentControl.superview).offset(64+10);
+        make.top.equalTo(self.segmentControl.superview).offset(STATUS_BAR_HEIGHT+44+10);
         make.centerX.equalTo(self.segmentControl.superview);
         make.left.equalTo(self.segmentControl.superview).offset(10);
         make.right.equalTo(self.segmentControl.superview).offset(-10);

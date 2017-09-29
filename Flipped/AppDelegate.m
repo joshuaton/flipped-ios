@@ -76,7 +76,7 @@
 
     
     //tabBar颜色
-    UIView *backView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 49)];
+    UIView *backView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, self.tabBarController.tabBar.frame.size.height)];
     backView.backgroundColor = COLOR_M;
     [self.tabBarController.tabBar insertSubview:backView atIndex:0];
     self.tabBarController.tabBar.opaque = YES;
