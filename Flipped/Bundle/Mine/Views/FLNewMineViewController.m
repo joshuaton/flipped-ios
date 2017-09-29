@@ -46,16 +46,23 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 2;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     switch (section) {
-        case 0:{
+        case 0:
+        {
+            return 1;
+            break;
+        }
+        case 1:
+        {
             return 2;
             break;
         }
-        case 1:{
+        case 2:
+        {
             return 1;
             break;
         }
@@ -72,6 +79,12 @@
     switch (indexPath.section) {
         case 0:
         {
+            cell.textLabel.text = [NSString stringWithFormat:@"用户%@", [FLUserInfoManager sharedUserInfoManager].uid];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            break;
+        }
+        case 1:
+        {
             if(indexPath.row == 0){
                 cell.textLabel.text = @"使用帮助";
                 cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -79,12 +92,14 @@
                 cell.textLabel.text = @"反馈问题";
                 cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             }
+            cell.selectionStyle = UITableViewCellSelectionStyleGray;
             break;
         }
-        case 1:
+        case 2:
         {
             cell.textLabel.text = @"退出登录";
             cell.accessoryType = UITableViewCellAccessoryNone;
+            cell.selectionStyle = UITableViewCellSelectionStyleGray;
             break;
         }
         default:
@@ -103,7 +118,7 @@
     
     switch (indexPath.section) {
 
-        case 0:
+        case 1:
         {
             if(indexPath.row == 0){
                 FLHelpViewController *vc = [[FLHelpViewController alloc] init];
@@ -122,7 +137,7 @@
 
             break;
         }
-        case 1:
+        case 2:
         {
             [self.navigationController.tabBarController setSelectedIndex:0];
             [FLLoginViewController present];
