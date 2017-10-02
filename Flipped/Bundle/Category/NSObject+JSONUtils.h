@@ -13,19 +13,16 @@
 /**
  *  objc -> json data
  *
- *  @return
  */
 - (NSData *)cp_toJSONData;
 /**
  *  objc -> json string
  *
- *  @return
  */
 - (NSString *)cp_toJSONString;
 /**
  *  json data or json string -> objc
  *
- *  @return
  */
 - (id)cp_toJSONObject;
 
