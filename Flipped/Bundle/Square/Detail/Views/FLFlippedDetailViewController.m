@@ -279,7 +279,7 @@
 
 -(void)moreBtnClick{
     
-    if(![[FLUserInfoManager sharedUserInfoManager] checkLogin]){
+    if(![[FLUserInfoManager sharedInstance] checkLogin]){
         return;
     }
     

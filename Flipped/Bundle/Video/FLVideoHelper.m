@@ -16,16 +16,16 @@
 +(void)login{
     
     
-    if(![[FLUserInfoManager sharedUserInfoManager] isLogin]){
+    if(![[FLUserInfoManager sharedInstance] isLogin]){
         return;
     }
     
     [FLVideoService getSigWithSuccessBlock:^(NSString *sig) {
-        
-        [[ILiveLoginManager getInstance] iLiveLogin:[FLUserInfoManager sharedUserInfoManager].uid sig:sig succ:^{
+        NSLog(@"video login sig : %@", sig);
+        [[ILiveLoginManager getInstance] iLiveLogin:[FLUserInfoManager sharedInstance].uid sig:sig succ:^{
             NSLog(@"-----> video login succ");
         } failed:^(NSString *module, int errId, NSString *errMsg) {
-            [FLToast showToast:[NSString stringWithFormat:@"video login fail %@,%d,%@", module,errId,errMsg]];
+            NSLog(@"-----> video login fail %@,%d,%@", module, errId, errMsg);
         }];
     } failBlock:^(NSError *error) {
         

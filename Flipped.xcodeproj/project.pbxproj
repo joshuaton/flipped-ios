@@ -30,7 +30,6 @@
 		45D272481F0B43BC00AF180E /* comm_tab_square_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45D272441F0B43BC00AF180E /* comm_tab_square_selected@2x.png */; };
 		45F1C8BF1F1F2A6100A3B74C /* FLFlippedDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F1C8BE1F1F2A6100A3B74C /* FLFlippedDetailViewController.m */; };
 		583FCBD6E2C5D728117751C6 /* libPods-Flipped.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A6CB62EA12AEAE674DF275B1 /* libPods-Flipped.a */; };
-		D3A52729718E7338334331EC /* libPods-Flipped.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E2120D7ACD634DE7FDAEBA /* libPods-Flipped.a */; };
 		FB0366451F5D8F2C00B0545F /* FLVideoService.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0366441F5D8F2C00B0545F /* FLVideoService.m */; };
 		FB03664B1F5D93F300B0545F /* FLVideoHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FB03664A1F5D93F300B0545F /* FLVideoHelper.m */; };
 		FB0366561F5D9E0100B0545F /* CallC2CMakeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0366531F5D9E0100B0545F /* CallC2CMakeViewController.m */; };
@@ -102,6 +101,8 @@
 		FB8118101F5161730045202B /* flipped_splash1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB81180C1F5161730045202B /* flipped_splash1@3x.png */; };
 		FB8118111F5161730045202B /* flipped_splash2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB81180D1F5161730045202B /* flipped_splash2@3x.png */; };
 		FB8118151F5167690045202B /* UIImage+scaleImage.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8118141F5167690045202B /* UIImage+scaleImage.m */; };
+		FBB290181F8109D7007247CC /* TIMMessageListenerImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = FBB290171F8109D7007247CC /* TIMMessageListenerImpl.m */; };
+		FBB2901C1F81D00C007247CC /* NSObject+JSONUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = FBB2901A1F81D00C007247CC /* NSObject+JSONUtils.m */; };
 		FBB917751F1252C5000C7353 /* FLFlippedWordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FBB917741F1252C5000C7353 /* FLFlippedWordCell.m */; };
 		FBB9177C1F1254DA000C7353 /* flipped_content_pic@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FBB917761F1254DA000C7353 /* flipped_content_pic@2x.png */; };
 		FBB9177D1F1254DA000C7353 /* flipped_content_video@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FBB917771F1254DA000C7353 /* flipped_content_video@2x.png */; };
@@ -268,6 +269,11 @@
 		FB81180D1F5161730045202B /* flipped_splash2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flipped_splash2@3x.png"; sourceTree = "<group>"; };
 		FB8118131F5167690045202B /* UIImage+scaleImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+scaleImage.h"; sourceTree = "<group>"; };
 		FB8118141F5167690045202B /* UIImage+scaleImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+scaleImage.m"; sourceTree = "<group>"; };
+		FBB290161F8109C3007247CC /* TIMMessageListenerImpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TIMMessageListenerImpl.h; sourceTree = "<group>"; };
+		FBB290171F8109D7007247CC /* TIMMessageListenerImpl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TIMMessageListenerImpl.m; sourceTree = "<group>"; };
+		FBB290191F812DA1007247CC /* Flipped.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Flipped.entitlements; sourceTree = "<group>"; };
+		FBB2901A1F81D00C007247CC /* NSObject+JSONUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+JSONUtils.m"; sourceTree = "<group>"; };
+		FBB2901B1F81D00C007247CC /* NSObject+JSONUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+JSONUtils.h"; sourceTree = "<group>"; };
 		FBB917731F1252B9000C7353 /* FLFlippedWordCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FLFlippedWordCell.h; path = ../../Square/Views/FLFlippedWordCell.h; sourceTree = "<group>"; };
 		FBB917741F1252C5000C7353 /* FLFlippedWordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLFlippedWordCell.m; path = ../../Square/Views/FLFlippedWordCell.m; sourceTree = "<group>"; };
 		FBB917761F1254DA000C7353 /* flipped_content_pic@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flipped_content_pic@2x.png"; sourceTree = "<group>"; };
@@ -353,7 +359,6 @@
 				45471A631F5EB08E009E1DED /* TILCallSDK.framework in Frameworks */,
 				FB8117AD1F44940A0045202B /* libmtasdk.a in Frameworks */,
 				583FCBD6E2C5D728117751C6 /* libPods-Flipped.a in Frameworks */,
-				D3A52729718E7338334331EC /* libPods-Flipped.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,6 +433,7 @@
 		45D2720D1F0B343E00AF180E /* Flipped */ = {
 			isa = PBXGroup;
 			children = (
+				FBB290191F812DA1007247CC /* Flipped.entitlements */,
 				FB6173911F1112D0009649E2 /* Bundle */,
 				457195281F0C903400671634 /* Services */,
 				FBCD22261F1A0F5700D8B718 /* Utils */,
@@ -572,6 +578,7 @@
 		FB6173911F1112D0009649E2 /* Bundle */ = {
 			isa = PBXGroup;
 			children = (
+				FBB290151F8109B8007247CC /* Message */,
 				FB8118121F5167690045202B /* Category */,
 				FB8117DF1F4924050045202B /* CPShare */,
 				FB8117C61F47535A0045202B /* Video */,
@@ -809,10 +816,21 @@
 		FB8118121F5167690045202B /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				FBB2901B1F81D00C007247CC /* NSObject+JSONUtils.h */,
+				FBB2901A1F81D00C007247CC /* NSObject+JSONUtils.m */,
 				FB8118131F5167690045202B /* UIImage+scaleImage.h */,
 				FB8118141F5167690045202B /* UIImage+scaleImage.m */,
 			);
 			path = Category;
+			sourceTree = "<group>";
+		};
+		FBB290151F8109B8007247CC /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				FBB290161F8109C3007247CC /* TIMMessageListenerImpl.h */,
+				FBB290171F8109D7007247CC /* TIMMessageListenerImpl.m */,
+			);
+			path = Message;
 			sourceTree = "<group>";
 		};
 		FBCD22261F1A0F5700D8B718 /* Utils */ = {
@@ -920,13 +938,21 @@
 		45D272031F0B343E00AF180E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = junshao;
 				TargetAttributes = {
 					45D2720A1F0B343E00AF180E = {
 						CreatedOnToolsVersion = 8.3;
 						DevelopmentTeam = 4A3DYJG93C;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -1096,6 +1122,8 @@
 				FB8117CA1F4753840045202B /* FLVideoMainViewController.m in Sources */,
 				FBD938B51F1F587200900842 /* FLUserInfoManager.m in Sources */,
 				FBD938D71F24956D00900842 /* UIColor+HexColor.m in Sources */,
+				FBB2901C1F81D00C007247CC /* NSObject+JSONUtils.m in Sources */,
+				FBB290181F8109D7007247CC /* TIMMessageListenerImpl.m in Sources */,
 				FB07151C1F30A43500F5B0CA /* FLComment.m in Sources */,
 				FB6173B31F11146A009649E2 /* FLContent.m in Sources */,
 				FB8118151F5167690045202B /* UIImage+scaleImage.m in Sources */,
@@ -1117,7 +1145,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -1125,7 +1155,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = NO;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -1148,7 +1182,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1166,7 +1200,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -1174,7 +1210,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = NO;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -1191,7 +1231,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1205,6 +1245,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = Flipped/Flipped.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 4A3DYJG93C;
 				ENABLE_BITCODE = NO;
@@ -1249,6 +1290,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = Flipped/Flipped.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 4A3DYJG93C;
 				ENABLE_BITCODE = NO;

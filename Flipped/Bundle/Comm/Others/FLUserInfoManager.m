@@ -18,7 +18,7 @@ static FLUserInfoManager *userInfoManager;
 
 @implementation FLUserInfoManager
 
-+(FLUserInfoManager *)sharedUserInfoManager {
++(FLUserInfoManager *)sharedInstance {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         userInfoManager = [[FLUserInfoManager alloc] init];

@@ -10,4 +10,6 @@
 
 @interface FLVideoMainViewController : FLBaseViewController
 
+-(void)beginMatch;
+
 @end

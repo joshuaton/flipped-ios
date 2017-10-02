@@ -16,7 +16,7 @@
 @property (nonatomic, assign) double lng;
 @property (nonatomic, assign) double lat;
 
-+(FLUserInfoManager *)sharedUserInfoManager;
++(FLUserInfoManager *)sharedInstance;
 -(BOOL)checkLogin; //判断登录，未登录弹出登录页
 -(BOOL)isLogin; //只判断登录
 +(BOOL)isTestAccount:(NSString *)account;

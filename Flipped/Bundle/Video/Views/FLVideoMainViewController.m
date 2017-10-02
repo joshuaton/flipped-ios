@@ -80,7 +80,11 @@ typedef NS_ENUM(NSInteger, MatchStatus) {
     [self statusChanged:MatchStatusDefault];
 }
 
+#pragma mark - public
 
+-(void)beginMatch{
+    [self matchBtnClick];
+}
 
 #pragma mark - action
 

@@ -13,6 +13,7 @@
 #import "Masonry.h"
 #import "FLFlippedDetailViewController.h"
 #import "FLUserInfoManager.h"
+#import "FLToast.h"
 
 @interface FLFlippedListViewController() <UITableViewDataSource, UITableViewDelegate>
 
@@ -33,25 +34,30 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveDeleteSuccess:) name:NOTIFICATION_DELETE_SUCCESS object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveLocationSuccess:) name:NOTIFICATION_LOCATION_SUCCESS object:nil];
 
-    
+    [self makeConstraints];
 
+    //如果没有登录不加载数据
+    if(![[FLUserInfoManager sharedInstance] isLogin] && self.listType != FLFlippedListTypeSquare){
+        [self showEmptyLabel:@"请登录后查看"];
+        return;
+    }
+    
+    [self loadData];
+    //设置之后会自动执行一次
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self.flippedWords removeAllObjects];
+        [self loadData];
+    }];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
-    [self makeConstraints];
     
-    //如果没有登录不加载数据
-    if(![[FLUserInfoManager sharedUserInfoManager] isLogin] && self.listType != FLFlippedListTypeSquare){
-        [self showEmptyLabel:@"请登录后查看"];
-        return;
-    }
     
-    if(!self.isLoaded){
-        [self loadData];
-        self.isLoaded = YES;
-    }
+    
+    
+    
     
 }
 
@@ -163,6 +169,10 @@
 }
 
 -(void)receiveLoginSuccess:(NSNotification *)notification{
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self.flippedWords removeAllObjects];
+        [self loadData];
+    }];
     [self.tableView.mj_header beginRefreshing];
 }
 
@@ -227,10 +237,7 @@
         [_tableView registerClass:[FLFlippedWordCell class] forCellReuseIdentifier:NSStringFromClass([FLFlippedWordCell class])];
         _tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
         
-        _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-            [self.flippedWords removeAllObjects];
-            [self loadData];
-        }];
+       
         
 
         

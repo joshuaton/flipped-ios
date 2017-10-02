@@ -18,6 +18,9 @@
 #import "FLVideoService.h"
 #import "FLVideoHelper.h"
 #import <MapKit/MapKit.h>
+#import "TIMMessageListenerImpl.h"
+#import "FLToast.h"
+#import "NSObject+JSONUtils.h"
 
 @interface AppDelegate () <UITabBarControllerDelegate, CLLocationManagerDelegate>
 
@@ -40,6 +43,8 @@
     [MTA startWithAppkey:@"I82NYP3VM7PZ"];
     [WXApi registerApp:@"wxf72f0e149d736899"];
     [[ILiveSDK getInstance] initSdk:1400038614 accountType:14999];
+    TIMMessageListenerImpl * impl = [[TIMMessageListenerImpl alloc] init];
+    [[TIMManager sharedInstance] setMessageListener:impl];
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
@@ -104,6 +109,8 @@
     
     [self startLocation];
     
+    [self registNotification];
+        
     return YES;
 }
 
@@ -117,6 +124,28 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    
+    __block UIBackgroundTaskIdentifier bgTaskID;
+    bgTaskID = [application beginBackgroundTaskWithExpirationHandler:^ {
+        
+        //不管有没有完成，结束background_task任务
+        [application endBackgroundTask: bgTaskID];
+        bgTaskID = UIBackgroundTaskInvalid;
+    }];
+    
+    NSUInteger unReadCount = 0;
+    [UIApplication sharedApplication].applicationIconBadgeNumber = unReadCount;
+    
+    TIMBackgroundParam  *param = [[TIMBackgroundParam alloc] init];
+    [param setC2cUnread:(int)unReadCount];
+    
+    [[TIMManager sharedInstance] doBackground:param succ:^() {
+        NSLog(@"doBackgroud Succ");
+    } fail:^(int code, NSString * err) {
+        NSLog(@"Fail: %d->%@", code, err);
+    }];
+    
+    
 }
 
 
@@ -127,11 +156,68 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    
+    [[TIMManager sharedInstance] doForeground];
 }
 
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken{
+    NSString *token = [NSString stringWithFormat:@"%@", deviceToken];
+    [[TIMManager sharedInstance] log:TIM_LOG_INFO tag:@"SetToken" msg:[NSString stringWithFormat:@"My Token is :%@", token]];
+    TIMTokenParam *param = [[TIMTokenParam alloc] init];
+    
+    /* 用户自己到苹果注册开发者证书，在开发者账号中下载并生成证书(p12文件)，将生成的p12文件传到腾讯证书管理控制台，控制台会自动生成一个证书id，将证书id传入一下busiId参数中。*/
+    
+#if DEBUG
+    param.busiId = 6050;
+#else
+    param.busiId = 6049;
+#endif
+    
+
+    
+    [param setToken:deviceToken];
+    
+    //    [[TIMManager sharedInstance] setToken:param];
+    [[TIMManager sharedInstance] setToken:param succ:^{
+        
+        NSLog(@"-----> 上传token成功 ");
+    } fail:^(int code, NSString *msg) {
+        NSLog(@"-----> 上传token失败 ");
+    }];
+}
+
+-(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler{
+    [self application:application didReceiveRemoteNotification:userInfo];
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo{
+    
+    if(![FLUserInfoManager sharedInstance].isLogin){
+        return;
+    }
+    
+    NSString *ext = userInfo[@"ext"];
+    ext = [ext stringByReplacingOccurrencesOfString:@"'" withString:@"\""];
+    NSDictionary* extDict = [ext cp_toJSONObject];
+    NSLog(@"%@", extDict);
+    
+    //切到第2个tab立即开始匹配
+    [self.tabBarController setSelectedViewController:self.videoNav];
+    [self.squareNav popToRootViewControllerAnimated:NO];
+    [self.videoNav popToRootViewControllerAnimated:NO];
+    [self.mineNav popToRootViewControllerAnimated:NO];
+
+    //防止还没有执行viewdidload就执行
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        FLVideoMainViewController *videoMainVC = (FLVideoMainViewController *)[self.videoNav viewControllers][0];
+        [videoMainVC beginMatch];
+    });
 }
 
 #pragma mark - private
@@ -145,6 +231,11 @@
         [self.locationManager requestWhenInUseAuthorization];
     }
     [self.locationManager startUpdatingLocation];
+}
+
+- (void)registNotification{
+    [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge) categories:nil]];
+    [[UIApplication sharedApplication] registerForRemoteNotifications];
 }
 
 
@@ -178,8 +269,8 @@
     
     NSLog(@"旧的经度：%f,旧的纬度：%f",oldCoordinate.longitude,oldCoordinate.latitude);
     
-    [FLUserInfoManager sharedUserInfoManager].lng = oldCoordinate.longitude;
-    [FLUserInfoManager sharedUserInfoManager].lat = oldCoordinate.latitude;
+    [FLUserInfoManager sharedInstance].lng = oldCoordinate.longitude;
+    [FLUserInfoManager sharedInstance].lat = oldCoordinate.latitude;
     
     [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_LOCATION_SUCCESS object:self userInfo:nil];
     
@@ -190,11 +281,11 @@
 #pragma mark - UITabBarControllerDelegate
 - (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController{
     
-    if(viewController == self.mineNav && ![[FLUserInfoManager sharedUserInfoManager] checkLogin]){
+    if(viewController == self.mineNav && ![[FLUserInfoManager sharedInstance] checkLogin]){
         return NO;
     }
     
-    if(viewController == self.videoNav && ![[FLUserInfoManager sharedUserInfoManager] checkLogin]){
+    if(viewController == self.videoNav && ![[FLUserInfoManager sharedInstance] checkLogin]){
         return NO;
     }
     

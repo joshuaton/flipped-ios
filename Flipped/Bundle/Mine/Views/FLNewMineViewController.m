@@ -83,7 +83,7 @@
     switch (indexPath.section) {
         case 0:
         {
-            cell.textLabel.text = [NSString stringWithFormat:@"用户%@", [FLUserInfoManager sharedUserInfoManager].uid];
+            cell.textLabel.text = [NSString stringWithFormat:@"用户%@", [FLUserInfoManager sharedInstance].uid];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             break;
         }
@@ -130,7 +130,7 @@
                 [self.navigationController pushViewController:vc animated:YES];
             }else if(indexPath.row == 1){
                 
-                if(![[FLUserInfoManager sharedUserInfoManager] checkLogin]){
+                if(![[FLUserInfoManager sharedInstance] checkLogin]){
                     return;
                 }
                 

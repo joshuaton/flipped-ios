@@ -31,7 +31,7 @@
 
 +(void)present{
     
-    if(![[FLUserInfoManager sharedUserInfoManager] checkLogin]){
+    if(![[FLUserInfoManager sharedInstance] checkLogin]){
         return;
     }
     
