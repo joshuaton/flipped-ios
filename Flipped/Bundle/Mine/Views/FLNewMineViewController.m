@@ -26,6 +26,12 @@
     [super viewDidLoad];
     
     self.title = @"我的";
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveLoginSuccess:) name:NOTIFICATION_LOGIN_SUCCESS object:nil];
+}
+
+-(void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -154,6 +160,12 @@
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 44;
+}
+
+#pragma mark - notification
+
+-(void)receiveLoginSuccess:(NSNotification *)notification{
+    [self.tableView reloadData];
 }
 
 #pragma mark - getter & setter
