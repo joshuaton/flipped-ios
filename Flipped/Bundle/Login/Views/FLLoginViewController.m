@@ -16,10 +16,10 @@
 
 @interface FLLoginViewController()
 
-@property (nonatomic, strong) UILabel *phoneNumLabel;
 @property (nonatomic, strong) UITextField *phoneNumTextField;
-@property (nonatomic, strong) UILabel *vertifyCodeLabel;
+@property (nonatomic, strong) UIView *phoneNumLineView;
 @property (nonatomic, strong) UITextField *vertifyCodeTextField;
+@property (nonatomic, strong) UIView *vertifyCodeLineView;
 @property (nonatomic, strong) UIButton *getVertifyCodeButton;
 @property (nonatomic, strong) UIButton *loginButton;
 @property (nonatomic, assign) NSInteger time;
@@ -50,7 +50,7 @@
         
     }];
     
-    self.title = @"请登录";
+    self.title = @"登录";
     [self configLeftNavigationItemWithTitle:@"关闭" image:nil action:@selector(closeBtnClick)];
     
     
@@ -66,45 +66,46 @@
 
 -(void)makeConstraints{
     
-    [self.phoneNumLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.phoneNumLabel.superview).offset(64+20);
-        make.left.equalTo(self.phoneNumLabel.superview).offset(10);
-        make.width.equalTo(@(self.phoneNumLabel.frame.size.width));
-        make.height.equalTo(@(self.phoneNumLabel.frame.size.height+10));
-    }];
-    
     [self.phoneNumTextField mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.phoneNumLabel);
-        make.left.equalTo(self.phoneNumLabel.mas_right).offset(10);
+        make.top.equalTo(self.phoneNumTextField.superview).offset(64+20);
+        make.left.equalTo(self.phoneNumTextField.superview).offset(10);
         make.right.equalTo(self.phoneNumTextField.superview).offset(-10);
-        make.centerY.equalTo(self.phoneNumLabel.mas_centerY);
+        make.height.equalTo(@40);
     }];
     
-    [self.vertifyCodeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.phoneNumLabel.mas_bottom).offset(20);
-        make.left.equalTo(self.phoneNumLabel);
-        make.width.equalTo(@(self.vertifyCodeLabel.frame.size.width));
-        make.height.equalTo(@(self.vertifyCodeLabel.frame.size.height+10));
+    [self.phoneNumLineView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.phoneNumTextField);
+        make.bottom.equalTo(self.phoneNumTextField);
+        make.right.equalTo(self.phoneNumTextField);
+        make.height.equalTo(@1);
     }];
     
     [self.getVertifyCodeButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.vertifyCodeLabel);
+        make.top.equalTo(self.phoneNumTextField.mas_bottom).offset(20);
         make.right.equalTo(self.getVertifyCodeButton.superview).offset(-10);
         make.width.equalTo(@(self.getVertifyCodeButton.frame.size.width+20));
-        make.centerY.equalTo(self.vertifyCodeLabel.mas_centerY);
+        make.height.equalTo(@40);
     }];
 
     [self.vertifyCodeTextField mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.vertifyCodeLabel);
+        make.top.equalTo(self.getVertifyCodeButton);
         make.left.equalTo(self.phoneNumTextField);
         make.right.equalTo(self.getVertifyCodeButton.mas_left).offset(-10);
-        make.centerY.equalTo(self.vertifyCodeLabel.mas_centerY);
+        make.height.equalTo(@40);
+    }];
+    
+    [self.vertifyCodeLineView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.vertifyCodeTextField);
+        make.bottom.equalTo(self.vertifyCodeTextField);
+        make.right.equalTo(self.vertifyCodeTextField);
+        make.height.equalTo(@1);
     }];
     
     [self.loginButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.vertifyCodeTextField.mas_bottom).offset(40);
         make.centerX.equalTo(self.loginButton.superview);
         make.width.equalTo(@100);
+        make.height.equalTo(@40);
     }];
     
 
@@ -212,71 +213,86 @@
 
 #pragma mark - getter & setter
 
--(UILabel *)phoneNumLabel{
-    if(!_phoneNumLabel){
-        _phoneNumLabel = [[UILabel alloc] init];
-        _phoneNumLabel.text = @"手机号";
-        _phoneNumLabel.font = FONT_L;
-        _phoneNumLabel.textColor = COLOR_H1;
-        [_phoneNumLabel sizeToFit];
-        [self.view addSubview:_phoneNumLabel];
-    }
-    return _phoneNumLabel;
-}
-
 -(UITextField *)phoneNumTextField{
     if(!_phoneNumTextField){
+        
         _phoneNumTextField = [[UITextField alloc] init];
-        _phoneNumTextField.placeholder = @"请输入手机号";
-        _phoneNumTextField.font = FONT_L;
+        _phoneNumTextField.font = FONT_XL;
         _phoneNumTextField.textColor = COLOR_H1;
+        _phoneNumTextField.leftView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 5, 0)];
+        //设置显示模式为永远显示(默认不显示)
         _phoneNumTextField.leftViewMode = UITextFieldViewModeAlways;
-        _phoneNumTextField.borderStyle = UITextBorderStyleLine;
-        _phoneNumTextField.keyboardType = UIKeyboardTypePhonePad;
-
+        
+        NSString *holderText = @"请输入手机号";
+        NSMutableAttributedString *placeholder = [[NSMutableAttributedString alloc] initWithString:holderText];
+        [placeholder addAttribute:NSForegroundColorAttributeName
+                            value:COLOR_H4
+                            range:NSMakeRange(0, holderText.length)];
+        [placeholder addAttribute:NSFontAttributeName
+                            value:FONT_XL
+                            range:NSMakeRange(0, holderText.length)];
+        _phoneNumTextField.attributedPlaceholder = placeholder;
+        
         [self.view addSubview:_phoneNumTextField];
     }
     return _phoneNumTextField;
 }
 
--(UILabel *)vertifyCodeLabel{
-    if(!_vertifyCodeLabel){
-        _vertifyCodeLabel = [[UILabel alloc] init];
-        _vertifyCodeLabel.text = @"验证码";
-        _vertifyCodeLabel.font = FONT_L;
-        _vertifyCodeLabel.textColor = COLOR_H1;
-        [_vertifyCodeLabel sizeToFit];
-        [self.view addSubview:_vertifyCodeLabel];
+-(UIView *)phoneNumLineView{
+    if(!_phoneNumLineView){
+        _phoneNumLineView = [[UIView alloc] init];
+        _phoneNumLineView.backgroundColor = COLOR_H4;
+        [self.view addSubview:_phoneNumLineView];
     }
-    return _vertifyCodeLabel;
+    return _phoneNumLineView;
 }
 
 -(UITextField *)vertifyCodeTextField{
     if(!_vertifyCodeTextField){
         _vertifyCodeTextField = [[UITextField alloc] init];
-        _vertifyCodeTextField.placeholder = @"请输入验证码";
-        _vertifyCodeTextField.font = FONT_L;
+        _vertifyCodeTextField.font = FONT_XL;
         _vertifyCodeTextField.textColor = COLOR_H1;
+        _vertifyCodeTextField.leftView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 5, 0)];
+        //设置显示模式为永远显示(默认不显示)
         _vertifyCodeTextField.leftViewMode = UITextFieldViewModeAlways;
-        _vertifyCodeTextField.borderStyle = UITextBorderStyleLine;
-        _vertifyCodeTextField.keyboardType = UIKeyboardTypePhonePad;
-
+        
+        NSString *holderText = @"请输入验证码";
+        NSMutableAttributedString *placeholder = [[NSMutableAttributedString alloc] initWithString:holderText];
+        [placeholder addAttribute:NSForegroundColorAttributeName
+                            value:COLOR_H4
+                            range:NSMakeRange(0, holderText.length)];
+        [placeholder addAttribute:NSFontAttributeName
+                            value:FONT_XL
+                            range:NSMakeRange(0, holderText.length)];
+        _vertifyCodeTextField.attributedPlaceholder = placeholder;
+        
         [self.view addSubview:_vertifyCodeTextField];
     }
     return _vertifyCodeTextField;
+}
+
+-(UIView *)vertifyCodeLineView{
+    if(!_vertifyCodeLineView){
+        _vertifyCodeLineView = [[UIView alloc] init];
+        _vertifyCodeLineView.backgroundColor = COLOR_H4;
+        [self.view addSubview:_vertifyCodeLineView];
+    }
+    return _vertifyCodeLineView;
 }
 
 -(UIButton *)getVertifyCodeButton{
     if(!_getVertifyCodeButton){
         _getVertifyCodeButton = [[UIButton alloc] init];
         [_getVertifyCodeButton setTitle:@"获取验证码" forState:UIControlStateNormal];
-        [_getVertifyCodeButton setTitleColor:COLOR_H1 forState:UIControlStateNormal];
-        _getVertifyCodeButton.layer.borderWidth = 1;
-        _getVertifyCodeButton.layer.borderColor = COLOR_H1.CGColor;
         _getVertifyCodeButton.titleLabel.font = FONT_L;
+        _getVertifyCodeButton.backgroundColor = COLOR_M;
+        _getVertifyCodeButton.layer.cornerRadius = 4;
+        [_getVertifyCodeButton setTitleColor:COLOR_W forState:UIControlStateNormal];
         [_getVertifyCodeButton addTarget:self action:@selector(getVertifyBtnClick:) forControlEvents:UIControlEventTouchUpInside];
         [_getVertifyCodeButton sizeToFit];
         [self.view addSubview:_getVertifyCodeButton];
+        
+        
     }
     return _getVertifyCodeButton;
 }
@@ -285,11 +301,11 @@
     if(!_loginButton){
         _loginButton = [[UIButton alloc] init];
         [_loginButton setTitle:@"登录" forState:UIControlStateNormal];
-        [_loginButton setTitleColor:COLOR_H1 forState:UIControlStateNormal];
         _loginButton.titleLabel.font = FONT_L;
+        _loginButton.backgroundColor = COLOR_M;
+        _loginButton.layer.cornerRadius = 4;
+        [_loginButton setTitleColor:COLOR_W forState:UIControlStateNormal];
         [_loginButton sizeToFit];
-        _loginButton.layer.borderWidth = 1;
-        _loginButton.layer.borderColor = COLOR_H1.CGColor;
         [_loginButton addTarget:self action:@selector(loginBtnClick) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:_loginButton];
     }
