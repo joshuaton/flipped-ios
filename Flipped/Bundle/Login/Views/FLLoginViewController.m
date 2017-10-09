@@ -217,6 +217,7 @@
     if(!_phoneNumTextField){
         
         _phoneNumTextField = [[UITextField alloc] init];
+        _phoneNumTextField.keyboardType = UIKeyboardTypeNumberPad;
         _phoneNumTextField.font = FONT_XL;
         _phoneNumTextField.textColor = COLOR_H1;
         _phoneNumTextField.leftView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 5, 0)];
@@ -250,6 +251,7 @@
 -(UITextField *)vertifyCodeTextField{
     if(!_vertifyCodeTextField){
         _vertifyCodeTextField = [[UITextField alloc] init];
+        _vertifyCodeTextField.keyboardType = UIKeyboardTypeNumberPad;
         _vertifyCodeTextField.font = FONT_XL;
         _vertifyCodeTextField.textColor = COLOR_H1;
         _vertifyCodeTextField.leftView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 5, 0)];

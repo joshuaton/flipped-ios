@@ -310,6 +310,7 @@
 -(UITextField *)phoneNumTextField{
     if(!_phoneNumTextField){
         _phoneNumTextField = [[UITextField alloc] init];
+        _phoneNumTextField.keyboardType = UIKeyboardTypeNumberPad;
         _phoneNumTextField.font = FONT_L;
         _phoneNumTextField.textColor = COLOR_H1;
         _phoneNumTextField.leftView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 5, 0)];
