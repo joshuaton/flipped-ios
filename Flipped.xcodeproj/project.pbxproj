@@ -30,6 +30,7 @@
 		45D272481F0B43BC00AF180E /* comm_tab_square_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45D272441F0B43BC00AF180E /* comm_tab_square_selected@2x.png */; };
 		45F1C8BF1F1F2A6100A3B74C /* FLFlippedDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F1C8BE1F1F2A6100A3B74C /* FLFlippedDetailViewController.m */; };
 		583FCBD6E2C5D728117751C6 /* libPods-Flipped.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A6CB62EA12AEAE674DF275B1 /* libPods-Flipped.a */; };
+		6A7ADE5F959F9C2D120EBDFC /* libPods-Flipped.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E2120D7ACD634DE7FDAEBA /* libPods-Flipped.a */; };
 		FB0366451F5D8F2C00B0545F /* FLVideoService.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0366441F5D8F2C00B0545F /* FLVideoService.m */; };
 		FB03664B1F5D93F300B0545F /* FLVideoHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FB03664A1F5D93F300B0545F /* FLVideoHelper.m */; };
 		FB0366561F5D9E0100B0545F /* CallC2CMakeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0366531F5D9E0100B0545F /* CallC2CMakeViewController.m */; };
@@ -359,6 +360,7 @@
 				45471A631F5EB08E009E1DED /* TILCallSDK.framework in Frameworks */,
 				FB8117AD1F44940A0045202B /* libmtasdk.a in Frameworks */,
 				583FCBD6E2C5D728117751C6 /* libPods-Flipped.a in Frameworks */,
+				6A7ADE5F959F9C2D120EBDFC /* libPods-Flipped.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
