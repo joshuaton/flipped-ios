@@ -145,7 +145,7 @@ typedef NS_ENUM(NSInteger, MatchStatus) {
         self.matchTipImageView.hidden = NO;
         self.matchButton.hidden = NO;
         self.cancelButton.hidden = YES;
-        self.tipsLabel.text = @"点击开始匹配心动的Ta";
+        self.tipsLabel.text = @"点击开始随机1V1视频聊天";
         
         [self.animation removeFromSuperview];
         self.animation = nil;
@@ -182,7 +182,7 @@ typedef NS_ENUM(NSInteger, MatchStatus) {
         self.matchButton.hidden = NO;
         self.cancelButton.hidden = YES;
         self.matchTipImageView.hidden = NO;
-        self.tipsLabel.text = @"点击开始匹配心动的Ta";
+        self.tipsLabel.text = @"点击开始随机1V1视频聊天";
 
         [self.animation removeFromSuperview];
         self.animation = nil;
@@ -194,7 +194,7 @@ typedef NS_ENUM(NSInteger, MatchStatus) {
         self.matchButton.hidden = NO;
         self.cancelButton.hidden = YES;
         self.matchTipImageView.hidden = NO;
-        self.tipsLabel.text = @"没有匹配到，点击重新匹配";
+        self.tipsLabel.text = @"暂时没有匹配到，点击重新匹配";
         
         [self.animation removeFromSuperview];
         self.animation = nil;
