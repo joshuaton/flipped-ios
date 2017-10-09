@@ -207,17 +207,20 @@
     NSDictionary* extDict = [ext cp_toJSONObject];
     NSLog(@"%@", extDict);
     
-    //切到第2个tab立即开始匹配
-    [self.tabBarController setSelectedViewController:self.videoNav];
-    [self.squareNav popToRootViewControllerAnimated:NO];
-    [self.videoNav popToRootViewControllerAnimated:NO];
-    [self.mineNav popToRootViewControllerAnimated:NO];
-
-    //防止还没有执行viewdidload就执行
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        FLVideoMainViewController *videoMainVC = (FLVideoMainViewController *)[self.videoNav viewControllers][0];
-        [videoMainVC beginMatch];
-    });
+    NSString *url = extDict[@"url"];
+    if([url isEqualToString:@"flipped://flippedwords.com/match"]){
+        //切到第2个tab立即开始匹配
+        [self.tabBarController setSelectedViewController:self.videoNav];
+        [self.squareNav popToRootViewControllerAnimated:NO];
+        [self.videoNav popToRootViewControllerAnimated:NO];
+        [self.mineNav popToRootViewControllerAnimated:NO];
+        
+        //防止还没有执行viewdidload就执行
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            FLVideoMainViewController *videoMainVC = (FLVideoMainViewController *)[self.videoNav viewControllers][0];
+            [videoMainVC beginMatch];
+        });
+    }
 }
 
 #pragma mark - private
