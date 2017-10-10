@@ -58,6 +58,8 @@
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(otherClick)];
     self.view.userInteractionEnabled = YES;
     [self.view addGestureRecognizer:tap];
+    
+    [self.phoneNumTextField becomeFirstResponder];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -66,7 +68,6 @@
     
     [self makeConstraints];
 
-    [self.phoneNumTextField becomeFirstResponder];
 }
 
 -(void)makeConstraints{
@@ -325,7 +326,11 @@
     NSLog(@"%@", phoneNO);
     if (phone) {
         self.phoneNumTextField.text = phoneNO;
+        
+        [self.contentTextView becomeFirstResponder];
+        
         [peoplePicker dismissViewControllerAnimated:YES completion:nil];
+        
         return;
     }
 }
