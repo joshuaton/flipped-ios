@@ -124,7 +124,6 @@
 -(void)showData{
     if(self.flippedWords.count == 0){
         [self showEmptyLabel:@"暂无数据"];
-        self.tableView.hidden = YES;
     }else{
         self.emptyLabel.hidden = YES;
         [self hideEmptyLabel];
