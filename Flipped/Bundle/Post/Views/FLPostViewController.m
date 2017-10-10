@@ -14,11 +14,15 @@
 #import "FLCloudService.h"
 #import "FLUserInfoManager.h"
 #import "FLStringUtils.h"
+#import <AddressBookUI/ABPeoplePickerNavigationController.h>
+#import <AddressBook/ABPerson.h>
+#import <AddressBookUI/ABPersonViewController.h>
 
-@interface FLPostViewController() <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface FLPostViewController() <UINavigationControllerDelegate, UIImagePickerControllerDelegate, ABPeoplePickerNavigationControllerDelegate>
 
 @property (nonatomic, strong) UILabel *tipsLabel;
 @property (nonatomic, strong) UITextField *phoneNumTextField;
+@property (nonatomic, strong) UIButton *chooseContactButton;
 @property (nonatomic, strong) UIView *lineView;
 @property (nonatomic, strong) UITextView *contentTextView;
 @property (nonatomic, strong) UIImageView *addPicImageView;
@@ -78,10 +82,17 @@
         make.right.equalTo(self.phoneNumTextField.superview).offset(-10);
     }];
     
+    [self.chooseContactButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(self.phoneNumTextField);
+        make.right.equalTo(self.chooseContactButton.superview).offset(-10);
+        make.height.equalTo(self.phoneNumTextField);
+        make.width.equalTo(@(self.chooseContactButton.frame.size.width+10));
+    }];
+    
     [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.phoneNumTextField.mas_bottom).offset(5+8);//8是文字离边框的距离
+        make.top.equalTo(self.phoneNumTextField.mas_bottom).offset(5);
         make.left.equalTo(self.phoneNumTextField);
-        make.right.equalTo(self.phoneNumTextField);
+        make.right.equalTo(self.chooseContactButton.mas_left).offset(-10);
         make.height.equalTo(@1);
     }];
     
@@ -255,6 +266,19 @@
 
 }
 
+-(void)chooseContactClick{
+    ABAddressBookRef addressBook =  ABAddressBookCreateWithOptions(NULL, NULL);
+    ABAddressBookRequestAccessWithCompletion(addressBook, ^(bool granted, CFErrorRef error) {
+        NSLog(@"Access to contacts %@ by user", granted ? @"granted" : @"denied");
+        if(granted){
+            ABPeoplePickerNavigationController *nav = [[ABPeoplePickerNavigationController alloc] init];
+            nav.peoplePickerDelegate = self;
+            nav.predicateForSelectionOfPerson = [NSPredicate predicateWithValue:false];
+            [self presentViewController:nav animated:YES completion:nil];
+        }
+    });
+}
+
 -(void)otherClick{
     
     [self.phoneNumTextField resignFirstResponder];
@@ -280,6 +304,39 @@
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
+#pragma mark - ABPeoplePickerNavigationControllerDelegate
+
+//取消选择
+- (void)peoplePickerNavigationControllerDidCancel:(ABPeoplePickerNavigationController *)peoplePicker
+{
+    [peoplePicker dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker didSelectPerson:(ABRecordRef)person property:(ABPropertyID)property identifier:(ABMultiValueIdentifier)identifier {
+    ABMultiValueRef phone = ABRecordCopyValue(person, kABPersonPhoneProperty);
+    long index = ABMultiValueGetIndexForIdentifier(phone,identifier);
+    NSString *phoneNO = (__bridge NSString *)ABMultiValueCopyValueAtIndex(phone, index);
+    
+    if ([phoneNO hasPrefix:@"+"]) {
+        phoneNO = [phoneNO substringFromIndex:3];
+    }
+    
+    phoneNO = [phoneNO stringByReplacingOccurrencesOfString:@"-" withString:@""];
+    NSLog(@"%@", phoneNO);
+    if (phone) {
+        self.phoneNumTextField.text = phoneNO;
+        [peoplePicker dismissViewControllerAnimated:YES completion:nil];
+        return;
+    }
+}
+
+- (void)peoplePickerNavigationController:(ABPeoplePickerNavigationController*)peoplePicker didSelectPerson:(ABRecordRef)person
+{
+    ABPersonViewController *personViewController = [[ABPersonViewController alloc] init];
+    personViewController.displayedPerson = person;
+    [peoplePicker pushViewController:personViewController animated:YES];
+}
+
 #pragma mark - UIImagePickerControllerDelegate
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
@@ -291,6 +348,7 @@
     [self showImage:image];
     NSLog(@"did select image");
 }
+
 
 
 
@@ -330,6 +388,21 @@
         [self.view addSubview:_phoneNumTextField];
     }
     return _phoneNumTextField;
+}
+
+-(UIButton *)chooseContactButton{
+    if(!_chooseContactButton){
+        _chooseContactButton = [[UIButton alloc] init];
+        [_chooseContactButton setTitle:@"从通讯录导入" forState:UIControlStateNormal];
+        _chooseContactButton.backgroundColor = COLOR_M;
+        _chooseContactButton.titleLabel.font = FONT_L;
+        _chooseContactButton.layer.cornerRadius = 4;
+        [_chooseContactButton setTitleColor:COLOR_W forState:UIControlStateNormal];
+        [_chooseContactButton addTarget:self action:@selector(chooseContactClick) forControlEvents:UIControlEventTouchUpInside];
+        [_chooseContactButton sizeToFit];
+        [self.view addSubview:_chooseContactButton];
+    }
+    return _chooseContactButton;
 }
 
 -(UIView *)lineView{

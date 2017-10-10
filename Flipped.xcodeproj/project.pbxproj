@@ -21,6 +21,7 @@
 		456B67A11F6778950001DB6C /* comm_tab_video_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 456B679F1F6778950001DB6C /* comm_tab_video_selected.png */; };
 		456B67A21F6778950001DB6C /* comm_tab_video.png in Resources */ = {isa = PBXBuildFile; fileRef = 456B67A01F6778950001DB6C /* comm_tab_video.png */; };
 		4571952B1F0C907300671634 /* FLFlippedWordsService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4571952A1F0C907300671634 /* FLFlippedWordsService.m */; };
+		45B649AC1F8C778100EF3587 /* FLContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B649AB1F8C778100EF3587 /* FLContactsViewController.m */; };
 		45D272101F0B343E00AF180E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D2720F1F0B343E00AF180E /* main.m */; };
 		45D272131F0B343E00AF180E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D272121F0B343E00AF180E /* AppDelegate.m */; };
 		45D2721B1F0B343E00AF180E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45D2721A1F0B343E00AF180E /* Assets.xcassets */; };
@@ -152,6 +153,8 @@
 		456B67A01F6778950001DB6C /* comm_tab_video.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = comm_tab_video.png; sourceTree = "<group>"; };
 		457195291F0C906900671634 /* FLFlippedWordsService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLFlippedWordsService.h; sourceTree = "<group>"; };
 		4571952A1F0C907300671634 /* FLFlippedWordsService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLFlippedWordsService.m; sourceTree = "<group>"; };
+		45B649AA1F8C775E00EF3587 /* FLContactsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLContactsViewController.h; sourceTree = "<group>"; };
+		45B649AB1F8C778100EF3587 /* FLContactsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLContactsViewController.m; sourceTree = "<group>"; };
 		45D2720B1F0B343E00AF180E /* Flipped.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flipped.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45D2720F1F0B343E00AF180E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		45D272111F0B343E00AF180E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -694,6 +697,8 @@
 			children = (
 				FB6173A51F1112D0009649E2 /* FLPostViewController.h */,
 				FB6173A61F1112D0009649E2 /* FLPostViewController.m */,
+				45B649AA1F8C775E00EF3587 /* FLContactsViewController.h */,
+				45B649AB1F8C778100EF3587 /* FLContactsViewController.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1129,6 +1134,7 @@
 				FB07151C1F30A43500F5B0CA /* FLComment.m in Sources */,
 				FB6173B31F11146A009649E2 /* FLContent.m in Sources */,
 				FB8118151F5167690045202B /* UIImage+scaleImage.m in Sources */,
+				45B649AC1F8C778100EF3587 /* FLContactsViewController.m in Sources */,
 				FB7CF6D61F1BA84200CD9F5C /* FLToast.m in Sources */,
 				FB07151F1F30A6C800F5B0CA /* FLCommentCell.m in Sources */,
 			);

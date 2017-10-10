@@ -54,6 +54,8 @@
 	<string>用于采集麦克风数据，作为直播音频数据来源</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>此 App 需要您的同意才能读取媒体资料库</string>
+    <key>NSContactsUsageDescription</key>
+    <string>此 App 需要访问您的通讯录</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>remote-notification</string>
