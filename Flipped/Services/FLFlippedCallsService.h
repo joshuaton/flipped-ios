@@ -10,7 +10,7 @@
 
 @interface FLFlippedCallsService : FLBaseService
 
-+(void)getFlippedCallWithSuccessBlock:(void (^)(NSString *uid, NSInteger callTimeout, NSInteger wait_timeout))successBlock failBlock:(void (^)(NSError *error))failedBlock;
++(void)getFlippedCallWithSuccessBlock:(void (^)(NSString *uid, NSInteger callTimeout, NSInteger waitTimeout))successBlock failBlock:(void (^)(NSError *error))failedBlock;
 
 +(void)quitFlippedCallWithSuccessBlock:(void (^)())successBlock failBlock:(void (^)(NSError *error))failedBlock;
 

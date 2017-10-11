@@ -91,17 +91,17 @@ typedef NS_ENUM(NSInteger, MatchStatus) {
 -(void)matchBtnClick{
     [self statusChanged:MatchStatusMatching];
     
-    [FLFlippedCallsService getFlippedCallWithSuccessBlock:^(NSString *uid, NSInteger callTimeout, NSInteger wait_timeout) {
+    [FLFlippedCallsService getFlippedCallWithSuccessBlock:^(NSString *uid, NSInteger callTimeout, NSInteger waitTimeout) {
         
         NSLog(@"junshao match uid %@", uid);
         NSLog(@"junshao callTimeout %ld", (long)callTimeout);
-        NSLog(@"junshao wait_timeout %ld", (long)wait_timeout);
+        NSLog(@"junshao wait_timeout %ld", (long)waitTimeout);
         
         //没有匹配到，监听秒数为callTimeout
-        if(wait_timeout > 0){
+        if(waitTimeout > 0){
             [self statusChanged:MatchStatusMatching];
             
-            self.timer = [NSTimer scheduledTimerWithTimeInterval:wait_timeout target:self selector:@selector(matchFailed) userInfo:nil repeats:NO];
+            self.timer = [NSTimer scheduledTimerWithTimeInterval:waitTimeout target:self selector:@selector(matchFailed) userInfo:nil repeats:NO];
         }
         //匹配到，拉起视频
         else if(uid.length > 0){

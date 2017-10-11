@@ -10,7 +10,7 @@
 
 @implementation FLFlippedCallsService
 
-+(void)getFlippedCallWithSuccessBlock:(void (^)(NSString *uid, NSInteger callTimeout, NSInteger wait_timeout))successBlock failBlock:(void (^)(NSError *error))failedBlock{
++(void)getFlippedCallWithSuccessBlock:(void (^)(NSString *uid, NSInteger callTimeout, NSInteger waitTimeout))successBlock failBlock:(void (^)(NSError *error))failedBlock{
     
 //    NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
 //    dict[@"gender"] = @1;
