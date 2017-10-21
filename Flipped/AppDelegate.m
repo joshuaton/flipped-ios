@@ -84,10 +84,11 @@
 
     
     //tabBar颜色
-    UIView *backView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, self.tabBarController.tabBar.frame.size.height)];
-    backView.backgroundColor = COLOR_M;
-    [self.tabBarController.tabBar insertSubview:backView atIndex:0];
-    self.tabBarController.tabBar.opaque = YES;
+//    UIView *backView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, self.tabBarController.tabBar.frame.size.height)];
+//    backView.backgroundColor = COLOR_M;
+//    [self.tabBarController.tabBar insertSubview:backView atIndex:0];
+    self.tabBarController.tabBar.opaque = NO;
+    self.tabBarController.tabBar.barTintColor = COLOR_M;
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSNumber *splashShowed = [defaults objectForKey:@"splashShowed"];

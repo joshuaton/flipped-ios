@@ -32,7 +32,7 @@
     
     
     [self.contentTextView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.contentTextView.superview).offset(64+10);
+        make.top.equalTo(self.mas_topLayoutGuide).offset(10);
         make.left.equalTo(self.contentTextView.superview).offset(10);
         make.right.equalTo(self.contentTextView.superview).offset(-10);
         make.height.equalTo(@150);

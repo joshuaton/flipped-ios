@@ -67,7 +67,7 @@
 -(void)makeConstraints{
     
     [self.phoneNumTextField mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.phoneNumTextField.superview).offset(64+20);
+        make.top.equalTo(self.mas_topLayoutGuide).offset(20);
         make.left.equalTo(self.phoneNumTextField.superview).offset(10);
         make.right.equalTo(self.phoneNumTextField.superview).offset(-10);
         make.height.equalTo(@40);

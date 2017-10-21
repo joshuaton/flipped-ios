@@ -131,7 +131,7 @@
     
     [self.commentView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(@0);
-        make.bottom.equalTo(@0);
+        make.bottom.equalTo(self.mas_bottomLayoutGuide);
         make.right.equalTo(@0);
         make.height.equalTo(@45);
     }];
@@ -302,9 +302,8 @@
     
     [QQPopMenuView showWithItems:menuData
                            width:130
-    triangleLocation:CGPointMake([UIScreen mainScreen].bounds.size.width-30, 64+5)
+    triangleLocation:CGPointMake([UIScreen mainScreen].bounds.size.width-30, STATUS_BAR_HEIGHT+44+5)
       action:^(NSInteger index) {
-          
           //分享
           if(index == 0){
               [CPShareView sharedInstance].shareDesc = self.contentText;

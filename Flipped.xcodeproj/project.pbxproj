@@ -28,6 +28,56 @@
 		45D272461F0B43BC00AF180E /* comm_tab_mine_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45D272421F0B43BC00AF180E /* comm_tab_mine_selected@2x.png */; };
 		45D272471F0B43BC00AF180E /* comm_tab_square@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45D272431F0B43BC00AF180E /* comm_tab_square@2x.png */; };
 		45D272481F0B43BC00AF180E /* comm_tab_square_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45D272441F0B43BC00AF180E /* comm_tab_square_selected@2x.png */; };
+		45DF1C201F9B37F800A5EAC1 /* CallC2CMakeViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 45DF1C001F9B377400A5EAC1 /* CallC2CMakeViewController.h */; };
+		45DF1C211F9B37F800A5EAC1 /* CallC2CMakeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DF1C011F9B377400A5EAC1 /* CallC2CMakeViewController.m */; };
+		45DF1C221F9B37F800A5EAC1 /* CallC2CRecvViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 45DF1C021F9B377400A5EAC1 /* CallC2CRecvViewController.h */; };
+		45DF1C231F9B37F800A5EAC1 /* CallC2CRecvViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DF1C031F9B377400A5EAC1 /* CallC2CRecvViewController.m */; };
+		45DF1C241F9B37F800A5EAC1 /* FLBaseViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 45DF1C041F9B377400A5EAC1 /* FLBaseViewController.h */; };
+		45DF1C251F9B37F800A5EAC1 /* FLBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DF1C051F9B377400A5EAC1 /* FLBaseViewController.m */; };
+		45DF1C261F9B37F800A5EAC1 /* FLCommentCell.h in Sources */ = {isa = PBXBuildFile; fileRef = 45DF1C061F9B377400A5EAC1 /* FLCommentCell.h */; };
+		45DF1C271F9B37F800A5EAC1 /* FLCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DF1C071F9B377400A5EAC1 /* FLCommentCell.m */; };
+		45DF1C281F9B37F800A5EAC1 /* FLCopyLabel.h in Sources */ = {isa = PBXBuildFile; fileRef = 45DF1C081F9B377400A5EAC1 /* FLCopyLabel.h */; };
+		45DF1C291F9B37F800A5EAC1 /* FLCopyLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DF1C091F9B377400A5EAC1 /* FLCopyLabel.m */; };
+		45DF1C2A1F9B37F800A5EAC1 /* FLFeedbackViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 45DF1C0A1F9B377400A5EAC1 /* FLFeedbackViewController.h */; };
+		45DF1C2B1F9B37F800A5EAC1 /* FLFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DF1C0B1F9B377400A5EAC1 /* FLFeedbackViewController.m */; };
+		45DF1C2C1F9B37F800A5EAC1 /* FLFlippedDetailViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 45DF1C0C1F9B377400A5EAC1 /* FLFlippedDetailViewController.h */; };
+		45DF1C2D1F9B37F800A5EAC1 /* FLFlippedDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DF1C0D1F9B377400A5EAC1 /* FLFlippedDetailViewController.m */; };
+		45DF1C2E1F9B37F800A5EAC1 /* FLFlippedListViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 45DF1C0E1F9B377400A5EAC1 /* FLFlippedListViewController.h */; };
+		45DF1C2F1F9B37F800A5EAC1 /* FLFlippedListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DF1C0F1F9B377400A5EAC1 /* FLFlippedListViewController.m */; };
+		45DF1C301F9B37F800A5EAC1 /* FLFlippedWordCell.h in Sources */ = {isa = PBXBuildFile; fileRef = 45DF1C101F9B377400A5EAC1 /* FLFlippedWordCell.h */; };
+		45DF1C311F9B37F800A5EAC1 /* FLFlippedWordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DF1C111F9B377400A5EAC1 /* FLFlippedWordCell.m */; };
+		45DF1C321F9B37F800A5EAC1 /* FLHelpViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 45DF1C121F9B377400A5EAC1 /* FLHelpViewController.h */; };
+		45DF1C331F9B37F800A5EAC1 /* FLHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DF1C131F9B377400A5EAC1 /* FLHelpViewController.m */; };
+		45DF1C341F9B37F800A5EAC1 /* FLLoginViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 45DF1C141F9B377400A5EAC1 /* FLLoginViewController.h */; };
+		45DF1C351F9B37F800A5EAC1 /* FLLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DF1C151F9B377400A5EAC1 /* FLLoginViewController.m */; };
+		45DF1C361F9B37F800A5EAC1 /* FLNewMineViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 45DF1C161F9B377400A5EAC1 /* FLNewMineViewController.h */; };
+		45DF1C371F9B37F800A5EAC1 /* FLNewMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DF1C171F9B377400A5EAC1 /* FLNewMineViewController.m */; };
+		45DF1C381F9B37F800A5EAC1 /* FLPostViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 45DF1C181F9B377400A5EAC1 /* FLPostViewController.h */; };
+		45DF1C391F9B37F800A5EAC1 /* FLPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DF1C191F9B377400A5EAC1 /* FLPostViewController.m */; };
+		45DF1C3A1F9B37F800A5EAC1 /* FLSplashViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 45DF1C1A1F9B377400A5EAC1 /* FLSplashViewController.h */; };
+		45DF1C3B1F9B37F800A5EAC1 /* FLSplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DF1C1B1F9B377400A5EAC1 /* FLSplashViewController.m */; };
+		45DF1C3C1F9B37F800A5EAC1 /* FLSquareViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 45DF1C1C1F9B377400A5EAC1 /* FLSquareViewController.h */; };
+		45DF1C3D1F9B37F800A5EAC1 /* FLSquareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DF1C1D1F9B377400A5EAC1 /* FLSquareViewController.m */; };
+		45DF1C3E1F9B37F800A5EAC1 /* FLVideoMainViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 45DF1C1E1F9B377400A5EAC1 /* FLVideoMainViewController.h */; };
+		45DF1C3F1F9B37F800A5EAC1 /* FLVideoMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DF1C1F1F9B377400A5EAC1 /* FLVideoMainViewController.m */; };
+		45DF1C401F9B382D00A5EAC1 /* FLComment.h in Sources */ = {isa = PBXBuildFile; fileRef = 45DF1BF71F9B36FB00A5EAC1 /* FLComment.h */; };
+		45DF1C411F9B382D00A5EAC1 /* FLComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DF1BF81F9B36FB00A5EAC1 /* FLComment.m */; };
+		45DF1C421F9B382D00A5EAC1 /* FLContent.h in Sources */ = {isa = PBXBuildFile; fileRef = 45DF1BF91F9B36FB00A5EAC1 /* FLContent.h */; };
+		45DF1C431F9B382D00A5EAC1 /* FLContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DF1BFA1F9B36FB00A5EAC1 /* FLContent.m */; };
+		45DF1C441F9B382D00A5EAC1 /* FLFlippedWord.h in Sources */ = {isa = PBXBuildFile; fileRef = 45DF1BFB1F9B36FB00A5EAC1 /* FLFlippedWord.h */; };
+		45DF1C451F9B382D00A5EAC1 /* FLFlippedWord.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DF1BFC1F9B36FB00A5EAC1 /* FLFlippedWord.m */; };
+		45DF1C461F9B382D00A5EAC1 /* FLLink.h in Sources */ = {isa = PBXBuildFile; fileRef = 45DF1BFD1F9B36FB00A5EAC1 /* FLLink.h */; };
+		45DF1C471F9B382D00A5EAC1 /* FLLink.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DF1BFE1F9B36FB00A5EAC1 /* FLLink.m */; };
+		45DF1C481F9B383E00A5EAC1 /* TIMMessageListenerImpl.h in Sources */ = {isa = PBXBuildFile; fileRef = FBB290161F8109C3007247CC /* TIMMessageListenerImpl.h */; };
+		45DF1C491F9B383E00A5EAC1 /* NSObject+JSONUtils.h in Sources */ = {isa = PBXBuildFile; fileRef = FBB2901B1F81D00C007247CC /* NSObject+JSONUtils.h */; };
+		45DF1C4A1F9B383E00A5EAC1 /* UIImage+scaleImage.h in Sources */ = {isa = PBXBuildFile; fileRef = FB8118131F5167690045202B /* UIImage+scaleImage.h */; };
+		45DF1C4B1F9B383E00A5EAC1 /* CPShareEntity.h in Sources */ = {isa = PBXBuildFile; fileRef = FB8117E01F4924050045202B /* CPShareEntity.h */; };
+		45DF1C4C1F9B383E00A5EAC1 /* CPShareManager.h in Sources */ = {isa = PBXBuildFile; fileRef = FB8117E21F4924050045202B /* CPShareManager.h */; };
+		45DF1C4D1F9B383E00A5EAC1 /* CPShareView.h in Sources */ = {isa = PBXBuildFile; fileRef = FB8117E41F4924050045202B /* CPShareView.h */; };
+		45DF1C4E1F9B383E00A5EAC1 /* CPShareViewCell.h in Sources */ = {isa = PBXBuildFile; fileRef = FB8117E61F4924050045202B /* CPShareViewCell.h */; };
+		45DF1C4F1F9B383E00A5EAC1 /* FLVideoHelper.h in Sources */ = {isa = PBXBuildFile; fileRef = FB0366491F5D93E700B0545F /* FLVideoHelper.h */; };
+		45DF1C501F9B383E00A5EAC1 /* FLAFHTTPSessionManager.h in Sources */ = {isa = PBXBuildFile; fileRef = FBCD222E1F1A5A1600D8B718 /* FLAFHTTPSessionManager.h */; };
+		45DF1C511F9B383E00A5EAC1 /* FLUserInfoManager.h in Sources */ = {isa = PBXBuildFile; fileRef = FBD938B31F1F586600900842 /* FLUserInfoManager.h */; };
 		583FCBD6E2C5D728117751C6 /* libPods-Flipped.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A6CB62EA12AEAE674DF275B1 /* libPods-Flipped.a */; };
 		6A7ADE5F959F9C2D120EBDFC /* libPods-Flipped.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E2120D7ACD634DE7FDAEBA /* libPods-Flipped.a */; };
 		FB0366451F5D8F2C00B0545F /* FLVideoService.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0366441F5D8F2C00B0545F /* FLVideoService.m */; };
@@ -35,17 +85,13 @@
 		FB0366591F5D9E6900B0545F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB0366581F5D9E6900B0545F /* Main.storyboard */; };
 		FB03665C1F6429CD00B0545F /* like.json in Resources */ = {isa = PBXBuildFile; fileRef = FB03665B1F6429CD00B0545F /* like.json */; };
 		FB0366621F777C0F00B0545F /* flipped_splash_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB03665F1F777C0F00B0545F /* flipped_splash_button@2x.png */; };
-		FB0715141F3064C000F5B0CA /* FLLink.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0715131F3064C000F5B0CA /* FLLink.m */; };
 		FB0715161F3069BD00F5B0CA /* flipped_detail_more@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB0715151F3069BD00F5B0CA /* flipped_detail_more@2x.png */; };
 		FB0715191F306C5300F5B0CA /* FLCommService.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0715181F306C5300F5B0CA /* FLCommService.m */; };
-		FB07151C1F30A43500F5B0CA /* FLComment.m in Sources */ = {isa = PBXBuildFile; fileRef = FB07151B1F30A43500F5B0CA /* FLComment.m */; };
 		FB2EC8731F32CB2200238756 /* d.html in Resources */ = {isa = PBXBuildFile; fileRef = FB2EC8721F32CB2200238756 /* d.html */; };
 		FB4942A51F264F48005BCD9C /* FLStringUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = FB4942A41F264F48005BCD9C /* FLStringUtils.m */; };
 		FB56885D1F778B71002E3949 /* flipped_comment_num_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB56885A1F778B71002E3949 /* flipped_comment_num_icon@2x.png */; };
 		FB56885E1F778B71002E3949 /* flipped_distance_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB56885B1F778B71002E3949 /* flipped_distance_icon@2x.png */; };
 		FB56885F1F778B71002E3949 /* flipped_sendto_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB56885C1F778B71002E3949 /* flipped_sendto_icon@2x.png */; };
-		FB6173AB1F1112D0009649E2 /* FLFlippedWord.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6173951F1112D0009649E2 /* FLFlippedWord.m */; };
-		FB6173B31F11146A009649E2 /* FLContent.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6173B21F11146A009649E2 /* FLContent.m */; };
 		FB6E90B91F5308ED0050BA96 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6E90B81F5308ED0050BA96 /* UIKit.framework */; };
 		FB6E90BB1F5308F90050BA96 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6E90BA1F5308F90050BA96 /* Foundation.framework */; };
 		FB6E90BD1F5309030050BA96 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6E90BC1F5309030050BA96 /* AVFoundation.framework */; };
@@ -96,8 +142,6 @@
 		FBB9177C1F1254DA000C7353 /* flipped_content_pic@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FBB917761F1254DA000C7353 /* flipped_content_pic@2x.png */; };
 		FBB9177D1F1254DA000C7353 /* flipped_content_video@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FBB917771F1254DA000C7353 /* flipped_content_video@2x.png */; };
 		FBB9177E1F1254DA000C7353 /* flipped_content_sound@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FBB917781F1254DA000C7353 /* flipped_content_sound@2x.png */; };
-		FBB917801F1254DA000C7353 /* post_add.png in Resources */ = {isa = PBXBuildFile; fileRef = FBB9177A1F1254DA000C7353 /* post_add.png */; };
-		FBB917811F1254DA000C7353 /* WechatIMG9.png in Resources */ = {isa = PBXBuildFile; fileRef = FBB9177B1F1254DA000C7353 /* WechatIMG9.png */; };
 		FBBA70651F24E35400CADD08 /* UILabel+ChangeLineSpaceAndWordSpace.m in Sources */ = {isa = PBXBuildFile; fileRef = FBBA70641F24E35400CADD08 /* UILabel+ChangeLineSpaceAndWordSpace.m */; };
 		FBCD22291F1A0F8100D8B718 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = FBCD22281F1A0F8100D8B718 /* NSString+MD5.m */; };
 		FBCD222C1F1A21EB00D8B718 /* NSString+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = FBCD222B1F1A21EB00D8B718 /* NSString+Base64.m */; };
@@ -136,38 +180,6 @@
 		456B67A01F6778950001DB6C /* comm_tab_video.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = comm_tab_video.png; sourceTree = "<group>"; };
 		457195291F0C906900671634 /* FLFlippedWordsService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLFlippedWordsService.h; sourceTree = "<group>"; };
 		4571952A1F0C907300671634 /* FLFlippedWordsService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLFlippedWordsService.m; sourceTree = "<group>"; };
-		458ADC1B1F9B31BD00CC4718 /* CallC2CMakeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CallC2CMakeViewController.h; sourceTree = "<group>"; };
-		458ADC1C1F9B31BD00CC4718 /* CallC2CMakeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CallC2CMakeViewController.m; sourceTree = "<group>"; };
-		458ADC1D1F9B31BD00CC4718 /* CallC2CRecvViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CallC2CRecvViewController.h; sourceTree = "<group>"; };
-		458ADC1E1F9B31BD00CC4718 /* CallC2CRecvViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CallC2CRecvViewController.m; sourceTree = "<group>"; };
-		458ADC1F1F9B31BD00CC4718 /* FLBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLBaseViewController.h; sourceTree = "<group>"; };
-		458ADC201F9B31BD00CC4718 /* FLBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLBaseViewController.m; sourceTree = "<group>"; };
-		458ADC211F9B31BD00CC4718 /* FLCommentCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLCommentCell.h; sourceTree = "<group>"; };
-		458ADC221F9B31BD00CC4718 /* FLCommentCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLCommentCell.m; sourceTree = "<group>"; };
-		458ADC231F9B31BD00CC4718 /* FLCopyLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLCopyLabel.h; sourceTree = "<group>"; };
-		458ADC241F9B31BD00CC4718 /* FLCopyLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLCopyLabel.m; sourceTree = "<group>"; };
-		458ADC251F9B31BD00CC4718 /* FLFeedbackViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLFeedbackViewController.h; sourceTree = "<group>"; };
-		458ADC261F9B31BD00CC4718 /* FLFeedbackViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLFeedbackViewController.m; sourceTree = "<group>"; };
-		458ADC271F9B31BD00CC4718 /* FLFlippedDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLFlippedDetailViewController.h; sourceTree = "<group>"; };
-		458ADC281F9B31BD00CC4718 /* FLFlippedDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLFlippedDetailViewController.m; sourceTree = "<group>"; };
-		458ADC291F9B31BD00CC4718 /* FLFlippedListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLFlippedListViewController.h; sourceTree = "<group>"; };
-		458ADC2A1F9B31BD00CC4718 /* FLFlippedListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLFlippedListViewController.m; sourceTree = "<group>"; };
-		458ADC2B1F9B31BD00CC4718 /* FLFlippedWordCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLFlippedWordCell.h; sourceTree = "<group>"; };
-		458ADC2C1F9B31BD00CC4718 /* FLFlippedWordCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLFlippedWordCell.m; sourceTree = "<group>"; };
-		458ADC2D1F9B31BD00CC4718 /* FLHelpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLHelpViewController.h; sourceTree = "<group>"; };
-		458ADC2E1F9B31BD00CC4718 /* FLHelpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLHelpViewController.m; sourceTree = "<group>"; };
-		458ADC2F1F9B31BD00CC4718 /* FLLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLLoginViewController.h; sourceTree = "<group>"; };
-		458ADC301F9B31BD00CC4718 /* FLLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLLoginViewController.m; sourceTree = "<group>"; };
-		458ADC311F9B31BD00CC4718 /* FLNewMineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLNewMineViewController.h; sourceTree = "<group>"; };
-		458ADC321F9B31BD00CC4718 /* FLNewMineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLNewMineViewController.m; sourceTree = "<group>"; };
-		458ADC331F9B31BD00CC4718 /* FLPostViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLPostViewController.h; sourceTree = "<group>"; };
-		458ADC341F9B31BD00CC4718 /* FLPostViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLPostViewController.m; sourceTree = "<group>"; };
-		458ADC351F9B31BD00CC4718 /* FLSplashViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLSplashViewController.h; sourceTree = "<group>"; };
-		458ADC361F9B31BD00CC4718 /* FLSplashViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLSplashViewController.m; sourceTree = "<group>"; };
-		458ADC371F9B31BD00CC4718 /* FLSquareViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLSquareViewController.h; sourceTree = "<group>"; };
-		458ADC381F9B31BD00CC4718 /* FLSquareViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLSquareViewController.m; sourceTree = "<group>"; };
-		458ADC391F9B31BD00CC4718 /* FLVideoMainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLVideoMainViewController.h; sourceTree = "<group>"; };
-		458ADC3A1F9B31BD00CC4718 /* FLVideoMainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLVideoMainViewController.m; sourceTree = "<group>"; };
 		45D2720B1F0B343E00AF180E /* Flipped.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flipped.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45D2720F1F0B343E00AF180E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		45D272111F0B343E00AF180E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -178,6 +190,46 @@
 		45D272421F0B43BC00AF180E /* comm_tab_mine_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "comm_tab_mine_selected@2x.png"; sourceTree = "<group>"; };
 		45D272431F0B43BC00AF180E /* comm_tab_square@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "comm_tab_square@2x.png"; sourceTree = "<group>"; };
 		45D272441F0B43BC00AF180E /* comm_tab_square_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "comm_tab_square_selected@2x.png"; sourceTree = "<group>"; };
+		45DF1BF71F9B36FB00A5EAC1 /* FLComment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLComment.h; sourceTree = "<group>"; };
+		45DF1BF81F9B36FB00A5EAC1 /* FLComment.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLComment.m; sourceTree = "<group>"; };
+		45DF1BF91F9B36FB00A5EAC1 /* FLContent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLContent.h; sourceTree = "<group>"; };
+		45DF1BFA1F9B36FB00A5EAC1 /* FLContent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLContent.m; sourceTree = "<group>"; };
+		45DF1BFB1F9B36FB00A5EAC1 /* FLFlippedWord.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLFlippedWord.h; sourceTree = "<group>"; };
+		45DF1BFC1F9B36FB00A5EAC1 /* FLFlippedWord.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLFlippedWord.m; sourceTree = "<group>"; };
+		45DF1BFD1F9B36FB00A5EAC1 /* FLLink.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLLink.h; sourceTree = "<group>"; };
+		45DF1BFE1F9B36FB00A5EAC1 /* FLLink.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLLink.m; sourceTree = "<group>"; };
+		45DF1C001F9B377400A5EAC1 /* CallC2CMakeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CallC2CMakeViewController.h; sourceTree = "<group>"; };
+		45DF1C011F9B377400A5EAC1 /* CallC2CMakeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CallC2CMakeViewController.m; sourceTree = "<group>"; };
+		45DF1C021F9B377400A5EAC1 /* CallC2CRecvViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CallC2CRecvViewController.h; sourceTree = "<group>"; };
+		45DF1C031F9B377400A5EAC1 /* CallC2CRecvViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CallC2CRecvViewController.m; sourceTree = "<group>"; };
+		45DF1C041F9B377400A5EAC1 /* FLBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLBaseViewController.h; sourceTree = "<group>"; };
+		45DF1C051F9B377400A5EAC1 /* FLBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLBaseViewController.m; sourceTree = "<group>"; };
+		45DF1C061F9B377400A5EAC1 /* FLCommentCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLCommentCell.h; sourceTree = "<group>"; };
+		45DF1C071F9B377400A5EAC1 /* FLCommentCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLCommentCell.m; sourceTree = "<group>"; };
+		45DF1C081F9B377400A5EAC1 /* FLCopyLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLCopyLabel.h; sourceTree = "<group>"; };
+		45DF1C091F9B377400A5EAC1 /* FLCopyLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLCopyLabel.m; sourceTree = "<group>"; };
+		45DF1C0A1F9B377400A5EAC1 /* FLFeedbackViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLFeedbackViewController.h; sourceTree = "<group>"; };
+		45DF1C0B1F9B377400A5EAC1 /* FLFeedbackViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLFeedbackViewController.m; sourceTree = "<group>"; };
+		45DF1C0C1F9B377400A5EAC1 /* FLFlippedDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLFlippedDetailViewController.h; sourceTree = "<group>"; };
+		45DF1C0D1F9B377400A5EAC1 /* FLFlippedDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLFlippedDetailViewController.m; sourceTree = "<group>"; };
+		45DF1C0E1F9B377400A5EAC1 /* FLFlippedListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLFlippedListViewController.h; sourceTree = "<group>"; };
+		45DF1C0F1F9B377400A5EAC1 /* FLFlippedListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLFlippedListViewController.m; sourceTree = "<group>"; };
+		45DF1C101F9B377400A5EAC1 /* FLFlippedWordCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLFlippedWordCell.h; sourceTree = "<group>"; };
+		45DF1C111F9B377400A5EAC1 /* FLFlippedWordCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLFlippedWordCell.m; sourceTree = "<group>"; };
+		45DF1C121F9B377400A5EAC1 /* FLHelpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLHelpViewController.h; sourceTree = "<group>"; };
+		45DF1C131F9B377400A5EAC1 /* FLHelpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLHelpViewController.m; sourceTree = "<group>"; };
+		45DF1C141F9B377400A5EAC1 /* FLLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLLoginViewController.h; sourceTree = "<group>"; };
+		45DF1C151F9B377400A5EAC1 /* FLLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLLoginViewController.m; sourceTree = "<group>"; };
+		45DF1C161F9B377400A5EAC1 /* FLNewMineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLNewMineViewController.h; sourceTree = "<group>"; };
+		45DF1C171F9B377400A5EAC1 /* FLNewMineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLNewMineViewController.m; sourceTree = "<group>"; };
+		45DF1C181F9B377400A5EAC1 /* FLPostViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLPostViewController.h; sourceTree = "<group>"; };
+		45DF1C191F9B377400A5EAC1 /* FLPostViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLPostViewController.m; sourceTree = "<group>"; };
+		45DF1C1A1F9B377400A5EAC1 /* FLSplashViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLSplashViewController.h; sourceTree = "<group>"; };
+		45DF1C1B1F9B377400A5EAC1 /* FLSplashViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLSplashViewController.m; sourceTree = "<group>"; };
+		45DF1C1C1F9B377400A5EAC1 /* FLSquareViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLSquareViewController.h; sourceTree = "<group>"; };
+		45DF1C1D1F9B377400A5EAC1 /* FLSquareViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLSquareViewController.m; sourceTree = "<group>"; };
+		45DF1C1E1F9B377400A5EAC1 /* FLVideoMainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLVideoMainViewController.h; sourceTree = "<group>"; };
+		45DF1C1F1F9B377400A5EAC1 /* FLVideoMainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLVideoMainViewController.m; sourceTree = "<group>"; };
 		52E2120D7ACD634DE7FDAEBA /* libPods-Flipped.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Flipped.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BA26D2BB5C6386B31F8E1A5 /* Pods-Flipped.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flipped.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Flipped/Pods-Flipped.debug.xcconfig"; sourceTree = "<group>"; };
 		7CA5465F4BAB318854577797 /* Pods-Flipped.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flipped.release.xcconfig"; path = "Pods/Target Support Files/Pods-Flipped/Pods-Flipped.release.xcconfig"; sourceTree = "<group>"; };
@@ -190,23 +242,15 @@
 		FB0366581F5D9E6900B0545F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		FB03665B1F6429CD00B0545F /* like.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = like.json; sourceTree = "<group>"; };
 		FB03665F1F777C0F00B0545F /* flipped_splash_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flipped_splash_button@2x.png"; sourceTree = "<group>"; };
-		FB0715121F3064B800F5B0CA /* FLLink.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLLink.h; sourceTree = "<group>"; };
-		FB0715131F3064C000F5B0CA /* FLLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLLink.m; sourceTree = "<group>"; };
 		FB0715151F3069BD00F5B0CA /* flipped_detail_more@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flipped_detail_more@2x.png"; sourceTree = "<group>"; };
 		FB0715171F306C4B00F5B0CA /* FLCommService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLCommService.h; sourceTree = "<group>"; };
 		FB0715181F306C5300F5B0CA /* FLCommService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLCommService.m; sourceTree = "<group>"; };
-		FB07151A1F30A42A00F5B0CA /* FLComment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLComment.h; sourceTree = "<group>"; };
-		FB07151B1F30A43500F5B0CA /* FLComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLComment.m; sourceTree = "<group>"; };
 		FB2EC8721F32CB2200238756 /* d.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = d.html; sourceTree = "<group>"; };
 		FB4942A31F264F3E005BCD9C /* FLStringUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLStringUtils.h; sourceTree = "<group>"; };
 		FB4942A41F264F48005BCD9C /* FLStringUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLStringUtils.m; sourceTree = "<group>"; };
 		FB56885A1F778B71002E3949 /* flipped_comment_num_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flipped_comment_num_icon@2x.png"; sourceTree = "<group>"; };
 		FB56885B1F778B71002E3949 /* flipped_distance_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flipped_distance_icon@2x.png"; sourceTree = "<group>"; };
 		FB56885C1F778B71002E3949 /* flipped_sendto_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flipped_sendto_icon@2x.png"; sourceTree = "<group>"; };
-		FB6173941F1112D0009649E2 /* FLFlippedWord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLFlippedWord.h; sourceTree = "<group>"; };
-		FB6173951F1112D0009649E2 /* FLFlippedWord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLFlippedWord.m; sourceTree = "<group>"; };
-		FB6173B11F11145C009649E2 /* FLContent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLContent.h; sourceTree = "<group>"; };
-		FB6173B21F11146A009649E2 /* FLContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLContent.m; sourceTree = "<group>"; };
 		FB6E90B81F5308ED0050BA96 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FB6E90BA1F5308F90050BA96 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FB6E90BC1F5309030050BA96 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -272,8 +316,6 @@
 		FBB917761F1254DA000C7353 /* flipped_content_pic@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flipped_content_pic@2x.png"; sourceTree = "<group>"; };
 		FBB917771F1254DA000C7353 /* flipped_content_video@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flipped_content_video@2x.png"; sourceTree = "<group>"; };
 		FBB917781F1254DA000C7353 /* flipped_content_sound@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flipped_content_sound@2x.png"; sourceTree = "<group>"; };
-		FBB9177A1F1254DA000C7353 /* post_add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = post_add.png; sourceTree = "<group>"; };
-		FBB9177B1F1254DA000C7353 /* WechatIMG9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WechatIMG9.png; sourceTree = "<group>"; };
 		FBBA70631F24E34600CADD08 /* UILabel+ChangeLineSpaceAndWordSpace.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UILabel+ChangeLineSpaceAndWordSpace.h"; sourceTree = "<group>"; };
 		FBBA70641F24E35400CADD08 /* UILabel+ChangeLineSpaceAndWordSpace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+ChangeLineSpaceAndWordSpace.m"; sourceTree = "<group>"; };
 		FBCD22271F1A0F6C00D8B718 /* NSString+MD5.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
@@ -397,45 +439,6 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
-		458ADC1A1F9B31BD00CC4718 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				458ADC1B1F9B31BD00CC4718 /* CallC2CMakeViewController.h */,
-				458ADC1C1F9B31BD00CC4718 /* CallC2CMakeViewController.m */,
-				458ADC1D1F9B31BD00CC4718 /* CallC2CRecvViewController.h */,
-				458ADC1E1F9B31BD00CC4718 /* CallC2CRecvViewController.m */,
-				458ADC1F1F9B31BD00CC4718 /* FLBaseViewController.h */,
-				458ADC201F9B31BD00CC4718 /* FLBaseViewController.m */,
-				458ADC211F9B31BD00CC4718 /* FLCommentCell.h */,
-				458ADC221F9B31BD00CC4718 /* FLCommentCell.m */,
-				458ADC231F9B31BD00CC4718 /* FLCopyLabel.h */,
-				458ADC241F9B31BD00CC4718 /* FLCopyLabel.m */,
-				458ADC251F9B31BD00CC4718 /* FLFeedbackViewController.h */,
-				458ADC261F9B31BD00CC4718 /* FLFeedbackViewController.m */,
-				458ADC271F9B31BD00CC4718 /* FLFlippedDetailViewController.h */,
-				458ADC281F9B31BD00CC4718 /* FLFlippedDetailViewController.m */,
-				458ADC291F9B31BD00CC4718 /* FLFlippedListViewController.h */,
-				458ADC2A1F9B31BD00CC4718 /* FLFlippedListViewController.m */,
-				458ADC2B1F9B31BD00CC4718 /* FLFlippedWordCell.h */,
-				458ADC2C1F9B31BD00CC4718 /* FLFlippedWordCell.m */,
-				458ADC2D1F9B31BD00CC4718 /* FLHelpViewController.h */,
-				458ADC2E1F9B31BD00CC4718 /* FLHelpViewController.m */,
-				458ADC2F1F9B31BD00CC4718 /* FLLoginViewController.h */,
-				458ADC301F9B31BD00CC4718 /* FLLoginViewController.m */,
-				458ADC311F9B31BD00CC4718 /* FLNewMineViewController.h */,
-				458ADC321F9B31BD00CC4718 /* FLNewMineViewController.m */,
-				458ADC331F9B31BD00CC4718 /* FLPostViewController.h */,
-				458ADC341F9B31BD00CC4718 /* FLPostViewController.m */,
-				458ADC351F9B31BD00CC4718 /* FLSplashViewController.h */,
-				458ADC361F9B31BD00CC4718 /* FLSplashViewController.m */,
-				458ADC371F9B31BD00CC4718 /* FLSquareViewController.h */,
-				458ADC381F9B31BD00CC4718 /* FLSquareViewController.m */,
-				458ADC391F9B31BD00CC4718 /* FLVideoMainViewController.h */,
-				458ADC3A1F9B31BD00CC4718 /* FLVideoMainViewController.m */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		45D272021F0B343E00AF180E = {
 			isa = PBXGroup;
 			children = (
@@ -487,12 +490,12 @@
 		45D272261F0B34D500AF180E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				45D272401F0B43BC00AF180E /* Comm */,
+				FB03665A1F6429CD00B0545F /* animation */,
 				FB56885A1F778B71002E3949 /* flipped_comment_num_icon@2x.png */,
 				FB56885B1F778B71002E3949 /* flipped_distance_icon@2x.png */,
 				FB56885C1F778B71002E3949 /* flipped_sendto_icon@2x.png */,
 				FB03665F1F777C0F00B0545F /* flipped_splash_button@2x.png */,
-				45D272401F0B43BC00AF180E /* Comm */,
-				FB03665A1F6429CD00B0545F /* animation */,
 				FB81180A1F5161730045202B /* flipped_splash_button@3x.png */,
 				FB81180B1F5161730045202B /* flipped_splash0@3x.png */,
 				FB81180C1F5161730045202B /* flipped_splash1@3x.png */,
@@ -506,8 +509,6 @@
 				FBB917761F1254DA000C7353 /* flipped_content_pic@2x.png */,
 				FBB917771F1254DA000C7353 /* flipped_content_video@2x.png */,
 				FBB917781F1254DA000C7353 /* flipped_content_sound@2x.png */,
-				FBB9177A1F1254DA000C7353 /* post_add.png */,
-				FBB9177B1F1254DA000C7353 /* WechatIMG9.png */,
 				456B679D1F66AE890001DB6C /* flipped_match_tips@2x.png */,
 			);
 			path = Resources;
@@ -524,6 +525,60 @@
 				45D272441F0B43BC00AF180E /* comm_tab_square_selected@2x.png */,
 			);
 			path = Comm;
+			sourceTree = "<group>";
+		};
+		45DF1BF61F9B36FB00A5EAC1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				45DF1BF71F9B36FB00A5EAC1 /* FLComment.h */,
+				45DF1BF81F9B36FB00A5EAC1 /* FLComment.m */,
+				45DF1BF91F9B36FB00A5EAC1 /* FLContent.h */,
+				45DF1BFA1F9B36FB00A5EAC1 /* FLContent.m */,
+				45DF1BFB1F9B36FB00A5EAC1 /* FLFlippedWord.h */,
+				45DF1BFC1F9B36FB00A5EAC1 /* FLFlippedWord.m */,
+				45DF1BFD1F9B36FB00A5EAC1 /* FLLink.h */,
+				45DF1BFE1F9B36FB00A5EAC1 /* FLLink.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		45DF1BFF1F9B377400A5EAC1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				45DF1C001F9B377400A5EAC1 /* CallC2CMakeViewController.h */,
+				45DF1C011F9B377400A5EAC1 /* CallC2CMakeViewController.m */,
+				45DF1C021F9B377400A5EAC1 /* CallC2CRecvViewController.h */,
+				45DF1C031F9B377400A5EAC1 /* CallC2CRecvViewController.m */,
+				45DF1C041F9B377400A5EAC1 /* FLBaseViewController.h */,
+				45DF1C051F9B377400A5EAC1 /* FLBaseViewController.m */,
+				45DF1C061F9B377400A5EAC1 /* FLCommentCell.h */,
+				45DF1C071F9B377400A5EAC1 /* FLCommentCell.m */,
+				45DF1C081F9B377400A5EAC1 /* FLCopyLabel.h */,
+				45DF1C091F9B377400A5EAC1 /* FLCopyLabel.m */,
+				45DF1C0A1F9B377400A5EAC1 /* FLFeedbackViewController.h */,
+				45DF1C0B1F9B377400A5EAC1 /* FLFeedbackViewController.m */,
+				45DF1C0C1F9B377400A5EAC1 /* FLFlippedDetailViewController.h */,
+				45DF1C0D1F9B377400A5EAC1 /* FLFlippedDetailViewController.m */,
+				45DF1C0E1F9B377400A5EAC1 /* FLFlippedListViewController.h */,
+				45DF1C0F1F9B377400A5EAC1 /* FLFlippedListViewController.m */,
+				45DF1C101F9B377400A5EAC1 /* FLFlippedWordCell.h */,
+				45DF1C111F9B377400A5EAC1 /* FLFlippedWordCell.m */,
+				45DF1C121F9B377400A5EAC1 /* FLHelpViewController.h */,
+				45DF1C131F9B377400A5EAC1 /* FLHelpViewController.m */,
+				45DF1C141F9B377400A5EAC1 /* FLLoginViewController.h */,
+				45DF1C151F9B377400A5EAC1 /* FLLoginViewController.m */,
+				45DF1C161F9B377400A5EAC1 /* FLNewMineViewController.h */,
+				45DF1C171F9B377400A5EAC1 /* FLNewMineViewController.m */,
+				45DF1C181F9B377400A5EAC1 /* FLPostViewController.h */,
+				45DF1C191F9B377400A5EAC1 /* FLPostViewController.m */,
+				45DF1C1A1F9B377400A5EAC1 /* FLSplashViewController.h */,
+				45DF1C1B1F9B377400A5EAC1 /* FLSplashViewController.m */,
+				45DF1C1C1F9B377400A5EAC1 /* FLSquareViewController.h */,
+				45DF1C1D1F9B377400A5EAC1 /* FLSquareViewController.m */,
+				45DF1C1E1F9B377400A5EAC1 /* FLVideoMainViewController.h */,
+				45DF1C1F1F9B377400A5EAC1 /* FLVideoMainViewController.m */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		7FA5BF810DC2AD5D3BA783A1 /* Pods */ = {
@@ -583,8 +638,8 @@
 		FB6173911F1112D0009649E2 /* Bundle */ = {
 			isa = PBXGroup;
 			children = (
-				458ADC1A1F9B31BD00CC4718 /* Views */,
-				FB6173931F1112D0009649E2 /* Models */,
+				45DF1BFF1F9B377400A5EAC1 /* Views */,
+				45DF1BF61F9B36FB00A5EAC1 /* Models */,
 				FBB290151F8109B8007247CC /* Message */,
 				FB8118121F5167690045202B /* Category */,
 				FB8117DF1F4924050045202B /* CPShare */,
@@ -601,22 +656,6 @@
 				FB6173961F1112D0009649E2 /* Others */,
 			);
 			path = Comm;
-			sourceTree = "<group>";
-		};
-		FB6173931F1112D0009649E2 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				FB6173941F1112D0009649E2 /* FLFlippedWord.h */,
-				FB6173951F1112D0009649E2 /* FLFlippedWord.m */,
-				FB6173B11F11145C009649E2 /* FLContent.h */,
-				FB6173B21F11146A009649E2 /* FLContent.m */,
-				FB0715121F3064B800F5B0CA /* FLLink.h */,
-				FB0715131F3064C000F5B0CA /* FLLink.m */,
-				FB07151A1F30A42A00F5B0CA /* FLComment.h */,
-				FB07151B1F30A43500F5B0CA /* FLComment.m */,
-			);
-			name = Models;
-			path = Comm/Models;
 			sourceTree = "<group>";
 		};
 		FB6173961F1112D0009649E2 /* Others */ = {
@@ -848,7 +887,6 @@
 				FBD938AF1F1E29E600900842 /* flipped_post_add_pic@2x.png in Resources */,
 				456B67A11F6778950001DB6C /* comm_tab_video_selected.png in Resources */,
 				FB56885F1F778B71002E3949 /* flipped_sendto_icon@2x.png in Resources */,
-				FBB917801F1254DA000C7353 /* post_add.png in Resources */,
 				FB8118021F4924050045202B /* CPDiscovery_sharem_tweet@2x.png in Resources */,
 				FB81180E1F5161730045202B /* flipped_splash_button@3x.png in Resources */,
 				FB8117FF1F4924050045202B /* CPDiscovery_sharem_report@2x.png in Resources */,
@@ -861,7 +899,6 @@
 				FB8118001F4924050045202B /* CPDiscovery_sharem_team@2x.png in Resources */,
 				FBD938C91F1FA33900900842 /* flipped_pic_default.png in Resources */,
 				FB8118031F4924050045202B /* CPDiscovery_sharem_wx@2x.png in Resources */,
-				FBB917811F1254DA000C7353 /* WechatIMG9.png in Resources */,
 				FB0366591F5D9E6900B0545F /* Main.storyboard in Resources */,
 				FB0715161F3069BD00F5B0CA /* flipped_detail_more@2x.png in Resources */,
 				FB8117F91F4924050045202B /* CPDiscovery_sharem_cancel_follow@2x.png in Resources */,
@@ -945,6 +982,56 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45DF1C481F9B383E00A5EAC1 /* TIMMessageListenerImpl.h in Sources */,
+				45DF1C491F9B383E00A5EAC1 /* NSObject+JSONUtils.h in Sources */,
+				45DF1C4A1F9B383E00A5EAC1 /* UIImage+scaleImage.h in Sources */,
+				45DF1C4B1F9B383E00A5EAC1 /* CPShareEntity.h in Sources */,
+				45DF1C4C1F9B383E00A5EAC1 /* CPShareManager.h in Sources */,
+				45DF1C4D1F9B383E00A5EAC1 /* CPShareView.h in Sources */,
+				45DF1C4E1F9B383E00A5EAC1 /* CPShareViewCell.h in Sources */,
+				45DF1C4F1F9B383E00A5EAC1 /* FLVideoHelper.h in Sources */,
+				45DF1C501F9B383E00A5EAC1 /* FLAFHTTPSessionManager.h in Sources */,
+				45DF1C511F9B383E00A5EAC1 /* FLUserInfoManager.h in Sources */,
+				45DF1C401F9B382D00A5EAC1 /* FLComment.h in Sources */,
+				45DF1C411F9B382D00A5EAC1 /* FLComment.m in Sources */,
+				45DF1C421F9B382D00A5EAC1 /* FLContent.h in Sources */,
+				45DF1C431F9B382D00A5EAC1 /* FLContent.m in Sources */,
+				45DF1C441F9B382D00A5EAC1 /* FLFlippedWord.h in Sources */,
+				45DF1C451F9B382D00A5EAC1 /* FLFlippedWord.m in Sources */,
+				45DF1C461F9B382D00A5EAC1 /* FLLink.h in Sources */,
+				45DF1C471F9B382D00A5EAC1 /* FLLink.m in Sources */,
+				45DF1C201F9B37F800A5EAC1 /* CallC2CMakeViewController.h in Sources */,
+				45DF1C211F9B37F800A5EAC1 /* CallC2CMakeViewController.m in Sources */,
+				45DF1C221F9B37F800A5EAC1 /* CallC2CRecvViewController.h in Sources */,
+				45DF1C231F9B37F800A5EAC1 /* CallC2CRecvViewController.m in Sources */,
+				45DF1C241F9B37F800A5EAC1 /* FLBaseViewController.h in Sources */,
+				45DF1C251F9B37F800A5EAC1 /* FLBaseViewController.m in Sources */,
+				45DF1C261F9B37F800A5EAC1 /* FLCommentCell.h in Sources */,
+				45DF1C271F9B37F800A5EAC1 /* FLCommentCell.m in Sources */,
+				45DF1C281F9B37F800A5EAC1 /* FLCopyLabel.h in Sources */,
+				45DF1C291F9B37F800A5EAC1 /* FLCopyLabel.m in Sources */,
+				45DF1C2A1F9B37F800A5EAC1 /* FLFeedbackViewController.h in Sources */,
+				45DF1C2B1F9B37F800A5EAC1 /* FLFeedbackViewController.m in Sources */,
+				45DF1C2C1F9B37F800A5EAC1 /* FLFlippedDetailViewController.h in Sources */,
+				45DF1C2D1F9B37F800A5EAC1 /* FLFlippedDetailViewController.m in Sources */,
+				45DF1C2E1F9B37F800A5EAC1 /* FLFlippedListViewController.h in Sources */,
+				45DF1C2F1F9B37F800A5EAC1 /* FLFlippedListViewController.m in Sources */,
+				45DF1C301F9B37F800A5EAC1 /* FLFlippedWordCell.h in Sources */,
+				45DF1C311F9B37F800A5EAC1 /* FLFlippedWordCell.m in Sources */,
+				45DF1C321F9B37F800A5EAC1 /* FLHelpViewController.h in Sources */,
+				45DF1C331F9B37F800A5EAC1 /* FLHelpViewController.m in Sources */,
+				45DF1C341F9B37F800A5EAC1 /* FLLoginViewController.h in Sources */,
+				45DF1C351F9B37F800A5EAC1 /* FLLoginViewController.m in Sources */,
+				45DF1C361F9B37F800A5EAC1 /* FLNewMineViewController.h in Sources */,
+				45DF1C371F9B37F800A5EAC1 /* FLNewMineViewController.m in Sources */,
+				45DF1C381F9B37F800A5EAC1 /* FLPostViewController.h in Sources */,
+				45DF1C391F9B37F800A5EAC1 /* FLPostViewController.m in Sources */,
+				45DF1C3A1F9B37F800A5EAC1 /* FLSplashViewController.h in Sources */,
+				45DF1C3B1F9B37F800A5EAC1 /* FLSplashViewController.m in Sources */,
+				45DF1C3C1F9B37F800A5EAC1 /* FLSquareViewController.h in Sources */,
+				45DF1C3D1F9B37F800A5EAC1 /* FLSquareViewController.m in Sources */,
+				45DF1C3E1F9B37F800A5EAC1 /* FLVideoMainViewController.h in Sources */,
+				45DF1C3F1F9B37F800A5EAC1 /* FLVideoMainViewController.m in Sources */,
 				FBBA70651F24E35400CADD08 /* UILabel+ChangeLineSpaceAndWordSpace.m in Sources */,
 				FBD938D11F248C0700900842 /* FLHelpService.m in Sources */,
 				FB8117F51F4924050045202B /* CPShareEntity.m in Sources */,
@@ -957,8 +1044,6 @@
 				FBCD222C1F1A21EB00D8B718 /* NSString+Base64.m in Sources */,
 				FBE0D7801F19F135006D6C47 /* FLBaseService.m in Sources */,
 				FB0715191F306C5300F5B0CA /* FLCommService.m in Sources */,
-				FB6173AB1F1112D0009649E2 /* FLFlippedWord.m in Sources */,
-				FB0715141F3064C000F5B0CA /* FLLink.m in Sources */,
 				FB8117B01F44940A0045202B /* QQPopMenuView.m in Sources */,
 				45471A661F5EB1C3009E1DED /* FLFlippedCallsService.m in Sources */,
 				4571952B1F0C907300671634 /* FLFlippedWordsService.m in Sources */,
@@ -974,8 +1059,6 @@
 				FBD938D71F24956D00900842 /* UIColor+HexColor.m in Sources */,
 				FBB2901C1F81D00C007247CC /* NSObject+JSONUtils.m in Sources */,
 				FBB290181F8109D7007247CC /* TIMMessageListenerImpl.m in Sources */,
-				FB07151C1F30A43500F5B0CA /* FLComment.m in Sources */,
-				FB6173B31F11146A009649E2 /* FLContent.m in Sources */,
 				FB8118151F5167690045202B /* UIImage+scaleImage.m in Sources */,
 				FB7CF6D61F1BA84200CD9F5C /* FLToast.m in Sources */,
 			);

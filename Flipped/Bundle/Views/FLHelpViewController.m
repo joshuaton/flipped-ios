@@ -45,7 +45,7 @@
     [super viewWillAppear:animated];
     
     [self.contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.contentLabel.superview).offset(64+10);
+        make.top.equalTo(self.mas_topLayoutGuide).offset(10);
         make.left.equalTo(self.contentLabel.superview).offset(10);
         make.right.equalTo(self.contentLabel.superview).offset(-10);
     }];

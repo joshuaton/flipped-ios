@@ -73,7 +73,7 @@
 -(void)makeConstraints{
     
     [self.tipsLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.tipsLabel.superview).offset(64+20);
+        make.top.equalTo(self.mas_topLayoutGuide).offset(20);
         make.centerX.equalTo(self.tipsLabel.superview);
     }];
     
