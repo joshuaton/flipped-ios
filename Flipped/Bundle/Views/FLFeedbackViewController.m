@@ -65,7 +65,7 @@
     if(!_contentTextView){
         _contentTextView = [[UITextView alloc] init];
         _contentTextView.layer.borderWidth = 1;
-        _contentTextView.layer.borderColor = COLOR_H1.CGColor;
+        _contentTextView.layer.borderColor = COLOR_H4.CGColor;
         _contentTextView.font = FONT_L;
         
         UILabel *placeHolderLabel = [[UILabel alloc] init];
